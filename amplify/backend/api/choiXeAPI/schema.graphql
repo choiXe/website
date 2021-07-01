@@ -1,0 +1,100 @@
+﻿schema {
+  query: Query
+}
+
+type Article {
+  date: String
+  link: String
+  source: String
+  title: String
+}
+
+type DailyData {
+  date: String
+  end: Int
+  high: Int
+  low: Int
+  start: Int
+  volume: Int
+}
+
+type DailyInv {
+  date: String
+  inKR: InvKrObj
+  inVal: InvValObj
+}
+
+type InvKrObj {
+  foreign: String
+  individual: String
+  institutions: String
+}
+
+type InvValObj {
+  foreign: String
+  individual: String
+  institutions: String
+}
+
+type Query {
+  getSectorInfo(sectorName: String, startDate: String): SectorInfo
+  getStockInfo(startDate: String, stockId: String): StockInfo
+}
+
+type Report {
+  analyst: String
+  date: String
+  firm: String
+  priceGoal: String
+  reportIdx: ID
+  reportName: String
+}
+
+type SectorInfo {
+  avgYield: Float
+  stockList: [StockObj]
+  top3List: YieldObj
+}
+
+type StockInfo {
+  changeRate: Float
+  code: String
+  companySummary: String
+  expYield: Float
+  foreignRatio: Float
+  high52wPrice: Int
+  invStatistics: [DailyInv]
+  low52wPrice: Int
+  marketCap: String
+  name: String
+  news: [Article]
+  newsTitles: String
+  pastData: [DailyData]
+  pbr: Float
+  per: Float
+  priceAvg: Int
+  recommend: Int
+  reportList: [Report]
+  roe: Float
+  tradePrice: Int
+}
+
+type StockObj {
+  cCount: Int
+  changeRate: Float
+  expYield: Float
+  priceAvg: Int
+  sSector: String
+  score: Int
+  stockId: String
+  tradePrice: Int
+}
+
+type YieldObj {
+  first: String
+  firstYield: Float
+  second: String
+  secondYield: Float
+  third: String
+  thirdYield: Float
+}
