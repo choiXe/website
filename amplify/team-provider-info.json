@@ -10,6 +10,43 @@
       "StackName": "amplify-website-main-203524",
       "StackId": "arn:aws:cloudformation:ap-northeast-2:282395963244:stack/amplify-website-main-203524/705ab340-da60-11eb-ba4a-0aa73c97694a",
       "AmplifyAppId": "d31dq4qtfok4l"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d31dq4qtfok4l",
+          "type": "cicd"
+        }
+      },
+      "function": {
+        "choiXeCreateAuthChallenge": {
+          "deploymentBucketName": "amplify-website-main-203524-deployment",
+          "s3Key": "amplify-builds/choiXeCreateAuthChallenge-48474b494e5231514c74-build.zip"
+        },
+        "choiXeCustomMessage": {
+          "REDIRECTURL": "www.choixe.app",
+          "EMAILSUBJECT": "[choiXe] Account Confirmation",
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-website-main-203524-deployment",
+          "s3Key": "amplify-builds/choiXeCustomMessage-2f58497a6a6546572f4d-build.zip"
+        },
+        "choiXeDefineAuthChallenge": {
+          "deploymentBucketName": "amplify-website-main-203524-deployment",
+          "s3Key": "amplify-builds/choiXeDefineAuthChallenge-422b79716f7431704f39-build.zip"
+        },
+        "choiXeVerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "6LfJbGobAAAAACna9EoOiDHcJBWrEnVV0B-rKldh",
+          "deploymentBucketName": "amplify-website-main-203524-deployment",
+          "s3Key": "amplify-builds/choiXeVerifyAuthChallengeResponse-4e7a552f4c7762356a37-build.zip"
+        },
+        "AdminQueries22da4941": {
+          "deploymentBucketName": "amplify-website-main-203524-deployment",
+          "s3Key": "amplify-builds/AdminQueries22da4941-3976325370704c316e68-build.zip"
+        }
+      },
+      "auth": {
+        "choiXe": {}
+      }
     }
   }
 }
