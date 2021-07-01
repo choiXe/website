@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    padding-left: 10%;
+    padding-right: 15%;
+    padding-top: 2%;
+  }
+  .left-container {
+    height: 10%;
+    width: 15%;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #cccccc;
+    text-align: center;
+  }
+  .left-title {
+    font-size: 18px;
+    line-height: 200%;
+    padding-bottom: 5%;
+  }
+  .sector-style {
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    align-items: center;
+    line-height: 5%;
+  }
+  .inactive,
+  .active {
+    align-items: center;
+    cursor: default;
+    display: flex;
+    font-size-adjust: initial;
+    height: 30px;
+    justify-content: center;
+    width: 90px;
+  }
+  .inactive {
+    background-color: white;
+  }
+  .active {
+    background-color: rgb(1, 1, 63);
+    color: white;
+    border-radius: 10px;
+  }
+  .right-container {
+    border: 10px;
+    padding-left: 2%;
+    width: 100%;
+  }
+  .sector-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: "white";
+    object-fit: contain;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px #cccccc;
+  }
+  .sector-container > p {
+    margin-top: 8px;
+    color: rgb(0, 0, 0);
+    font-size: 32px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+  

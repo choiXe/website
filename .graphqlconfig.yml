@@ -12,3 +12,6 @@ projects:
         docsFilePath: src/graphql
         region: ap-northeast-2
         apiId: hm7qz2qpsng6hitaugzxeyfws4
+extensions:
+  amplify:
+    version: 3
