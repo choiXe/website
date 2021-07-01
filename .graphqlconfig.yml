@@ -1,0 +1,14 @@
+projects:
+  choixe-API:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src/graphql
+        region: ap-northeast-2
+        apiId: hm7qz2qpsng6hitaugzxeyfws4
