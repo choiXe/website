@@ -5,7 +5,6 @@
 type Article {
   date: String
   link: String
-  source: String
   title: String
 }
 
