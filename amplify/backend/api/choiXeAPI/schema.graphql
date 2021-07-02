@@ -86,6 +86,7 @@ type StockObj {
   sSector: String
   score: Int
   stockId: String
+  stockName: String
   tradePrice: Int
 }
 

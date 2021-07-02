@@ -13,6 +13,7 @@ export const getSectorInfo = /* GraphQL */ `
         sSector
         score
         stockId
+        stockName
         tradePrice
       }
       top3List {
