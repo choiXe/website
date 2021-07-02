@@ -15,7 +15,7 @@ import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
 
-const sendQuery = async() => {
+const sendQuery1 = async() => {
   try {
     const response = await API.graphql(graphqlOperation(queries.getStockInfo, {
       stockId: '011070',
@@ -27,10 +27,36 @@ const sendQuery = async() => {
   }
 }
 
+const sendQuery2 = async() => {
+  try {
+    const response = await API.graphql(graphqlOperation(queries.getStockInfo, {
+      stockId: '035420',
+      startDate: '2021-06-01'
+    }))
+    console.log(response);
+  } catch (e) {
+    console.log(e.errors[0].message);
+  }
+}
+
+const sendQuery3 = async() => {
+  try {
+    const response = await API.graphql(graphqlOperation(queries.getStockInfo, {
+      stockId: '352820',
+      startDate: '2021-06-01'
+    }))
+    console.log(response);
+  } catch (e) {
+    console.log(e.errors[0].message);
+  }
+}
+
 function App() {
   return (
     <>
-      <button onClick={sendQuery}> retreive data </button>
+      <button onClick={sendQuery1}> LG이노텍 </button>
+      <button onClick={sendQuery2}> NAVER </button>
+      <button onClick={sendQuery3}> 하이브 </button>
       <Router>
         <Navbar />
         <Switch>
