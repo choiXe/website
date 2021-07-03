@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Amplify from 'aws-amplify';
 
-import data from "./services/data";
-import awsconfig from './aws-exports';
-
-import './App.css';
-
 import Navbar from './components/Navbar';
-import Home from './components/pages/Home';
-import Sector from './components/pages/Sector'
-import Stock from './components/pages/Stock';
-import Search from './components/pages/Search';
-import Setting from './components/pages/Setting';
+import Home from './components/home/Home';
+import Sector from './components/sector/Sector'
+import Stock from './components/unassigned/Stock';
+import Search from './components/search/Search';
+import Setting from './components/setting/Setting';
 
+import data from "./services/data";
+
+import './styles/global.scss';
+
+import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
 function App() {
