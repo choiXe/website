@@ -8,11 +8,11 @@ import awsconfig from './aws-exports';
 import './App.css';
 
 import Navbar from './components/Navbar';
-import Home from './components/pages/Home';
-import Sector from './components/pages/Sector'
-import Stock from './components/pages/Stock';
-import Search from './components/pages/Search';
-import Setting from './components/pages/Setting';
+import Home from './components/home/Home';
+import Sector from './components/sector/Sector'
+import Stock from './components/unassigned/Stock';
+import Search from './components/search/Search';
+import Setting from './components/setting/Setting';
 
 Amplify.configure(awsconfig);
 

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
-import '../../App.css';
-import './Home.css'
+
+import SectorMenu from './SectorMenu';
+
+//import '../../App.css';
+import './styles/Home.scss'
+
+
 
 /*
 <script src="https://code.highcharts.com/stock/highstock.js"></script>
@@ -42,7 +47,7 @@ function showGraph(sector, fullData) {
     dataLength = data.length,
     groupingUnits = [['week', [1]], ['month', [1, 2, 3, 4, 6]]],
     i = 0;
-  
+
   for (i; i < dataLength; i += 1) {
     let tempDate = new Date(data[i].date);
     // date, open, high, low, close
@@ -50,10 +55,10 @@ function showGraph(sector, fullData) {
     // date, volume
     volume.push([Date.parse(tempDate), data[i].volume]);
   };
-  
+
   // create the chart
   let charOption = {
-  //Highcharts.stockChart('stockContainer', {
+    //Highcharts.stockChart('stockContainer', {
     rangeSelector: { selected: 1 },
     title: { text: 'My Stock Data' },
     yAxis: [{
@@ -88,45 +93,22 @@ function showGraph(sector, fullData) {
   //loadHighchartsAndCreateChart(charOption);
 };
 
-function Home() {
-  const sectors = ["에너지", "원자재", "산업재", "경기소비재", "필수소비재", "헬스케어", "금융재", "정보기술재", "통신재", "유틸리티", "부동산/리츠"];
-  const [mySector, setMySector] = useState();
-
-  const Highlight = ({ active, count, onClick }) => {
-    return (
-      <div onClick={onClick} className={active ? "active" : "inactive"}>
-        {count}
-      </div>
-    );
-  };
-
-  const showSector = () => {
-    return (
-      <div className="sector-style">
-        {sectors.map(t => (
-          <Highlight
-            key={t}
-            count={t}
-            active={t === mySector}
-            onClick={() => setMySector(t)}
-          />
-        ))}
-      </div>
-    );
-  };
+const Home = () => {
+  // currently selected Sector
+  const [curSector, setCurSector] = useState("");
 
   return (
     <div className="container">
       <div className="left-container">
         <h3 className="left-title">섹터</h3>
-        {showSector()}
+        <SectorMenu curSector={curSector} setCurSector={setCurSector}/>
       </div>
       <div className="right-container">
         <div className='sector-container'>
           <div id="stockContainer">
             {/*mySector != null ? showGraph(mySector, splitGroup(StockData())) : ''*/}
           </div>
-          <p>{mySector}</p>
+          <p>{curSector}</p>
         </div>
         <div className='sector-container' style={{marginTop: '3%'}}>
           <p>Stock List</p>

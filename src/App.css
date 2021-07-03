@@ -5,25 +5,25 @@
   font-family: "PT Sans", sans-serif;
 }
 
-.home,
-.sector,
-.stock,
-.search,
-.setting {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-}
+/*.home,*/
+/*.sector,*/
+/*.stock,*/
+/*.search,*/
+/*.setting {*/
+  /*display: flex;*/
+  /*height: 90vh;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*font-size: 3rem;*/
+/*}*/
 
-.sector,
-.stock,
-.search,
-.setting {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: rgb(0, 0, 0);
-  font-size: 100px;
-}
+/*.sector,*/
+/*.stock,*/
+/*.search,*/
+/*.setting {*/
+  /*background-position: center;*/
+  /*background-size: cover;*/
+  /*background-repeat: no-repeat;*/
+  /*color: rgb(0, 0, 0);*/
+  /*font-size: 100px;*/
+/*}*/

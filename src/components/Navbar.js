@@ -29,7 +29,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 섹터
-                <i class="fas fa-chart-pie"></i>
+                <i className="fas fa-chart-pie"></i>
               </Link>
             </li>
             <li className='nav-item'>
@@ -39,7 +39,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 종목
-                <i class="fas fa-chart-line"></i>
+                <i className="fas fa-chart-line"></i>
               </Link>
             </li>
             <li className='nav-item'>
@@ -49,7 +49,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 검색
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
               </Link>
             </li>
             <li>
@@ -59,7 +59,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 환경설정
-                <i class="fas fa-cog"></i>
+                <i className="fas fa-cog"></i>
               </Link>
             </li>
           </ul>
