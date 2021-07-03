@@ -71,12 +71,12 @@ export const getStockInfo = /* GraphQL */ `
       priceAvg
       recommend
       reportList {
-        analyst
         date
-        firm
-        priceGoal
-        reportIdx
         reportName
+        analyst
+        priceGoal
+        firm
+        reportIdx
       }
       roe
       tradePrice
