@@ -17,7 +17,6 @@ function Navbar() {
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             <img src={logo} alt="choiXe logo"/>
             choiXe
-            <i className='fab fa-typo3' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -30,6 +29,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 섹터
+                <i class="fas fa-chart-pie"></i>
               </Link>
             </li>
             <li className='nav-item'>
@@ -39,6 +39,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 종목
+                <i class="fas fa-chart-line"></i>
               </Link>
             </li>
             <li className='nav-item'>
@@ -48,6 +49,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 검색
+                <i class="fas fa-search"></i>
               </Link>
             </li>
             <li>
@@ -57,6 +59,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 환경설정
+                <i class="fas fa-cog"></i>
               </Link>
             </li>
           </ul>
