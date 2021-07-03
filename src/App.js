@@ -1,78 +1,45 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import './App.css';
-import * as queries from './graphql/queries';
-
-import Home from './components/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Amplify from 'aws-amplify';
+
+import data from "./services/data";
+import awsconfig from './aws-exports';
+
+import './App.css';
+
+import Navbar from './components/Navbar';
+import Home from './components/pages/Home';
 import Sector from './components/pages/Sector'
 import Stock from './components/pages/Stock';
 import Search from './components/pages/Search';
 import Setting from './components/pages/Setting';
 
-import Amplify, {API, graphqlOperation} from 'aws-amplify';
-import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
 
 const sendQuery1 = async() => {
-  try {
-    const response = await API.graphql(graphqlOperation(queries.getStockInfo, {
-      stockId: '011070',
-      startDate: '2021-06-01'
-    }))
-    console.log(response);
-  } catch (e) {
-    console.log(e.errors[0].message);
-  }
+  const res = await data.getStockInfo('011070', '2021-06-01');
+  console.log(res);
 }
 
 const sendQuery2 = async() => {
-  try {
-    const response = await API.graphql(graphqlOperation(queries.getStockInfo, {
-      stockId: '035420',
-      startDate: '2021-06-01'
-    }))
-    console.log(response);
-  } catch (e) {
-    console.log(e.errors[0].message);
-  }
+  const res = await data.getStockInfo('035420', '2021-06-01');
+  console.log(res);
 }
 
 const sendQuery3 = async() => {
-  try {
-    const response = await API.graphql(graphqlOperation(queries.getStockInfo, {
-      stockId: '352820',
-      startDate: '2021-06-01'
-    }))
-    console.log(response);
-  } catch (e) {
-    console.log(e.errors[0].message);
-  }
+  const res = await data.getStockInfo('352820', '2021-06-01');
+  console.log(res);
 }
 
 const sendQuery4 = async() => {
-  try {
-    const response = await API.graphql(graphqlOperation(queries.getSectorInfo, {
-      sectorName: 'IT',
-      startDate: '2021-06-01'
-    }))
-    console.log(response);
-  } catch (e) {
-    console.log(e.errors[0].message);
-  }
+  const res = await data.getSectorInfo('IT', '2021-06-01');
+  console.log(res);
 }
 
 const sendQuery5 = async() => {
-  try {
-    const response = await API.graphql(graphqlOperation(queries.getSectorInfo, {
-      sectorName: '소재',
-      startDate: '2021-06-01'
-    }))
-    console.log(response);
-  } catch (e) {
-    console.log(e.errors[0].message);
-  }
+  const res = await data.getSectorInfo('소재', '2021-06-01');
+  console.log(res);
 }
 
 function App() {
