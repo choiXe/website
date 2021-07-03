@@ -14,7 +14,6 @@ import Stock from './components/pages/Stock';
 import Search from './components/pages/Search';
 import Setting from './components/pages/Setting';
 
-
 Amplify.configure(awsconfig);
 
 const sendQuery1 = async() => {
