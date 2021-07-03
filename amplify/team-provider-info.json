@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-website-main-203524-unauthRole",
       "StackName": "amplify-website-main-203524",
       "StackId": "arn:aws:cloudformation:ap-northeast-2:282395963244:stack/amplify-website-main-203524/705ab340-da60-11eb-ba4a-0aa73c97694a",
-      "AmplifyAppId": "d31dq4qtfok4l"
+      "AmplifyAppId": "d31dq4qtfok4l",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-website-main-203524-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "hosting": {

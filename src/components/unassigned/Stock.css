@@ -1,0 +1,67 @@
+.myStockContainer {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.top-container {
+  display: flex;
+  flex-direction: row;
+  border: 10px;
+}
+.company-summary {
+  display: flex;
+  flex-direction: row;
+  object-fit: contain;
+  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #cccccc;
+  width: 300%;
+}
+.investment-data {
+  height: 10%;
+  width: 60%;
+  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #cccccc;
+  text-align: center;
+  margin-left: 3%;
+}
+.company-info {
+  margin-top: 3%;
+  justify-content: center;
+  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #cccccc;
+  display: flex;
+  flex-direction: column;
+}
+.bottom-container {
+  display: flex;
+  flex-direction: row;
+  border: 10px;
+  height: 300%;
+  margin-bottom: 5%;
+}
+.invStatistics {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #cccccc;
+  width: 30%;
+  margin-right: 3%;
+}
+.news-report {
+  justify-content: center;
+  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px #cccccc;
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+}
