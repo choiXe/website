@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './NavMenu.scss';
 
 const NavMenu = () => {
-  const [cdivck, setCdivck] = useState(false);
-  const handleClick = () => setCdivck(!cdivck);
-  const closeMobileMenu = () => setCdivck(false);
-
   return (
     <div className="nav-list">
       <div className='nav-item'>
         <Link 
           to='/sector' 
           className='nav-links' 
-          onClick={closeMobileMenu}
         >
           섹터 
           <i className="fas fa-chart-pie"></i>
