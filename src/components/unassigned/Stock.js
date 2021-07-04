@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import './Stock.css';
 import Table from './Table';
 import * as Highcharts from 'highcharts/highstock';
-import ChartOption from './ChartOption';
+import chartOption from '../home/chartOption';
 
 const Stock = props => {
   const { state } = props.location
@@ -36,7 +36,7 @@ const Stock = props => {
     };
     
     // create the chart
-    Highcharts.stockChart('tempContainer', ChartOption(ohlc, volume, groupingUnits));
+    Highcharts.stockChart('tempContainer', chartOption(ohlc, volume, groupingUnits));
   };
 
   var invStatData = [];

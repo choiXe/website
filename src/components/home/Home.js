@@ -3,6 +3,8 @@ import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 
 import SectorMenu from './SectorMenu';
+import StockData from '../StockData';
+import chartOption from "./chartOption";
 
 import './styles/Home.scss'
 import StockData from '../StockData';
@@ -38,7 +40,7 @@ function showGraph(sector, fullData) {
     volume.push([Date.parse(tempDate), data[i].volume]);
   };
 
-  const option = chartOption(ohlc, volume, groupingUnits);
+  const options = chartOption(ohlc, volume, groupingUnits);
 
   return (
     <HighchartsReact
@@ -62,7 +64,7 @@ const Home = () => {
       <div className="right-container">
         <div className='sector-container' style={{flexDirection:'row'}}>
           <div id="stockContainer">
-            {mySector != null ? showGraph(mySector, splitGroup(StockData())) : ''}
+            {curSector != null ? showGraph(curSector, splitGroup(StockData())) : ''}
           </div>
           <p>{curSector}</p>
         </div>
