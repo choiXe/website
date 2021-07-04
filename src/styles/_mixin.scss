@@ -1,0 +1,11 @@
+@mixin rounded-button {
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+@mixin content-container {
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 2px 2px $green;
+    background-color: white;
+    padding: 1rem;
+}

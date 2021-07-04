@@ -5,14 +5,8 @@ import './NavMenu.scss';
 
 const NavMenu = () => {
   const [cdivck, setCdivck] = useState(false);
-  const handleCdivck = () => setCdivck(!cdivck);
+  const handleClick = () => setCdivck(!cdivck);
   const closeMobileMenu = () => setCdivck(false);
-
-  /*
-   *<div className='menu-icon' onCdivck={handleCdivck}>
-   *  <i className={cdivck ? 'fas fa-times' : 'fas fa-bars'} />
-   *</div>
-   */
 
   return (
     <div className="nav-list">
@@ -20,7 +14,7 @@ const NavMenu = () => {
         <Link 
           to='/sector' 
           className='nav-links' 
-          onCdivck={closeMobileMenu}
+          onClick={closeMobileMenu}
         >
           섹터 
           <i className="fas fa-chart-pie"></i>

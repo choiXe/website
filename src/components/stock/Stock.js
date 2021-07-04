@@ -4,7 +4,7 @@ import HighchartsReact from "highcharts-react-official";
 
 import './Stock.css';
 import Table from './Table';
-import chartOption from './chartOption';
+import chartOption from '../charts/chartOption';
 
 const Stock = props => {
   const { state } = props.location
