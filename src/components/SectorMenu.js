@@ -3,16 +3,6 @@ import { Link } from 'react-router-dom';
 
 import "./SectorMenu.scss";
 
-const SectorLink = ({ name }) => {
-  return (
-    <Link to={{ pathname: '/sector', state: name}}
-      className="menu-link"
-    >
-      {name}
-    </Link>
-  )
-}
-
 const SectorMenu = ({ selected }) => {
   const [curSector, setCurSector] = useState(selected);
   const sectors = ["건강관리", "경기관련소비재", "금융", "산업재", "소재",
@@ -21,14 +11,14 @@ const SectorMenu = ({ selected }) => {
   const listSectors = () => {
     return (
       sectors.map(sectorName => (
-        <li 
+        <Link to={{ pathname: '/sector', state: sectorName}}
           className={curSector === sectorName 
-            ? "sector-item" : "sector-item active"}
+            ? "sector-item active" : "sector-item"}
           key={sectorName}
           onClick={({ target }) => setCurSector(target.innerText)}
         >
-          <SectorLink name={sectorName} />
-        </li>
+          {sectorName}
+        </Link>
       ))
     )
   }

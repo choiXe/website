@@ -3,6 +3,11 @@
     padding: 0.5rem;
 }
 
+@mixin button-hover {
+    background-color: $navy;
+    color: $matte-color;
+}
+
 @mixin content-container {
     border-radius: 0.5rem;
     box-shadow: 2px 2px 2px 2px $green;

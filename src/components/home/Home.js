@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import SectorMenu from './SectorMenu';
+import SectorMenu from '../SectorMenu';
 
 import './Home.scss'
 

@@ -1,0 +1,30 @@
+@import 'src/styles/_color.scss';
+@import '/src/styles/mixin';
+
+h3 {
+    text-align: center;
+}
+
+.sector-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2px;
+    height: 100%;
+    text-decoration: none;
+
+    .sector-item {
+        @include rounded-button;
+
+        text-decoration: none;
+        color: black;
+        &:hover {
+            @include button-hover;
+        }
+        &.active {
+            @include button-hover;
+        }
+    }
+
+}
+

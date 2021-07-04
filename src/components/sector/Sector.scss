@@ -1,0 +1,42 @@
+@import '/src/styles/color';
+@import 'src/styles/_mixin.scss';
+
+.stock-container {
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    padding: 0 4vw;
+    column-gap: 2vw;
+
+    .menu-container {
+        @include content-container;
+        width: 9.5rem;
+        height: 70vh;
+    }
+
+    .info-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        .chart-container {
+            @include content-container;
+            flex-basis: 50vh;
+        }
+
+        .listtitle-container {
+            flex-basis: 8vh;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            align-items: center;
+            align-content: center;
+            color: grey;
+            padding: 15px;
+        }
+
+        .stocklist-container {
+            @include content-container;
+            flex-basis: 60vh;
+        }
+    }
+
+}
