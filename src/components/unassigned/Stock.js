@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import './Stock.css';
 import Table from './Table';
+import * as Highcharts from 'highcharts/highstock';
+import ChartOption from './ChartOption';
 
 const Stock = props => {
   const { state } = props.location
@@ -12,12 +14,30 @@ const Stock = props => {
 
   // 애널리스트 리포트: data.reportList
       // http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=
-      // 이름.split('투자')[0].split('증권')
   // 뉴스: data.news (flatlist format)
 
   function numbWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+
+  function showGraph(data) {
+    var ohlc = [],
+      volume = [],
+      dataLength = data.length,
+      groupingUnits = [['week', [1]], ['month', [1, 2, 3, 4, 6]]],
+      i = 0;
+  
+    for (i; i < dataLength; i += 1) {
+      let tempDate = new Date(data[i].date);
+      // date, open, high, low, close
+      ohlc.push([Date.parse(tempDate), data[i].start, data[i].high, data[i].low, data[i].end]);
+      // date, volume
+      volume.push([Date.parse(tempDate), data[i].volume]);
+    };
+    
+    // create the chart
+    Highcharts.stockChart('tempContainer', ChartOption(ohlc, volume, groupingUnits));
+  };
 
   var invStatData = [];
   for (let i = 0; i < data.invStatistics.length; i++) {
@@ -30,6 +50,29 @@ const Stock = props => {
     temp.foreign = data.invStatistics[i].inKR.foreign;
     temp.institutions = data.invStatistics[i].inKR.institutions;
     invStatData.push(temp);
+  }
+
+  var reportData = [];
+  for (let i = 0; i < data.reportList.length; i++) {
+    let temp = {date: "", reportName: "", analyst: "", priceGoal: "", firm: ""};
+
+    temp.date = data.reportList[i].date;
+    temp.reportName = data.reportList[i].reportName.length > 30 
+      ? data.reportList[i].reportName.slice(0, 30) + "..." 
+      : data.reportList[i].reportName;
+
+    let analystList = data.reportList[i].analyst.split(",");
+    if (analystList.length === 2) {
+      temp.analyst = analystList[0] + ", " + analystList[1];
+    } else if (analystList.length >= 3) {
+      temp.analyst = analystList[0] + " 등";
+    } else {
+      temp.analyst = analystList[0];
+    }
+
+    temp.priceGoal = numbWithCommas(data.reportList[i].priceGoal);
+    temp.firm = data.reportList[i].firm.split('투자')[0].split('증권')
+    reportData.push(temp);
   }
 
   return (
@@ -53,8 +96,10 @@ const Stock = props => {
             </div>
   
           </div>
-          <div className='right-data' style={{marginLeft: '40%'}}>
-            <p>그래프</p>
+          <div className='right-data' style={{marginLeft: '10%'}}>
+            <div id="tempContainer">
+              {/*showGraph(data.pastData)*/}
+            </div>
           </div>
         </div>
         <div className='investment-data'>
@@ -93,7 +138,7 @@ const Stock = props => {
         <div className='news-report'>
           <Fragment>
             <Table
-              tableData={data.reportList}
+              tableData={reportData}
               headingColumns={['날짜', '제목', '애널리스트', '목표가 (₩)', '제공출처']}   
             />
           </Fragment>

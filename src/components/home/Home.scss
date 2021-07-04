@@ -23,7 +23,7 @@
   flex-direction: column;
   font-family: sans-serif;
   align-items: center;
-  /*line-height: 5%;*/
+  margin-bottom: 73%;
 }
 .inactive,
 .active {
@@ -63,7 +63,6 @@
   width: 140%;
 }
 .sector-container > p {
-  margin-top: 8px;
   color: rgb(0, 0, 0);
   font-size: 32px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",

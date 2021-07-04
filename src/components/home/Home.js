@@ -1,18 +1,12 @@
 import React, { useState } from "react";
+import Highcharts from "highcharts/highstock";
+import HighchartsReact from "highcharts-react-official";
 
 import SectorMenu from './SectorMenu';
 
-//import '../../App.css';
 import './styles/Home.scss'
-
-
-
-/*
-<script src="https://code.highcharts.com/stock/highstock.js"></script>
-<script src="https://code.highcharts.com/stock/modules/data.js"></script>
-<script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
-<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
-*/
+import StockData from '../StockData';
+import chartOption from "../unassigned/chartOption";
 
 // Temporary function to test the graph selection
 function splitGroup(data) {
@@ -27,18 +21,6 @@ function splitGroup(data) {
 
   return [sectorGroup1, sectorGroup2, sectorGroup3, dateGroup1, dateGroup2, dateGroup3];
 };
-
-/*
-const loadHighchartsAndCreateChart = async (option) => {
-  const { default: Highcharts } =
-    await import('https://code.highcharts.com/stock/highstock.js');
-    await import('https://code.highcharts.com/stock/modules/data.js');
-    await import('https://code.highcharts.com/stock/modules/drag-panes.js');
-    await import('https://code.highcharts.com/stock/modules/exporting.js');
-
-    Highcharts.stockChart('stockContainer', option);
-};
-*/
 
 function showGraph(sector, fullData) {
   var data = fullData[0].includes(sector) ? fullData[3] : fullData[1].includes(sector) ? fullData[4] : fullData[5];
@@ -56,41 +38,15 @@ function showGraph(sector, fullData) {
     volume.push([Date.parse(tempDate), data[i].volume]);
   };
 
-  // create the chart
-  let charOption = {
-    //Highcharts.stockChart('stockContainer', {
-    rangeSelector: { selected: 1 },
-    title: { text: 'My Stock Data' },
-    yAxis: [{
-      labels: { align: 'right', x: -3},
-      title: { text: 'OHLC'},
-      height: '60%',
-      lineWidth: 2,
-      resize: { enabled: true }
-    }, {
-      labels: { align: 'right', x: -3 },
-      title: { text: 'Volume' },
-      top: '65%',
-      height: '35%',
-      offset: 0,
-      lineWidth: 2
-    }],
-    tooltip: { split: true },
-    series: [{
-      type: 'candlestick',
-      name: 'My Stock',
-      data: ohlc,
-      dataGrouping: { units: groupingUnits }
-    }, {
-      type: 'column',
-      name: 'Volume',
-      data: volume,
-      yAxis: 1,
-      dataGrouping: { units: groupingUnits }
-    }]
-  };
-  //);
-  //loadHighchartsAndCreateChart(charOption);
+  const option = chartOption(ohlc, volume, groupingUnits);
+
+  return (
+    <HighchartsReact
+      highcharts={Highcharts}
+      constructorType={"stockChart"}
+      options={options}
+    />
+  )
 };
 
 const Home = () => {
@@ -104,9 +60,9 @@ const Home = () => {
         <SectorMenu curSector={curSector} setCurSector={setCurSector}/>
       </div>
       <div className="right-container">
-        <div className='sector-container'>
+        <div className='sector-container' style={{flexDirection:'row'}}>
           <div id="stockContainer">
-            {/*mySector != null ? showGraph(mySector, splitGroup(StockData())) : ''*/}
+            {mySector != null ? showGraph(mySector, splitGroup(StockData())) : ''}
           </div>
           <p>{curSector}</p>
         </div>
