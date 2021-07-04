@@ -1,0 +1,31 @@
+@import 'src/styles/_color.scss';
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+
+    .nav-item {
+        margin-left: 2rem;
+        list-style-type: none;
+
+        i {
+            margin-left: 0.5rem;
+        }
+
+        .nav-links {
+            text-decoration: none;
+            color: black;
+            font-size: 1.2rem;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+
+            &:hover {
+                background-color: $navy;
+                color: $matte-color;
+            }
+        }
+    }
+
+}

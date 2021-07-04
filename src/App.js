@@ -24,24 +24,24 @@ function App() {
     console.log(res);
     setStock(res);
   }
-  
+
   const sendQuery2 = async() => {
     const res = await data.getStockInfo('035420', '2021-06-01');
     console.log(res);
     setStock(res);
   }
-  
+
   const sendQuery3 = async() => {
     const res = await data.getStockInfo('352820', '2021-06-01');
     console.log(res);
     setStock(res);
   }
-  
+
   const sendQuery4 = async() => {
     const res = await data.getSectorInfo('IT', '2021-06-01');
     console.log(res);
   }
-  
+
   const sendQuery5 = async() => {
     const res = await data.getSectorInfo('소재', '2021-06-01');
     console.log(res);
@@ -56,14 +56,23 @@ function App() {
       <button onClick={sendQuery5}> 소재 섹터 </button>
       <Router>
         <Link to={{pathname: '/stock', state: stock}}><button>View Stock</button></Link>
-        <Navbar />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/sector' component={Sector} />
-          <Route path='/stock' component={Stock} />
-          <Route path='/search' component={Search} />
-          <Route path='/setting' component={Setting} />
-        </Switch>
+        <div className="main-container">
+
+          <div className="navbar">
+            <Navbar />
+          </div>
+
+          <div className="content">
+            <Switch>
+              <Route path='/' exact component={Home} />
+              <Route path='/sector' component={Sector} />
+              <Route path='/stock' component={Stock} />
+              <Route path='/search' component={Search} />
+              <Route path='/setting' component={Setting} />
+            </Switch>
+          </div>
+
+        </div>
       </Router>
     </>
   );

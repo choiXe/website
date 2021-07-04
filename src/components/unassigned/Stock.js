@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
+import Highcharts from "highcharts/highstock";
+import HighchartsReact from "highcharts-react-official";
+
 import './Stock.css';
 import Table from './Table';
-import * as Highcharts from 'highcharts/highstock';
-import chartOption from '../home/chartOption';
+import chartOption from './chartOption';
 
 const Stock = props => {
   const { state } = props.location
@@ -13,7 +15,7 @@ const Stock = props => {
   // 변동 (%): data.changeRate (0.7%)
 
   // 애널리스트 리포트: data.reportList
-      // http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=
+  // http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=
   // 뉴스: data.news (flatlist format)
 
   function numbWithCommas(x) {
@@ -26,7 +28,7 @@ const Stock = props => {
       dataLength = data.length,
       groupingUnits = [['week', [1]], ['month', [1, 2, 3, 4, 6]]],
       i = 0;
-  
+
     for (i; i < dataLength; i += 1) {
       let tempDate = new Date(data[i].date);
       // date, open, high, low, close
@@ -34,9 +36,17 @@ const Stock = props => {
       // date, volume
       volume.push([Date.parse(tempDate), data[i].volume]);
     };
-    
-    // create the chart
-    Highcharts.stockChart('tempContainer', chartOption(ohlc, volume, groupingUnits));
+
+
+    const options = chartOption(ohlc, volume, groupingUnits);
+
+    return (
+      <HighchartsReact
+        highcharts={Highcharts}
+        constructorType={"stockChart"}
+        options={options}
+      />
+    )
   };
 
   var invStatData = [];
@@ -94,11 +104,11 @@ const Stock = props => {
                 <p style={{fontWeight: 'bold'}}>{numbWithCommas(data.priceAvg)}</p>
               </div>
             </div>
-  
+
           </div>
           <div className='right-data' style={{marginLeft: '10%'}}>
             <div id="tempContainer">
-              {/*showGraph(data.pastData)*/}
+              {showGraph(data.pastData)}
             </div>
           </div>
         </div>
@@ -122,7 +132,7 @@ const Stock = props => {
       </div>
 
       <div className='company-info' style={{paddingLeft: '2%', paddingRight: '2%', marginBottom: '3%'}}>
-      <p style={{fontSize: 16, fontWeight: 'bold', paddingTop: '1%', lineHeight: '160%'}}>기업정보</p>
+        <p style={{fontSize: 16, fontWeight: 'bold', paddingTop: '1%', lineHeight: '160%'}}>기업정보</p>
         <p style={{fontSize: 14, paddingLeft: '2%', lineHeight: '160%', paddingBottom: '1%'}}>{data.companySummary}</p>
       </div>
 
@@ -130,6 +140,7 @@ const Stock = props => {
         <div className='invStatistics'>
           <Fragment>
             <Table
+              title="invStatistics"
               tableData={invStatData}
               headingColumns={['날짜', '개인', '외국인', '기관']}   
             />
@@ -138,13 +149,14 @@ const Stock = props => {
         <div className='news-report'>
           <Fragment>
             <Table
+              title="news-report"
               tableData={reportData}
               headingColumns={['날짜', '제목', '애널리스트', '목표가 (₩)', '제공출처']}   
             />
           </Fragment>
         </div>
       </div>
-      
+
     </div>
   );
 };
