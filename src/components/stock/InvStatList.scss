@@ -1,0 +1,16 @@
+@import "src/styles/_mixin.scss";
+@import "src/styles/_color.scss";
+
+.invstat-item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-decoration: none;
+  justify-items: center;
+
+  .blue {
+      color: $blue;
+  }
+  .red {
+      color: $bright-red;
+  }
+}

@@ -1,64 +1,173 @@
-@import 'src/styles/_color.scss';
-@import 'src/styles/_mixin.scss';
+@import "src/styles/_color.scss";
+@import "src/styles/_mixin.scss";
 
-.myStockContainer {
-    display: flex;
-    flex-direction: column;
-    padding-top: 2%;
-    padding-left: 5%;
-    padding-right: 5%;
+.stock-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 0.5fr;
+    grid-template-rows: 2.5rem 30rem 10rem 30rem;
+    grid-template-areas: 
+    "name . return"
+    "chart chart invinfo"
+    "companyinfo companyinfo companyinfo"
+    "invstat listtable listtable";
+    gap: 2vw 2vw;
+    padding: 0 4vw;
 }
-.top-container {
+
+.stockname {
+    grid-area: name;
     display: flex;
-    flex-direction: row;
-    border: 10px;
+    align-items: center;
+    & .id {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: grey;
+        text-justify: center;
+        margin-left: 0.8rem;
+    }
 }
-.company-summary {
+.return-button {
+    grid-area: return;
+    border: none;
+    font-size: 1.2rem;
+    text-align: right;
+    color: grey;
+    text-decoration: none;
+}
+
+.chart-container {
     @include content-container;
-    display: flex;
-    flex-direction: row;
-    object-fit: contain;
-    border-radius: 10px;
-    width: 300%;
-}
-.investment-data {
-    @include content-container;
-    height: 10%;
-    width: 60%;
-    border-radius: 10px;
+    grid-area: chart;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
     text-align: center;
-    margin-left: 3%;
+
+    .numbers {
+        p {
+            color: grey;
+            margin-top: 3rem;
+        }
+        .yield {
+            color: $red;
+            font-size: 4rem;
+        }
+        .price-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0 1rem;
+        }
+    }
+
+    .chart-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span {
+            color: $red;
+        }
+        p {
+            color: grey;
+        }
+        .chart {
+            width: 57vw;
+        }
+    }
 }
-.company-info {
+
+.invinfo-container {
     @include content-container;
-    margin-top: 3%;
-    justify-content: center;
-    border-radius: 10px;
+    grid-area: invinfo;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+
+    h4 {
+        padding-top: 0.5rem;
+    }
+    .invinfo-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        h5 {
+            color: grey;
+        }
+    }
+}
+.companyinfo-container {
+    @include content-container;
+    grid-area: companyinfo;
     display: flex;
     flex-direction: column;
+    padding: 2rem;
+    h4 {
+        font-size: 1.2rem;
+    }
+    p {
+        align-self: center;
+        padding: 1rem;
+    }
 }
-.bottom-container {
-    display: flex;
-    flex-direction: row;
-    border: 10px;
-    height: 300%;
-    margin-bottom: 5%;
+.invstat-container {
+    grid-area: invstat;
+    .invstat-title {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: center;
+        color: grey;
+        margin-bottom: 0.5rem;
+    }
+    .invstat-list {
+        height: 100%;
+        @include content-container;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
-.invStatistics {
-    @include content-container;
+
+.list-table-container {
+    grid-area: listtable;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    object-fit: contain;
-    border-radius: 10px;
-    width: 30%;
-    margin-right: 3%;
-}
-.news-report {
-    @include content-container;
-    align-items: center;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    width: 70%;
+
+    .list-button{
+        grid-area: listbutton;
+
+        button {
+            @include rounded-button;
+            background-color: white;
+            margin-right: 1rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            &:hover {
+                @include button-hover;
+            }
+        }
+        .active {
+            @include button-hover;
+        }
+    }
+    .list-table {
+        .list-title {
+            padding: 1rem 4rem 0.5rem;
+            color: grey;
+            &.analyst {
+                display: grid;
+                grid-template-columns: 1fr 2fr repeat(3, 1fr);
+            }
+
+            &.news {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+            }
+        }
+        .content {
+            @include content-container;
+            padding: 1.5rem 3rem;
+        }
+    }
 }

@@ -36,6 +36,7 @@ const StockInfo = ({ stock }) => {
 }
 
 const StockList = ({ stocks }) => {
+  stocks.sort((a, b) => b.expYield - a.expYield);
   return (
     <>
       {stocks.map(stock => (

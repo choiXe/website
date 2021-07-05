@@ -1,7 +1,7 @@
 @import '/src/styles/color';
 @import 'src/styles/_mixin.scss';
 
-.stock-container {
+.sector-container {
     display: grid;
     grid-template-columns: 1fr 9fr;
     padding: 0 4vw;
@@ -37,7 +37,7 @@
             @include content-container;
             display: flex;
             flex-direction: column;
-            padding: 25px 30px;
+            padding: 25px 20px;
         }
     }
 

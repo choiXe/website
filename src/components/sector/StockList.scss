@@ -9,6 +9,6 @@
     text-decoration: none;
     color: black;
     &:hover {
-        @include button-hover;
+        background-color: $theme-light;
     }
 }
