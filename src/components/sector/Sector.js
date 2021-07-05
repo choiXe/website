@@ -18,9 +18,6 @@ const Sector = ({ location }) => {
       .then(info => setSectorInfo(info.data.getSectorInfo));
   },[sectorName])
 
-  const numbWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
 
   return (
     <div className="stock-container">
@@ -38,7 +35,7 @@ const Sector = ({ location }) => {
         </div>
         <div className="stocklist-container">
           {sectorInfo ? <StockList stocks={sectorInfo.stockList}/>
-          : "nothing"}
+          : "loading"}
         </div>
       </div>
     </div>
