@@ -1,7 +1,6 @@
 export default function ChartOption(ohlc, volume, groupingUnits) {
     return {
       rangeSelector: { selected: 1 },
-      title: { text: 'My Stock Data' },
       yAxis: [{
         labels: { align: 'right', x: -3},
         title: { text: 'OHLC'},

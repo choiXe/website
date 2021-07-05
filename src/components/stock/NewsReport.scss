@@ -1,0 +1,10 @@
+@import "src/styles/_mixin.scss";
+@import "src/styles/_color.scss";
+
+.news-report-item {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 2rem;
+  text-decoration: none;
+  color: black;
+}

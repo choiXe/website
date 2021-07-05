@@ -1,64 +1,142 @@
-@import 'src/styles/_color.scss';
-@import 'src/styles/_mixin.scss';
+@import "src/styles/_color.scss";
+@import "src/styles/_mixin.scss";
 
-.myStockContainer {
-    display: flex;
-    flex-direction: column;
-    padding-top: 2%;
-    padding-left: 5%;
-    padding-right: 5%;
+.Stock-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2%;
+  padding-left: 4%;
+  padding-right: 4%;
 }
-.top-container {
-    display: flex;
-    flex-direction: row;
-    border: 10px;
+.Stock-top-container {
+  display: flex;
+  flex-direction: row;
+  border: 10px;
 }
-.company-summary {
-    @include content-container;
-    display: flex;
-    flex-direction: row;
-    object-fit: contain;
-    border-radius: 10px;
-    width: 300%;
+.Stock-top-left-container {
+  @include content-container;
+  display: flex;
+  flex-direction: row;
+  object-fit: contain;
+  width: 400%;
+  align-content: center;
 }
-.investment-data {
-    @include content-container;
-    height: 10%;
-    width: 60%;
-    border-radius: 10px;
-    text-align: center;
-    margin-left: 3%;
+.Stock-top-left-text-container {
+  flex-direction: "column";
 }
-.company-info {
-    @include content-container;
-    margin-top: 3%;
-    justify-content: center;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+.Stock-top-left-text-container p {
+  color: gray;
 }
-.bottom-container {
-    display: flex;
-    flex-direction: row;
-    border: 10px;
-    height: 300%;
-    margin-bottom: 5%;
+.Stock-top-left-yield-container {
+  font-size: 45;
+  color: #d03553;
 }
-.invStatistics {
-    @include content-container;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    object-fit: contain;
-    border-radius: 10px;
-    width: 30%;
-    margin-right: 3%;
+.Stock-top-left-price-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5%;
 }
-.news-report {
-    @include content-container;
-    align-items: center;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    width: 70%;
+.Stock-top-left-price-container p {
+  padding-bottom: 5%;
+}
+.Stock-top-left-graph-container {
+  margin-left: 10%;
+}
+.Stock-top-right-container {
+  @include content-container;
+  width: 60%;
+  text-align: center;
+  margin-left: 2%;
+}
+.Stock-top-right-title-container {
+  font-size: 18;
+  font-weight: bold;
+  padding-bottom: 10%;
+  padding-top: 4%;
+}
+.Stock-top-right-subtitle-container {
+  font-size: 14;
+  font-weight: normal;
+  padding-bottom: 3%;
+  color: gray;
+}
+.Stock-top-right-container p {
+  font-size: 17;
+  padding-bottom: 7%;
+}
+.Stock-company-info {
+  @include content-container;
+  margin-top: 2%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-bottom: 2%;
+  line-height: 160%;
+}
+.Stock-company-info-title {
+  font-size: 16;
+  font-weight: bold;
+  padding-top: 1%;
+}
+.Stock-company-info p {
+  font-size: 14;
+  padding-left: 2%;
+  padding-bottom: 1%;
+}
+.Stock-bottom-container {
+  display: flex;
+  flex-direction: row;
+  border: 10px;
+  height: 300%;
+  margin-bottom: 5%;
+}
+.Stock-invStat-title-container {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  width: 200%;
+}
+.Stock-invStat-data-container {
+  @include content-container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  object-fit: contain;
+}
+.Stock-report-container {
+  margin-left: 2%;
+}
+.Stock-newsReport-button-list {
+  display: flex;
+  flex-direction: row;
+}
+.inactive .active {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  font-size-adjust: initial;
+  height: 30px;
+  justify-content: center;
+  width: 120px;
+}
+.inactive {
+  background-color: white;
+}
+.active {
+  background-color: rgb(1, 1, 63);
+  color: white;
+  border-radius: 10px;
+}
+.Stock-report-title-container {
+  display: flex;
+  flex-direction: row;
+}
+.Stock-report-data-container {
+  @include content-container;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
