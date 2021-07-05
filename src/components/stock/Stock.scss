@@ -1,0 +1,64 @@
+@import 'src/styles/_color.scss';
+@import 'src/styles/_mixin.scss';
+
+.myStockContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.top-container {
+    display: flex;
+    flex-direction: row;
+    border: 10px;
+}
+.company-summary {
+    @include content-container;
+    display: flex;
+    flex-direction: row;
+    object-fit: contain;
+    border-radius: 10px;
+    width: 300%;
+}
+.investment-data {
+    @include content-container;
+    height: 10%;
+    width: 60%;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 3%;
+}
+.company-info {
+    @include content-container;
+    margin-top: 3%;
+    justify-content: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.bottom-container {
+    display: flex;
+    flex-direction: row;
+    border: 10px;
+    height: 300%;
+    margin-bottom: 5%;
+}
+.invStatistics {
+    @include content-container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    object-fit: contain;
+    border-radius: 10px;
+    width: 30%;
+    margin-right: 3%;
+}
+.news-report {
+    @include content-container;
+    align-items: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+}
