@@ -1,11 +1,5 @@
-.stocklist {
-    display: flex;
-    flex-direction: column;
-    padding-top: 1rem;
-
-    .stock-item {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        margin-bottom: 2rem;
-    }
+.stock-item {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 2rem;
 }

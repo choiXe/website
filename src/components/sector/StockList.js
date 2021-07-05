@@ -3,28 +3,32 @@ import React from 'react';
 import './StockList.scss';
 
 const StockInfo = ({ stock }) => {
+  const numbWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   return (
     <div className="stock-item">
       <div>
         {stock.stockName}
       </div>
       <div>
-        {stock.tradePrice}
+        {numbWithCommas(stock.tradePrice)}
       </div>
       <div>
-        {stock.expYield}
+        {stock.changeRate}%
       </div>
       <div>
-        {stock.priceAvg}
+        {numbWithCommas(stock.priceAvg)}
       </div>
       <div>
-        {stock.changeRate}
+        {stock.expYield}%
       </div>
       <div>
         graph
       </div>
-      <div>
-        O
+      <div style={stock.score>=30 ? {color: "green"} : {color: "red"}}>
+        {stock.score}
       </div>
     </div>
   )
@@ -32,11 +36,11 @@ const StockInfo = ({ stock }) => {
 
 const StockList = ({ stocks }) => {
   return (
-    <div className="stocklist">
+    <>
       {stocks.map(stock => (
         <StockInfo key={stock.stockName} stock={stock} />
       ))}
-    </div>
+    </>
   )
 }
 

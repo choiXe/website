@@ -21,22 +21,23 @@
 
         .chart-container {
             @include content-container;
-            flex-basis: 50vh;
+            flex-basis: 27rem;
         }
 
         .listtitle-container {
-            flex-basis: 8vh;
+            flex-basis: 4.8rem;
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            align-items: center;
-            align-content: center;
+            align-content: flex-end;
             color: grey;
-            padding: 15px;
+            padding: 0 30px 15px;
         }
 
         .stocklist-container {
             @include content-container;
-            flex-basis: 60vh;
+            display: flex;
+            flex-direction: column;
+            padding: 25px 30px;
         }
     }
 

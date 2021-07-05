@@ -10,13 +10,17 @@ import './Sector.scss';
 const Sector = ({ location }) => {
   const [sectorInfo, setSectorInfo] = useState(null);
   const sectorName = location.state;
-  const listTitle = ["종목이름", "가격(₩)", "상승률", "컨센서스 평균가",
-    "오차(%)", "그래프", "투자 권고"];
+  const listTitle = ["종목이름", "가격(₩)", "변동률", "컨센서스 평균가",
+    "오차", "그래프", "투자 권고"];
 
   useEffect(() => {
     data.getSectorInfo(sectorName, "2021-06-01")
       .then(info => setSectorInfo(info.data.getSectorInfo));
   },[sectorName])
+
+  const numbWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
   return (
     <div className="stock-container">
