@@ -1,142 +1,173 @@
 @import "src/styles/_color.scss";
 @import "src/styles/_mixin.scss";
 
-.Stock-container {
-  display: flex;
-  flex-direction: column;
-  padding-top: 2%;
-  padding-left: 4%;
-  padding-right: 4%;
+.stock-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 0.5fr;
+    grid-template-rows: 2.5rem 30rem 10rem 30rem;
+    grid-template-areas: 
+    "name . return"
+    "chart chart invinfo"
+    "companyinfo companyinfo companyinfo"
+    "invstat listtable listtable";
+    gap: 2vw 2vw;
+    padding: 0 4vw;
 }
-.Stock-top-container {
-  display: flex;
-  flex-direction: row;
-  border: 10px;
+
+.stockname {
+    grid-area: name;
+    display: flex;
+    align-items: center;
+    & .id {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: grey;
+        text-justify: center;
+        margin-left: 0.8rem;
+    }
 }
-.Stock-top-left-container {
-  @include content-container;
-  display: flex;
-  flex-direction: row;
-  object-fit: contain;
-  width: 400%;
-  align-content: center;
+.return-button {
+    grid-area: return;
+    border: none;
+    font-size: 1.2rem;
+    text-align: right;
+    color: grey;
+    text-decoration: none;
 }
-.Stock-top-left-text-container {
-  flex-direction: "column";
+
+.chart-container {
+    @include content-container;
+    grid-area: chart;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    text-align: center;
+
+    .numbers {
+        p {
+            color: grey;
+            margin-top: 3rem;
+        }
+        .yield {
+            color: $red;
+            font-size: 4rem;
+        }
+        .price-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0 1rem;
+        }
+    }
+
+    .chart-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        span {
+            color: $red;
+        }
+        p {
+            color: grey;
+        }
+        .chart {
+            width: 57vw;
+        }
+    }
 }
-.Stock-top-left-text-container p {
-  color: gray;
+
+.invinfo-container {
+    @include content-container;
+    grid-area: invinfo;
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+
+    h4 {
+        padding-top: 0.5rem;
+    }
+    .invinfo-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        h5 {
+            color: grey;
+        }
+    }
 }
-.Stock-top-left-yield-container {
-  font-size: 45;
-  color: #d03553;
+.companyinfo-container {
+    @include content-container;
+    grid-area: companyinfo;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    h4 {
+        font-size: 1.2rem;
+    }
+    p {
+        align-self: center;
+        padding: 1rem;
+    }
 }
-.Stock-top-left-price-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 5%;
+.invstat-container {
+    grid-area: invstat;
+    .invstat-title {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: center;
+        color: grey;
+        margin-bottom: 0.5rem;
+    }
+    .invstat-list {
+        height: 100%;
+        @include content-container;
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
-.Stock-top-left-price-container p {
-  padding-bottom: 5%;
-}
-.Stock-top-left-graph-container {
-  margin-left: 10%;
-}
-.Stock-top-right-container {
-  @include content-container;
-  width: 60%;
-  text-align: center;
-  margin-left: 2%;
-}
-.Stock-top-right-title-container {
-  font-size: 18;
-  font-weight: bold;
-  padding-bottom: 10%;
-  padding-top: 4%;
-}
-.Stock-top-right-subtitle-container {
-  font-size: 14;
-  font-weight: normal;
-  padding-bottom: 3%;
-  color: gray;
-}
-.Stock-top-right-container p {
-  font-size: 17;
-  padding-bottom: 7%;
-}
-.Stock-company-info {
-  @include content-container;
-  margin-top: 2%;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  padding-left: 2%;
-  padding-right: 2%;
-  margin-bottom: 2%;
-  line-height: 160%;
-}
-.Stock-company-info-title {
-  font-size: 16;
-  font-weight: bold;
-  padding-top: 1%;
-}
-.Stock-company-info p {
-  font-size: 14;
-  padding-left: 2%;
-  padding-bottom: 1%;
-}
-.Stock-bottom-container {
-  display: flex;
-  flex-direction: row;
-  border: 10px;
-  height: 300%;
-  margin-bottom: 5%;
-}
-.Stock-invStat-title-container {
-  display: flex;
-  flex-direction: row;
-  font-weight: bold;
-  width: 200%;
-}
-.Stock-invStat-data-container {
-  @include content-container;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  object-fit: contain;
-}
-.Stock-report-container {
-  margin-left: 2%;
-}
-.Stock-newsReport-button-list {
-  display: flex;
-  flex-direction: row;
-}
-.inactive .active {
-  align-items: center;
-  cursor: default;
-  display: flex;
-  font-size-adjust: initial;
-  height: 30px;
-  justify-content: center;
-  width: 120px;
-}
-.inactive {
-  background-color: white;
-}
-.active {
-  background-color: rgb(1, 1, 63);
-  color: white;
-  border-radius: 10px;
-}
-.Stock-report-title-container {
-  display: flex;
-  flex-direction: row;
-}
-.Stock-report-data-container {
-  @include content-container;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+
+.list-table-container {
+    grid-area: listtable;
+    display: flex;
+    flex-direction: column;
+
+    .list-button{
+        grid-area: listbutton;
+
+        button {
+            @include rounded-button;
+            background-color: white;
+            margin-right: 1rem;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            &:hover {
+                @include button-hover;
+            }
+        }
+        .active {
+            @include button-hover;
+        }
+    }
+    .list-table {
+        .list-title {
+            padding: 1rem 4rem 0.5rem;
+            color: grey;
+            &.analyst {
+                display: grid;
+                grid-template-columns: 1fr 2fr repeat(3, 1fr);
+            }
+
+            &.news {
+                display: grid;
+                grid-template-columns: 1fr 3fr;
+            }
+        }
+        .content {
+            @include content-container;
+            padding: 1.5rem 3rem;
+        }
+    }
 }

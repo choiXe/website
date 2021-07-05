@@ -1,7 +1,7 @@
 import React from 'react';
-import './NewsReport.scss';
+import './ReportList.scss';
 
-const ReportInfo = ({ data }) => {
+const ReportInfo = ({ data, stockName }) => {
   const numbWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -22,15 +22,15 @@ const ReportInfo = ({ data }) => {
   };
 
   const priceGoal = numbWithCommas(data.priceGoal);
-  const firm = data.firm.split('투자')[0].split('증권');
+  const firm = data.firm;
 
   return (
-    <div className="news-report-item">
+    <div className="report-item">
       <div>
         {data.date}
       </div>
       <div>
-        <a href={baseURL + data.reportIdx}>{reportName}</a>
+        <a href={baseURL + data.reportIdx}>{reportName==="" ? stockName : reportName}</a>
       </div>
       <div>
         {analyst}
@@ -45,11 +45,12 @@ const ReportInfo = ({ data }) => {
   )
 }
 
-const ReportList = ({ dataSet }) => {
+const ReportList = ({ dataSet, stockName }) => {
+  console.log(stockName);
   return (
     <>
       {dataSet.map(data => (
-        <ReportInfo key={data.date} data={data} />
+        <ReportInfo key={data.reportIdx} data={data} stockName={stockName} />
       ))}
     </>
   )

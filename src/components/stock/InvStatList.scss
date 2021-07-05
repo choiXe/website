@@ -3,8 +3,14 @@
 
 .invstat-item {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(4, 1fr);
   text-decoration: none;
-  color: black;
+  justify-items: center;
+
+  .blue {
+      color: $blue;
+  }
+  .red {
+      color: $bright-red;
+  }
 }

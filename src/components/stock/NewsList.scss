@@ -1,0 +1,17 @@
+@import "src/styles/_color.scss";
+@import "src/styles/_mixin.scss";
+
+.news-item {
+    @include rounded-button;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    &:hover {
+        background-color: $theme-light;
+    }
+}

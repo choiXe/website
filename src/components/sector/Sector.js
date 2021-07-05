@@ -11,7 +11,7 @@ const Sector = ({ location }) => {
   const [sectorInfo, setSectorInfo] = useState(null);
   const curSector = location.state;
   const listTitle = ["종목이름", "가격(₩)", "변동률", "컨센서스 평균가",
-    "오차", "그래프", "투자 권고"];
+    "상승여력", "그래프", "투자 점수"];
 
   useEffect(() => {
     data.getSectorInfo(curSector, "2021-06-01")
@@ -19,7 +19,7 @@ const Sector = ({ location }) => {
   },[curSector])
 
   return (
-    <div className="stock-container">
+    <div className="sector-container">
       <div className="menu-container">
         <SectorMenu selected={curSector}/>
       </div>

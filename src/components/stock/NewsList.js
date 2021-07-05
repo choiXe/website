@@ -1,5 +1,5 @@
 import React from 'react';
-import './NewsReport.scss';
+import './NewsList.scss';
 
 const NewsInfo = ({ data }) => {
   const newsName = data.title.length > 60 
@@ -7,7 +7,7 @@ const NewsInfo = ({ data }) => {
       : data.title;
 
   return (
-    <div className="news-report-item">
+    <div className="news-item">
       <div>
         {data.date}
       </div>

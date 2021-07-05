@@ -5,22 +5,22 @@ const InvStatInfo = ({ data }) => {
   const month = parseInt(data.date.split("-")[1]);
   const day = parseInt(data.date.split("-")[2]);
 
-  const invColor = data.inKR.individual.includes("+") ? 'green' : 'red';
-  const invForeign = data.inKR.foreign.includes("+") ? 'green' : 'red';
-  const invInst = data.inKR.institutions.includes("+") ? 'green' : 'red';
+  const invColor = data.inKR.individual.includes("+") ? 'blue' : 'red';
+  const invForeign = data.inKR.foreign.includes("+") ? 'blue' : 'red';
+  const invInst = data.inKR.institutions.includes("+") ? 'blue' : 'red';
 
   return (
     <div className="invstat-item">
       <div>
         {month.toString() + "." + day.toString()}
       </div>
-      <div style={{color: invColor}}>
+      <div className={invColor}>
         {data.inKR.individual}
       </div>
-      <div style={{color: invForeign}}>
+      <div className={invForeign}>
         {data.inKR.foreign}
       </div>
-      <div style={{color: invInst}}>
+      <div className={invInst}>
         {data.inKR.institutions}
       </div>
     </div>
