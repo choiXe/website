@@ -29,7 +29,7 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             align-content: flex-end;
-            color: grey;
+            color: $sub-text;
             padding: 0 30px 15px;
         }
 

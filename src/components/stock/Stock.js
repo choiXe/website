@@ -20,6 +20,8 @@ const Stock = ({ location }) => {
       .then(info => setStockData(info.data.getStockInfo));
   },[stockId]);
 
+  console.log(stockData);
+
   const numbWithCommas = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
@@ -27,31 +29,6 @@ const Stock = ({ location }) => {
   if (!stockData) {
     return <h1 style={{textAlign:"center"}}>Loading...</h1>;
   } else {
-    /*
-     *    const Highlight = ({ active, count, onClick }) => {
-     *      return (
-     *        <div onClick={onClick} className={active ? "active" : "inactive"}>
-     *          {count}
-     *        </div>
-     *      );
-     *    };
-     *
-     *    const showList = () => {
-     *      return (
-     *        <div>
-     *          {["애널리스트 리포트", "뉴스"].map(t => (
-     *            <Highlight
-     *              key={t}
-     *              count={t}
-     *              active={t === myList}
-     *              onClick={() => setMyList(t)}
-     *            />
-     *          ))}
-     *        </div>
-     *      );
-     *    };
-     */
-
     const invStatTitle = ['날짜', '개인', '외국인', '기관'];
     const reportTitle = ['날짜', '제목', '애널리스트', '목표가 (₩)', '제공출처'];
     const newsTitle = ['날짜', '제목'];
@@ -64,7 +41,7 @@ const Stock = ({ location }) => {
           <div className="id">{stockId}</div>
         </h1>
         <Link to="/" className="return-button">
-          {"< 돌아가기"}
+          <span className="symbol">{"<"}</span> 돌아가기
         </Link>
         <div className="chart-container">
           <div className="numbers">
@@ -82,10 +59,22 @@ const Stock = ({ location }) => {
             </div>
           </div>
           <div className="chart-section">
-            <p>변동(%): 
-              <span>{(stockData.changeRate>0 ? " +" : " -")
-                  +stockData.changeRate+"%"}</span>
-            </p>
+            <div className="chart-stat">
+              <div className="stat-item">
+                <p>시: undecided</p>
+              </div>
+              <div className="stat-item">
+                <p>고: undecided</p>
+              </div>
+              <div className="stat-item">
+                <p>저: undecided</p>
+              </div>
+              <div className="stat-item">
+                <p>변동(%): <span>{(stockData.changeRate>=0 ? " +" : " -")
+                    +stockData.changeRate+"%"}</span>
+                </p>
+              </div>
+            </div>
             <div className="chart">
               <StockChart data={stockData.pastData}/>
             </div>
@@ -111,10 +100,11 @@ const Stock = ({ location }) => {
           </div>
         </div>
         <div className="companyinfo-container">
-          <h4 className='title'>기업정보</h4>
+          <h4>기업정보 <span>{"WICS: " + stockData.sSector}</span></h4>
           <p>{stockData.companySummary}</p>
         </div>
         <div className="invstat-container">
+          <div className="invstat-description">투자자 동향</div>
           <div className="invstat-title">
             {invStatTitle.map(title => <div key={title}>{title}</div>)}
           </div>
@@ -142,9 +132,9 @@ const Stock = ({ location }) => {
             </div>
             <div className="content">
               {listType==="analyst" 
-                ? <ReportList dataSet={stockData.reportList} 
+              ? <ReportList dataSet={stockData.reportList} 
                 stockName={stockData.name}/> 
-                : <NewsList dataSet={stockData.news} />}
+              : <NewsList dataSet={stockData.news} />}
             </div>
           </div>
         </div>
