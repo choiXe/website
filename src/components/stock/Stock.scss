@@ -109,6 +109,9 @@
         h5 {
             color: #858585;
         }
+        p {
+            font-weight: 600;
+        }
     }
 }
 .companyinfo-container {
@@ -137,7 +140,7 @@
         @include sub-heading;
         background-color: $container-navy;
         color: white;
-        padding: 0.7rem 1rem;
+        padding: 0.7rem 0.7rem;
         margin-bottom: 1rem;
     }
     .invstat-title {
@@ -148,9 +151,8 @@
         margin-bottom: 0.5rem;
     }
     .invstat-list {
-        height: 100%;
         @include content-container;
-        padding: 1rem 0;
+        padding: 1.5rem 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
