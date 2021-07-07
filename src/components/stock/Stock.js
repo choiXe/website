@@ -20,8 +20,6 @@ const Stock = ({ location }) => {
       .then(info => setStockData(info.data.getStockInfo));
   },[stockId]);
 
-  console.log(stockData);
-
   const numbWithCommas = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
@@ -43,7 +41,7 @@ const Stock = ({ location }) => {
         <Link to="/" className="return-button">
           <span className="symbol">{"<"}</span> 돌아가기
         </Link>
-        <div className="chart-container">
+        <div className="stock-chart-container">
           <div className="numbers">
             <p>기대 수익률 (3개월) </p>
             <h1 className='yield'>{stockData.expYield+"%"}</h1>

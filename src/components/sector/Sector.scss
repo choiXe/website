@@ -17,11 +17,65 @@
     .info-container {
         display: flex;
         flex-direction: column;
-        text-align: center;
 
-        .chart-container {
+        .sector-chart-container {
             @include content-container;
+            background-color: $navy;
+            color: white;
             flex-basis: 27rem;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            h4 {
+                font-weight: 800;
+                padding-top: 0.5rem;
+            }
+            .chart {
+                text-align: center;
+                margin: auto;
+            }
+            .numbers {
+
+                .date-buttons {
+                    display: flex;
+                    justify-content: space-between;
+                    button {
+                        width: 3rem;
+                        background-color: $navy;
+                        border: none;
+                        border-radius: 10px;
+                        color: white;
+                        font-weight: 800;
+                        padding: 0.5rem;
+                        &:hover {
+                            background-color: white;
+                            color: $container-navy;
+                        }
+                        &.active {
+                            background-color: white;
+                            color: $navy;
+                        }
+                    }
+                }
+                .yield{
+                    margin-top: 1.5rem;
+                    h1 {
+                        color: $red;
+                        padding: 0.8rem;
+                        font-size: 3rem;
+                    }
+                }
+                .list {
+                    margin-top: 0.8rem;
+                    list-style-type: none;
+                    div {
+                        div {
+                            display: inline-block;
+                            color: black;
+                        }
+                    }
+                }
+            }
         }
 
         .listtitle-container {
@@ -30,14 +84,14 @@
             grid-template-columns: repeat(7, 1fr);
             align-content: flex-end;
             color: $sub-text;
-            padding: 0 30px 15px;
+            padding: 0 5rem 15px;
         }
 
         .stocklist-container {
             @include content-container;
             display: flex;
             flex-direction: column;
-            padding: 25px 20px;
+            padding: 0 2rem;
         }
     }
 
