@@ -5,8 +5,10 @@
     @include rounded-button;
     display: grid;
     grid-template-columns: 1fr 3fr;
+    column-gap: 1.2rem;
     margin-bottom: 2rem;
     font-size: 1.1rem;
+    padding: 1rem 2rem;
     a {
         text-decoration: none;
         color: black;

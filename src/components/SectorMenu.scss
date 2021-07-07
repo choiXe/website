@@ -15,6 +15,9 @@ h3 {
     .sector-item {
         @include rounded-button;
         border-radius: 9px;
+        white-space: pre-line;
+        display: grid;
+        grid-template-columns: 5fr 1fr;
 
         text-decoration: none;
         color: black;
@@ -23,6 +26,9 @@ h3 {
         }
         &.active {
             @include button-hover;
+        }
+        i {
+            place-self: center;
         }
     }
 

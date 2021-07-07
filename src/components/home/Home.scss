@@ -3,13 +3,12 @@
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 1fr 5.5fr;
     padding: 0 4vw;
-    column-gap: 2vw;
+    column-gap: 2rem;
 
     .menu-container {
         @include content-container;
-        width: 9.5rem;
         height: 38rem;
         padding: 2rem 1rem;
     }
