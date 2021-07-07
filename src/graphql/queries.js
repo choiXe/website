@@ -33,7 +33,12 @@ export const getStockInfo = /* GraphQL */ `
       changeRate
       code
       companySummary
+      wicsSectorName
       expYield
+      openingPrice
+      highPrice
+      lowPrice
+      changePrice
       foreignRatio
       high52wPrice
       invStatistics {
@@ -56,6 +61,7 @@ export const getStockInfo = /* GraphQL */ `
         date
         link
         title
+        description
       }
       newsTitles
       pastData {
@@ -69,7 +75,7 @@ export const getStockInfo = /* GraphQL */ `
       pbr
       per
       priceAvg
-      recommend
+      score
       reportList {
         date
         reportName
