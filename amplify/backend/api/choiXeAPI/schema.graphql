@@ -79,7 +79,7 @@ type StockInfo {
   priceAvg: Int
   reportList: [Report]
   roe: Float
-  score: Int
+  score: String
   tradePrice: Int
   wicsSectorName: String
 }
@@ -90,7 +90,7 @@ type StockObj {
   expYield: Float
   priceAvg: Int
   sSector: String
-  score: Int
+  score: String
   stockId: String
   stockName: String
   tradePrice: Int
