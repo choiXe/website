@@ -133,17 +133,6 @@
         "name" : "StockObj",
         "description" : null,
         "fields" : [ {
-          "name" : "cCount",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
           "name" : "changeRate",
           "description" : null,
           "args" : [ ],
@@ -193,7 +182,7 @@
           "args" : [ ],
           "type" : {
             "kind" : "SCALAR",
-            "name" : "Int",
+            "name" : "String",
             "ofType" : null
           },
           "isDeprecated" : false,

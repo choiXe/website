@@ -85,7 +85,6 @@ type StockInfo {
 }
 
 type StockObj {
-  cCount: Int
   changeRate: Float
   expYield: Float
   priceAvg: Int

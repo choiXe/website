@@ -6,7 +6,6 @@ export const getSectorInfo = /* GraphQL */ `
     getSectorInfo(sectorName: $sectorName, startDate: $startDate) {
       avgYield
       stockList {
-        cCount
         changeRate
         expYield
         priceAvg
