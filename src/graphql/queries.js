@@ -29,17 +29,14 @@ export const getSectorInfo = /* GraphQL */ `
 export const getStockInfo = /* GraphQL */ `
   query GetStockInfo($startDate: String, $stockId: String) {
     getStockInfo(startDate: $startDate, stockId: $stockId) {
+      changePrice
       changeRate
       code
       companySummary
-      wicsSectorName
       expYield
-      openingPrice
-      highPrice
-      lowPrice
-      changePrice
       foreignRatio
       high52wPrice
+      highPrice
       invStatistics {
         date
         inKR {
@@ -54,15 +51,17 @@ export const getStockInfo = /* GraphQL */ `
         }
       }
       low52wPrice
+      lowPrice
       marketCap
       name
       news {
         date
+        description
         link
         title
-        description
       }
       newsTitles
+      openingPrice
       pastData {
         date
         end
@@ -74,17 +73,18 @@ export const getStockInfo = /* GraphQL */ `
       pbr
       per
       priceAvg
-      score
       reportList {
-        date
-        reportName
         analyst
-        priceGoal
+        date
         firm
+        priceGoal
         reportIdx
+        reportName
       }
       roe
+      score
       tradePrice
+      wicsSectorName
     }
   }
 `;

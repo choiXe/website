@@ -76,7 +76,7 @@ type StockInfo {
   pastData: [DailyData]
   pbr: Float
   per: Float
-  priceAvg: Int
+  priceAvg: String
   reportList: [Report]
   roe: Float
   score: String

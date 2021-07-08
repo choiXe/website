@@ -55,7 +55,7 @@ const Stock = ({ location }) => {
               </div>
               <div>
                 <p>컨센서스 평균가</p>
-                <h4>{numbWithCommas(stockData.priceAvg)}</h4>
+                <h4>{stockData.priceAvg !== '의견 없음' ? numbWithCommas(stockData.priceAvg) : stockData.priceAvg}</h4>
               </div>  
             </div>
           </div>
@@ -71,7 +71,12 @@ const Stock = ({ location }) => {
                 <p>저: undecided</p>
               </div>
               <div className="stat-item">
+<<<<<<< HEAD
                 <p>변동(%): <span>{stockData.changeRate+"%"}</span>
+=======
+                <p>변동(%): <span>{(stockData.changeRate>=0 ? " +" : "")
+                    +stockData.changeRate+"%"}</span>
+>>>>>>> b890c8ea7657bb8080bc704e4b70b96464eba5d0
                 </p>
               </div>
             </div>
