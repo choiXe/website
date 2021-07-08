@@ -3,11 +3,14 @@
 
 .stock-item {
     @include rounded-button;
+    border-radius: 16px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    margin-bottom: 2rem;
+    padding: 1rem 3rem;
     text-decoration: none;
     color: black;
+    font-size: 1.1rem;
+    margin-top: 1rem;
     &:hover {
         background-color: $theme-light;
     }

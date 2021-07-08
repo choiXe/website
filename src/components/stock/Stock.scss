@@ -6,11 +6,11 @@
     grid-template-columns: 1fr 2fr 0.5fr;
     grid-template-rows: 2.5rem 30rem 10rem 30rem;
     grid-template-areas: 
-    "name . return"
-    "chart chart invinfo"
-    "companyinfo companyinfo companyinfo"
-    "invstat listtable listtable";
-    gap: 2vw 2vw;
+        "name . return"
+        "chart chart invinfo"
+        "companyinfo companyinfo companyinfo"
+        "invstat listtable listtable";
+    gap: 2rem 2rem;
     padding: 0 4vw;
 }
 
@@ -21,7 +21,7 @@
     & .id {
         font-size: 1.3rem;
         font-weight: 400;
-        color: grey;
+        color: #707070;
         text-justify: center;
         margin-left: 0.8rem;
     }
@@ -31,21 +31,28 @@
     border: none;
     font-size: 1.2rem;
     text-align: right;
-    color: grey;
+    color: #576875;
     text-decoration: none;
+
+    .symbol {
+        color: #707070;
+    }
 }
 
-.chart-container {
+.stock-chart-container {
     @include content-container;
     grid-area: chart;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    text-align: center;
+    padding: 2.5rem;
 
     .numbers {
         p {
-            color: grey;
+            color: $sub-text;
             margin-top: 3rem;
+        }
+        h4 {
+            color: $container-navy;
         }
         .yield {
             color: $red;
@@ -54,7 +61,6 @@
         .price-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding: 0 1rem;
         }
     }
 
@@ -62,11 +68,25 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        span {
-            color: $red;
-        }
-        p {
-            color: grey;
+
+        .chart-stat {
+            width: 50vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            .stat-item {
+                
+                .blue {
+                    color: $blue;
+                }
+                .red {
+                    color: $bright-red;
+                }
+                p {
+                    color: $sub-text;
+                }
+            }
         }
         .chart {
             width: 57vw;
@@ -90,7 +110,10 @@
         justify-content: space-between;
         padding-bottom: 1rem;
         h5 {
-            color: grey;
+            color: #858585;
+        }
+        p {
+            font-weight: 600;
         }
     }
 }
@@ -101,26 +124,42 @@
     flex-direction: column;
     padding: 2rem;
     h4 {
+        display: flex;
+        align-items: center;
         font-size: 1.2rem;
+        color: $container-navy;
+        span {
+            font-size: 0.8rem;
+            color: $sub-text;
+            margin-left: 1rem;
+        }
     }
     p {
-        align-self: center;
+        align-self: left;
         padding: 1rem;
+        white-space: pre-line;
     }
 }
 .invstat-container {
     grid-area: invstat;
+    .invstat-description {
+        @include rounded-button;
+        @include sub-heading;
+        background-color: $container-navy;
+        color: white;
+        padding: 0.7rem 1.5rem;
+        margin-bottom: 1rem;
+    }
     .invstat-title {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         justify-items: center;
-        color: grey;
+        color: $sub-text;
         margin-bottom: 0.5rem;
     }
     .invstat-list {
-        height: 100%;
         @include content-container;
-        padding: 1rem 0;
+        padding: 1.5rem 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -137,12 +176,12 @@
 
         button {
             @include rounded-button;
+            @include sub-heading;
             background-color: white;
+            color: $container-navy;
             margin-right: 1rem;
             border: none;
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
+            padding: 0.7rem 1.5rem;
             &:hover {
                 @include button-hover;
             }
@@ -153,21 +192,23 @@
     }
     .list-table {
         .list-title {
-            padding: 1rem 4rem 0.5rem;
-            color: grey;
+            padding: 1rem 3rem 0.5rem;
+            color: $sub-text;
             &.analyst {
                 display: grid;
                 grid-template-columns: 1fr 2fr repeat(3, 1fr);
+                column-gap: 1.2rem;
             }
 
             &.news {
                 display: grid;
                 grid-template-columns: 1fr 3fr;
+                column-gap: 1.2rem;
             }
         }
         .content {
             @include content-container;
-            padding: 1.5rem 3rem;
+            padding: 1rem;
         }
     }
 }

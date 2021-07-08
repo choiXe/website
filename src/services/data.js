@@ -9,9 +9,9 @@ const getStockInfo = async (id, date) => {
         startDate: date
       }
     ))
-    return stockInfo;
+    return stockInfo.data;
   } catch (error) {
-    return null;
+    return error.data;
   }
 }
 
@@ -23,9 +23,9 @@ const getSectorInfo = async (name, date) => {
         startDate: date
       }
     ))
-    return sectorInfo;
+    return sectorInfo.data;
   } catch (error) {
-    return null;
+    return error.data;
   }
 }
 

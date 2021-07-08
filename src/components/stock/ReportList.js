@@ -46,7 +46,6 @@ const ReportInfo = ({ data, stockName }) => {
 }
 
 const ReportList = ({ dataSet, stockName }) => {
-  console.log(stockName);
   return (
     <>
       {dataSet.map(data => (

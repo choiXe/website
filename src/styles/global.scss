@@ -1,29 +1,18 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
 @import 'color';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "PT Sans", sans-serif;
 }
 
 body {
-    /*
-     *font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-     *'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-     *sans-serif;
-     */
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: $matte-color;
+    background-color: $background-color;
 }
-
-/*
- *code {
- *    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
- *    monospace;
- *}
- */
 
 .main-container {
     display: flex;

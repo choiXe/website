@@ -4,6 +4,7 @@
 
 type Article {
   date: String
+  description: String
   link: String
   title: String
 }
@@ -56,35 +57,39 @@ type SectorInfo {
 }
 
 type StockInfo {
+  changePrice: Int
   changeRate: Float
   code: String
   companySummary: String
   expYield: Float
   foreignRatio: Float
   high52wPrice: Int
+  highPrice: Int
   invStatistics: [DailyInv]
   low52wPrice: Int
+  lowPrice: Int
   marketCap: String
   name: String
   news: [Article]
   newsTitles: String
+  openingPrice: Int
   pastData: [DailyData]
   pbr: Float
   per: Float
-  priceAvg: Int
-  recommend: Int
+  priceAvg: String
   reportList: [Report]
   roe: Float
+  score: String
   tradePrice: Int
+  wicsSectorName: String
 }
 
 type StockObj {
-  cCount: Int
   changeRate: Float
   expYield: Float
   priceAvg: Int
   sSector: String
-  score: Int
+  score: String
   stockId: String
   stockName: String
   tradePrice: Int

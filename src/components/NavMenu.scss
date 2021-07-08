@@ -18,7 +18,7 @@
         .nav-links {
             @include rounded-button;
             text-decoration: none;
-            color: black;
+            color: $navy;
             font-size: 1.2rem;
 
             &:hover {

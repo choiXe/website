@@ -1,16 +1,21 @@
 @mixin rounded-button {
-    border-radius: 10px;
+    border-radius: 14px;
     padding: 0.5rem;
 }
 
 @mixin button-hover {
-    background-color: $navy;
-    color: $matte-color;
+    background-color: $container-navy;
+    color: $container-fill;
 }
 
 @mixin content-container {
     border-radius: 15px;
-    box-shadow: 2px 2px 2px 2px $green;
-    background-color: white;
+    box-shadow: 2px 2px 2px 2px $container-shadow;
+    background-color: $container-fill;
     padding: 1rem;
+}
+
+@mixin sub-heading {
+    font-size: 1.2rem;
+    font-weight: 800;
 }

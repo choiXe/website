@@ -8,7 +8,7 @@ const NavMenu = () => {
     <div className="nav-list">
       <div className='nav-item'>
         <Link 
-          to='/sector' 
+          to='/' 
           className='nav-links' 
         >
           섹터 

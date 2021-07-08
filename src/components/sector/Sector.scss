@@ -3,13 +3,13 @@
 
 .sector-container {
     display: grid;
-    grid-template-columns: 1fr 9fr;
+    grid-template-columns: 1fr 5.5fr;
     padding: 0 4vw;
-    column-gap: 2vw;
+    column-gap: 2rem;
 
     .menu-container {
         @include content-container;
-        width: 9.5rem;
+        //width: 12rem;
         height: 38rem;
         padding: 2rem 1rem;
     }
@@ -17,11 +17,99 @@
     .info-container {
         display: flex;
         flex-direction: column;
-        text-align: center;
 
-        .chart-container {
+        .sector-chart-container {
             @include content-container;
+            background-color: $navy;
+            color: white;
             flex-basis: 27rem;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            h4 {
+                font-weight: 800;
+                padding-top: 0.5rem;
+            }
+            .chart {
+                text-align: center;
+                margin: auto;
+            }
+            .numbers {
+
+                .date-buttons {
+                    display: flex;
+                    justify-content: space-between;
+                    button {
+                        width: 3rem;
+                        background-color: $navy;
+                        border: none;
+                        border-radius: 10px;
+                        color: white;
+                        font-weight: 800;
+                        padding: 0.5rem;
+                        &:hover {
+                            background-color: white;
+                            color: $container-navy;
+                        }
+                        &.active {
+                            background-color: white;
+                            color: $navy;
+                        }
+                    }
+                }
+                .yield{
+                    margin-top: 1.5rem;
+                    h1 {
+                        color: $red;
+                        padding: 0.8rem;
+                        font-size: 3rem;
+                    }
+                }
+                .list {
+                    margin-top: 0.8rem;
+                    list-style-type: none;
+                    div {
+                        div {
+                            display: inline-block;
+                            color: black;
+                        }
+                    }
+                }
+                .top3-list {
+                    .list {
+                        text-align: left;
+                        font: normal normal bold 14px/20px Pretendard;
+                        letter-spacing: 0px;
+                        color: #FFFFFF;
+                        .item-1 {
+                            div {
+                                background: #FFFFFF 0% 0% no-repeat padding-box;
+                                border-radius: 11px;
+                                height: 3rem;
+                                width: 20rem;
+                            }
+                        }
+                        .item-2 {
+                            div {
+                                background: #AFCADE 0% 0% no-repeat padding-box;
+                                border-radius: 11px;
+                                height: 3rem;
+                                width: 20rem;
+                                margin-top: 0.5rem;
+                            }
+                        }
+                        .item-3 {
+                            div {
+                                background: #BFD1C6 0% 0% no-repeat padding-box;
+                                border-radius: 11px;
+                                height: 3rem;
+                                width: 20rem;
+                                margin-top: 0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .listtitle-container {
@@ -29,16 +117,19 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             align-content: flex-end;
-            color: grey;
-            padding: 0 30px 15px;
+            color: $sub-text;
+            padding: 0 5rem 15px;
         }
 
         .stocklist-container {
             @include content-container;
             display: flex;
             flex-direction: column;
-            padding: 25px 20px;
+            padding: 0 2rem;
         }
     }
 
+}
+.loading {
+    display: none;
 }
