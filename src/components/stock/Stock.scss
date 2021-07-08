@@ -70,14 +70,18 @@
         align-items: center;
 
         .chart-stat {
-            width: 30vw;
+            width: 50vw;
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
 
             .stat-item {
-                span {
-                    color: $red;
+                
+                .blue {
+                    color: $blue;
+                }
+                .red {
+                    color: $bright-red;
                 }
                 p {
                     color: $sub-text;
@@ -131,7 +135,7 @@
         }
     }
     p {
-        align-self: center;
+        align-self: left;
         padding: 1rem;
         white-space: pre-line;
     }
@@ -143,7 +147,7 @@
         @include sub-heading;
         background-color: $container-navy;
         color: white;
-        padding: 0.7rem 0.7rem;
+        padding: 0.7rem 1.5rem;
         margin-bottom: 1rem;
     }
     .invstat-title {

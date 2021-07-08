@@ -34,6 +34,7 @@ const Stock = ({ location }) => {
     const reportTitle = ['날짜', '제목', '애널리스트', '목표가 (₩)', '제공출처'];
     const newsTitle = ['날짜', '제목'];
     const titleList = listType === "analyst" ? reportTitle : newsTitle;
+    const statColor = stockData.changeRate>=0 ? 'red' : 'blue';
 
     return (
       <div className="stock-container">
@@ -62,21 +63,26 @@ const Stock = ({ location }) => {
           <div className="chart-section">
             <div className="chart-stat">
               <div className="stat-item">
-                <p>시: undecided</p>
+                <p>시: {numbWithCommas(stockData.openingPrice)}</p>
               </div>
               <div className="stat-item">
-                <p>고: undecided</p>
+                <p>고: {numbWithCommas(stockData.highPrice)}</p>
               </div>
               <div className="stat-item">
-                <p>저: undecided</p>
+                <p>저: {numbWithCommas(stockData.lowPrice)}</p>
               </div>
               <div className="stat-item">
-<<<<<<< HEAD
-                <p>변동(%): <span>{stockData.changeRate+"%"}</span>
-=======
-                <p>변동(%): <span>{(stockData.changeRate>=0 ? " +" : "")
-                    +stockData.changeRate+"%"}</span>
->>>>>>> b890c8ea7657bb8080bc704e4b70b96464eba5d0
+                <p>변동: 
+                  <span className={statColor}>
+                    {" " + numbWithCommas(stockData.changePrice)}
+                  </span>
+                </p>
+              </div>
+              <div className="stat-item">
+                <p>변동(%): 
+                  <span className={statColor}>
+                    {(stockData.changeRate>=0 ? " +" : " ")+stockData.changeRate+"%"}
+                  </span>
                 </p>
               </div>
             </div>
