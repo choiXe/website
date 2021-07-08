@@ -44,7 +44,7 @@
     grid-area: chart;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    text-align: center;
+    padding: 2.5rem;
 
     .numbers {
         p {
@@ -61,7 +61,6 @@
         .price-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding: 0 1rem;
         }
     }
 
@@ -121,11 +120,14 @@
     flex-direction: column;
     padding: 2rem;
     h4 {
+        display: flex;
+        align-items: center;
         font-size: 1.2rem;
         color: $container-navy;
         span {
             font-size: 0.8rem;
             color: $sub-text;
+            margin-left: 1rem;
         }
     }
     p {

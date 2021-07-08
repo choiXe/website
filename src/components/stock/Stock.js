@@ -16,8 +16,11 @@ const Stock = ({ location }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    data.getStockInfo(stockId, "2021-06-01")
-      .then(info => setStockData(info.data.getStockInfo));
+    const foo = async () => {
+      const info = await data.getStockInfo(stockId, "2021-06-01");
+      setStockData(info.getStockInfo);
+    }
+    foo();
   },[stockId]);
 
   const numbWithCommas = (num) => {
@@ -68,8 +71,7 @@ const Stock = ({ location }) => {
                 <p>저: undecided</p>
               </div>
               <div className="stat-item">
-                <p>변동(%): <span>{(stockData.changeRate>=0 ? " +" : " -")
-                    +stockData.changeRate+"%"}</span>
+                <p>변동(%): <span>{stockData.changeRate+"%"}</span>
                 </p>
               </div>
             </div>
@@ -98,7 +100,7 @@ const Stock = ({ location }) => {
           </div>
         </div>
         <div className="companyinfo-container">
-          <h4>기업정보 <span>{"WICS: " + stockData.sSector}</span></h4>
+          <h4>기업정보 <span>{"WICS: " + stockData.wicsSectorName}</span></h4>
           <p>{stockData.companySummary}</p>
         </div>
         <div className="invstat-container">

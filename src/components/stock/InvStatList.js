@@ -5,9 +5,9 @@ const InvStatInfo = ({ data }) => {
   const month = parseInt(data.date.split("-")[1]);
   const day = parseInt(data.date.split("-")[2]);
 
-  const invColor = data.inKR.individual.includes("+") ? 'blue' : 'red';
-  const invForeign = data.inKR.foreign.includes("+") ? 'blue' : 'red';
-  const invInst = data.inKR.institutions.includes("+") ? 'blue' : 'red';
+  const invColor = data.inKR.individual.includes("+") ? 'red' : 'blue';
+  const invForeign = data.inKR.foreign.includes("+") ? 'red' : 'blue';
+  const invInst = data.inKR.institutions.includes("+") ? 'red' : 'blue';
 
   return (
     <div className="invstat-item">
