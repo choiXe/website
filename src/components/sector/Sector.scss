@@ -75,6 +75,40 @@
                         }
                     }
                 }
+                .top3-list {
+                    .list {
+                        text-align: left;
+                        font: normal normal bold 14px/20px Pretendard;
+                        letter-spacing: 0px;
+                        color: #FFFFFF;
+                        .item-1 {
+                            div {
+                                background: #FFFFFF 0% 0% no-repeat padding-box;
+                                border-radius: 11px;
+                                height: 3rem;
+                                width: 20rem;
+                            }
+                        }
+                        .item-2 {
+                            div {
+                                background: #AFCADE 0% 0% no-repeat padding-box;
+                                border-radius: 11px;
+                                height: 3rem;
+                                width: 20rem;
+                                margin-top: 0.5rem;
+                            }
+                        }
+                        .item-3 {
+                            div {
+                                background: #BFD1C6 0% 0% no-repeat padding-box;
+                                border-radius: 11px;
+                                height: 3rem;
+                                width: 20rem;
+                                margin-top: 0.5rem;
+                            }
+                        }
+                    }
+                }
             }
         }
 

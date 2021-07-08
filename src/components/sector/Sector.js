@@ -65,10 +65,10 @@ const Sector = ({ location }) => {
               <div className="yield">
                 <h4>예상 기대 수익률</h4>
                 <h1>{sectorData.avgYield>=0 ? " +" : " -"}
-                  {sectorData.avgYield}</h1>
+                  {sectorData.avgYield}%</h1>
               </div>
               <div className="top3-list">
-                <h4>예상 수익률 상위 3개 소섹터</h4>
+                <h4>예상 수익률 Top 3 (소섹터)</h4>
                 <div className="list">
                   <div className="item-1">
                     1. <div>{sectorData.top3List.first}
