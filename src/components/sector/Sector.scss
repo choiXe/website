@@ -10,7 +10,7 @@
     .menu-container {
         @include content-container;
         //width: 12rem;
-        height: 38rem;
+        height: fit-content;
         padding: 2rem 1rem;
     }
 
@@ -22,7 +22,6 @@
             @include content-container;
             background-color: $navy;
             color: white;
-            flex-basis: 27rem;
             padding: 1.5rem;
             display: grid;
             grid-template-columns: 2.5fr 1fr;
@@ -82,29 +81,33 @@
                         letter-spacing: 0px;
                         color: #FFFFFF;
                         .item-1 {
+                            display: flex;
                             div {
                                 background: #FFFFFF 0% 0% no-repeat padding-box;
                                 border-radius: 11px;
+                                align-self: center;
                                 height: 3rem;
-                                width: 20rem;
+                                width: 100%;
                             }
                         }
                         .item-2 {
+                            display: flex;
+                            margin-top: 0.5rem;
                             div {
                                 background: #AFCADE 0% 0% no-repeat padding-box;
                                 border-radius: 11px;
                                 height: 3rem;
-                                width: 20rem;
-                                margin-top: 0.5rem;
+                                width: 100%;
                             }
                         }
                         .item-3 {
+                            display: flex;
+                            margin-top: 0.5rem;
                             div {
                                 background: #BFD1C6 0% 0% no-repeat padding-box;
                                 border-radius: 11px;
                                 height: 3rem;
-                                width: 20rem;
-                                margin-top: 0.5rem;
+                                width: 100%;
                             }
                         }
                     }

@@ -19,7 +19,7 @@ const SectorMenu = ({ selected }) => {
           key={sectorName}
           onClick={({ target }) => setCurSector(target.innerText)}
         >
-          {sectorName}
+          <div>{sectorName}</div>
           <i className={"fas "+sectorIcons[i]}></i>
         </Link>
       ))

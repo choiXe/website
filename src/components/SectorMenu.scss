@@ -3,12 +3,10 @@
 
 h3 {
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .sector-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     height: 100%;
     text-decoration: none;
 
@@ -18,6 +16,7 @@ h3 {
         white-space: pre-line;
         display: grid;
         grid-template-columns: 5fr 1fr;
+        height: 3.3rem;
 
         text-decoration: none;
         color: black;
@@ -26,6 +25,9 @@ h3 {
         }
         &.active {
             @include button-hover;
+        }
+        div {
+            align-self: center;
         }
         i {
             place-self: center;

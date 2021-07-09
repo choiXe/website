@@ -9,7 +9,7 @@
 
     .menu-container {
         @include content-container;
-        height: 38rem;
+        height: fit-content;
         padding: 2rem 1rem;
     }
 

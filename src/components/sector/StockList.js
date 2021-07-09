@@ -10,7 +10,7 @@ const StockInfo = ({ stock }) => {
 
   return (
     <Link to={{pathname: '/stock', state: stock.stockId}} className="stock-item">
-      <div>
+      <div className="name">
         {stock.stockName}
       </div>
       <div>
