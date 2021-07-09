@@ -131,14 +131,6 @@
             }
         }
 
-        .box-item {
-            color: black;
-            background: #BFD1C6 0% 0% no-repeat padding-box;
-            border-radius: 11px;
-            height: 3rem;
-            width: 100%;
-        }
-
         .listtitle-container {
             flex-basis: 4.8rem;
             display: grid;
@@ -152,7 +144,7 @@
             @include content-container;
             display: flex;
             flex-direction: column;
-            padding: 0 2rem;
+            padding-bottom: 1.5rem;
         }
     }
 }

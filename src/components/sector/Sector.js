@@ -8,22 +8,19 @@ import data from '../../services/data';
 
 import './Sector.scss';
 
-
 const Sector = ({ location }) => {
   const [sectorData, setSectorData] = useState(null);
   const [daysPassed, setDaysPassed] = useState(30);
   const curSector = location.state;
 
-  const nDayBeforeToday = n => {
-    const r = new Date();
-    r.setDate(r.getDate() - n);
-    const month = r.getMonth() < 10 ? "0"+r.getMonth() : r.getMonth();
-    const date = r.getDate() < 10 ? "0"+r.getDate() : r.getDate();
-    return r.getFullYear()+"-"+month+"-"+date;
+  const getPastDate = n => {
+    let date = new Date();
+    date.setDate(date.getDate() - n);
+    return date.toISOString().slice(0, 10);
   }
 
   useEffect(() => {
-    const startDate = nDayBeforeToday(daysPassed);
+    const startDate = getPastDate(daysPassed);
     data.getSectorInfo(curSector, startDate)
       .then(data => setSectorData(data.getSectorInfo));
   },[curSector, daysPassed])

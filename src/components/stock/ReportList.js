@@ -6,8 +6,8 @@ const ReportInfo = ({ data, stockName }) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
     
-  const reportName = data.reportName.length > 30 
-      ? data.reportName.slice(0, 30) + "..." 
+  const reportName = data.reportName.length > 21 
+      ? data.reportName.slice(0, 21) + "..." 
       : data.reportName;
   const baseURL = "http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=";
 
