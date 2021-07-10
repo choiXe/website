@@ -1,3 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /
+
+User-agent: Yeti
+User-agent: Daumoa
+User-agent: AdsBot-Google-Mobile
+User-agent: AdsBot-Google
+User-agent: Googlebot
+Allow: /
