@@ -26,18 +26,6 @@ const NavMenu = () => {
 
   return (
     <div className="nav-list">
-      <div className='search-bar'>
-        <ReactSearchAutocomplete
-          items={stockList}
-          fuseOptions={{ keys: ["id"] }}
-          resultStringKeyName="id"
-          inputDebounce={0}
-          onSelect={selectHandler}
-          placeholder="Search any stock here"
-          styling={searchBarStyle} // To display it on top of the search box below
-          autoFocus
-          />
-      </div>
       <div className='nav-item'>
         <Link 
           to='/' 
@@ -64,6 +52,18 @@ const NavMenu = () => {
           환경설정
           <i className="fas fa-cog"></i>
         </Link>
+      </div>
+      <div className='search-bar'>
+        <ReactSearchAutocomplete
+          items={stockList}
+          fuseOptions={{ keys: ["id"] }}
+          resultStringKeyName="id"
+          inputDebounce={0}
+          onSelect={selectHandler}
+          placeholder="종목 검색"
+          styling={searchBarStyle} // To display it on top of the search box below
+          autoFocus
+          />
       </div>
     </div>
   )
