@@ -8,7 +8,7 @@
     height: 100%;
 
     .nav-item {
-        margin-left: 1vw;
+        margin-left: 1rem;
         list-style-type: none;
 
         i {
@@ -25,6 +25,10 @@
                 @include button-hover;
             }
         }
+    }
+
+    .search-bar {
+        width: 15rem;
     }
 
 }

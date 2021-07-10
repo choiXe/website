@@ -30,7 +30,7 @@ const ReportInfo = ({ data, stockName }) => {
         {data.date}
       </div>
       <div>
-        <a href={baseURL + data.reportIdx} target="_blank">
+        <a href={baseURL + data.reportIdx} rel="noreferrer" target="_blank">
           {reportName==="" ? stockName : reportName}
         </a>
       </div>

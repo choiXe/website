@@ -8,7 +8,6 @@ import NewsList from './NewsList';
 
 import data from '../../services/data';
 import './Stock.scss';
-import { color } from 'highcharts';
 
 const Stock = ({ location }) => {
   const [listType, setListType] = useState("analyst");
