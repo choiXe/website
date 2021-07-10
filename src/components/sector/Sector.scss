@@ -10,7 +10,7 @@
     .menu-container {
         @include content-container;
         //width: 12rem;
-        height: 38rem;
+        height: fit-content;
         padding: 2rem 1rem;
     }
 
@@ -22,12 +22,13 @@
             @include content-container;
             background-color: $navy;
             color: white;
-            flex-basis: 27rem;
             padding: 1.5rem;
             display: grid;
             grid-template-columns: 2.5fr 1fr;
+            font-size: 17.5px;
+
             h4 {
-                font-weight: 800;
+                font-weight: bold;
                 padding-top: 0.5rem;
             }
             .chart {
@@ -62,7 +63,7 @@
                     h1 {
                         color: $red;
                         padding: 0.8rem;
-                        font-size: 3rem;
+                        font-size: 35px;
                     }
                 }
                 .list {
@@ -80,31 +81,43 @@
                         text-align: left;
                         font: normal normal bold 14px/20px Pretendard;
                         letter-spacing: 0px;
-                        color: #FFFFFF;
+
+                        .number {
+                            color: #FFFFFF;
+                            align-self: center;
+                            padding-right: 0.5rem;
+                        }
+
                         .item-1 {
-                            div {
+                            display: flex;
+                            .box-item {
+                                color: black;
                                 background: #FFFFFF 0% 0% no-repeat padding-box;
                                 border-radius: 11px;
                                 height: 3rem;
-                                width: 20rem;
+                                width: 100%;
                             }
                         }
                         .item-2 {
-                            div {
+                            display: flex;
+                            margin-top: 0.5rem;
+                            .box-item {
+                                color: black;
                                 background: #AFCADE 0% 0% no-repeat padding-box;
                                 border-radius: 11px;
                                 height: 3rem;
-                                width: 20rem;
-                                margin-top: 0.5rem;
+                                width: 100%;
                             }
                         }
                         .item-3 {
-                            div {
+                            display: flex;
+                            margin-top: 0.5rem;
+                            .box-item {
+                                color: black;
                                 background: #BFD1C6 0% 0% no-repeat padding-box;
                                 border-radius: 11px;
                                 height: 3rem;
-                                width: 20rem;
-                                margin-top: 0.5rem;
+                                width: 100%;
                             }
                         }
                     }
@@ -118,17 +131,17 @@
             grid-template-columns: repeat(7, 1fr);
             align-content: flex-end;
             color: $sub-text;
-            padding: 0 5rem 15px;
+            padding: 0 4rem 1.3rem;
+            font-size: 15px;
         }
 
         .stocklist-container {
             @include content-container;
             display: flex;
             flex-direction: column;
-            padding: 0 2rem;
+            padding-bottom: 1.5rem;
         }
     }
-
 }
 .loading {
     display: none;

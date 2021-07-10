@@ -19,20 +19,20 @@
     display: flex;
     align-items: center;
     & .id {
-        font-size: 1.3rem;
-        font-weight: 400;
+        font-size: 20px;
+        font-weight: normal;
         color: #707070;
-        text-justify: center;
         margin-left: 0.8rem;
     }
 }
 .return-button {
     grid-area: return;
     border: none;
-    font-size: 1.2rem;
+    font-size: 17px;
     text-align: right;
     color: #576875;
     text-decoration: none;
+    align-self: center;
 
     .symbol {
         color: #707070;
@@ -50,17 +50,26 @@
         p {
             color: $sub-text;
             margin-top: 3rem;
+            font-size: 17px;
         }
         h4 {
             color: $container-navy;
         }
         .yield {
-            color: $red;
-            font-size: 4rem;
+            font-size: 87px;
+            margin-top: 0.7rem;
         }
         .price-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
+
+            p {
+                font-size: 12px;
+            }
+            h4 {
+                margin-top: 0.5rem;
+                font-size: 20px;
+            }
         }
     }
 
@@ -76,7 +85,8 @@
             justify-content: space-evenly;
 
             .stat-item {
-                
+                font-size: 14px;
+
                 .blue {
                     color: $blue;
                 }
@@ -103,6 +113,7 @@
 
     h4 {
         padding-top: 0.5rem;
+        font-size: 18px;
     }
     .invinfo-items {
         display: flex;
@@ -111,9 +122,12 @@
         padding-bottom: 1rem;
         h5 {
             color: #858585;
+            font-weight: normal;
+            font-size: 12px;
         }
         p {
-            font-weight: 600;
+            font-weight: bold;
+            font-size: 18px;
         }
     }
 }
@@ -122,26 +136,34 @@
     grid-area: companyinfo;
     display: flex;
     flex-direction: column;
+    height: fit-content;
     padding: 2rem;
+
     h4 {
         display: flex;
         align-items: center;
-        font-size: 1.2rem;
+        font-size: 18px;
         color: $container-navy;
         span {
-            font-size: 0.8rem;
+            font-size: 12px;
+            font-weight: normal;
             color: $sub-text;
             margin-left: 1rem;
         }
     }
     p {
         align-self: left;
-        padding: 1rem;
+        font-size: 15px;
+        padding-top: 1rem;
+        padding-left: 2rem;
         white-space: pre-line;
+        letter-spacing: 0px;
+        line-height: 25px;
     }
 }
 .invstat-container {
     grid-area: invstat;
+
     .invstat-description {
         @include rounded-button;
         @include sub-heading;
@@ -149,6 +171,7 @@
         color: white;
         padding: 0.7rem 1.5rem;
         margin-bottom: 1rem;
+        font-size: 18px;
     }
     .invstat-title {
         display: grid;
@@ -156,6 +179,7 @@
         justify-items: center;
         color: $sub-text;
         margin-bottom: 0.5rem;
+        font-size: 15px;
     }
     .invstat-list {
         @include content-container;
@@ -182,6 +206,7 @@
             margin-right: 1rem;
             border: none;
             padding: 0.7rem 1.5rem;
+            font-size: 18px;
             &:hover {
                 @include button-hover;
             }
@@ -198,12 +223,14 @@
                 display: grid;
                 grid-template-columns: 1fr 2fr repeat(3, 1fr);
                 column-gap: 1.2rem;
+                font-size: 15px;
             }
 
             &.news {
                 display: grid;
-                grid-template-columns: 1fr 3fr;
+                grid-template-columns: 1fr 5fr;
                 column-gap: 1.2rem;
+                font-size: 15px;
             }
         }
         .content {

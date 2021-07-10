@@ -12,7 +12,7 @@ const NewsInfo = ({ data }) => {
         {data.date}
       </div>
       <div>
-        <a href={data.link}>{newsName}</a>
+        <a href={data.link} rel="noreferrer" target="_blank">{newsName}</a>
       </div>
     </div>
   )
@@ -22,7 +22,7 @@ const NewsList = ({ dataSet }) => {
   return (
     <>
       {dataSet.map(data => (
-        <NewsInfo key={data.date} data={data} />
+        <NewsInfo key={data.link} data={data} />
       ))}
     </>
   )

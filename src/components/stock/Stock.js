@@ -12,15 +12,20 @@ import './Stock.scss';
 const Stock = ({ location }) => {
   const [listType, setListType] = useState("analyst");
   const [stockData, setStockData] = useState(null);
+  const daysPassed = 30;
   const stockId = location.state
+
+  const getPastDate = n => {
+    let date = new Date();
+    date.setDate(date.getDate() - n);
+    return date.toISOString().slice(0, 10);
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const foo = async () => {
-      const info = await data.getStockInfo(stockId, "2021-06-01");
-      setStockData(info.getStockInfo);
-    }
-    foo();
+    const startDate = getPastDate(daysPassed);
+    data.getStockInfo(stockId, startDate)
+      .then(data => setStockData(data.getStockInfo));
   },[stockId]);
 
   const numbWithCommas = (num) => {
@@ -48,7 +53,9 @@ const Stock = ({ location }) => {
         <div className="stock-chart-container">
           <div className="numbers">
             <p>기대 수익률 (3개월) </p>
-            <h1 className='yield'>{stockData.expYield+"%"}</h1>
+            <h1 className='yield' style={{color: stockData.expYield>0 ? "red" : "blue"}}>
+              {Math.round(stockData.expYield)+"%"}
+            </h1>
             <div className="price-container">
               <div>
                 <p>현재가</p>

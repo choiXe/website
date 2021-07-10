@@ -8,27 +8,37 @@ const StockInfo = ({ stock }) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  const calColor = n => {
+    var x;
+    if (n > 0) {
+      x = {color: "red"};
+    } else if (n < 0) {
+      x = {color: "blue"}
+    }
+    return x;
+  }
+
   return (
     <Link to={{pathname: '/stock', state: stock.stockId}} className="stock-item">
-      <div>
+      <div className="name">
         {stock.stockName}
       </div>
       <div>
         {numbWithCommas(stock.tradePrice)}
-      </div>
-      <div>
-        {stock.changeRate}%
+      </div >
+      <div style={calColor(stock.changeRate)}>
+        {stock.changeRate > 0 ? "+" + stock.changeRate : stock.changeRate}%
       </div>
       <div>
         {numbWithCommas(stock.priceAvg)}
       </div>
-      <div>
-        {stock.expYield}%
+      <div style={calColor(stock.expYield)}>
+        {stock.expYield > 0 ? "+" + stock.expYield : stock.expYield}%
       </div>
       <div>
         graph
       </div>
-      <div style={stock.score>=30 ? {color: "green"} : {color: "red"}}>
+      <div style={stock.score>=50 ? {color: "green"} : {color: "red"}}>
         {stock.score}
       </div>
     </Link>

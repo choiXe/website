@@ -8,30 +8,26 @@ import data from '../../services/data';
 
 import './Sector.scss';
 
-
 const Sector = ({ location }) => {
   const [sectorData, setSectorData] = useState(null);
-  const [daysPassed, setDaysPassed] = useState(60);
+  const [daysPassed, setDaysPassed] = useState(30);
   const curSector = location.state;
 
-  const nDayBeforeToday = n => {
-    const r = new Date();
-    r.setDate(r.getDate() - n);
-    const month = r.getMonth() < 10 ? "0"+r.getMonth() : r.getMonth();
-    const date = r.getDate() < 10 ? "0"+r.getDate() : r.getDate();
-    return r.getFullYear()+"-"+month+"-"+date;
+  const getPastDate = n => {
+    let date = new Date();
+    date.setDate(date.getDate() - n);
+    return date.toISOString().slice(0, 10);
   }
 
   useEffect(() => {
-    const startDate = nDayBeforeToday(daysPassed);
+    const startDate = getPastDate(daysPassed);
     data.getSectorInfo(curSector, startDate)
       .then(data => setSectorData(data.getSectorInfo));
   },[curSector, daysPassed])
 
-
   const listTitle = ["종목이름", "가격(₩)", "변동률", "컨센서스 평균가",
     "상승여력", "그래프", "투자 점수"];
-  const dateButtons = [5, 15, 60, 120, 180];
+  const dateButtons = [5, 15, 30, 60, 90];
 
   if (!sectorData) {
     return <div> Loading </div>
@@ -57,8 +53,7 @@ const Sector = ({ location }) => {
                     className={days===daysPassed ? "active" : ""}
                     onClick={({target}) => setDaysPassed(Number(target.value))}
                   >
-                    {days<60 ? days+"일"
-                    : days/60 + "개월"}
+                    {days<30 ? days+"일" : days/30 + "개월"}
                   </button>
                 ))}
               </div>
@@ -71,17 +66,22 @@ const Sector = ({ location }) => {
                 <h4>예상 수익률 Top 3 (소섹터)</h4>
                 <div className="list">
                   <div className="item-1">
-                    1. <div>{sectorData.top3List.first}
+                    <div className="number">1. </div>
+                    <div className="box-item">
+                      {sectorData.top3List.first}
                       {" "}{sectorData.top3List.firstYield}%
                     </div>
                   </div>
                   <div className="item-2">
-                    2. <div>{sectorData.top3List.second}
+                    <div className="number">2. </div>
+                    <div className="box-item">
+                      {sectorData.top3List.second}
                       {" "}{sectorData.top3List.secondYield}%
                     </div>
                   </div>
                   <div className="item-3">
-                    3. <div>{sectorData.top3List.third}
+                    <div className="number">3. </div>
+                    <div className="box-item">{sectorData.top3List.third}
                       {" "}{sectorData.top3List.thirdYield}%
                     </div>
                   </div>
