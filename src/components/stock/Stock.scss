@@ -228,8 +228,9 @@
 
             &.news {
                 display: grid;
-                grid-template-columns: 1fr 5.5fr;
+                grid-template-columns: 1fr 5fr;
                 column-gap: 1.2rem;
+                font-size: 15px;
             }
         }
         .content {

@@ -66,21 +66,21 @@ const Sector = ({ location }) => {
                 <h4>예상 수익률 Top 3 (소섹터)</h4>
                 <div className="list">
                   <div className="item-1">
-                    <div>1. </div>
+                    <div className="number">1. </div>
                     <div className="box-item">
                       {sectorData.top3List.first}
                       {" "}{sectorData.top3List.firstYield}%
                     </div>
                   </div>
                   <div className="item-2">
-                    <div>2. </div>
+                    <div className="number">2. </div>
                     <div className="box-item">
                       {sectorData.top3List.second}
                       {" "}{sectorData.top3List.secondYield}%
                     </div>
                   </div>
                   <div className="item-3">
-                    <div>3. </div>
+                    <div className="number">3. </div>
                     <div className="box-item">{sectorData.top3List.third}
                       {" "}{sectorData.top3List.thirdYield}%
                     </div>

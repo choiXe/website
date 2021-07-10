@@ -55,7 +55,7 @@ const Stock = ({ location }) => {
           <div className="numbers">
             <p>기대 수익률 (3개월) </p>
             <h1 className='yield' style={{color: stockData.expYield>0 ? "red" : "blue"}}>
-              {stockData.expYield+"%"}
+              {Math.round(stockData.expYield)+"%"}
             </h1>
             <div className="price-container">
               <div>
