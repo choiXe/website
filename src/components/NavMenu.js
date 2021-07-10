@@ -64,7 +64,7 @@ const NavMenu = () => {
           styling={searchBarStyle} // To display it on top of the search box below
           autoFocus
           />
-      </div>
+      </div> 
     </div>
   )
 };
