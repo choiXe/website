@@ -2,34 +2,10 @@ import React, {useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
+import stockList from './stocksData';
 import './NavMenu.scss';
 
 const NavMenu = () => {
-  const [searchKeyword, setSearchKeyword] = useState("");
-
-  const items = [
-    {
-      id: 0,
-      name: 'Cobol'
-    },
-    {
-      id: 1,
-      name: 'JavaScript'
-    },
-    {
-      id: 2,
-      name: 'Basic'
-    },
-    {
-      id: 3,
-      name: 'PHP'
-    },
-    {
-      id: 4,
-      name: 'Java'
-    }
-  ];
-
   let history = useHistory();
 
   const searchBarStyle = {
@@ -37,18 +13,14 @@ const NavMenu = () => {
     backgroundColor: "white", 
     lineColor: "#2A2F47",
     iconColor: "#2A2F47",
-    fontFamily: "Pretendard"
+    fontFamily: "Pretendard",
+    zIndex: 2
   }
 
-  const searchHandler = () => {
-    console.log("searching ");
-  }
-
-  const selectHandler = (stockId) => {
-    setSearchKeyword("");
+  const selectHandler = (item) => {
     history.push({
       pathname: '/stock',
-      state: '035720' //stockId
+      state: item.name
     })
   }
 
@@ -56,9 +28,10 @@ const NavMenu = () => {
     <div className="nav-list">
       <div className='search-bar'>
         <ReactSearchAutocomplete
-          items={items}
+          items={stockList}
+          fuseOptions={{ keys: ["id"] }}
+          resultStringKeyName="id"
           inputDebounce={0}
-          onSearch={searchHandler}
           onSelect={selectHandler}
           placeholder="Search any stock here"
           styling={searchBarStyle} // To display it on top of the search box below

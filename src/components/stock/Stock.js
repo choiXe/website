@@ -26,7 +26,7 @@ const Stock = ({ location }) => {
     const startDate = getPastDate(daysPassed);
     data.getStockInfo(stockId, startDate)
       .then(data => setStockData(data.getStockInfo));
-  },[stockId, daysPassed]);
+  },[stockId]);
 
   const numbWithCommas = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
