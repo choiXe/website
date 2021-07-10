@@ -5,10 +5,10 @@ const ReportInfo = ({ data, stockName }) => {
   const numbWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-    
+
   const reportName = data.reportName.length > 21 
-      ? data.reportName.slice(0, 21) + "..." 
-      : data.reportName;
+  ? data.reportName.slice(0, 21) + "..." 
+  : data.reportName;
   const baseURL = "http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=";
 
   const analystList = data.analyst.split(",");
@@ -30,7 +30,9 @@ const ReportInfo = ({ data, stockName }) => {
         {data.date}
       </div>
       <div>
-        <a href={baseURL + data.reportIdx}>{reportName==="" ? stockName : reportName}</a>
+        <a href={baseURL + data.reportIdx} target="_blank">
+          {reportName==="" ? stockName : reportName}
+        </a>
       </div>
       <div>
         {analyst}
@@ -51,7 +53,7 @@ const ReportList = ({ dataSet, stockName }) => {
       {dataSet.map(data => (
         <ReportInfo key={data.reportIdx} data={data} stockName={stockName} />
       ))}
-    </>
+      </>
   )
 }
 

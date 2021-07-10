@@ -12,7 +12,7 @@ const NewsInfo = ({ data }) => {
         {data.date}
       </div>
       <div>
-        <a href={data.link}>{newsName}</a>
+        <a href={data.link} target="_blank">{newsName}</a>
       </div>
     </div>
   )
