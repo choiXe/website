@@ -19,7 +19,7 @@
             @include rounded-button;
             text-decoration: none;
             color: $navy;
-            font-size: 1.2rem;
+            font-size: 18px;
 
             &:hover {
                 @include button-hover;

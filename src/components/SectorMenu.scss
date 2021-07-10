@@ -4,6 +4,7 @@
 h3 {
     text-align: center;
     margin-bottom: 15px;
+    font-size: 17.5px;
 }
 
 .sector-list {
@@ -17,9 +18,10 @@ h3 {
         display: grid;
         grid-template-columns: 5fr 1fr;
         height: 3.3rem;
-
+        font-size: 17px;
         text-decoration: none;
         color: black;
+
         &:hover {
             @include button-hover;
         }
