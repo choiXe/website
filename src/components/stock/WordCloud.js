@@ -54,7 +54,6 @@ const WordCloud = ({ newsTitles }) => {
     series: [{
       rotation: {
         from: 0,
-        //to: 60,
         orientations: 1
       },
       type: "wordcloud",

@@ -4,7 +4,7 @@
 .stock-container {
     display: grid;
     grid-template-columns: 1fr 2fr 0.5fr;
-    grid-template-rows: 2.5rem 30rem 10rem 15rem 30rem;
+    grid-template-rows: 2.5rem 30rem 1fr 15rem 30rem;
     grid-template-areas: 
         "name . return"
         "chart chart invinfo"
@@ -137,7 +137,6 @@
     grid-area: companyinfo;
     display: flex;
     flex-direction: column;
-    height: fit-content;
     padding: 2rem;
 
     h4 {
