@@ -23,10 +23,11 @@ h3 {
         color: black;
 
         &:hover {
-            @include button-hover;
+            background-color: $background-color;
         }
         &.active {
             @include button-hover;
+            font-weight: bold;
         }
         div {
             align-self: center;

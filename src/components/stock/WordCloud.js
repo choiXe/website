@@ -33,15 +33,14 @@ const WordCloud = ({ newsTitles }) => {
 
   const selectedData = [];
   for (const item of allData) {
-    if (item.weight > 3) {
+    if (item.weight > 5) {
       selectedData.push(item);
     }
   }
 
   const options = {
     chart: {
-      //height: (9 / 16 * 100) + '%'
-      height: '50%',
+      height: '57%',
       borderRadius: 14,
       shadow: {
         color: '#BFD1C6',
@@ -49,7 +48,8 @@ const WordCloud = ({ newsTitles }) => {
         offsetY: 2,
         opacity: 2,
         width: 2
-      }
+      },
+      margin: '40'
     },
     series: [{
       rotation: {
@@ -58,7 +58,10 @@ const WordCloud = ({ newsTitles }) => {
       },
       type: "wordcloud",
       data: selectedData,
-    }]
+    }],
+    title: {
+      text: ""
+    }
   };
 
   return (
