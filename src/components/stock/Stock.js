@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 
 import StockChart from './StockChart';
 import InvStatList from './InvStatList';
@@ -34,7 +35,17 @@ const Stock = ({ location }) => {
   };
 
   if (!stockData) {
-    return <h1 style={{textAlign:"center"}}>Loading...</h1>;
+    return (
+      <div className='loading'>
+        <Loader
+          type='MutatingDots'
+          color='#BBD2C5'
+          secondaryColor='#536976'
+          height={100}
+          width={100}
+        />
+      </div>
+    );
   } else {
     const invStatTitle = ['날짜', '개인', '외국인', '기관'];
     const reportTitle = ['날짜', '제목', '애널리스트', '목표가 (₩)', '제공출처'];
