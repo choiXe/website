@@ -1,7 +1,7 @@
 import React from 'react';
 import Highcharts from 'highcharts/highstock';
 import HighchartsReact from 'highcharts-react-official';
-import chartOption from '../chartOption';
+import {StockChartOption} from '../chartOption';
 
 const StockChart = ({ data }) => {
   var ohlc = [],
@@ -18,7 +18,7 @@ const StockChart = ({ data }) => {
     volume.push([Date.parse(tempDate), data[i].volume]);
   };
 
-  const options = chartOption(ohlc, volume, groupingUnits);
+  const options = StockChartOption(ohlc, volume, groupingUnits);
 
   return (
     <HighchartsReact
