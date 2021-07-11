@@ -68,21 +68,28 @@ const Sector = ({ location }) => {
                   <div className="item-1">
                     <div className="number">1. </div>
                     <div className="box-item">
-                      {sectorData.top3List.first}
-                      {" "}{sectorData.top3List.firstYield}%
+                      <div className="sector">
+                        <div>{sectorData.top3List.first}</div>
+                        <div>{sectorData.top3List.firstYield}%</div>
+                      </div>
                     </div>
                   </div>
                   <div className="item-2">
                     <div className="number">2. </div>
                     <div className="box-item">
-                      {sectorData.top3List.second}
-                      {" "}{sectorData.top3List.secondYield}%
+                      <div className="sector">
+                        <div>{sectorData.top3List.second}</div>
+                        <div>{sectorData.top3List.secondYield}%</div>
+                      </div>
                     </div>
                   </div>
                   <div className="item-3">
                     <div className="number">3. </div>
-                    <div className="box-item">{sectorData.top3List.third}
-                      {" "}{sectorData.top3List.thirdYield}%
+                    <div className="box-item">
+                      <div className="sector">
+                        <div>{sectorData.top3List.third}</div>
+                        <div>{sectorData.top3List.thirdYield}%</div>
+                      </div>
                     </div>
                   </div>
                 </div>

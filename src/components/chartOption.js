@@ -1,6 +1,28 @@
 export default function ChartOption(ohlc, volume, groupingUnits) {
     return {
-      rangeSelector: { selected: 1 },
+      rangeSelector: {
+        selected: 1,
+        inputEnabled: false,
+        buttonTheme: {
+          fill: 'none',
+          stroke: 'none',
+          r: 10,
+          style: {
+            color: '#2A2F47',
+            fontWeight: 'bold'
+          },
+          states: {
+            hover: {
+            },
+            select: {
+                fill: '#2A2F47',
+                style: {
+                    color: 'white'
+                }
+            }
+          }
+        }
+      },
       xAxis: {
         labels: {
           format: '{value:%m/%d}'
@@ -43,6 +65,9 @@ export default function ChartOption(ohlc, volume, groupingUnits) {
         enabled: false
       },
       navigator: {
+        enabled: false
+      },
+      scrollbar: {
         enabled: false
       },
       colors: ["#246DED", "#434348", "#90ed7d", "#f7a35c", "#8085e9",

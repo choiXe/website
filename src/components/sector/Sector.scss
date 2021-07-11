@@ -1,148 +1,139 @@
 @import '/src/styles/color';
 @import 'src/styles/_mixin.scss';
-
 .sector-container {
-    display: grid;
-    grid-template-columns: 1fr 5.5fr;
-    padding: 0 4vw;
-    column-gap: 2rem;
-
-    .menu-container {
-        @include content-container;
-        //width: 12rem;
-        height: fit-content;
-        padding: 2rem 1rem;
-    }
-
-    .info-container {
-        display: flex;
-        flex-direction: column;
-
-        .sector-chart-container {
-            @include content-container;
-            background-color: $navy;
-            color: white;
-            padding: 1.5rem;
-            display: grid;
-            grid-template-columns: 2.5fr 1fr;
-            font-size: 17.5px;
-
-            h4 {
-                font-weight: bold;
-                padding-top: 0.5rem;
-            }
-            .chart {
-                text-align: center;
-                margin: auto;
-            }
-            .numbers {
-
-                .date-buttons {
-                    display: flex;
-                    justify-content: space-between;
-                    button {
-                        width: 3rem;
-                        background-color: $navy;
-                        border: none;
-                        border-radius: 10px;
-                        color: white;
-                        font-weight: 800;
-                        padding: 0.5rem;
-                        &:hover {
-                            background-color: white;
-                            color: $container-navy;
-                        }
-                        &.active {
-                            background-color: white;
-                            color: $navy;
-                        }
-                    }
-                }
-                .yield{
-                    margin-top: 1.5rem;
-                    h1 {
-                        color: $red;
-                        padding: 0.8rem;
-                        font-size: 35px;
-                    }
-                }
-                .list {
-                    margin-top: 0.8rem;
-                    list-style-type: none;
-                    div {
-                        div {
-                            display: inline-block;
+	display: grid;
+	grid-template-columns: 1fr 5.5fr;
+	padding: 0 4vw;
+	column-gap: 2rem;
+	.menu-container {
+		@include content-container;
+		//width: 12rem;
+		height: fit-content;
+		padding: 2rem 1rem;
+	}
+	.info-container {
+		display: flex;
+		flex-direction: column;
+		.sector-chart-container {
+			@include content-container;
+			background-color: $navy;
+			color: white;
+			padding: 1.5rem;
+			display: grid;
+			grid-template-columns: 2.5fr 1fr;
+			font-size: 17.5px;
+			h4 {
+				font-weight: bold;
+				padding-top: 0.5rem;
+			}
+			.chart {
+				text-align: center;
+				margin: auto;
+			}
+			.numbers {
+				.date-buttons {
+					display: flex;
+					justify-content: space-between;
+					button {
+						width: 3rem;
+						background-color: $navy;
+						border: none;
+						border-radius: 10px;
+						color: white;
+						font-weight: 800;
+						padding: 0.5rem;
+						&:hover {
+							background-color: white;
+							color: $container-navy;
+						}
+						&.active {
+							background-color: white;
+							color: $navy;
+						}
+					}
+				}
+				.yield{
+					margin-top: 1.5rem;
+					h1 {
+						color: $red;
+						padding: 0.8rem;
+						font-size: 35px;
+					}
+				}
+				.list {
+					margin-top: 0.8rem;
+					list-style-type: none;
+					div {
+						div {
+							display: inline-block;
+							color: black;
+						}
+					}
+				}
+				.top3-list {
+					.list {
+						text-align: left;
+						font: normal normal bold 14px/20px Pretendard;
+						letter-spacing: 0px;
+						.number {
+							color: #FFFFFF;
+							align-self: center;
+							padding-right: 0.5rem;
+						}
+						.sector {
+							transform: translateY(70%);
+							width: 100%;
+							div {
+								padding-left: 1rem;
+							}
+						}
+                        .box-item {
                             color: black;
+                            border-radius: 11px;
+                            height: 3rem;
+                            width: 100%;
                         }
-                    }
-                }
-                .top3-list {
-                    .list {
-                        text-align: left;
-                        font: normal normal bold 14px/20px Pretendard;
-                        letter-spacing: 0px;
-
-                        .number {
-                            color: #FFFFFF;
-                            align-self: center;
-                            padding-right: 0.5rem;
-                        }
-
-                        .item-1 {
-                            display: flex;
-                            .box-item {
-                                color: black;
-                                background: #FFFFFF 0% 0% no-repeat padding-box;
-                                border-radius: 11px;
-                                height: 3rem;
-                                width: 100%;
-                            }
-                        }
-                        .item-2 {
-                            display: flex;
-                            margin-top: 0.5rem;
-                            .box-item {
-                                color: black;
-                                background: #AFCADE 0% 0% no-repeat padding-box;
-                                border-radius: 11px;
-                                height: 3rem;
-                                width: 100%;
-                            }
-                        }
-                        .item-3 {
-                            display: flex;
-                            margin-top: 0.5rem;
-                            .box-item {
-                                color: black;
-                                background: #BFD1C6 0% 0% no-repeat padding-box;
-                                border-radius: 11px;
-                                height: 3rem;
-                                width: 100%;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        .listtitle-container {
-            flex-basis: 4.8rem;
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            align-content: flex-end;
-            color: $sub-text;
-            padding: 0 4rem 1.3rem;
-            font-size: 15px;
-        }
-
-        .stocklist-container {
-            @include content-container;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 1.5rem;
-        }
-    }
+						.item-1 {
+							display: flex;
+							.box-item {
+								background: #FFFFFF;
+							}
+						}
+						.item-2 {
+							display: flex;
+							margin-top: 0.5rem;
+							.box-item {
+								background: #AFCADE;
+							}
+						}
+						.item-3 {
+							display: flex;
+							margin-top: 0.5rem;
+							.box-item {
+								background: #BFD1C6;
+							}
+						}
+					}
+				}
+			}
+		}
+		.listtitle-container {
+			flex-basis: 4.8rem;
+			display: grid;
+			grid-template-columns: repeat(7, 1fr);
+			align-content: flex-end;
+			color: $sub-text;
+			padding: 0 4rem 1.3rem;
+			font-size: 15px;
+		}
+		.stocklist-container {
+			@include content-container;
+			display: flex;
+			flex-direction: column;
+			padding-bottom: 1.5rem;
+		}
+	}
 }
 .loading {
-    display: none;
+	display: none;
 }
