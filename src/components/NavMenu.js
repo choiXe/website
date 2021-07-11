@@ -9,6 +9,7 @@ const NavMenu = () => {
   let history = useHistory();
 
   const searchBarStyle = {
+    border: "solid #2A2F47",
     borderRadius: "11px",
     backgroundColor: "white", 
     lineColor: "#2A2F47",
