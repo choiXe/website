@@ -1,6 +1,6 @@
 import React from 'react';
-import Highcharts from "highcharts/highstock";
-import HighchartsReact from "highcharts-react-official";
+import Highcharts from 'highcharts/highstock';
+import HighchartsReact from 'highcharts-react-official';
 import chartOption from '../chartOption';
 
 const StockChart = ({ data }) => {
@@ -23,7 +23,7 @@ const StockChart = ({ data }) => {
   return (
     <HighchartsReact
       highcharts={Highcharts}
-      constructorType={"stockChart"}
+      constructorType={'stockChart'}
       options={options}
     />
   );
