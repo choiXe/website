@@ -3,12 +3,13 @@
 
 .stock-container {
     display: grid;
-    grid-template-columns: 1fr 2fr 0.5fr;
-    grid-template-rows: 2.5rem 30rem 10rem 30rem;
+    grid-template-columns: 26.3rem 4fr 1fr;
+    grid-template-rows: 2.5rem 30rem 1fr 15rem 30rem;
     grid-template-areas: 
         "name . return"
         "chart chart invinfo"
         "companyinfo companyinfo companyinfo"
+        "wordcloud listtable listtable"
         "invstat listtable listtable";
     gap: 2rem 2rem;
     padding: 0 4vw;
@@ -136,7 +137,6 @@
     grid-area: companyinfo;
     display: flex;
     flex-direction: column;
-    height: fit-content;
     padding: 2rem;
 
     h4 {
@@ -188,6 +188,9 @@
         flex-direction: column;
         justify-content: space-between;
     }
+}
+.wordcloud-container {
+    grid-area: wordcloud;
 }
 
 .list-table-container {

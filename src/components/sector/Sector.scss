@@ -1,23 +1,18 @@
 @import '/src/styles/color';
 @import 'src/styles/_mixin.scss';
-
 .sector-container {
     display: grid;
     grid-template-columns: 1fr 5.5fr;
     padding: 0 4vw;
     column-gap: 2rem;
-
     .menu-container {
         @include content-container;
-        //width: 12rem;
         height: fit-content;
         padding: 2rem 1rem;
     }
-
     .info-container {
         display: flex;
         flex-direction: column;
-
         .sector-chart-container {
             @include content-container;
             background-color: $navy;
@@ -26,7 +21,6 @@
             display: grid;
             grid-template-columns: 2.5fr 1fr;
             font-size: 17.5px;
-
             h4 {
                 font-weight: bold;
                 padding-top: 0.5rem;
@@ -36,7 +30,6 @@
                 margin: auto;
             }
             .numbers {
-
                 .date-buttons {
                     display: flex;
                     justify-content: space-between;
@@ -60,81 +53,112 @@
                 }
                 .yield{
                     margin-top: 1.5rem;
+                    text-align: center;
                     h1 {
                         color: $red;
-                        padding: 0.8rem;
-                        font-size: 35px;
-                    }
-                }
-                .list {
-                    margin-top: 0.8rem;
-                    list-style-type: none;
-                    div {
-                        div {
-                            display: inline-block;
-                            color: black;
-                        }
+                        margin-top: 0.5rem;
+                        font-size: 60px;
                     }
                 }
                 .top3-list {
+                    margin-top: 1.7rem;
+                    h4 {
+                        text-align: center;
+                    }
                     .list {
+                        margin-top: 1.5rem;
                         text-align: left;
                         font: normal normal bold 14px/20px Pretendard;
                         letter-spacing: 0px;
-
                         .number {
                             color: #FFFFFF;
                             align-self: center;
                             padding-right: 0.5rem;
                         }
-
+                        .box-item {
+                            color: black;
+                            border-radius: 11px;
+                            height: 3rem;
+                            width: 100%;
+                        }
                         .item-1 {
-                            display: flex;
+                            display: grid;
+                            grid-template-columns: 1fr 20fr;
                             .box-item {
-                                color: black;
-                                background: #FFFFFF 0% 0% no-repeat padding-box;
-                                border-radius: 11px;
-                                height: 3rem;
+                                margin-left: 0.5rem;
+                                background: #FFFFFF;
                                 width: 100%;
+                                display: grid;
+                                grid-template-columns: 5fr 1fr;
+                                align-items: center;
+
+                                div:nth-child(1) {
+                                    justify-self: left;
+                                    padding-left: 1rem;
+                                }
+                                div:nth-child(2) {
+                                    justify-self: right;
+                                    padding-right: 1rem;
+                                }
                             }
                         }
                         .item-2 {
-                            display: flex;
+                            display: grid;
+                            grid-template-columns: 1fr 20fr;
                             margin-top: 0.5rem;
                             .box-item {
-                                color: black;
-                                background: #AFCADE 0% 0% no-repeat padding-box;
-                                border-radius: 11px;
-                                height: 3rem;
+                                margin-left: 0.5rem;
+                                background: #AFCADE;
                                 width: 100%;
+                                display: grid;
+                                grid-template-columns: 5fr 1fr;
+                                align-items: center;
+
+                                div:nth-child(1) {
+                                    justify-self: left;
+                                    padding-left: 1rem;
+                                }
+                                div:nth-child(2) {
+                                    justify-self: right;
+                                    padding-right: 1rem;
+                                }
                             }
                         }
                         .item-3 {
-                            display: flex;
+                            display: grid;
+                            grid-template-columns: 1fr 20fr;
                             margin-top: 0.5rem;
                             .box-item {
-                                color: black;
-                                background: #BFD1C6 0% 0% no-repeat padding-box;
-                                border-radius: 11px;
-                                height: 3rem;
+                                margin-left: 0.5rem;
+                                background: #BFD1C6;
                                 width: 100%;
+                                display: grid;
+                                grid-template-columns: 5fr 1fr;
+                                align-items: center;
+
+                                div:nth-child(1) {
+                                    justify-self: left;
+                                    padding-left: 1rem;
+                                }
+                                div:nth-child(2) {
+                                    justify-self: right;
+                                    padding-right: 1rem;
+                                }
                             }
                         }
                     }
                 }
             }
         }
-
         .listtitle-container {
             flex-basis: 4.8rem;
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            align-content: flex-end;
             color: $sub-text;
-            padding: 0 4rem 1.3rem;
+            padding: 2.5rem 4rem 1.3rem;
             font-size: 15px;
+            //border: solid blue;
         }
-
         .stocklist-container {
             @include content-container;
             display: flex;

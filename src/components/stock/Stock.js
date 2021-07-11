@@ -5,6 +5,7 @@ import StockChart from './StockChart';
 import InvStatList from './InvStatList';
 import ReportList from './ReportList';
 import NewsList from './NewsList';
+import WordCloud from './WordCloud';
 
 import data from '../../services/data';
 import './Stock.scss';
@@ -129,6 +130,9 @@ const Stock = ({ location }) => {
           <div className="invstat-list">
             <InvStatList dataSet={stockData.invStatistics} />
           </div>
+        </div>
+        <div className="wordcloud-container">
+          <WordCloud newsTitles={stockData.newsTitles}/>
         </div>
         <div className="list-table-container">
           <div className="list-button">
