@@ -19,8 +19,14 @@
     background-color: $background-color;
   }
 
+  .news-title {
+    font-weight: 600;
+  }
+
   .news-description {
     font-size: 14px;
-    padding-top: 0.4rem;
+    padding-top: 0.8rem;
+    max-width: 700px;
+    color: '#666';
   }
 }

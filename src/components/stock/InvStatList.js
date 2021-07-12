@@ -4,11 +4,16 @@ import './InvStatList.scss';
 const InvStatInfo = ({ data }) => {
   const month = parseInt(data.date.split("-")[1]);
   const day = parseInt(data.date.split("-")[2]);
+  let invColor, invForeign, invInst;
 
-  const invColor = data.inKR.individual.includes("+") ? 'red' : 'blue';
-  const invForeign = data.inKR.foreign.includes("+") ? 'red' : 'blue';
-  const invInst = data.inKR.institutions.includes("+") ? 'red' : 'blue';
-
+  try {
+    invColor = data.inKR.individual.includes("+") ? 'red' : 'blue';
+    invForeign = data.inKR.foreign.includes("+") ? 'red' : 'blue';
+    invInst = data.inKR.institutions.includes("+") ? 'red' : 'blue';
+  } catch (e) {
+    [invColor, invForeign, invInst] = 'red';
+  }
+  
   return (
     <div className="invstat-item">
       <div>
