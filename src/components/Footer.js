@@ -9,10 +9,12 @@ const Footer = () => {
   return (
     <div style={{marginTop: '2%'}}>
       <div style={{
-        backgroundColor: '#D3D3D3',
+        borderTop: 'solid #D3D3D3',
         textAlign: 'center',
         paddingTop: '1%',
-        paddingBottom: '1%'}}>
+        paddingBottom: '1%',
+        marginTop: '10rem'
+        }}>
       <div>{line1}</div>
       <div>{line2}</div>
       <div>{line3}</div>
