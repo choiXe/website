@@ -1,172 +1,174 @@
-@import '/src/styles/color';
-@import 'src/styles/_mixin.scss';
+@import "/src/styles/color";
+@import "src/styles/_mixin.scss";
+
 .sector-container {
-    display: grid;
-    grid-template-columns: 1fr 5.5fr;
-    padding: 0 4vw;
-    column-gap: 2rem;
-    .menu-container {
-        @include content-container;
-        height: fit-content;
-        padding: 2rem 1rem;
-    }
-    .info-container {
-        display: flex;
-        flex-direction: column;
-        .sector-chart-container {
-            @include content-container;
+  display: grid;
+  grid-template-columns: 1fr 5.5fr;
+  padding: 0 4vw;
+  column-gap: 2rem;
+  .menu-container {
+    @include content-container;
+    height: fit-content;
+    padding: 2rem 1rem;
+  }
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    .sector-chart-container {
+      @include content-container;
+      background-color: $navy;
+      color: white;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: 2.5fr 1fr;
+      font-size: 17.5px;
+      h4 {
+        font-weight: bold;
+        padding-top: 0.5rem;
+      }
+      .chart {
+        text-align: center;
+        margin: auto;
+        margin-right: 1rem;
+      }
+      .numbers {
+        .date-buttons {
+          display: flex;
+          justify-content: space-between;
+          button {
+            width: 3rem;
             background-color: $navy;
+            border: none;
+            border-radius: 10px;
             color: white;
-            padding: 1.5rem;
-            display: grid;
-            grid-template-columns: 2.5fr 1fr;
-            font-size: 17.5px;
-            h4 {
-                font-weight: bold;
-                padding-top: 0.5rem;
+            font-weight: 800;
+            padding: 0.5rem;
+            &:hover {
+              background-color: white;
+              color: $container-navy;
             }
-            .chart {
-                text-align: center;
-                margin: auto;
+            &.active {
+              background-color: white;
+              color: $navy;
             }
-            .numbers {
-                .date-buttons {
-                    display: flex;
-                    justify-content: space-between;
-                    button {
-                        width: 3rem;
-                        background-color: $navy;
-                        border: none;
-                        border-radius: 10px;
-                        color: white;
-                        font-weight: 800;
-                        padding: 0.5rem;
-                        &:hover {
-                            background-color: white;
-                            color: $container-navy;
-                        }
-                        &.active {
-                            background-color: white;
-                            color: $navy;
-                        }
-                    }
-                }
-                .yield{
-                    margin-top: 1.5rem;
-                    text-align: center;
-                    h1 {
-                        color: $red;
-                        margin-top: 0.5rem;
-                        font-size: 60px;
-                    }
-                }
-                .top3-list {
-                    margin-top: 1.7rem;
-                    h4 {
-                        text-align: center;
-                    }
-                    .list {
-                        margin-top: 1.5rem;
-                        text-align: left;
-                        font: normal normal bold 14px/20px Pretendard;
-                        letter-spacing: 0px;
-                        .number {
-                            color: #FFFFFF;
-                            align-self: center;
-                            padding-right: 0.5rem;
-                        }
-                        .box-item {
-                            color: black;
-                            border-radius: 11px;
-                            height: 3rem;
-                            width: 100%;
-                        }
-                        .item-1 {
-                            display: grid;
-                            grid-template-columns: 1fr 20fr;
-                            .box-item {
-                                margin-left: 0.5rem;
-                                background: #FFFFFF;
-                                width: 100%;
-                                display: grid;
-                                grid-template-columns: 5fr 1fr;
-                                align-items: center;
-
-                                div:nth-child(1) {
-                                    justify-self: left;
-                                    padding-left: 1rem;
-                                }
-                                div:nth-child(2) {
-                                    justify-self: right;
-                                    padding-right: 1rem;
-                                }
-                            }
-                        }
-                        .item-2 {
-                            display: grid;
-                            grid-template-columns: 1fr 20fr;
-                            margin-top: 0.5rem;
-                            .box-item {
-                                margin-left: 0.5rem;
-                                background: #AFCADE;
-                                width: 100%;
-                                display: grid;
-                                grid-template-columns: 5fr 1fr;
-                                align-items: center;
-
-                                div:nth-child(1) {
-                                    justify-self: left;
-                                    padding-left: 1rem;
-                                }
-                                div:nth-child(2) {
-                                    justify-self: right;
-                                    padding-right: 1rem;
-                                }
-                            }
-                        }
-                        .item-3 {
-                            display: grid;
-                            grid-template-columns: 1fr 20fr;
-                            margin-top: 0.5rem;
-                            .box-item {
-                                margin-left: 0.5rem;
-                                background: #BFD1C6;
-                                width: 100%;
-                                display: grid;
-                                grid-template-columns: 5fr 1fr;
-                                align-items: center;
-
-                                div:nth-child(1) {
-                                    justify-self: left;
-                                    padding-left: 1rem;
-                                }
-                                div:nth-child(2) {
-                                    justify-self: right;
-                                    padding-right: 1rem;
-                                }
-                            }
-                        }
-                    }
-                }
+          }
+        }
+        .yield {
+          margin-top: 1.5rem;
+          text-align: center;
+          h1 {
+            color: $red;
+            margin-top: 0.5rem;
+            font-size: 60px;
+          }
+        }
+        .top3-list {
+          margin-top: 1.7rem;
+          h4 {
+            text-align: center;
+          }
+          .list {
+            margin-top: 1.5rem;
+            text-align: left;
+            font: normal normal bold 14px/20px Pretendard;
+            letter-spacing: 0px;
+            .number {
+              color: #ffffff;
+              align-self: center;
+              padding-right: 0.5rem;
             }
+            .box-item {
+              color: black;
+              border-radius: 11px;
+              height: 3rem;
+              width: 100%;
+            }
+            .item-1 {
+              display: grid;
+              grid-template-columns: 1fr 20fr;
+              .box-item {
+                margin-left: 0.5rem;
+                background: #ffffff;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 5fr 1fr;
+                align-items: center;
+
+                div:nth-child(1) {
+                  justify-self: left;
+                  padding-left: 1rem;
+                }
+                div:nth-child(2) {
+                  justify-self: right;
+                  padding-right: 1rem;
+                }
+              }
+            }
+            .item-2 {
+              display: grid;
+              grid-template-columns: 1fr 20fr;
+              margin-top: 0.5rem;
+              .box-item {
+                margin-left: 0.5rem;
+                background: #afcade;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 5fr 1fr;
+                align-items: center;
+
+                div:nth-child(1) {
+                  justify-self: left;
+                  padding-left: 1rem;
+                }
+                div:nth-child(2) {
+                  justify-self: right;
+                  padding-right: 1rem;
+                }
+              }
+            }
+            .item-3 {
+              display: grid;
+              grid-template-columns: 1fr 20fr;
+              margin-top: 0.5rem;
+              .box-item {
+                margin-left: 0.5rem;
+                background: #bfd1c6;
+                width: 100%;
+                display: grid;
+                grid-template-columns: 5fr 1fr;
+                align-items: center;
+
+                div:nth-child(1) {
+                  justify-self: left;
+                  padding-left: 1rem;
+                }
+                div:nth-child(2) {
+                  justify-self: right;
+                  padding-right: 1rem;
+                }
+              }
+            }
+          }
         }
-        .listtitle-container {
-            flex-basis: 4.8rem;
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            color: $sub-text;
-            padding: 2.5rem 4rem 1.3rem;
-            font-size: 15px;
-            //border: solid blue;
-        }
-        .stocklist-container {
-            @include content-container;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 1.5rem;
-        }
+      }
     }
+    .listtitle-container {
+      flex-basis: 4.8rem;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      color: $sub-text;
+      padding: 2.5rem 4rem 1.3rem;
+      font-size: 15px;
+      //border: solid blue;
+    }
+    .stocklist-container {
+      @include content-container;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 1.5rem;
+    }
+  }
 }
 .loading {
-    display: none;
+  text-align: center;
 }

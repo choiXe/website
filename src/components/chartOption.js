@@ -75,6 +75,28 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
   };
 };
 
+export function TreeMapOption(data) {
+  return {
+    chart: { type: 'treemap', backgroundColor: null},
+    exporting: { enabled: false },
+    series: [{
+      layoutAlgorithm: "squarified",
+      allowDrillToNode: true,
+      animation: false,
+      dataLabels: { enabled: false },
+      levelIsConstant: false,
+      levels: [{
+        level: 1,
+        dataLabels: { enabled: true },
+        borderWidth: 3
+      }],
+      data: data
+    }],
+    title: false,
+    credits: false
+  };
+};
+
 export function WordCloudOption(data) {
   return {
     chart: {

@@ -20,7 +20,8 @@ const StockInfo = ({ stock }) => {
 
   return (
     <Link to={stock.stockName !== '데이터 없음' ? 
-    {pathname: '/stock', state: stock.stockId} : {pathname: '/'}} className="stock-item">
+    {pathname: '/stock', state: {
+      stockId: stock.stockId, stockName: stock.stockName}} : {pathname: '/'}} className="stock-item">
       <div className="name">
         {stock.stockName}
       </div>

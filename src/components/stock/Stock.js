@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 
 import StockChart from './StockChart';
 import InvStatList from './InvStatList';
@@ -14,7 +15,8 @@ const Stock = ({ location }) => {
   const [listType, setListType] = useState("analyst");
   const [stockData, setStockData] = useState(null);
   const daysPassed = 30;
-  const stockId = location.state
+  const stockId = location.state.stockId;
+  const stockName = location.state.stockName;
 
   const getPastDate = n => {
     let date = new Date();
@@ -24,17 +26,28 @@ const Stock = ({ location }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = stockName + " :: choiXe";
     const startDate = getPastDate(daysPassed);
     data.getStockInfo(stockId, startDate)
       .then(data => setStockData(data.getStockInfo));
-  },[stockId]);
+  },[stockId, stockName]);
 
   const numbWithCommas = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
   if (!stockData) {
-    return <h1 style={{textAlign:"center"}}>Loading...</h1>;
+    return (
+      <div className='loading'>
+        <Loader
+          type='MutatingDots'
+          color='#BBD2C5'
+          secondaryColor='#536976'
+          height={100}
+          width={100}
+        />
+      </div>
+    );
   } else {
     const invStatTitle = ['날짜', '개인', '외국인', '기관'];
     const reportTitle = ['날짜', '제목', '애널리스트', '목표가 (₩)', '제공출처'];

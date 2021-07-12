@@ -6,8 +6,9 @@ import Navbar from './components/Navbar';
 import Home from './components/home/Home';
 import Sector from './components/sector/Sector'
 import Stock from './components/stock/Stock';
-import Search from './components/search/Search';
+import About from './components/about/About';
 import Setting from './components/setting/Setting';
+import Footer from './components/Footer';
 
 import './styles/global.scss';
 
@@ -28,12 +29,13 @@ function App() {
               <Route path='/' exact component={Home} />
               <Route path='/sector' component={Sector} />
               <Route path='/stock' component={Stock} />
-              <Route path='/search' component={Search} />
+              <Route path='/about' component={About} />
               <Route path='/setting' component={Setting} />
             </Switch>
           </div>
         </div>
       </Router>
+      <Footer />
     </>
   );
 }
