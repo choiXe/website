@@ -7,7 +7,8 @@ import './Home.scss'
 // Temporary function to test the graph selection
 
 const Home = () => {
-  //{curSector != null ? showGraph(curSector, splitGroup(StockData())) : ''}
+
+  document.title = "choiXe :: 투자가 처음이야?";
 
   return (
     <div className="container">
