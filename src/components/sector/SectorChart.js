@@ -1,5 +1,4 @@
 import React from "react";
-import sectorList from './sectorData';  // delete this after adding 'count'
 import { TreeMapOption } from "../chartOption";
 
 import Highcharts from "highcharts";
@@ -15,7 +14,6 @@ HighchartsTreeChart(Highcharts);
 HighchartsExporting(Highcharts);
 
 const SectorChart = ({ stocks }) => {
-  console.log(stocks)
   var data = {},
       sectorExpYield = {},
       points = [],
@@ -27,19 +25,6 @@ const SectorChart = ({ stocks }) => {
       sector,
       company;
 
-  // Organize the imported dataset into a desired format
-  for (let i = 0; i < sectorList.length; i++) {
-    let sectorName = sectorList[i].sSector;
-    if (!data.hasOwnProperty(sectorName)) {
-      data[sectorName] = {};
-      sectorExpYield[sectorName] = [];
-    }
-    data[sectorName][sectorList[i].stockName] = [sectorList[i].count, sectorList[i].expYield];
-    sectorExpYield[sectorName].push(sectorList[i].expYield);
-  }
-
-  // Delete lines 31-39 and uncomment the code below after adding 'count'
-  /*
   for (let i = 0; i < stocks.stockList.length; i++) {
     let sectorName = stocks.stockList[i].sSector;
     if (!data.hasOwnProperty(sectorName)) {
@@ -49,7 +34,6 @@ const SectorChart = ({ stocks }) => {
     data[sectorName][stocks.stockList[i].stockName] = [stocks.stockList[i].count, stocks.stockList[i].expYield];
     sectorExpYield[sectorName].push(stocks.stockList[i].expYield);
   };
-  */
 
   // Calculate average expected yield for each sector
   var average = (array) => array.reduce((a, b) => a + b) / array.length;
@@ -61,7 +45,7 @@ const SectorChart = ({ stocks }) => {
       sectorP = {
         id: 'id_' + sectorI,
         name: sector,
-        color: average(sectorExpYield[sector]) >= stocks.avgYield ? 'red' : 'blue'
+        color: average(sectorExpYield[sector]) >= stocks.avgYield ? '#DEB4AF' : '#AFCADE'
       };
       companyI = 0;
       for (company in data[sector]) {
@@ -69,7 +53,7 @@ const SectorChart = ({ stocks }) => {
           companyP = {
             id: sectorP.id + '_' + companyI,
             name: company,
-            color: data[sector][company][1] >= stocks.avgYield ? 'red' : 'blue',
+            color: data[sector][company][1] >= stocks.avgYield ? '#DEB4AF' : '#AFCADE',
             parent: sectorP.id,
             value: data[sector][company][0],
           };
@@ -86,7 +70,10 @@ const SectorChart = ({ stocks }) => {
 
   return (
     <div>
-      <HighchartsReact highcharts={Highcharts} options={TreeMapOption(points)} />
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={TreeMapOption(points)}
+      />
     </div>
   )
 };
