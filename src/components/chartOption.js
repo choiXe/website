@@ -90,7 +90,12 @@ export function TreeMapOption(data) {
     credits: false,
     plotOptions: {
       treemap: {
-        borderColor: '#2A2F47'
+        borderColor: '#2A2F47',
+        dataLabels: {
+          style: {
+            fontSize: '14px'
+          }
+        }
       }
     }
   };
