@@ -48,7 +48,8 @@ const Sector = ({ location }) => {
   } else {
     return (
       <div className="sector-container">
-        <Sticky top={20} innerClass="menu-container">
+        <Sticky top={20} bottomBoundary=".stocklist-container" 
+          innerClass="menu-container">
           <SectorMenu selected={curSector}/>
         </Sticky>
         <div className="info-container">
