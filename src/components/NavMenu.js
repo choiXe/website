@@ -20,7 +20,7 @@ const NavMenu = () => {
   const selectHandler = (item) => {
     history.push({
       pathname: '/stock',
-      state: item.name
+      state: {stockId: item.name, stockName: item.id}
     })
   }
 

@@ -22,6 +22,7 @@ const Sector = ({ location }) => {
 
   useEffect(() => {
     const startDate = getPastDate(daysPassed);
+    document.title = curSector + " :: choiXe";
     data.getSectorInfo(curSector, startDate)
       .then(data => setSectorData(data.getSectorInfo));
   },[curSector, daysPassed])

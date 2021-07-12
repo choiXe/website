@@ -15,7 +15,8 @@ const Stock = ({ location }) => {
   const [listType, setListType] = useState("analyst");
   const [stockData, setStockData] = useState(null);
   const daysPassed = 30;
-  const stockId = location.state
+  const stockId = location.state.stockId;
+  const stockName = location.state.stockName;
 
   const getPastDate = n => {
     let date = new Date();
@@ -25,10 +26,11 @@ const Stock = ({ location }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = stockName + " :: choiXe";
     const startDate = getPastDate(daysPassed);
     data.getStockInfo(stockId, startDate)
       .then(data => setStockData(data.getStockInfo));
-  },[stockId]);
+  },[stockId, stockName]);
 
   const numbWithCommas = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
