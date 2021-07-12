@@ -108,7 +108,7 @@ const Sector = ({ location }) => {
             {listTitle.map(title => <div key={title}> {title}</div>)}
           </div>
           <div className="stocklist-container">
-            <InfiniteScroll dataLength={40} height="35rem">
+            <InfiniteScroll dataLength={40} height="40rem">
               <StockList stocks={sectorData.stockList}/> 
             </InfiniteScroll>
           </div>
