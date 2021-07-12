@@ -61,17 +61,38 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
         lineColor: '#666666'
       }
     },
-    credits: {
-      enabled: false
-    },
-    navigator: {
-      enabled: false
-    },
-    scrollbar: {
-      enabled: false
-    },
+    credits: false,
+    navigator: false,
+    scrollbar: false,
     colors: ["#246DED", "#434348", "#90ed7d", "#f7a35c", "#8085e9",
       "#f15c80", "#e4d354", "#2b908f", "#f45b5b", "#91e8e1"]
+  };
+};
+
+export function TreeMapOption(data) {
+  return {
+    chart: { type: 'treemap', backgroundColor: null},
+    exporting: { enabled: false },
+    series: [{
+      layoutAlgorithm: "squarified",
+      allowDrillToNode: true,
+      animation: false,
+      dataLabels: { enabled: false },
+      levelIsConstant: false,
+      levels: [{
+        level: 1,
+        dataLabels: { enabled: true },
+        borderWidth: 3
+      }],
+      data: data
+    }],
+    title: false,
+    credits: false,
+    plotOptions: {
+      treemap: {
+        borderColor: '#2A2F47'
+      }
+    }
   };
 };
 
@@ -94,7 +115,7 @@ export function WordCloudOption(data) {
         from: 0,
         orientations: 1
       },
-      type: "wordcloud",
+      type: 'wordcloud',
       data: data,
     }],
     plotOptions: {
@@ -102,11 +123,7 @@ export function WordCloudOption(data) {
         minFontSize: 7
       }
     },
-    title: {
-      text: ""
-    },
-    credits: {
-      enabled: false
-    }
+    title: false,
+    credits: false
   };
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Loader from 'react-loader-spinner';
 
 import SectorMenu from '../SectorMenu'
 import StockList from './StockList'
@@ -21,6 +22,7 @@ const Sector = ({ location }) => {
 
   useEffect(() => {
     const startDate = getPastDate(daysPassed);
+    document.title = curSector + " :: choiXe";
     data.getSectorInfo(curSector, startDate)
       .then(data => setSectorData(data.getSectorInfo));
   },[curSector, daysPassed])
@@ -30,7 +32,17 @@ const Sector = ({ location }) => {
   const dateButtons = [5, 15, 30, 60, 90];
 
   if (!sectorData) {
-    return <div> Loading </div>
+    return (
+      <div className='loading'>
+        <Loader
+          type='MutatingDots'
+          color='#BBD2C5'
+          secondaryColor='#536976'
+          height={100}
+          width={100}
+        />
+      </div>
+    );
   } else {
     return (
       <div className="sector-container">
@@ -43,7 +55,7 @@ const Sector = ({ location }) => {
             <div className="chart-section">
               <h4>{curSector}</h4>
               <div className="chart">
-                <SectorChart />
+                <SectorChart stocks={sectorData}/>
               </div>
             </div>
             <div className="numbers">

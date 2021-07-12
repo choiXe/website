@@ -20,12 +20,21 @@ const NavMenu = () => {
   const selectHandler = (item) => {
     history.push({
       pathname: '/stock',
-      state: item.name
+      state: {stockId: item.name, stockName: item.id}
     })
   }
 
   return (
     <div className="nav-list">
+      <div className='nav-item'>
+        <Link
+          to='/about'
+          className='nav-links'
+        >
+          소개
+          <i class="fas fa-question-circle"></i>
+        </Link>
+      </div>
       <div className='nav-item'>
         <Link 
           to='/' 

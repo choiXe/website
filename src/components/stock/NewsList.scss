@@ -2,20 +2,25 @@
 @import "src/styles/_mixin.scss";
 
 .news-item {
-    @include rounded-button;
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    column-gap: 1.2rem;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    padding: 1rem 2rem;
-    font-size: 17px;
+  @include rounded-button;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  column-gap: 1.2rem;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 17px;
 
-    a {
-        text-decoration: none;
-        color: black;
-    }
-    &:hover {
-        background-color: $background-color;
-    }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  &:hover {
+    background-color: $background-color;
+  }
+
+  .news-description {
+    font-size: 14px;
+    padding-top: 0.4rem;
+  }
 }
