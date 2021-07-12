@@ -53,6 +53,15 @@ const NavMenu = () => {
           <i className="fas fa-cog"></i>
         </Link>
       </div>
+      <div className='nav-item'>
+        <Link
+          to='/about'
+          className='nav-links'
+        >
+          소개
+          <i class="fas fa-question-circle"></i>
+        </Link>
+      </div>
       <div className='search-bar'>
         <ReactSearchAutocomplete
           items={stockList}

@@ -9,6 +9,7 @@
     "aws-amplify": "^4.1.2",
     "highcharts": "^9.1.2",
     "highcharts-react-official": "^3.0.0",
+    "highcharts-treemap": "^0.1.7",
     "node-sass": "^6.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",

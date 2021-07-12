@@ -4,7 +4,7 @@
 .stock-container {
     display: grid;
     grid-template-columns: 26.3rem 4fr 1fr;
-    grid-template-rows: 2.5rem 30rem 1fr 15rem 30rem;
+    grid-template-rows: 2.5rem 30rem auto 15rem auto;
     grid-template-areas: 
         "name . return"
         "chart chart invinfo"
