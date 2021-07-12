@@ -8,6 +8,7 @@ import Sector from './components/sector/Sector'
 import Stock from './components/stock/Stock';
 import About from './components/about/About';
 import Setting from './components/setting/Setting';
+import Footer from './components/Footer';
 
 import './styles/global.scss';
 
@@ -34,6 +35,7 @@ function App() {
           </div>
         </div>
       </Router>
+      <Footer />
     </>
   );
 }
