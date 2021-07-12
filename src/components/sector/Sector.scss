@@ -8,7 +8,7 @@
   .menu-container {
     @include content-container;
     height: fit-content;
-    padding: 2rem 1rem;
+    padding: 2rem 0.2rem;
   }
   .info-container {
     display: flex;

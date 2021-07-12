@@ -30,7 +30,7 @@ const Sector = ({ location }) => {
   const dateButtons = [5, 15, 30, 60, 90];
 
   if (!sectorData) {
-    return <div> Loading </div>
+    return <h1 style={{textAlign:"center"}}>Loading...</h1>;
   } else {
     return (
       <div className="sector-container">
