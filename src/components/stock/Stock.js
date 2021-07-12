@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import StockChart from './StockChart';
 import InvStatList from './InvStatList';
@@ -45,7 +46,7 @@ const Stock = ({ location }) => {
           secondaryColor='#536976'
           height={100}
           width={100}
-        />
+          />
       </div>
     );
   } else {
@@ -142,7 +143,9 @@ const Stock = ({ location }) => {
               {invStatTitle.map(title => <div key={title}>{title}</div>)}
             </div>
             <div className="invstat-list">
-              <InvStatList dataSet={stockData.invStatistics} />
+              <InfiniteScroll dataLength={40} height="17rem">
+                <InvStatList dataSet={stockData.invStatistics} />
+              </InfiniteScroll>
             </div>
           </div>
           <div className="wordcloud-container">
@@ -167,15 +170,16 @@ const Stock = ({ location }) => {
                 {titleList.map(title => <div key={title}> {title}</div>)}
               </div>
               <div className="content">
-                {listType==="analyst" 
-                ? <ReportList dataSet={stockData.reportList} 
-                  stockName={stockData.name}/> 
-                : <NewsList dataSet={stockData.news} />}
+                <InfiniteScroll dataLength={40} height="35rem">
+                  {listType==="analyst" 
+                  ? <ReportList dataSet={stockData.reportList} 
+                    stockName={stockData.name}/> 
+                  : <NewsList dataSet={stockData.news} />}
+                </InfiniteScroll>
               </div>
             </div>
           </div>
         </div>
-        <p>hi</p>
       </div>
     );
   }

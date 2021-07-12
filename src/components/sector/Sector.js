@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
+import Sticky from 'react-stickynode';
 
 import SectorMenu from '../SectorMenu'
 import StockList from './StockList'
@@ -40,16 +41,15 @@ const Sector = ({ location }) => {
           secondaryColor='#536976'
           height={100}
           width={100}
-        />
+          />
       </div>
     );
   } else {
     return (
       <div className="sector-container">
-        <div className="menu-container">
+        <Sticky top={20} innerClass="menu-container">
           <SectorMenu selected={curSector}/>
-        </div>
-
+        </Sticky>
         <div className="info-container">
           <div className="sector-chart-container">
             <div className="chart-section">
