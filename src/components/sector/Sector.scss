@@ -1,5 +1,6 @@
 @import "/src/styles/color";
 @import "src/styles/_mixin.scss";
+
 .sector-container {
   display: grid;
   grid-template-columns: 1fr 5.5fr;
@@ -8,7 +9,7 @@
   .menu-container {
     @include content-container;
     height: fit-content;
-    padding: 2rem 0.2rem;
+    padding: 2rem 1rem;
   }
   .info-container {
     display: flex;
