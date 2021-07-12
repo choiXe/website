@@ -43,7 +43,7 @@ const Sector = ({ location }) => {
             <div className="chart-section">
               <h4>{curSector}</h4>
               <div className="chart">
-                <SectorChart />
+                <SectorChart stocks={sectorData}/>
               </div>
             </div>
             <div className="numbers">
