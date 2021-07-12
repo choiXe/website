@@ -27,7 +27,6 @@ h3 {
         }
         &.active {
             @include button-hover;
-            font-weight: bold;
         }
         div {
             align-self: center;
