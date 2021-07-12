@@ -11,6 +11,7 @@ export const getSectorInfo = /* GraphQL */ `
         priceAvg
         sSector
         score
+        count
         stockId
         stockName
         tradePrice
