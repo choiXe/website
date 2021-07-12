@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import Sticky from 'react-stickynode';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import SectorMenu from '../SectorMenu'
 import StockList from './StockList'
@@ -106,7 +107,9 @@ const Sector = ({ location }) => {
             {listTitle.map(title => <div key={title}> {title}</div>)}
           </div>
           <div className="stocklist-container">
-            <StockList stocks={sectorData.stockList}/> 
+            <InfiniteScroll dataLength={40} height="35rem">
+              <StockList stocks={sectorData.stockList}/> 
+            </InfiniteScroll>
           </div>
         </div>
       </div>
