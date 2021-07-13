@@ -19,7 +19,7 @@ const Footer = () => {
         color: '#888'
         }}>
       <div>
-        {line1}<a href="mailto:help@choixe.app" class="link" style={{color: '#292E49', textDecoration: 'none'}}>help@choixe.app</a>
+        {line1}<a href="mailto:help@choixe.app" className="link" style={{color: '#292E49', textDecoration: 'none'}}>help@choixe.app</a>
       </div>
       <div style={{paddingTop: '20px'}}>{line2}</div>
       <div style={{paddingTop: '3px'}}>{line3}</div>

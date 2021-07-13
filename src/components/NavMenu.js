@@ -32,7 +32,7 @@ const NavMenu = () => {
           className='nav-links'
         >
           소개
-          <i class="fas fa-question-circle"></i>
+          <i className="fas fa-question-circle"></i>
         </Link>
       </div>
       <div className='nav-item'>
