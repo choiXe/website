@@ -73,6 +73,16 @@
                 font-size: 20px;
             }
         }
+        .score-container {
+            margin-top: -1.5rem;
+            p {
+                font-size: 12px;
+            }
+            h4 {
+                margin-top: 0.5rem;
+                font-size: 20px;
+            }
+        }
     }
 
     .chart-section {
@@ -88,6 +98,8 @@
 
             .stat-item {
                 font-size: 14px;
+                display: flex;
+                color: #666666;
 
                 .blue {
                     color: $blue;
@@ -97,6 +109,7 @@
                 }
                 p {
                     color: $sub-text;
+                    padding-left: 4px;
                 }
             }
         }

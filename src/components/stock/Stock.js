@@ -25,6 +25,10 @@ const Stock = ({ location }) => {
     return date.toISOString().slice(0, 10);
   }
 
+  const numbWithCommas = (num) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = stockName + " :: choiXe";
@@ -32,10 +36,6 @@ const Stock = ({ location }) => {
     data.getStockInfo(stockId, startDate)
       .then(data => setStockData(data.getStockInfo));
   },[stockId, stockName]);
-
-  const numbWithCommas = (num) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
 
   if (!stockData) {
     return (
@@ -55,6 +55,15 @@ const Stock = ({ location }) => {
     const newsTitle = ['날짜', '제목'];
     const titleList = listType === "analyst" ? reportTitle : newsTitle;
     const statColor = stockData.changeRate>=0 ? 'red' : 'blue';
+    const priceY = stockData.tradePrice + stockData.changePrice;
+
+    const getColor = n => {
+      if (n > priceY) {
+        return {color: '#E21414'};
+      } else if (n < priceY) {
+        return {color: '#246DED'};
+      }
+    }
 
     return (
       <div>
@@ -80,22 +89,29 @@ const Stock = ({ location }) => {
                 <div>
                   <p>컨센서스 평균가</p>
                   <h4>{stockData.priceAvg !== '의견 없음' ? numbWithCommas(stockData.priceAvg) : stockData.priceAvg}</h4>
-                </div>  
+                </div>
+              </div>
+              <div className="score-container">
+                <p>투자 매력 점수</p>
+                <h4>{stockData.score}</h4>
               </div>
             </div>
             <div className="chart-section">
               <div className="chart-stat">
                 <div className="stat-item">
-                  <p>시: {numbWithCommas(stockData.openingPrice)}</p>
+                  전일: <p>{numbWithCommas(priceY)}</p>
                 </div>
                 <div className="stat-item">
-                  <p>고: {numbWithCommas(stockData.highPrice)}</p>
+                  시가: <p style={getColor(stockData.openingPrice)}>{numbWithCommas(stockData.openingPrice)}</p>
                 </div>
                 <div className="stat-item">
-                  <p>저: {numbWithCommas(stockData.lowPrice)}</p>
+                  고가: <p style={getColor(stockData.highPrice)}>{numbWithCommas(stockData.highPrice)}</p>
                 </div>
                 <div className="stat-item">
-                  <p>변동: 
+                  저가: <p style={getColor(stockData.lowPrice)}>{numbWithCommas(stockData.lowPrice)}</p>
+                </div>
+                <div className="stat-item">
+                  변동:<p> 
                     <span className={statColor}>
                       {" " + numbWithCommas(stockData.changePrice)}
                     </span>
@@ -143,7 +159,7 @@ const Stock = ({ location }) => {
               {invStatTitle.map(title => <div key={title}>{title}</div>)}
             </div>
             <div className="invstat-list">
-              <InfiniteScroll dataLength={40} height="17rem">
+              <InfiniteScroll dataLength={40} height="22rem">
                 <InvStatList dataSet={stockData.invStatistics} />
               </InfiniteScroll>
             </div>
@@ -170,7 +186,7 @@ const Stock = ({ location }) => {
                 {titleList.map(title => <div key={title}> {title}</div>)}
               </div>
               <div className="content">
-                <InfiniteScroll dataLength={40} height="35rem">
+                <InfiniteScroll dataLength={40} height="40rem">
                   {listType==="analyst" 
                   ? <ReportList dataSet={stockData.reportList} 
                     stockName={stockData.name}/> 
