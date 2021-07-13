@@ -46,7 +46,8 @@ const NavMenu = () => {
       </div>
       <div className='nav-item'>
         <Link
-          to='/stock'
+          to={{pathname: '/stock', state: {
+            stockId: '005930', stockName: '삼성전자'}}}
           className='nav-links'
         >
           종목

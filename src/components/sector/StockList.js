@@ -51,7 +51,7 @@ const StockList = ({ stocks, order }) => {
   if (order === 'yield') {
     stocks.sort((a, b) => b.expYield - a.expYield);
   } else {
-    stocks.sort((a, b) => b.score - a.score);
+    stocks.sort((a, b) => b.score === '-' ? -1 : b.score - a.score);
   }
 
   return (
