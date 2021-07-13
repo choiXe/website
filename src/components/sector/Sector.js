@@ -14,6 +14,7 @@ import './Sector.scss';
 const Sector = ({ location }) => {
   const [sectorData, setSectorData] = useState(null);
   const [daysPassed, setDaysPassed] = useState(30);
+  const [orderType, setOrderType] = useState("yield");
   const curSector = location.state;
 
   const getPastDate = n => {
@@ -107,8 +108,15 @@ const Sector = ({ location }) => {
             {listTitle.map(title => <div key={title}> {title}</div>)}
           </div>
           <div className="stocklist-container">
+            <div className="order-btn-container">
+              <p>order by </p>
+              <div className="order-buttons">
+                <button onClick={() => setOrderType("yield")}>yield</button>
+                <button onClick={() => setOrderType("score")}>score</button>
+              </div>
+            </div>
             <InfiniteScroll dataLength={40} height="40rem">
-              <StockList stocks={sectorData.stockList}/> 
+              <StockList stocks={sectorData.stockList} order={orderType}/> 
             </InfiniteScroll>
           </div>
         </div>

@@ -159,13 +159,20 @@
       color: $sub-text;
       padding: 2.5rem 4rem 1.3rem;
       font-size: 15px;
-      //border: solid blue;
     }
     .stocklist-container {
       @include content-container;
       display: flex;
       flex-direction: column;
       padding-bottom: 1.5rem;
+
+      .order-btn-container {
+        display: flex;
+        justify-content: flex-end;
+        .order-buttons {
+          margin-left: 1rem;
+        }
+      }
     }
   }
 }

@@ -20,8 +20,8 @@ const StockInfo = ({ stock }) => {
 
   return (
     <Link to={stock.stockName !== '데이터 없음' ? 
-    {pathname: '/stock', state: {
-      stockId: stock.stockId, stockName: stock.stockName}} : {pathname: '/'}} className="stock-item">
+      {pathname: '/stock', state: {
+        stockId: stock.stockId, stockName: stock.stockName}} : {pathname: '/'}} className="stock-item">
       <div className="name">
         {stock.stockName}
       </div>
@@ -38,7 +38,7 @@ const StockInfo = ({ stock }) => {
         {stock.expYield > 0 ? "+" + stock.expYield : stock.expYield}%
       </div>
       <div>
-        graph
+      graph
       </div>
       <div style={stock.score>=50 ? {color: "green"} : {color: "red"}}>
         {stock.score}
@@ -47,14 +47,19 @@ const StockInfo = ({ stock }) => {
   )
 }
 
-const StockList = ({ stocks }) => {
-  stocks.sort((a, b) => b.expYield - a.expYield);
+const StockList = ({ stocks, order }) => {
+  if (order === 'yield') {
+    stocks.sort((a, b) => b.expYield - a.expYield);
+  } else {
+    stocks.sort((a, b) => b.score - a.score);
+  }
+
   return (
     <>
       {stocks.map(stock => (
         <StockInfo key={stock.stockName} stock={stock} />
       ))}
-    </>
+      </>
   )
 }
 
