@@ -65,8 +65,7 @@ const Sector = ({ location }) => {
                 {dateButtons.map(days => (
                   <button key={days} value={days} 
                     className={days===daysPassed ? "active" : ""}
-                    onClick={({target}) => setDaysPassed(Number(target.value))}
-                  >
+                    onClick={({target}) => setDaysPassed(Number(target.value))}>
                     {days<30 ? days+"일" : days/30 + "개월"}
                   </button>
                 ))}
@@ -108,7 +107,7 @@ const Sector = ({ location }) => {
             {listTitle.map(title => <div key={title}> {title}</div>)}
           </div>
           <div className="stocklist-container">
-            <InfiniteScroll dataLength={40} height="35rem">
+            <InfiniteScroll dataLength={40} height="40rem">
               <StockList stocks={sectorData.stockList}/> 
             </InfiniteScroll>
           </div>

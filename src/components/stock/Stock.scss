@@ -58,13 +58,29 @@
             color: $container-navy;
         }
         .yield {
+            display: flex;
             font-size: 87px;
             margin-top: 0.7rem;
+            h2 {
+                font-size: 40px;
+                padding-top: 10px;
+                padding-left: 10px;
+            }
         }
         .price-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
 
+            p {
+                font-size: 12px;
+            }
+            h4 {
+                margin-top: 0.5rem;
+                font-size: 20px;
+            }
+        }
+        .score-container {
+            margin-top: -1.5rem;
             p {
                 font-size: 12px;
             }
@@ -88,6 +104,8 @@
 
             .stat-item {
                 font-size: 14px;
+                display: flex;
+                color: #666666;
 
                 .blue {
                     color: $blue;
@@ -97,6 +115,7 @@
                 }
                 p {
                     color: $sub-text;
+                    padding-left: 4px;
                 }
             }
         }
