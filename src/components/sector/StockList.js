@@ -59,7 +59,7 @@ const StockList = ({ stocks, order }) => {
       {stocks.map(stock => (
         <StockInfo key={stock.stockName} stock={stock} />
       ))}
-      </>
+    </>
   )
 }
 
