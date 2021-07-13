@@ -18,6 +18,7 @@ const Stock = ({ location }) => {
   const daysPassed = 30;
   const stockId = location.state.stockId;
   const stockName = location.state.stockName;
+  const red = '#E21414', blue = '#246DED';
 
   const getPastDate = n => {
     let date = new Date();
@@ -54,14 +55,14 @@ const Stock = ({ location }) => {
     const reportTitle = ['날짜', '제목', '애널리스트', '목표가 (₩)', '제공출처'];
     const newsTitle = ['날짜', '제목'];
     const titleList = listType === "analyst" ? reportTitle : newsTitle;
-    const statColor = stockData.changeRate>=0 ? 'red' : 'blue';
+    const statColor = stockData.changeRate>=0 ? red : blue;
     const priceY = stockData.tradePrice + stockData.changePrice;
 
     const getColor = n => {
       if (n > priceY) {
-        return {color: '#E21414'};
+        return {color: red};
       } else if (n < priceY) {
-        return {color: '#246DED'};
+        return {color: blue};
       }
     }
 
@@ -78,8 +79,8 @@ const Stock = ({ location }) => {
           <div className="stock-chart-container">
             <div className="numbers">
               <p>기대 수익률 (3개월) </p>
-              <h1 className='yield' style={{color: stockData.expYield>0 ? "red" : "blue"}}>
-                {Math.round(stockData.expYield)+"%"}
+              <h1 className='yield' style={{color: stockData.expYield>0 ? red : blue}}>
+                {Math.round(stockData.expYield)}<h2>%</h2>
               </h1>
               <div className="price-container">
                 <div>

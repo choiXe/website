@@ -58,8 +58,14 @@
             color: $container-navy;
         }
         .yield {
+            display: flex;
             font-size: 87px;
             margin-top: 0.7rem;
+            h2 {
+                font-size: 40px;
+                padding-top: 10px;
+                padding-left: 10px;
+            }
         }
         .price-container {
             display: grid;
