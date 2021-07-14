@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Amplify from "aws-amplify";
 
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navigation/Navbar";
 import Home from "./components/home/Home";
 import Sector from "./components/sector/Sector";
 import Stock from "./components/stock/Stock";

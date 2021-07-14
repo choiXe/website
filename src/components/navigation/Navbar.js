@@ -5,7 +5,7 @@ import NavMenu from "./NavMenu";
 
 import "./Navbar.scss";
 
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 
 function Navbar() {
   return (

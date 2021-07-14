@@ -1,5 +1,5 @@
 import React from "react";
-import "./NavMenu.scss";
+import "./navigation/NavMenu.scss";
 
 const Footer = () => {
   var line1 = "대표: 김휘원 | 문의: ";

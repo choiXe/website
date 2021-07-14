@@ -1,7 +1,7 @@
 import React from "react";
 import Sticky from "react-stickynode";
 
-import SectorMenu from "../SectorMenu";
+import SectorMenu from "../sector/SectorMenu";
 
 import "./Home.scss";
 

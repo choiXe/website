@@ -3,7 +3,7 @@ import Loader from "react-loader-spinner";
 import Sticky from "react-stickynode";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import SectorMenu from "../SectorMenu";
+import SectorMenu from "./SectorMenu";
 import StockList from "./StockList";
 import SectorChart from "./SectorChart";
 
