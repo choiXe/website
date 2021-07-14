@@ -8,8 +8,7 @@
   column-gap: 2rem;
   .menu-container {
     @include content-container;
-    height: fit-content;
-    padding: 2rem 1rem;
+    padding: 2rem 1rem 2.3rem;
   }
   .info-container {
     display: flex;
@@ -160,16 +159,28 @@
       color: $sub-text;
       padding: 2.5rem 4rem 1.3rem;
       font-size: 15px;
-      //border: solid blue;
     }
     .stocklist-container {
       @include content-container;
       display: flex;
       flex-direction: column;
       padding-bottom: 1.5rem;
+
+      .order-btn-container {
+        display: flex;
+        justify-content: flex-end;
+        .order-buttons {
+          margin-left: 1rem;
+        }
+      }
     }
   }
 }
 .loading {
   text-align: center;
+}
+button.order-button {
+  border: none;
+  font-size: 15px;
+  color: #666666;
 }

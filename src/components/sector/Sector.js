@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
+import Sticky from 'react-stickynode';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import SectorMenu from '../SectorMenu'
 import StockList from './StockList'
@@ -10,8 +12,10 @@ import data from '../../services/data';
 import './Sector.scss';
 
 const Sector = ({ location }) => {
+  const [cache, setCache] = useState({});
   const [sectorData, setSectorData] = useState(null);
   const [daysPassed, setDaysPassed] = useState(30);
+  const [orderType, setOrderType] = useState("yield");
   const curSector = location.state;
 
   const getPastDate = n => {
@@ -20,16 +24,31 @@ const Sector = ({ location }) => {
     return date.toISOString().slice(0, 10);
   }
 
-  useEffect(() => {
-    const startDate = getPastDate(daysPassed);
-    document.title = curSector + " :: choiXe";
-    data.getSectorInfo(curSector, startDate)
-      .then(data => setSectorData(data.getSectorInfo));
-  },[curSector, daysPassed])
 
-  const listTitle = ["종목이름", "가격(₩)", "변동률", "컨센서스 평균가",
-    "상승여력", "그래프", "투자 점수"];
+  useEffect(() => {
+    document.title = curSector + " :: choiXe";
+    const startDate = getPastDate(daysPassed);
+
+    const key = curSector+"_"+startDate;
+    const cachedData = cache[key];
+
+    if (cachedData) {
+      setSectorData(cachedData);
+    } else {
+      data.getSectorInfo(curSector, startDate)
+        .then(data => {
+          setSectorData(data.getSectorInfo)
+          const updatedCache = {
+            ...cache,
+            [key]: data.getSectorInfo
+          };
+          setCache(updatedCache);
+        });
+    }
+  },[curSector, daysPassed, cache])
+
   const dateButtons = [5, 15, 30, 60, 90];
+  let buttonState = 'fas fa-sort';
 
   if (!sectorData) {
     return (
@@ -40,16 +59,16 @@ const Sector = ({ location }) => {
           secondaryColor='#536976'
           height={100}
           width={100}
-        />
+          />
       </div>
     );
   } else {
     return (
       <div className="sector-container">
-        <div className="menu-container">
+        <Sticky top={20} bottomBoundary=".stocklist-container" 
+          innerClass="menu-container">
           <SectorMenu selected={curSector}/>
-        </div>
-
+        </Sticky>
         <div className="info-container">
           <div className="sector-chart-container">
             <div className="chart-section">
@@ -63,8 +82,7 @@ const Sector = ({ location }) => {
                 {dateButtons.map(days => (
                   <button key={days} value={days} 
                     className={days===daysPassed ? "active" : ""}
-                    onClick={({target}) => setDaysPassed(Number(target.value))}
-                  >
+                    onClick={({target}) => setDaysPassed(Number(target.value))}>
                     {days<30 ? days+"일" : days/30 + "개월"}
                   </button>
                 ))}
@@ -103,10 +121,22 @@ const Sector = ({ location }) => {
             </div>
           </div>
           <div className="listtitle-container">
-            {listTitle.map(title => <div key={title}> {title}</div>)}
+            <div key={'종목이름'}>종목이름</div>
+            <div key={'가격(₩)'}>가격(₩)</div>
+            <div key={'변동률'}>변동률</div>
+            <div key={'컨센서스 평균가'}>컨센서스 평균가</div>
+            <div key={'상승여력'}>
+              <button onClick={() => setOrderType("yield")} className='order-button'>상승여력 <i className={buttonState}></i></button>
+            </div>
+            <div key={'그래프'}>그래프</div>
+            <div key={'투자 점수'}>
+             <button onClick={() => setOrderType("score")} className='order-button'>투자 점수 <i className={buttonState}></i></button>
+            </div>
           </div>
           <div className="stocklist-container">
-            <StockList stocks={sectorData.stockList}/> 
+            <InfiniteScroll dataLength={40} height="40rem">
+              <StockList stocks={sectorData.stockList} order={orderType}/> 
+            </InfiniteScroll>
           </div>
         </div>
       </div>

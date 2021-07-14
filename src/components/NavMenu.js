@@ -32,7 +32,7 @@ const NavMenu = () => {
           className='nav-links'
         >
           소개
-          <i class="fas fa-question-circle"></i>
+          <i className="fas fa-question-circle"></i>
         </Link>
       </div>
       <div className='nav-item'>
@@ -46,7 +46,8 @@ const NavMenu = () => {
       </div>
       <div className='nav-item'>
         <Link
-          to='/stock'
+          to={{pathname: '/stock', state: {
+            stockId: '005930', stockName: '삼성전자'}}}
           className='nav-links'
         >
           종목

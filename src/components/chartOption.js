@@ -95,6 +95,12 @@ export function TreeMapOption(data) {
           style: {
             fontSize: '14px'
           }
+        },
+        events: {
+          click: function (event) {
+            // event.point.name 이름
+            // 섹터가 아닌 종목일 경우 event.point.node.childrenTotal 이 0임
+          }
         }
       }
     }

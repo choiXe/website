@@ -5,9 +5,7 @@ const NewsInfo = ({ data }) => {
   const newsName = data.title.length > 60 
       ? data.title.slice(0, 60) + "..." 
       : data.title;
-  const description = data.description.length > 105
-      ? data.description.slice(0, 105) + "..."
-      : data.description;
+  const description = data.description;
 
   return (
     <div className="news-item">
@@ -15,7 +13,7 @@ const NewsInfo = ({ data }) => {
         {data.date}
       </div>
       <div>
-        <a href={data.link} rel="noreferrer" target="_blank">{newsName}</a>
+        <a href={data.link} rel="noreferrer" target="_blank" className="news-title">{newsName}</a>
         <div className="news-description">
           {description}
         </div>
