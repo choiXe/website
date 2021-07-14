@@ -1,39 +1,38 @@
-@import 'src/styles/_color.scss';
-@import '/src/styles/mixin';
+@import "src/styles/_color.scss";
+@import "/src/styles/mixin";
 
 h3 {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 17.5px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 17.5px;
 }
 
 .sector-list {
-    height: 100%;
+  height: 100%;
+  text-decoration: none;
+
+  .sector-item {
+    @include rounded-button;
+    border-radius: 9px;
+    white-space: pre-line;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    height: 3.3rem;
+    font-size: 17px;
     text-decoration: none;
+    color: black;
 
-    .sector-item {
-        @include rounded-button;
-        border-radius: 9px;
-        white-space: pre-line;
-        display: grid;
-        grid-template-columns: 5fr 1fr;
-        height: 3.3rem;
-        font-size: 17px;
-        text-decoration: none;
-        color: black;
-
-        &:hover {
-            background-color: $background-color;
-        }
-        &.active {
-            @include button-hover;
-        }
-        div {
-            align-self: center;
-        }
-        i {
-            place-self: center;
-        }
+    &:hover {
+      background-color: $background-color;
     }
-
+    &.active {
+      @include button-hover;
+    }
+    div {
+      align-self: center;
+    }
+    i {
+      place-self: center;
+    }
+  }
 }

@@ -1,5 +1,5 @@
-@import '/src/styles/color';
-@import 'src/styles/_mixin.scss';
+@import "/src/styles/color";
+@import "src/styles/_mixin.scss";
 
 .container {
   display: grid;
@@ -8,14 +8,14 @@
   column-gap: 2rem;
 
   .menu-container {
-      @include content-container;
-      padding: 2rem 1rem 2.3rem;
+    @include content-container;
+    padding: 2rem 1rem 2.3rem;
   }
 
   .info-container {
-      @include content-container;
-      height: 70%;
-      text-align: center;
-      padding-top: 10rem;
+    @include content-container;
+    height: 70%;
+    text-align: center;
+    padding-top: 10rem;
   }
 }

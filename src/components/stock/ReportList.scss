@@ -2,18 +2,18 @@
 @import "src/styles/_color.scss";
 
 .report-item {
-    @include rounded-button;
-    display: grid;
-    grid-template-columns: 1fr 2fr repeat(3, 1fr);
-    column-gap: 1.2rem;
-    margin-bottom: 0.5rem;
-    font-size: 17px;
-    padding: 1rem 2rem;
-    a {
-        text-decoration: none;
-        color: black;
-    }
-    &:hover {
-        background-color: $background-color;
-    }
+  @include rounded-button;
+  display: grid;
+  grid-template-columns: 1fr 2fr repeat(3, 1fr);
+  column-gap: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 17px;
+  padding: 1rem 2rem;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  &:hover {
+    background-color: $background-color;
+  }
 }

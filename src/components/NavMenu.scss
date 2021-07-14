@@ -1,34 +1,34 @@
-@import 'src/styles/_color.scss';
-@import 'src/styles/_mixin.scss';
+@import "src/styles/_color.scss";
+@import "src/styles/_mixin.scss";
 
 .nav-list {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
 
-    .nav-item {
-        margin-left: 1rem;
-        list-style-type: none;
+  .nav-item {
+    margin-left: 1rem;
+    list-style-type: none;
 
-        i {
-            margin-left: 0.5rem;
-        }
-
-        .nav-links {
-            @include rounded-button;
-            text-decoration: none;
-            color: $navy;
-            font-size: 18px;
-
-            &:hover {
-                @include button-hover;
-            }
-        }
+    i {
+      margin-left: 0.5rem;
     }
 
-    .search-bar {
-        width: 15rem;
-        margin-left: 1rem;
+    .nav-links {
+      @include rounded-button;
+      text-decoration: none;
+      color: $navy;
+      font-size: 18px;
+
+      &:hover {
+        @include button-hover;
+      }
     }
+  }
+
+  .search-bar {
+    width: 15rem;
+    margin-left: 1rem;
+  }
 }

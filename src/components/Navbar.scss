@@ -1,28 +1,28 @@
 nav {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    margin-right: 4vw;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-right: 4vw;
 
-    img {
-        margin-left: 3vw;
-        width: 5rem;
-        height: 5rem;
+  img {
+    margin-left: 3vw;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  & .left-container {
+    width: 100%;
+
+    & .logo {
+      display: flex;
+      align-items: center;
+      color: black;
+      text-decoration: none;
+      font-size: 30px;
+      font-weight: bold;
     }
+  }
 
-    & .left-container {
-        width: 100%;
-
-        & .logo {
-            display: flex;
-            align-items: center;
-            color: black;
-            text-decoration: none;
-            font-size: 30px;
-            font-weight: bold;
-        }
-    }
-
-    & .right-container {
-        width: 100%;
-    }
+  & .right-container {
+    width: 100%;
+  }
 }

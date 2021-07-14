@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import Loader from 'react-loader-spinner';
-import Sticky from 'react-stickynode';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import React, { useState, useEffect } from "react";
+import Loader from "react-loader-spinner";
+import Sticky from "react-stickynode";
+import InfiniteScroll from "react-infinite-scroll-component";
 
-import SectorMenu from '../SectorMenu'
-import StockList from './StockList'
-import SectorChart from './SectorChart'
+import SectorMenu from "../SectorMenu";
+import StockList from "./StockList";
+import SectorChart from "./SectorChart";
 
-import data from '../../services/data';
+import data from "../../services/data";
 
-import './Sector.scss';
+import "./Sector.scss";
 
 const Sector = ({ location }) => {
   const [cache, setCache] = useState({});
@@ -19,85 +19,96 @@ const Sector = ({ location }) => {
   const [sSectorSelected, setsSectorSelected] = useState(null);
   const curSector = location.state;
 
-  const getPastDate = n => {
+  const getPastDate = (n) => {
     let date = new Date();
     date.setDate(date.getDate() - n);
     return date.toISOString().slice(0, 10);
-  }
-
+  };
 
   useEffect(() => {
     document.title = curSector + " :: choiXe";
     const startDate = getPastDate(daysPassed);
 
-    const key = curSector+"_"+startDate;
+    const key = curSector + "_" + startDate;
     const cachedData = cache[key];
 
     if (cachedData) {
       setSectorData(cachedData);
     } else {
-      data.getSectorInfo(curSector, startDate)
-        .then(data => {
-          setSectorData(data.getSectorInfo)
-          const updatedCache = {
-            ...cache,
-            [key]: data.getSectorInfo
-          };
-          setCache(updatedCache);
-        });
+      data.getSectorInfo(curSector, startDate).then((data) => {
+        setSectorData(data.getSectorInfo);
+        const updatedCache = {
+          ...cache,
+          [key]: data.getSectorInfo,
+        };
+        setCache(updatedCache);
+      });
     }
-  },[curSector, daysPassed, cache])
+  }, [curSector, daysPassed, cache]);
 
   const dateButtons = [5, 15, 30, 60, 90];
 
   if (!sectorData) {
     return (
-      <div className='loading'>
+      <div className="loading">
         <Loader
-          type='MutatingDots'
-          color='#BBD2C5'
-          secondaryColor='#536976'
+          type="MutatingDots"
+          color="#BBD2C5"
+          secondaryColor="#536976"
           height={100}
           width={100}
-          />
+        />
       </div>
     );
   } else {
-    const stocks = sectorData.stockList.filter(stock => {
+    const stocks = sectorData.stockList.filter((stock) => {
       if (!sSectorSelected) {
         return true;
       }
       return stock.sSector === sSectorSelected;
-    })
+    });
 
     return (
       <div className="sector-container">
-        <Sticky top={20} bottomBoundary=".stocklist-container" 
-          innerClass="menu-container">
-          <SectorMenu selected={curSector} selectHandler={setsSectorSelected}/>
+        <Sticky
+          top={20}
+          bottomBoundary=".stocklist-container"
+          innerClass="menu-container"
+        >
+          <SectorMenu selected={curSector} selectHandler={setsSectorSelected} />
         </Sticky>
         <div className="info-container">
           <div className="sector-chart-container">
             <div className="chart-section">
               <h4>{curSector}</h4>
               <div className="chart">
-                <SectorChart stocks={sectorData} selectHandler={setsSectorSelected} />
+                <SectorChart
+                  stocks={sectorData}
+                  selectHandler={setsSectorSelected}
+                />
               </div>
             </div>
             <div className="numbers">
               <div className="date-buttons">
-                {dateButtons.map(days => (
-                  <button key={days} value={days} 
-                    className={days===daysPassed ? "active" : ""}
-                    onClick={({target}) => setDaysPassed(Number(target.value))}>
-                    {days<30 ? days+"일" : days/30 + "개월"}
+                {dateButtons.map((days) => (
+                  <button
+                    key={days}
+                    value={days}
+                    className={days === daysPassed ? "active" : ""}
+                    onClick={({ target }) =>
+                      setDaysPassed(Number(target.value))
+                    }
+                  >
+                    {days < 30 ? days + "일" : days / 30 + "개월"}
                   </button>
                 ))}
               </div>
               <div className="yield">
                 <h4>예상 기대 수익률</h4>
-                <h1>{sectorData.avgYield>=0 ? " +" : " -"}
-                  {sectorData.avgYield}%</h1>
+                <h1>
+                  {sectorData.avgYield >= 0 ? " +" : " -"}
+                  {sectorData.avgYield}%
+                </h1>
               </div>
               <div className="top3-list">
                 <h4>예상 수익률 Top 3 (소섹터)</h4>
@@ -128,32 +139,40 @@ const Sector = ({ location }) => {
             </div>
           </div>
           <div className="listtitle-container">
-            <div key={'종목이름'}>종목이름</div>
-            <div key={'가격(₩)'}>가격(₩)</div>
-            <div key={'변동률'}>변동률</div>
-            <div key={'컨센서스 평균가'}>컨센서스 평균가</div>
-            <div key={'상승여력'}>
+            <div key={"종목이름"}>종목이름</div>
+            <div key={"가격(₩)"}>가격(₩)</div>
+            <div key={"변동률"}>변동률</div>
+            <div key={"컨센서스 평균가"}>컨센서스 평균가</div>
+            <div key={"상승여력"}>
               <button onClick={() => setOrderType("yield")}>
-                상승여력 <i className={orderType==="yield" 
-                  ? "fas fa-sort-down" : "fas fa-sort"}></i>
+                상승여력{" "}
+                <i
+                  className={
+                    orderType === "yield" ? "fas fa-sort-down" : "fas fa-sort"
+                  }
+                ></i>
               </button>
             </div>
-            <div key={'그래프'}>그래프</div>
-            <div key={'투자 점수'}>
+            <div key={"그래프"}>그래프</div>
+            <div key={"투자 점수"}>
               <button onClick={() => setOrderType("score")}>
-                투자 점수 <i className={orderType==="score" 
-                  ? "fas fa-sort-down" : "fas fa-sort"}></i>
+                투자 점수{" "}
+                <i
+                  className={
+                    orderType === "score" ? "fas fa-sort-down" : "fas fa-sort"
+                  }
+                ></i>
               </button>
             </div>
           </div>
           <div className="stocklist-container">
             <InfiniteScroll dataLength={40} height="40rem">
-              <StockList stocks={stocks} order={orderType}/> 
+              <StockList stocks={stocks} order={orderType} />
             </InfiniteScroll>
           </div>
         </div>
       </div>
-    )
+    );
   }
 };
 
