@@ -47,9 +47,8 @@ const Sector = ({ location }) => {
     }
   },[curSector, daysPassed, cache])
 
-  const listTitle = ["종목이름", "가격(₩)", "변동률", "컨센서스 평균가",
-    "상승여력", "그래프", "투자 점수"];
   const dateButtons = [5, 15, 30, 60, 90];
+  let buttonState = 'fas fa-sort';
 
   if (!sectorData) {
     return (
@@ -122,16 +121,19 @@ const Sector = ({ location }) => {
             </div>
           </div>
           <div className="listtitle-container">
-            {listTitle.map(title => <div key={title}> {title}</div>)}
+            <div key={'종목이름'}>종목이름</div>
+            <div key={'가격(₩)'}>가격(₩)</div>
+            <div key={'변동률'}>변동률</div>
+            <div key={'컨센서스 평균가'}>컨센서스 평균가</div>
+            <div key={'상승여력'}>
+              <button onClick={() => setOrderType("yield")} className='order-button'>상승여력 <i className={buttonState}></i></button>
+            </div>
+            <div key={'그래프'}>그래프</div>
+            <div key={'투자 점수'}>
+             <button onClick={() => setOrderType("score")} className='order-button'>투자 점수 <i className={buttonState}></i></button>
+            </div>
           </div>
           <div className="stocklist-container">
-            <div className="order-btn-container">
-              <p>order by </p>
-              <div className="order-buttons">
-                <button onClick={() => setOrderType("yield")}>yield</button>
-                <button onClick={() => setOrderType("score")}>score</button>
-              </div>
-            </div>
             <InfiniteScroll dataLength={40} height="40rem">
               <StockList stocks={sectorData.stockList} order={orderType}/> 
             </InfiniteScroll>
