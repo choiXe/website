@@ -106,7 +106,6 @@ export function TreeMapOption(data, selectHandler) {
             if(event.newRootId === "") {
               selectHandler(null);
             }
-            console.log(event);
           }
         }
       }

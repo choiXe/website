@@ -19,7 +19,9 @@ const SectorMenu = ({ selected, selectHandler }) => {
           key={sectorName}
           onClick={({ target }) => {
             setCurSector(target.innerText);
-            selectHandler(null);
+            if (selectHandler) {
+              selectHandler(null);
+            }
           }}
         >
           <div>{sectorName}</div>
