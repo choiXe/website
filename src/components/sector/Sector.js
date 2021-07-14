@@ -12,7 +12,7 @@ import data from '../../services/data';
 import './Sector.scss';
 
 const Sector = ({ location }) => {
-  const [cache, setCache] = useState(null);
+  const [cache, setCache] = useState({});
   const [sectorData, setSectorData] = useState(null);
   const [daysPassed, setDaysPassed] = useState(30);
   const [orderType, setOrderType] = useState("yield");
@@ -27,9 +27,10 @@ const Sector = ({ location }) => {
 
   useEffect(() => {
     document.title = curSector + " :: choiXe";
-
     const startDate = getPastDate(daysPassed);
-    const cachedData = getFromCache(curSector, startDate);
+
+    const key = curSector+"_"+startDate;
+    const cachedData = cache[key];
 
     if (cachedData) {
       setSectorData(cachedData);
@@ -37,10 +38,14 @@ const Sector = ({ location }) => {
       data.getSectorInfo(curSector, startDate)
         .then(data => {
           setSectorData(data.getSectorInfo)
-          // here, save new loaded date into the cache
+          const updatedCache = {
+            ...cache,
+            [key]: data.getSectorInfo
+          };
+          setCache(updatedCache);
         });
     }
-  },[curSector, daysPassed])
+  },[curSector, daysPassed, cache])
 
   const listTitle = ["종목이름", "가격(₩)", "변동률", "컨센서스 평균가",
     "상승여력", "그래프", "투자 점수"];
