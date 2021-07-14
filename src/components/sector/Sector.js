@@ -74,7 +74,7 @@ const Sector = ({ location }) => {
       <div className="sector-container">
         <Sticky top={20} bottomBoundary=".stocklist-container" 
           innerClass="menu-container">
-          <SectorMenu selected={curSector}/>
+          <SectorMenu selected={curSector} selectHandler={setsSectorSelected}/>
         </Sticky>
         <div className="info-container">
           <div className="sector-chart-container">
