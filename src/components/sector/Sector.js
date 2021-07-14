@@ -16,6 +16,7 @@ const Sector = ({ location }) => {
   const [sectorData, setSectorData] = useState(null);
   const [daysPassed, setDaysPassed] = useState(30);
   const [orderType, setOrderType] = useState("yield");
+  const [sSectorSelected, setsSectorSelected] = useState(null);
   const curSector = location.state;
 
   const getPastDate = n => {
@@ -48,7 +49,6 @@ const Sector = ({ location }) => {
   },[curSector, daysPassed, cache])
 
   const dateButtons = [5, 15, 30, 60, 90];
-  let buttonState = 'fas fa-sort';
 
   if (!sectorData) {
     return (
@@ -63,6 +63,13 @@ const Sector = ({ location }) => {
       </div>
     );
   } else {
+    const stocks = sectorData.stockList.filter(stock => {
+      if (!sSectorSelected) {
+        return true;
+      }
+      return stock.sSector === sSectorSelected;
+    })
+
     return (
       <div className="sector-container">
         <Sticky top={20} bottomBoundary=".stocklist-container" 
@@ -74,7 +81,7 @@ const Sector = ({ location }) => {
             <div className="chart-section">
               <h4>{curSector}</h4>
               <div className="chart">
-                <SectorChart stocks={sectorData}/>
+                <SectorChart stocks={sectorData} selectHandler={setsSectorSelected} />
               </div>
             </div>
             <div className="numbers">
@@ -127,21 +134,21 @@ const Sector = ({ location }) => {
             <div key={'컨센서스 평균가'}>컨센서스 평균가</div>
             <div key={'상승여력'}>
               <button onClick={() => setOrderType("yield")}>
-                상승여력 <i className={orderType=="yield" 
+                상승여력 <i className={orderType==="yield" 
                   ? "fas fa-sort-down" : "fas fa-sort"}></i>
               </button>
             </div>
             <div key={'그래프'}>그래프</div>
             <div key={'투자 점수'}>
               <button onClick={() => setOrderType("score")}>
-                투자 점수 <i className={orderType=="score" 
+                투자 점수 <i className={orderType==="score" 
                   ? "fas fa-sort-down" : "fas fa-sort"}></i>
               </button>
             </div>
           </div>
           <div className="stocklist-container">
             <InfiniteScroll dataLength={40} height="40rem">
-              <StockList stocks={sectorData.stockList} order={orderType}/> 
+              <StockList stocks={stocks} order={orderType}/> 
             </InfiniteScroll>
           </div>
         </div>
