@@ -126,11 +126,17 @@ const Sector = ({ location }) => {
             <div key={'변동률'}>변동률</div>
             <div key={'컨센서스 평균가'}>컨센서스 평균가</div>
             <div key={'상승여력'}>
-              <button onClick={() => setOrderType("yield")} className='order-button'>상승여력 <i className={buttonState}></i></button>
+              <button onClick={() => setOrderType("yield")}>
+                상승여력 <i className={orderType=="yield" 
+                  ? "fas fa-sort-down" : "fas fa-sort"}></i>
+              </button>
             </div>
             <div key={'그래프'}>그래프</div>
             <div key={'투자 점수'}>
-             <button onClick={() => setOrderType("score")} className='order-button'>투자 점수 <i className={buttonState}></i></button>
+              <button onClick={() => setOrderType("score")}>
+                투자 점수 <i className={orderType=="score" 
+                  ? "fas fa-sort-down" : "fas fa-sort"}></i>
+              </button>
             </div>
           </div>
           <div className="stocklist-container">
