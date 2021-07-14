@@ -15,10 +15,10 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
           hover: {
           },
           select: {
-              fill: '#2A2F47',
-              style: {
-                  color: 'white'
-              }
+            fill: '#2A2F47',
+            style: {
+              color: 'white'
+            }
           }
         }
       }
@@ -34,26 +34,26 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
       height: '60%',
       lineWidth: 2,
       resize: { enabled: true }
-      }, {
-      labels: { align: 'right', x: -3, format: '{value}' },
-      title: { text: '거래량' },
-      top: '65%',
-      height: '35%',
-      offset: 0,
-      lineWidth: 2
-    }],
+    }, {
+        labels: { align: 'right', x: -3, format: '{value}' },
+        title: { text: '거래량' },
+        top: '65%',
+        height: '35%',
+        offset: 0,
+        lineWidth: 2
+      }],
     series: [{
       type: 'candlestick',
       name: '가격',
       data: ohlc,
       dataGrouping: { units: groupingUnits }
     }, {
-      type: 'column',
-      name: '거래량',
-      data: volume,
-      yAxis: 1,
-      dataGrouping: { units: groupingUnits }
-    }],
+        type: 'column',
+        name: '거래량',
+        data: volume,
+        yAxis: 1,
+        dataGrouping: { units: groupingUnits }
+      }],
     tooltip: { split: true },
     plotOptions: {
       candlestick: {
@@ -69,9 +69,9 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
   };
 };
 
-export function TreeMapOption(data) {
+export function TreeMapOption(data, selectHandler) {
   return {
-    chart: { type: 'treemap', backgroundColor: null},
+    chart: {type: 'treemap', backgroundColor: null},
     exporting: { enabled: false },
     series: [{
       layoutAlgorithm: "squarified",
@@ -98,13 +98,19 @@ export function TreeMapOption(data) {
         },
         events: {
           click: function (event) {
-            // event.point.name 이름
-            // 섹터가 아닌 종목일 경우 event.point.node.childrenTotal 이 0임
+            if(event.point.node.childrenTotal !== 0) {
+              selectHandler(event.point.name);
+            }
+          },
+          setRootNode: function (event) {
+            if(event.newRootId === "") {
+              selectHandler(null);
+            }
           }
         }
       }
     }
-  };
+  }
 };
 
 export function WordCloudOption(data) {

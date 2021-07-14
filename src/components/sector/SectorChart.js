@@ -13,17 +13,17 @@ HighchartsHeatmap(Highcharts);
 HighchartsTreeChart(Highcharts);
 HighchartsExporting(Highcharts);
 
-const SectorChart = ({ stocks }) => {
+const SectorChart = ({ stocks, selectHandler }) => {
   var data = {},
-      sectorExpYield = {},
-      points = [],
-      sectorI = 0,
-      sectorP,
-      companyI,
-      companyP,
-      sectorVal,
-      sector,
-      company;
+  sectorExpYield = {},
+  points = [],
+  sectorI = 0,
+  sectorP,
+  companyI,
+  companyP,
+  sectorVal,
+  sector,
+  company;
 
   for (let i = 0; i < stocks.stockList.length; i++) {
     let sectorName = stocks.stockList[i].sSector;
@@ -31,7 +31,9 @@ const SectorChart = ({ stocks }) => {
       data[sectorName] = {};
       sectorExpYield[sectorName] = [];
     };
-    data[sectorName][stocks.stockList[i].stockName] = [stocks.stockList[i].count, stocks.stockList[i].expYield];
+    data[sectorName][stocks.stockList[i].stockName] = 
+      [stocks.stockList[i].count, stocks.stockList[i].expYield];
+
     sectorExpYield[sectorName].push(stocks.stockList[i].expYield);
   };
 
@@ -45,7 +47,8 @@ const SectorChart = ({ stocks }) => {
       sectorP = {
         id: 'id_' + sectorI,
         name: sector,
-        color: average(sectorExpYield[sector]) >= stocks.avgYield ? '#DEB4AF' : '#AFCADE'
+        color: average(sectorExpYield[sector]) >= stocks.avgYield 
+        ? '#DEB4AF' : '#AFCADE'
       };
       companyI = 0;
       for (company in data[sector]) {
@@ -53,7 +56,8 @@ const SectorChart = ({ stocks }) => {
           companyP = {
             id: sectorP.id + '_' + companyI,
             name: company,
-            color: data[sector][company][1] >= stocks.avgYield ? '#DEB4AF' : '#AFCADE',
+            color: data[sector][company][1] >= stocks.avgYield 
+            ? '#DEB4AF' : '#AFCADE',
             parent: sectorP.id,
             value: data[sector][company][0],
           };
@@ -72,8 +76,8 @@ const SectorChart = ({ stocks }) => {
     <div>
       <HighchartsReact
         highcharts={Highcharts}
-        options={TreeMapOption(points)}
-      />
+        options={TreeMapOption(points, selectHandler)}
+        />
     </div>
   )
 };
