@@ -64,7 +64,7 @@ const Stock = ({ location }) => {
     const newsTitle = ["날짜", "제목"];
     const titleList = listType === "analyst" ? reportTitle : newsTitle;
     const statColor = stockData.changeRate >= 0 ? red : blue;
-    const priceY = stockData.tradePrice + stockData.changePrice;
+    const priceY = stockData.tradePrice - stockData.changePrice;
 
     const getColor = (n) => {
       if (n > priceY) {
@@ -139,7 +139,7 @@ const Stock = ({ location }) => {
                 <div className="stat-item">
                   변동:
                   <p>
-                    <span className={statColor}>
+                    <span style={{color: statColor}}>
                       {" " + numbWithCommas(stockData.changePrice)}
                     </span>
                   </p>
@@ -147,7 +147,7 @@ const Stock = ({ location }) => {
                 <div className="stat-item">
                   <p>
                     변동(%):
-                    <span className={statColor}>
+                    <span style={{color: statColor}}>
                       {(stockData.changeRate >= 0 ? " +" : " ") +
                         stockData.changeRate +
                         "%"}
