@@ -1,7 +1,7 @@
 @import "src/styles/_color.scss";
 @import "src/styles/_mixin.scss";
 
-.stock-container {
+#stock {
   display: grid;
   grid-template-columns: 26.3rem 4fr 1fr;
   grid-template-rows: 2.5rem 30rem auto 15rem auto;
@@ -15,7 +15,7 @@
   padding: 0 4vw;
 }
 
-.stockname {
+#title {
   grid-area: name;
   display: flex;
   align-items: center;
@@ -26,21 +26,8 @@
     margin-left: 0.8rem;
   }
 }
-.return-button {
-  grid-area: return;
-  border: none;
-  font-size: 17px;
-  text-align: right;
-  color: #576875;
-  text-decoration: none;
-  align-self: center;
 
-  .symbol {
-    color: #707070;
-  }
-}
-
-.stock-chart-container {
+#chart-section {
   @include content-container;
   grid-area: chart;
   display: grid;
@@ -60,7 +47,7 @@
       display: flex;
       font-size: 87px;
       margin-top: 0.7rem;
-      h2 {
+      .percent {
         font-size: 40px;
         padding-top: 10px;
         padding-left: 10px;
@@ -90,7 +77,7 @@
     }
   }
 
-  .chart-section {
+  .chart-area {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,7 +105,7 @@
   }
 }
 
-.invinfo-container {
+#inv-info {
   @include content-container;
   grid-area: invinfo;
   text-align: center;
@@ -129,7 +116,7 @@
     padding-top: 0.5rem;
     font-size: 18px;
   }
-  .invinfo-items {
+  .inv-info-items {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -145,7 +132,7 @@
     }
   }
 }
-.companyinfo-container {
+#company-info {
   @include content-container;
   grid-area: companyinfo;
   display: flex;
@@ -168,16 +155,16 @@
     align-self: left;
     font-size: 15px;
     padding-top: 1rem;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
     white-space: pre-line;
     letter-spacing: 0px;
     line-height: 25px;
   }
 }
-.invstat-container {
+#inv-stat {
   grid-area: invstat;
 
-  .invstat-description {
+  .inv-stat-description {
     @include rounded-button;
     @include sub-heading;
     background-color: $container-navy;
@@ -186,7 +173,7 @@
     margin-bottom: 1rem;
     font-size: 18px;
   }
-  .invstat-title {
+  .inv-stat-title {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
@@ -194,7 +181,7 @@
     margin-bottom: 0.5rem;
     font-size: 15px;
   }
-  .invstat-list {
+  .inv-list {
     @include content-container;
     padding: 1.5rem 0;
     display: flex;
@@ -202,11 +189,11 @@
     justify-content: space-between;
   }
 }
-.wordcloud-container {
+#wordcloud {
   grid-area: wordcloud;
 }
 
-.list-table-container {
+#list-table {
   grid-area: listtable;
   display: flex;
   flex-direction: column;
@@ -235,7 +222,7 @@
     .list-title {
       padding: 1rem 3rem 0.5rem;
       color: $sub-text;
-      &.analyst {
+      &.report {
         display: grid;
         grid-template-columns: 1fr 2fr repeat(3, 1fr);
         column-gap: 1.2rem;
@@ -249,7 +236,7 @@
         font-size: 15px;
       }
     }
-    .content {
+    .list-content {
       @include content-container;
       padding: 1rem;
     }

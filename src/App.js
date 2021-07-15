@@ -19,16 +19,16 @@ function App() {
   return (
     <>
       <Router>
-        <div className="main-container">
-          <div className="navbar">
+        <div id="container">
+          <div id="navbar">
             <Navbar />
           </div>
-          <div className="content">
+          <div id="content">
             <Switch>
               <Route path="/" exact component={Home} />
+              <Route path="/about" component={About} />
               <Route path="/sector" component={Sector} />
               <Route path="/stock" component={Stock} />
-              <Route path="/about" component={About} />
               <Route path="/setting" component={Setting} />
             </Switch>
           </div>

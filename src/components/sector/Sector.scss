@@ -1,19 +1,19 @@
 @import "/src/styles/color";
 @import "src/styles/_mixin.scss";
 
-.sector-container {
+#sector {
   display: grid;
   grid-template-columns: 1fr 5.5fr;
   padding: 0 4vw;
   column-gap: 2rem;
-  .menu-container {
+  .menu {
     @include content-container;
     padding: 2rem 1rem 2.3rem;
   }
-  .info-container {
+  #info {
     display: flex;
     flex-direction: column;
-    .sector-chart-container {
+    #chart-section {
       @include content-container;
       background-color: $navy;
       color: white;
@@ -31,47 +31,50 @@
         margin: auto;
         margin-right: 1rem;
       }
-      .numbers {
-        .date-buttons {
-          display: flex;
-          justify-content: space-between;
-          button {
-            width: 3rem;
-            background-color: $navy;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            font-weight: 800;
-            padding: 0.5rem;
-            &:hover {
-              background-color: white;
-              color: $container-navy;
-            }
-            &.active {
-              background-color: white;
-              color: $navy;
-            }
+      .date-select {
+        display: flex;
+        justify-content: space-between;
+        button {
+          width: 3rem;
+          background-color: $navy;
+          border: none;
+          border-radius: 10px;
+          color: white;
+          font-weight: 800;
+          padding: 0.5rem;
+          &:hover {
+            background-color: white;
+            color: $container-navy;
+          }
+          &.active {
+            background-color: white;
+            color: $navy;
           }
         }
-        .yield {
-          margin-top: 1.5rem;
+      }
+      .yield {
+        margin-top: 1.5rem;
+        text-align: center;
+        h1 {
+          color: $red;
+          margin-top: 0.5rem;
+          font-size: 60px;
+        }
+      }
+      .top3-list {
+        margin-top: 1.7rem;
+        h4 {
           text-align: center;
-          h1 {
-            color: $red;
-            margin-top: 0.5rem;
-            font-size: 60px;
-          }
         }
-        .top3-list {
-          margin-top: 1.7rem;
-          h4 {
-            text-align: center;
-          }
-          .list {
-            margin-top: 1.5rem;
-            text-align: left;
-            font: normal normal bold 14px/20px Pretendard;
-            letter-spacing: 0px;
+        .list {
+          margin-top: 1.5rem;
+          text-align: left;
+          font: normal normal bold 14px/20px Pretendard;
+          letter-spacing: 0px;
+          .item {
+            display: grid;
+            grid-template-columns: 1fr 12fr;
+            margin-top: 0.5rem;
             .number {
               color: #ffffff;
               align-self: center;
@@ -81,78 +84,35 @@
               color: black;
               border-radius: 11px;
               height: 3rem;
-              width: 100%;
-            }
-            .item-1 {
+              width: 97%;
+              margin-left: 0.5rem;
               display: grid;
-              grid-template-columns: 1fr 12fr;
-              .box-item {
-                margin-left: 0.5rem;
-                background: #ffffff;
-                width: 97%;
-                display: grid;
-                grid-template-columns: 5fr 1fr;
-                align-items: center;
+              grid-template-columns: 5fr 1fr;
+              align-items: center;
 
-                div:nth-child(1) {
-                  justify-self: left;
-                  padding-left: 1rem;
-                }
-                div:nth-child(2) {
-                  justify-self: right;
-                  padding-right: 1rem;
-                }
+              div:nth-child(1) {
+                justify-self: left;
+                padding-left: 1rem;
+              }
+              div:nth-child(2) {
+                justify-self: right;
+                padding-right: 1rem;
               }
             }
-            .item-2 {
-              display: grid;
-              grid-template-columns: 1fr 12fr;
-              margin-top: 0.5rem;
-              .box-item {
-                margin-left: 0.5rem;
-                background: #afcade;
-                width: 97%;
-                display: grid;
-                grid-template-columns: 5fr 1fr;
-                align-items: center;
-
-                div:nth-child(1) {
-                  justify-self: left;
-                  padding-left: 1rem;
-                }
-                div:nth-child(2) {
-                  justify-self: right;
-                  padding-right: 1rem;
-                }
-              }
+            #item-1 {
+              background: #ffffff;
             }
-            .item-3 {
-              display: grid;
-              grid-template-columns: 1fr 12fr;
-              margin-top: 0.5rem;
-              .box-item {
-                margin-left: 0.5rem;
-                background: #bfd1c6;
-                width: 97%;
-                display: grid;
-                grid-template-columns: 5fr 1fr;
-                align-items: center;
-
-                div:nth-child(1) {
-                  justify-self: left;
-                  padding-left: 1rem;
-                }
-                div:nth-child(2) {
-                  justify-self: right;
-                  padding-right: 1rem;
-                }
-              }
+            #item-2 {
+              background: #afcade;
+            }
+            #item-3 {
+              background: #bfd1c6;
             }
           }
         }
       }
     }
-    .listtitle-container {
+    #list-title {
       flex-basis: 4.8rem;
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -166,7 +126,7 @@
         color: #666666;
       }
     }
-    .stocklist-container {
+    #stock-list {
       @include content-container;
       display: flex;
       flex-direction: column;
@@ -174,6 +134,6 @@
     }
   }
 }
-.loading {
+#loading {
   text-align: center;
 }

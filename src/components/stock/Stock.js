@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -76,15 +75,12 @@ const Stock = ({ location }) => {
 
     return (
       <div>
-        <div className="stock-container">
-          <h1 className="stockname">
+        <div id="stock">
+          <h1 id="title">
             <div className="name">{stockData.name}</div>
             <div className="id">{stockId}</div>
           </h1>
-          <Link to="/" className="return-button">
-            <span className="symbol">{"<"}</span> 돌아가기
-          </Link>
-          <div className="stock-chart-container">
+          <div id="chart-section">
             <div className="numbers">
               <p>기대 수익률 (3개월) </p>
               <h1
@@ -92,7 +88,7 @@ const Stock = ({ location }) => {
                 style={{ color: stockData.expYield > 0 ? red : blue }}
               >
                 {Math.round(stockData.expYield)}
-                <h2>%</h2>
+                <div className="percent">%</div>
               </h1>
               <div className="price-container">
                 <div>
@@ -113,7 +109,7 @@ const Stock = ({ location }) => {
                 <h4>{stockData.score}</h4>
               </div>
             </div>
-            <div className="chart-section">
+            <div className="chart-area">
               <div className="chart-stat">
                 <div className="stat-item">
                   전일: <p>{numbWithCommas(priceY)}</p>
@@ -139,7 +135,7 @@ const Stock = ({ location }) => {
                 <div className="stat-item">
                   변동:
                   <p>
-                    <span style={{color: statColor}}>
+                    <span style={{ color: statColor }}>
                       {" " + numbWithCommas(stockData.changePrice)}
                     </span>
                   </p>
@@ -147,7 +143,7 @@ const Stock = ({ location }) => {
                 <div className="stat-item">
                   <p>
                     변동(%):
-                    <span style={{color: statColor}}>
+                    <span style={{ color: statColor }}>
                       {(stockData.changeRate >= 0 ? " +" : " ") +
                         stockData.changeRate +
                         "%"}
@@ -160,54 +156,48 @@ const Stock = ({ location }) => {
               </div>
             </div>
           </div>
-          <div className="invinfo-container">
+          <div id="inv-info">
             <h4>투자정보</h4>
-            <div className="invinfo-items">
-              <h5 className="Stock-top-right-subtitle-container">시가총액</h5>
+            <div className="inv-info-items">
+              <h5>시가총액</h5>
               <p>{stockData.marketCap}</p>
-              <h5 className="Stock-top-right-subtitle-container">
-                52주 최고가
-              </h5>
+              <h5>52주 최고가</h5>
               <p>{numbWithCommas(stockData.high52wPrice)}</p>
-              <h5 className="Stock-top-right-subtitle-container">
-                52주 최저가
-              </h5>
+              <h5>52주 최저가</h5>
               <p>{numbWithCommas(stockData.low52wPrice)}</p>
-              <h5 className="Stock-top-right-subtitle-container">
-                외국인 소진율
-              </h5>
+              <h5>외국인 소진율</h5>
               <p>{stockData.foreignRatio + "%"}</p>
-              <h5 className="Stock-top-right-subtitle-container">PER</h5>
+              <h5>PER</h5>
               <p>{stockData.per + "배"}</p>
-              <h5 className="Stock-top-right-subtitle-container">PBR</h5>
+              <h5>PBR</h5>
               <p>{stockData.pbr + "배"}</p>
-              <h5 className="Stock-top-right-subtitle-container">ROE</h5>
+              <h5>ROE</h5>
               <p>{stockData.roe + "%"}</p>
             </div>
           </div>
-          <div className="companyinfo-container">
+          <div id="company-info">
             <h4>
               기업정보 <span>{"WICS: " + stockData.wicsSectorName}</span>
             </h4>
             <p>{stockData.companySummary}</p>
           </div>
-          <div className="invstat-container">
-            <div className="invstat-description">투자자 동향</div>
-            <div className="invstat-title">
+          <div id="inv-stat">
+            <div className="inv-stat-description">투자자 동향</div>
+            <div className="inv-stat-title">
               {invStatTitle.map((title) => (
                 <div key={title}>{title}</div>
               ))}
             </div>
-            <div className="invstat-list">
+            <div className="inv-list">
               <InfiniteScroll dataLength={40} height="22rem">
                 <InvStatList dataSet={stockData.invStatistics} />
               </InfiniteScroll>
             </div>
           </div>
-          <div className="wordcloud-container">
+          <div id="wordcloud">
             <WordCloud newsTitles={stockData.newsTitles} />
           </div>
-          <div className="list-table-container">
+          <div id="list-table">
             <div className="list-button">
               <button
                 className={listType === "analyst" ? "active" : ""}
@@ -230,7 +220,7 @@ const Stock = ({ location }) => {
               <div
                 className={
                   listType === "analyst"
-                    ? "list-title analyst"
+                    ? "list-title report"
                     : "list-title news"
                 }
               >
@@ -238,7 +228,7 @@ const Stock = ({ location }) => {
                   <div key={title}> {title}</div>
                 ))}
               </div>
-              <div className="content">
+              <div className="list-content">
                 <InfiniteScroll dataLength={40} height="40rem">
                   {listType === "analyst" ? (
                     <ReportList
