@@ -24,7 +24,6 @@ const Footer = () => {
           {line1}
           <a
             href="mailto:help@choixe.app"
-            className="link"
             style={{ color: "#292E49", textDecoration: "none" }}
           >
             help@choixe.app

@@ -50,7 +50,7 @@ const Sector = ({ location }) => {
 
   if (!sectorData) {
     return (
-      <div className="loading">
+      <div id="loading">
         <Loader
           type="MutatingDots"
           color="#BBD2C5"
@@ -69,17 +69,13 @@ const Sector = ({ location }) => {
     });
 
     return (
-      <div className="sector-container">
-        <Sticky
-          top={20}
-          bottomBoundary=".stocklist-container"
-          innerClass="menu-container"
-        >
+      <div id="sector">
+        <Sticky top={20} bottomBoundary="#stocklist" innerClass="menu">
           <SectorMenu selected={curSector} selectHandler={setsSectorSelected} />
         </Sticky>
-        <div className="info-container">
-          <div className="sector-chart-container">
-            <div className="chart-section">
+        <div id="info">
+          <div id="chart-section">
+            <div>
               <h4>{curSector}</h4>
               <div className="chart">
                 <SectorChart
@@ -88,8 +84,8 @@ const Sector = ({ location }) => {
                 />
               </div>
             </div>
-            <div className="numbers">
-              <div className="date-buttons">
+            <div>
+              <div className="date-select">
                 {dateButtons.map((days) => (
                   <button
                     key={days}
@@ -113,23 +109,23 @@ const Sector = ({ location }) => {
               <div className="top3-list">
                 <h4>예상 수익률 Top 3 (소섹터)</h4>
                 <div className="list">
-                  <div className="item-1">
+                  <div className="item">
                     <div className="number">1. </div>
-                    <div className="box-item">
+                    <div className="box-item" id="item-1">
                       <div>{sectorData.top3List.first}</div>
                       <div>{sectorData.top3List.firstYield}%</div>
                     </div>
                   </div>
-                  <div className="item-2">
+                  <div className="item">
                     <div className="number">2. </div>
-                    <div className="box-item">
+                    <div className="box-item" id="item-2">
                       <div>{sectorData.top3List.second}</div>
                       <div>{sectorData.top3List.secondYield}%</div>
                     </div>
                   </div>
-                  <div className="item-3">
+                  <div className="item">
                     <div className="number">3. </div>
-                    <div className="box-item">
+                    <div className="box-item" id="item-3">
                       <div>{sectorData.top3List.third}</div>
                       <div>{sectorData.top3List.thirdYield}%</div>
                     </div>
@@ -138,7 +134,7 @@ const Sector = ({ location }) => {
               </div>
             </div>
           </div>
-          <div className="listtitle-container">
+          <div id="list-title">
             <div key={"종목이름"}>종목이름</div>
             <div key={"가격(₩)"}>가격(₩)</div>
             <div key={"변동률"}>변동률</div>
@@ -165,7 +161,7 @@ const Sector = ({ location }) => {
               </button>
             </div>
           </div>
-          <div className="stocklist-container">
+          <div id="stock-list">
             <InfiniteScroll dataLength={40} height="40rem">
               <StockList stocks={stocks} order={orderType} />
             </InfiniteScroll>

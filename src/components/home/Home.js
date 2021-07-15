@@ -11,11 +11,11 @@ const Home = () => {
   document.title = "choiXe :: 투자가 처음이야?";
 
   return (
-    <div className="container">
-      <Sticky top={20} innerClass="menu-container">
+    <div id="home">
+      <Sticky top={20} innerClass="menu">
         <SectorMenu selected="" />
       </Sticky>
-      <div className="info-container">섹터를 선택해 주세요!</div>
+      <div id="info">섹터를 선택해 주세요!</div>
     </div>
   );
 };

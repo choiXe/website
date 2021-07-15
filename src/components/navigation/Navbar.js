@@ -10,13 +10,13 @@ import logo from "../../images/logo.png";
 function Navbar() {
   return (
     <nav>
-      <div className="left-container">
+      <div className="nav-left">
         <Link to="/" className="logo">
           <img src={logo} alt="choiXe logo" />
           choiXe
         </Link>
       </div>
-      <div className="right-container">
+      <div className="nav-right">
         <NavMenu />
       </div>
     </nav>
