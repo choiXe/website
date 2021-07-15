@@ -24,6 +24,15 @@ type DailyInv {
   inVal: InvValObj
 }
 
+type Indicator {
+  changePrice: Float
+  changeRate: Float
+  countryName: String
+  name: String
+  symbolCode: String
+  tradePrice: Float
+}
+
 type InvKrObj {
   foreign: String
   individual: String
@@ -36,7 +45,14 @@ type InvValObj {
   institutions: String
 }
 
+type MainInfo {
+  global: [Indicator]
+  kr: [Indicator]
+  reports: [Report2]
+}
+
 type Query {
+  getMainInfo(keyword: String): MainInfo
   getSectorInfo(sectorName: String, startDate: String): SectorInfo
   getStockInfo(startDate: String, stockId: String): StockInfo
 }
@@ -48,6 +64,17 @@ type Report {
   priceGoal: String
   reportIdx: ID
   reportName: String
+}
+
+type Report2 {
+  analyst: String
+  date: String
+  firm: String
+  priceGoal: String
+  reportIdx: String
+  reportName: String
+  stockId: String
+  stockName: String
 }
 
 type SectorInfo {

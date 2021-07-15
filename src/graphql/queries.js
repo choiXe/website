@@ -7,11 +7,11 @@ export const getSectorInfo = /* GraphQL */ `
       avgYield
       stockList {
         changeRate
+        count
         expYield
         priceAvg
         sSector
         score
-        count
         stockId
         stockName
         tradePrice
@@ -86,6 +86,38 @@ export const getStockInfo = /* GraphQL */ `
       score
       tradePrice
       wicsSectorName
+    }
+  }
+`;
+export const getMainInfo = /* GraphQL */ `
+  query GetMainInfo($keyword: String) {
+    getMainInfo(keyword: $keyword) {
+      kr {
+        name
+        symbolCode
+        countryName
+        tradePrice
+        changePrice
+        changeRate
+      }
+      global {
+        name
+        symbolCode
+        countryName
+        tradePrice
+        changePrice
+        changeRate
+      }
+      reports {
+        date
+        stockName
+        stockId
+        reportName
+        priceGoal
+        analyst
+        firm
+        reportIdx
+      }
     }
   }
 `;
