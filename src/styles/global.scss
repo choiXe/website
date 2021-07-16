@@ -17,6 +17,7 @@ body {
 }
 
 #container {
-  display: flex;
-  flex-direction: column;
+  #navbar {
+    margin: 23px 0 30px;
+  }
 }

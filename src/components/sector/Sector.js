@@ -57,7 +57,7 @@ const Sector = ({ location }) => {
           secondaryColor="#536976"
           height={100}
           width={100}
-        />
+          />
       </div>
     );
   } else {
@@ -81,7 +81,7 @@ const Sector = ({ location }) => {
                 <SectorChart
                   stocks={sectorData}
                   selectHandler={setsSectorSelected}
-                />
+                  />
               </div>
             </div>
             <div>
@@ -92,7 +92,7 @@ const Sector = ({ location }) => {
                     value={days}
                     className={days === daysPassed ? "active" : ""}
                     onClick={({ target }) =>
-                      setDaysPassed(Number(target.value))
+                    setDaysPassed(Number(target.value))
                     }
                   >
                     {days < 30 ? days + "일" : days / 30 + "개월"}
@@ -135,27 +135,27 @@ const Sector = ({ location }) => {
             </div>
           </div>
           <div id="list-title">
-            <div key={"종목이름"}>종목이름</div>
-            <div key={"가격(₩)"}>가격(₩)</div>
-            <div key={"변동률"}>변동률</div>
-            <div key={"컨센서스 평균가"}>컨센서스 평균가</div>
-            <div key={"상승여력"}>
+            <div>종목이름</div>
+            <div>가격(₩)</div>
+            <div>변동가격</div>
+            <div>변동률</div>
+            <div>컨센서스 평균가</div>
+            <div>
               <button onClick={() => setOrderType("yield")}>
                 상승여력{" "}
                 <i
                   className={
-                    orderType === "yield" ? "fas fa-sort-down" : "fas fa-sort"
+                  orderType === "yield" ? "fas fa-sort-down" : "fas fa-sort"
                   }
                 ></i>
               </button>
             </div>
-            <div key={"그래프"}>그래프</div>
-            <div key={"투자 점수"}>
+            <div>
               <button onClick={() => setOrderType("score")}>
                 투자 점수{" "}
                 <i
                   className={
-                    orderType === "score" ? "fas fa-sort-down" : "fas fa-sort"
+                  orderType === "score" ? "fas fa-sort-down" : "fas fa-sort"
                   }
                 ></i>
               </button>
