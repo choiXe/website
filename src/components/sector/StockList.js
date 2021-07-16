@@ -35,6 +35,11 @@ const StockInfo = ({ stock }) => {
     >
       <div className="name">{stock.stockName}</div>
       <div>{numbWithCommas(stock.tradePrice)}</div>
+      <div style={calColor(stock.changePrice)}>
+        {stock.changePrice >= 0
+          ? "▲ " + numbWithCommas(stock.changePrice)
+          : "▼ " + numbWithCommas(stock.changePrice).replace("-","")}
+      </div>
       <div style={calColor(stock.changeRate)}>
         {stock.changeRate > 0 ? "+" + stock.changeRate : stock.changeRate}%
       </div>
@@ -42,7 +47,6 @@ const StockInfo = ({ stock }) => {
       <div style={calColor(stock.expYield)}>
         {stock.expYield > 0 ? "+" + stock.expYield : stock.expYield}%
       </div>
-      <div>graph</div>
       <div style={stock.score >= 50 ? { color: "green" } : { color: "red" }}>
         {stock.score}
       </div>
