@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Sticky from "react-stickynode";
-import Loader from "react-loader-spinner";
 import SectorMenu from "../sector/SectorMenu";
 import data from "../../services/data";
 
@@ -18,28 +17,26 @@ const Home = () => {
       .then((data) => setMainData(data.getMainInfo));
   }, []);
 
-  if (!mainData) {
-    return (
-      <div className="loading">
-        <Loader
-          type="MutatingDots"
-          color="#BBD2C5"
-          secondaryColor="#536976"
-          height={100}
-          width={100}
-        />
-      </div>
-    );
-  } else {
-    return (
-      <div id="home">
-        <Sticky top={20} innerClass="menu">
-          <SectorMenu selected="" />
-        </Sticky>
+  const renderContent = (mainData) => {
+    if (!mainData) {
+      return (
+        <div id="info">데이터 불러오는 중...</div>
+      );
+    } else {
+      return (
         <div id="info">섹터를 선택해 주세요!</div>
-      </div>
-    );
+      );
+    }
   };
+
+  return (
+    <div id="home">
+      <Sticky top={20} innerClass="menu">
+        <SectorMenu selected="" />
+      </Sticky>
+      {renderContent(mainData)}
+    </div>
+  );
 };
 
 export default Home;
