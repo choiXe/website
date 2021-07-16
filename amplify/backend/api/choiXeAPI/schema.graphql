@@ -112,6 +112,7 @@ type StockInfo {
 }
 
 type StockObj {
+  changePrice: Int
   changeRate: Float
   count: Int
   expYield: Float

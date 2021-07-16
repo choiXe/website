@@ -1,12 +1,45 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getMainInfo = /* GraphQL */ `
+  query GetMainInfo($keyword: String) {
+    getMainInfo(keyword: $keyword) {
+      global {
+        changePrice
+        changeRate
+        countryName
+        name
+        symbolCode
+        tradePrice
+      }
+      kr {
+        changePrice
+        changeRate
+        countryName
+        name
+        symbolCode
+        tradePrice
+      }
+      reports {
+        analyst
+        date
+        firm
+        priceGoal
+        reportIdx
+        reportName
+        stockId
+        stockName
+      }
+    }
+  }
+`;
 export const getSectorInfo = /* GraphQL */ `
   query GetSectorInfo($sectorName: String, $startDate: String) {
     getSectorInfo(sectorName: $sectorName, startDate: $startDate) {
       avgYield
       stockList {
         changeRate
+        changePrice
         count
         expYield
         priceAvg
@@ -86,38 +119,6 @@ export const getStockInfo = /* GraphQL */ `
       score
       tradePrice
       wicsSectorName
-    }
-  }
-`;
-export const getMainInfo = /* GraphQL */ `
-  query GetMainInfo($keyword: String) {
-    getMainInfo(keyword: $keyword) {
-      kr {
-        name
-        symbolCode
-        countryName
-        tradePrice
-        changePrice
-        changeRate
-      }
-      global {
-        name
-        symbolCode
-        countryName
-        tradePrice
-        changePrice
-        changeRate
-      }
-      reports {
-        date
-        stockName
-        stockId
-        reportName
-        priceGoal
-        analyst
-        firm
-        reportIdx
-      }
     }
   }
 `;
