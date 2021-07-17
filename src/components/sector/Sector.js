@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import Loader from "react-loader-spinner";
-import Sticky from "react-stickynode";
-import InfiniteScroll from "react-infinite-scroll-component";
+import React, { useState, useEffect } from 'react';
+import Loader from 'react-loader-spinner';
+import Sticky from 'react-stickynode';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-import SectorMenu from "./SectorMenu";
-import StockList from "./StockList";
-import SectorChart from "./SectorChart";
+import SectorMenu from './SectorMenu';
+import StockList from './StockList';
+import SectorChart from './SectorChart';
 
-import data from "../../services/data";
+import data from '../../services/data';
 
-import "./Sector.scss";
+import './Sector.scss';
 
 const Sector = ({ location }) => {
   const [cache, setCache] = useState({});
   const [sectorData, setSectorData] = useState(null);
   const [daysPassed, setDaysPassed] = useState(30);
-  const [orderType, setOrderType] = useState("yield");
+  const [orderType, setOrderType] = useState('yield');
   const [sSectorSelected, setsSectorSelected] = useState(null);
   const curSector = location.state;
 
@@ -26,10 +26,10 @@ const Sector = ({ location }) => {
   };
 
   useEffect(() => {
-    document.title = curSector + " :: choiXe";
+    document.title = curSector + ' :: choiXe';
     const startDate = getPastDate(daysPassed);
 
-    const key = curSector + "_" + startDate;
+    const key = curSector + '_' + startDate;
     const cachedData = cache[key];
 
     if (cachedData) {
@@ -39,7 +39,7 @@ const Sector = ({ location }) => {
         setSectorData(data.getSectorInfo);
         const updatedCache = {
           ...cache,
-          [key]: data.getSectorInfo,
+          [key]: data.getSectorInfo
         };
         setCache(updatedCache);
       });
@@ -57,7 +57,7 @@ const Sector = ({ location }) => {
           secondaryColor="#536976"
           height={100}
           width={100}
-          />
+        />
       </div>
     );
   } else {
@@ -81,7 +81,7 @@ const Sector = ({ location }) => {
                 <SectorChart
                   stocks={sectorData}
                   selectHandler={setsSectorSelected}
-                  />
+                />
               </div>
             </div>
             <div>
@@ -90,19 +90,19 @@ const Sector = ({ location }) => {
                   <button
                     key={days}
                     value={days}
-                    className={days === daysPassed ? "active" : ""}
+                    className={days === daysPassed ? 'active' : ''}
                     onClick={({ target }) =>
-                    setDaysPassed(Number(target.value))
+                      setDaysPassed(Number(target.value))
                     }
                   >
-                    {days < 30 ? days + "일" : days / 30 + "개월"}
+                    {days < 30 ? days + '일' : days / 30 + '개월'}
                   </button>
                 ))}
               </div>
               <div className="yield">
                 <h4>예상 기대 수익률</h4>
                 <h1>
-                  {sectorData.avgYield >= 0 ? " +" : " -"}
+                  {sectorData.avgYield >= 0 ? ' +' : ' -'}
                   {sectorData.avgYield}%
                 </h1>
               </div>
@@ -141,21 +141,21 @@ const Sector = ({ location }) => {
             <div>변동률</div>
             <div>컨센서스 평균가</div>
             <div>
-              <button onClick={() => setOrderType("yield")}>
-                상승여력{" "}
+              <button onClick={() => setOrderType('yield')}>
+                상승여력{' '}
                 <i
                   className={
-                  orderType === "yield" ? "fas fa-sort-down" : "fas fa-sort"
+                    orderType === 'yield' ? 'fas fa-sort-down' : 'fas fa-sort'
                   }
                 ></i>
               </button>
             </div>
             <div>
-              <button onClick={() => setOrderType("score")}>
-                투자 점수{" "}
+              <button onClick={() => setOrderType('score')}>
+                투자 점수{' '}
                 <i
                   className={
-                  orderType === "score" ? "fas fa-sort-down" : "fas fa-sort"
+                    orderType === 'score' ? 'fas fa-sort-down' : 'fas fa-sort'
                   }
                 ></i>
               </button>

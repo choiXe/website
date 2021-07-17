@@ -1,5 +1,5 @@
-@import "src/styles/_color.scss";
-@import "src/styles/_mixin.scss";
+@import 'src/styles/_color.scss';
+@import 'src/styles/_mixin.scss';
 
 .news-item {
   @include rounded-button;
@@ -27,6 +27,6 @@
     font-size: 14px;
     padding-top: 0.8rem;
     max-width: 700px;
-    color: "#666";
+    color: '#666';
   }
 }

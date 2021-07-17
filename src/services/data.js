@@ -1,12 +1,12 @@
-import * as queries from "../graphql/queries";
-import { API, graphqlOperation } from "aws-amplify";
+import * as queries from '../graphql/queries';
+import { API, graphqlOperation } from 'aws-amplify';
 
 const getStockInfo = async (id, date) => {
   try {
     const stockInfo = await API.graphql(
       graphqlOperation(queries.getStockInfo, {
         stockId: id,
-        startDate: date,
+        startDate: date
       })
     );
     return stockInfo.data;
@@ -20,7 +20,7 @@ const getSectorInfo = async (name, date) => {
     const sectorInfo = await API.graphql(
       graphqlOperation(queries.getSectorInfo, {
         sectorName: name,
-        startDate: date,
+        startDate: date
       })
     );
     return sectorInfo.data;
@@ -33,7 +33,7 @@ const getMainInfo = async (text) => {
   try {
     const mainInfo = await API.graphql(
       graphqlOperation(queries.getMainInfo, {
-        keyword: text,
+        keyword: text
       })
     );
     return mainInfo.data;
