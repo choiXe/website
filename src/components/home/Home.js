@@ -31,10 +31,19 @@ const Home = () => {
 
   return (
     <div id="home">
-      <Sticky top={20} innerClass="menu">
+      <Sticky top={20} bottomBoundary="#trending-list" innerClass="menu">
         <SectorMenu selected="" />
       </Sticky>
-      {renderContent(mainData)}
+      <div id="stock-market">
+        <h4>국내증시</h4>
+        <h4>해외증시</h4>
+      </div>
+      <div id="favorites">
+        favorites
+      </div>
+      <div id="trending-list">
+        trending
+      </div>
     </div>
   );
 };
