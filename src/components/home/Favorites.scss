@@ -1,0 +1,15 @@
+#favorites-title {
+  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: flex-end;
+}
+
+#favorites-list {
+  p {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    background-color: pink;
+    border-radius: 14px;
+  }
+}

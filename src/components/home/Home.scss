@@ -4,7 +4,7 @@
 #home {
   display: grid;
   grid-template-columns: 1fr 2.3fr 2.3fr;
-  grid-template-rows: 30rem 35rem;
+  grid-template-rows: 32rem 35rem;
 
   grid-template-areas:
   "menu market favorites"
@@ -21,24 +21,19 @@
   #stock-market {
     grid-area: market;
     @include content-container;
+    padding: 1.5rem 2.5rem;
     background-color: $navy;
     color: white;
   }
   #favorites {
     grid-area: favorites;
     @include content-container;
+    display: flex;
+    flex-direction: column;
   }
 
   #trending-list {
     grid-area: trending;
     @include content-container;
   }
-
-  /*
-   *#info {
-   *  @include content-container;
-   *  text-align: center;
-   *  padding-top: 10rem;
-   *}
-   */
 }

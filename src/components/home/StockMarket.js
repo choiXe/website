@@ -2,37 +2,80 @@ import React from 'react';
 
 import "./StockMarket.scss";
 
+import china from "../../images/china.png";
+import germany from "../../images/germany.png";
+import hongkong from "../../images/hongkong.png";
+import japan from "../../images/japan.png";
+import korea from "../../images/korea.png";
+import uk from "../../images/uk.png";
+import us from "../../images/us.png";
+
 const StockMarket = ({ data }) => {
-  console.log(data.kr);
+  const marketInfo = index => {
+    const color = index.changeRate > 0 ? '#e21414' : '#246ded';
+    return (
+      <>
+        <p style={{color: color}}>{index.tradePrice}</p>
+        <p style={{color: color}}>{index.changePrice}</p>
+        <p style={{color: color}}>{index.changeRate}</p>
+      </>
+    )
+  }
+  console.log(data.global)
   return (
     <>
-      <h4>국내증시</h4>
-      <div id="market-title">
-        <div></div>
-        <div>현재가</div>
-        <div>변동</div>
-        <div>변동률</div>
+      <div className="index korea">
+        <h4>국내증시</h4>
+        <div id="market-title">
+          <div>현재가</div>
+          <div>변동</div>
+          <div>변동률</div>
+        </div>
+        <div className="market-table">
+          {data.kr.map(index => (
+            <div key={index.symbolCode}>
+              <p><img src={korea} /> {index.name}</p>
+              {marketInfo(index)}
+            </div>
+          ))}
+        </div>
       </div>
-      <div className="market-table">
-        {data.kr.map(item => (
-          <div key={item.symbolCode}>
-            <p>item.name</p>
-            <p>item.price</p>
-            <p>item.change</p>
-            <p>item.changeRate</p>
+      <div className="index global">
+        <h4>해외증시</h4>
+        <div className="market-table">
+          <div>
+            <p><img src={china} /> {data.global[0].name}</p>
+            {marketInfo(data.global[0])}
           </div>
-        ))}
-      </div>
-      <h4>해외증시</h4>
-      <div className="market-table">
-        {data.global.map(item => (
-          <div key={item.symbolCode}>
-            <p>item.name</p>
-            <p>item.price</p>
-            <p>item.change</p>
-            <p>item.changeRate</p>
+          <div>
+            <p><img src={japan} /> {data.global[1].name}</p>
+            {marketInfo(data.global[1])}
           </div>
-        ))}
+          <div>
+            <p><img src={hongkong} /> {data.global[2].name}</p>
+            {marketInfo(data.global[2])}
+          </div>
+          <div>
+            <p><img src={germany} /> {data.global[3].name}</p>
+            {marketInfo(data.global[3])}
+          </div>
+          <div>
+            <p><img src={uk} /> {data.global[4].name}</p>
+            {marketInfo(data.global[4])}
+          </div>
+          <div>
+            <p><img src={us} /> {data.global[5].name}</p>
+            {marketInfo(data.global[5])}
+          </div>
+          <div>
+            <p><img src={us} /> {data.global[6].name}</p>
+            {marketInfo(data.global[6])}
+          </div>
+          <div>
+            <p><img src={us} /> {data.global[7].name}</p>
+            {marketInfo(data.global[7])}
+          </div>
+        </div>
       </div>
     </>
   )

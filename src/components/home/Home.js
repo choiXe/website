@@ -3,6 +3,7 @@ import Sticky from "react-stickynode";
 
 import SectorMenu from "../sector/SectorMenu";
 import StockMarket from "./StockMarket";
+import Favorites from "./Favorites";
 
 import data from "../../services/data";
 
@@ -19,36 +20,29 @@ const Home = () => {
       .getMainInfo('')
       .then((data) => setMainData(data.getMainInfo));
   }, []);
-  console.log(mainData);
 
-  const renderContent = (mainData) => {
-    if (!mainData) {
-      return (
-        <div id="info">데이터 불러오는 중...</div>
-      );
-    } else {
-      return (
-        <div id="info">섹터를 선택해 주세요!</div>
-      );
-    }
-  };
+  if (!mainData) {
+    return (
+      <div id="info">데이터 불러오는 중...</div>
+    )
+  } else {
+    return (
+      <div id="home">
+        <Sticky top={20} bottomBoundary="#trending-list" innerClass="menu">
+          <SectorMenu selected="" />
+        </Sticky>
+        <div id="stock-market">
+          <StockMarket data={mainData} />
+        </div>
+        <div id="favorites">
+        </div>
+        <div id="trending-list">
+          trending
+        </div>
+      </div>
+    )
+  }
 
-  return (
-    <div id="home">
-      <Sticky top={20} bottomBoundary="#trending-list" innerClass="menu">
-        <SectorMenu selected="" />
-      </Sticky>
-      <div id="stock-market">
-        <StockMarket data={mainData}/>
-      </div>
-      <div id="favorites">
-        favorites
-      </div>
-      <div id="trending-list">
-        trending
-      </div>
-    </div>
-  );
 };
 
 export default Home;
