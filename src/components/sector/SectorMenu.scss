@@ -10,6 +10,7 @@ h3 {
 .sector-list {
   height: 100%;
   text-decoration: none;
+  min-width: 160px;
 
   .sector-item {
     @include rounded-button;
