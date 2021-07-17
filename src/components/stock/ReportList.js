@@ -7,17 +7,15 @@ const ReportInfo = ({ data, stockName }) => {
   };
 
   const reportName =
-    data.reportName.length > 21
-      ? data.reportName.slice(0, 21) + "..."
+    data.reportName.length > 23
+      ? data.reportName.slice(0, 23) + "..."
       : data.reportName;
   const baseURL =
     "http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=";
 
   const analystList = data.analyst.split(",");
   var analyst;
-  if (analystList.length === 2) {
-    analyst = analystList[0] + ", " + analystList[1];
-  } else if (analystList.length >= 3) {
+  if (analystList.length > 1) {
     analyst = analystList[0] + " 등";
   } else {
     analyst = analystList[0];

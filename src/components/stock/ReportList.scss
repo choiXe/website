@@ -4,7 +4,7 @@
 .report-item {
   @include rounded-button;
   display: grid;
-  grid-template-columns: 1fr 2fr repeat(3, 1fr);
+  grid-template-columns: 1fr 2.4fr 0.8fr repeat(2, 1fr);
   column-gap: 1.2rem;
   margin-bottom: 0.5rem;
   font-size: 17px;
