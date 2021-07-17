@@ -27,7 +27,11 @@ const Stock = ({ location }) => {
   };
 
   const numbWithCommas = (num) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    if (num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    } else {
+      return num;
+    }
   };
 
   useEffect(() => {
@@ -145,8 +149,8 @@ const Stock = ({ location }) => {
                     변동(%):
                     <span style={{ color: statColor }}>
                       {(stockData.changeRate >= 0 ? " +" : " ") +
-                        stockData.changeRate +
-                        "%"}
+                          stockData.changeRate +
+                          "%"}
                     </span>
                   </p>
                 </div>

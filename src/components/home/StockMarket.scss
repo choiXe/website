@@ -1,0 +1,14 @@
+#list-title {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  div {
+    text-align: center;
+  }
+}
+
+.market-table {
+  div {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+  }
+}

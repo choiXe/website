@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Sticky from "react-stickynode";
+
 import SectorMenu from "../sector/SectorMenu";
+import StockMarket from "./StockMarket";
+
 import data from "../../services/data";
 
 import "./Home.scss";
@@ -16,6 +19,7 @@ const Home = () => {
       .getMainInfo('')
       .then((data) => setMainData(data.getMainInfo));
   }, []);
+  console.log(mainData);
 
   const renderContent = (mainData) => {
     if (!mainData) {
@@ -35,8 +39,7 @@ const Home = () => {
         <SectorMenu selected="" />
       </Sticky>
       <div id="stock-market">
-        <h4>국내증시</h4>
-        <h4>해외증시</h4>
+        <StockMarket data={mainData}/>
       </div>
       <div id="favorites">
         favorites

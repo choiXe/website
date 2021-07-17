@@ -21,11 +21,14 @@
   #stock-market {
     grid-area: market;
     @include content-container;
+    background-color: $navy;
+    color: white;
   }
   #favorites {
     grid-area: favorites;
     @include content-container;
   }
+
   #trending-list {
     grid-area: trending;
     @include content-container;
