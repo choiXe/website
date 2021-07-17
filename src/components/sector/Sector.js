@@ -136,8 +136,8 @@ const Sector = ({ location }) => {
           </div>
           <div id="list-title">
             <div>종목이름</div>
-            <div>가격(₩)</div>
-            <div>변동가격</div>
+            <div>가격</div>
+            <div>전일 대비</div>
             <div>변동률</div>
             <div>컨센서스 평균가</div>
             <div>
