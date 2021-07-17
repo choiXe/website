@@ -57,7 +57,7 @@ const Sector = ({ location }) => {
           secondaryColor="#536976"
           height={100}
           width={100}
-        />
+          />
       </div>
     );
   } else {
@@ -81,7 +81,7 @@ const Sector = ({ location }) => {
                 <SectorChart
                   stocks={sectorData}
                   selectHandler={setsSectorSelected}
-                />
+                  />
               </div>
             </div>
             <div>
@@ -92,7 +92,7 @@ const Sector = ({ location }) => {
                     value={days}
                     className={days === daysPassed ? "active" : ""}
                     onClick={({ target }) =>
-                      setDaysPassed(Number(target.value))
+                    setDaysPassed(Number(target.value))
                     }
                   >
                     {days < 30 ? days + "일" : days / 30 + "개월"}
@@ -145,7 +145,7 @@ const Sector = ({ location }) => {
                 상승여력{" "}
                 <i
                   className={
-                    orderType === "yield" ? "fas fa-sort-down" : "fas fa-sort"
+                  orderType === "yield" ? "fas fa-sort-down" : "fas fa-sort"
                   }
                 ></i>
               </button>
@@ -155,7 +155,7 @@ const Sector = ({ location }) => {
                 투자 점수{" "}
                 <i
                   className={
-                    orderType === "score" ? "fas fa-sort-down" : "fas fa-sort"
+                  orderType === "score" ? "fas fa-sort-down" : "fas fa-sort"
                   }
                 ></i>
               </button>

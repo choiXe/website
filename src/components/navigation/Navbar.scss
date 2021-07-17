@@ -1,12 +1,13 @@
 nav {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  margin-right: 4vw;
+  padding: 0 8vw;
 
   img {
-    margin-left: 3vw;
-    width: 5rem;
-    height: 5rem;
+    width: auto;
+    height: 43px;
+    margin-right: 20px;
+    margin-left: 10px;
   }
 
   & .nav-left {

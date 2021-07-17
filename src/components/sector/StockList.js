@@ -21,15 +21,15 @@ const StockInfo = ({ stock }) => {
   return (
     <Link
       to={
-        stock.stockName !== "데이터 없음"
-          ? {
-              pathname: "/stock",
-              state: {
-                stockId: stock.stockId,
-                stockName: stock.stockName,
-              },
-            }
-          : { pathname: "/" }
+      stock.stockName !== "데이터 없음"
+      ? {
+        pathname: "/stock",
+        state: {
+          stockId: stock.stockId,
+          stockName: stock.stockName,
+        },
+      }
+      : { pathname: "/" }
       }
       className="stock-item"
     >
@@ -66,7 +66,7 @@ const StockList = ({ stocks, order }) => {
       {stocks.map((stock) => (
         <StockInfo key={stock.stockName} stock={stock} />
       ))}
-    </>
+      </>
   );
 };
 
