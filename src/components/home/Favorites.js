@@ -38,14 +38,14 @@ const Favorites = () => {
         <div>등락률</div>
       </div>
       <div id="favorites-list">
-        {favorites && favorites.length !== 0
-          ? favorites.map((stock, index) => (
+        {favorites && favorites.length !== 0 ? (
+          favorites.map((stock, index) => (
             <li key={index}>
               <Link
                 to={{
-                  pathname: '/stock', 
+                  pathname: '/stock',
                   state: { stockId: stock.stockId, stockName: stock.name }
-                }} 
+                }}
                 className="link"
               >
                 <p>{stock.name}</p>
@@ -64,7 +64,13 @@ const Favorites = () => {
               </button>
             </li>
           ))
-          : '관심 종목을 추가해보세요!'}
+        ) : (
+          <li>
+            <p>종목을 추가해보세요!</p>
+            <p></p>
+            <p></p>
+          </li>
+        )}
       </div>
     </>
   );

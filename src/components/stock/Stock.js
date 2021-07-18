@@ -15,7 +15,7 @@ const Stock = ({ location }) => {
   const [listType, setListType] = useState('analyst');
   const [stockData, setStockData] = useState(null);
   const [message, setMessage] = useState('');
-  const [favText, setFavText] = useState('즐겨찾기에 추가');
+  const [favText, setFavText] = useState('+ 관심종목 추가');
   const daysPassed = 30;
   const stockId = location.state.stockId;
   const stockName = location.state.stockName;
@@ -88,12 +88,12 @@ const Stock = ({ location }) => {
         (stock) => stock.name === stockData.name
       );
       if (hasDuplicate) {
-        setMessage('This stock is already in your favorites list');
-        setTimeout(() => setMessage(''), 500);
+        setMessage('이미 추가되었습니다');
+        setTimeout(() => setMessage(''), 1000);
       } else {
-        favorites.push({...stockData, stockId: stockId});
+        favorites.push({ ...stockData, stockId: stockId });
         localStorage.setItem('favorites', JSON.stringify(favorites));
-        setFavText('추가되었습니다!');
+        setFavText('추가 완료');
       }
     };
 
@@ -104,6 +104,10 @@ const Stock = ({ location }) => {
             <div className="name">{stockData.name}</div>
             <div className="id">{stockId}</div>
           </h1>
+          <div className="add-button">
+            <button onClick={addFavorite}>{favText}</button>
+            <p>{message}</p>
+          </div>
           <div id="chart-section">
             <div className="numbers">
               <p>기대 수익률 (3개월) </p>
@@ -132,8 +136,6 @@ const Stock = ({ location }) => {
                 <p>투자 매력 점수</p>
                 <h4>{stockData.score}</h4>
               </div>
-              <button onClick={addFavorite}>{favText}</button>
-              <p style={{ color: 'grey' }}>{message}</p>
             </div>
             <div className="chart-area">
               <div className="chart-stat">
@@ -171,8 +173,8 @@ const Stock = ({ location }) => {
                     변동(%):
                     <span style={{ color: statColor }}>
                       {(stockData.changeRate >= 0 ? ' +' : ' ') +
-                          stockData.changeRate +
-                          '%'}
+                        stockData.changeRate +
+                        '%'}
                     </span>
                   </p>
                 </div>
