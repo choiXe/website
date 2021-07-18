@@ -29,7 +29,7 @@ const Stock = ({ location }) => {
   };
 
   const numbWithCommas = (num) => {
-    if (num) {
+    if (num != null) {
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     } else {
       return num;

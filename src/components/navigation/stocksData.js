@@ -1,4 +1,16 @@
+/**
+ * Last updated on 2021/07/18 (210728 상장 예정 종목까지 업데이트)
+ * 
+ * Check updates from..
+ * New Listing: http://www.38.co.kr/html/fund/index.htm?o=nw
+ * Delisting: https://www.38.co.kr/html/forum/com_list/backitem.php
+ */
+
 const stockList = [
+  { id: '에브리봇', name: '270660' },
+  { id: '맥스트', name: '377030' },
+  { id: '큐라클', name: '365270' },
+  { id: '에스디바이오센서', name: '137310' },
   { id: '3S', name: '060310' },
   { id: '가비아', name: '079940' },
   { id: '가온미디어', name: '078890' },
