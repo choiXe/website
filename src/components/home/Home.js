@@ -35,6 +35,7 @@ const Home = () => {
           <StockMarket data={mainData} />
         </div>
         <div id="favorites">
+          <Favorites />
         </div>
         <div id="trending-list">
           trending
