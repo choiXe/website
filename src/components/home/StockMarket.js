@@ -44,7 +44,7 @@ const StockMarket = ({ data }) => {
         <div className="market-table">
           {data.kr.map((index) => (
             <div key={index.name}>
-              <p>
+              <p className="market-title">
                 <img src={korea} alt="kr" /> {index.name}
               </p>
               {marketInfo(index)}
@@ -56,49 +56,49 @@ const StockMarket = ({ data }) => {
         <h4>해외증시</h4>
         <div className="market-table">
           <div>
-            <p>
+            <p className="market-title">
               <img src={us} alt="us" /> 다우 산업
             </p>
             {marketInfo(globalIndicator["다우 산업"])}
           </div>
           <div>
-            <p>
+            <p className="market-title">
               <img src={us} alt="us" /> 나스닥 종합
             </p>
             {marketInfo(globalIndicator["나스닥 종합"])}
           </div>
           <div>
-            <p>
+            <p className="market-title">
               <img src={us} alt="us" /> S&P 500
             </p>
             {marketInfo(globalIndicator["S&P 500"])}
           </div>
           <div>
-            <p>
+            <p className="market-title">
               <img src={china} alt="cn" /> 상해 종합
             </p>
             {marketInfo(globalIndicator["상해 종합"])}
           </div>
           <div>
-            <p>
+            <p className="market-title">
               <img src={japan} alt="jp" /> 니케이 225
             </p>
             {marketInfo(globalIndicator["니케이 225"])}
           </div>
           <div>
-            <p>
+            <p className="market-title">
               <img src={hongkong} alt="hk" /> HSI
             </p>
             {marketInfo(globalIndicator["HSI"])}
           </div>
           <div>
-            <p>
+            <p className="market-title">
               <img src={germany} alt="gr" /> DAX
             </p>
             {marketInfo(globalIndicator["DAX"])}
           </div>
           <div>
-            <p>
+            <p className="market-title">
               <img src={uk} alt="uk" /> FTSE 100
             </p>
             {marketInfo(globalIndicator["FTSE 100"])}
