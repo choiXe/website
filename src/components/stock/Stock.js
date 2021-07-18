@@ -14,6 +14,7 @@ import "./Stock.scss";
 const Stock = ({ location }) => {
   const [listType, setListType] = useState("analyst");
   const [stockData, setStockData] = useState(null);
+  const [message, setMessage] = useState("");
   const daysPassed = 30;
   const stockId = location.state.stockId;
   const stockName = location.state.stockName;
@@ -77,6 +78,24 @@ const Stock = ({ location }) => {
       }
     };
 
+    const addFavorite = () => {
+      let favorites = JSON.parse(localStorage.getItem("favorites"));
+      if (!favorites) {
+        favorites = [];
+      }
+      const hasDuplicate = favorites.find(stock => 
+        stock.name === stockData.name)
+      if (hasDuplicate) {
+        setMessage("This stock is already in your favorites list");
+        setTimeout(() => setMessage(""), 2000);
+      } else {
+        favorites.push(stockData);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        setMessage("Added to your favorites!");
+        setTimeout(() => setMessage(""), 2000);
+      }
+    }
+
     return (
       <div>
         <div id="stock">
@@ -112,6 +131,8 @@ const Stock = ({ location }) => {
                 <p>투자 매력 점수</p>
                 <h4>{stockData.score}</h4>
               </div>
+              <button onClick={addFavorite}>add to favorites</button>
+              <p style={{color: "grey"}}>{message}</p>
             </div>
             <div className="chart-area">
               <div className="chart-stat">
