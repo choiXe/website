@@ -15,6 +15,7 @@ const Stock = ({ location }) => {
   const [listType, setListType] = useState('analyst');
   const [stockData, setStockData] = useState(null);
   const [message, setMessage] = useState('');
+  const [favText, setFavText] = useState('즐겨찾기에 추가');
   const daysPassed = 30;
   const stockId = location.state.stockId;
   const stockName = location.state.stockName;
@@ -78,7 +79,7 @@ const Stock = ({ location }) => {
       }
     };
 
-    const addFavorite = () => {
+    const addFavorite = (event) => {
       let favorites = JSON.parse(localStorage.getItem('favorites'));
       if (!favorites) {
         favorites = [];
@@ -92,8 +93,7 @@ const Stock = ({ location }) => {
       } else {
         favorites.push({...stockData, stockId: stockId});
         localStorage.setItem('favorites', JSON.stringify(favorites));
-        setMessage('Added to your favorites!');
-        setTimeout(() => setMessage(''), 500);
+        setFavText('추가되었습니다!');
       }
     };
 
@@ -132,7 +132,7 @@ const Stock = ({ location }) => {
                 <p>투자 매력 점수</p>
                 <h4>{stockData.score}</h4>
               </div>
-              <button onClick={addFavorite}>add to favorites</button>
+              <button onClick={addFavorite}>{favText}</button>
               <p style={{ color: 'grey' }}>{message}</p>
             </div>
             <div className="chart-area">
@@ -171,8 +171,8 @@ const Stock = ({ location }) => {
                     변동(%):
                     <span style={{ color: statColor }}>
                       {(stockData.changeRate >= 0 ? ' +' : ' ') +
-                        stockData.changeRate +
-                        '%'}
+                          stockData.changeRate +
+                          '%'}
                     </span>
                   </p>
                 </div>
