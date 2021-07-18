@@ -7,17 +7,13 @@ export const getMainInfo = /* GraphQL */ `
       global {
         changePrice
         changeRate
-        countryName
         name
-        symbolCode
         tradePrice
       }
       kr {
         changePrice
         changeRate
-        countryName
         name
-        symbolCode
         tradePrice
       }
       reports {
@@ -38,8 +34,8 @@ export const getSectorInfo = /* GraphQL */ `
     getSectorInfo(sectorName: $sectorName, startDate: $startDate) {
       avgYield
       stockList {
-        changeRate
         changePrice
+        changeRate
         count
         expYield
         priceAvg
