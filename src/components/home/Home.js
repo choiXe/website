@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import Sticky from 'react-stickynode';
+import Loader from 'react-loader-spinner';
+
 import SectorMenu from '../sector/SectorMenu';
+import StockMarket from './StockMarket';
+import Favorites from './Favorites';
+import Trending from './Trending';
+
 import data from '../../services/data';
 
 import './Home.scss';
-
-// Temporary function to test the graph selection
 
 const Home = () => {
   const [mainData, setMainData] = useState(null);
@@ -15,22 +19,57 @@ const Home = () => {
     data.getMainInfo('').then((data) => setMainData(data.getMainInfo));
   }, []);
 
-  const renderContent = (mainData) => {
-    if (!mainData) {
-      return <div id="info">데이터 불러오는 중...</div>;
-    } else {
-      return <div id="info">섹터를 선택해 주세요!</div>;
-    }
-  };
-
-  return (
-    <div id="home">
-      <Sticky top={20} innerClass="menu">
-        <SectorMenu selected="" />
-      </Sticky>
-      {renderContent(mainData)}
-    </div>
-  );
+  if (!mainData) {
+    return (
+      <div id="home">
+        <Sticky top={20} bottomBoundary="#trending-list" innerClass="menu">
+          <SectorMenu selected="" />
+        </Sticky>
+        <div id="stock-market">
+          <div id="loading">
+            <Loader
+              type="MutatingDots"
+              color="#BBD2C5"
+              secondaryColor="#536976"
+              height={100}
+              width={100}
+            />
+          </div>
+        </div>
+        <div id="favorites">
+          <Favorites />
+        </div>
+        <div id="trending">
+          <div id="loading">
+            <Loader
+              type="MutatingDots"
+              color="#BBD2C5"
+              secondaryColor="#536976"
+              height={100}
+              width={100}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div id="home">
+        <Sticky top={20} bottomBoundary="#trending-list" innerClass="menu">
+          <SectorMenu selected="" />
+        </Sticky>
+        <div id="stock-market">
+          <StockMarket data={mainData} />
+        </div>
+        <div id="favorites">
+          <Favorites />
+        </div>
+        <div id="trending">
+          <Trending trendingList={mainData.reports} />
+        </div>
+      </div>
+    );
+  }
 };
 
 export default Home;

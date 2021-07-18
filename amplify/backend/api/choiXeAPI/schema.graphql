@@ -27,9 +27,7 @@ type DailyInv {
 type Indicator {
   changePrice: Float
   changeRate: Float
-  countryName: String
   name: String
-  symbolCode: String
   tradePrice: Float
 }
 

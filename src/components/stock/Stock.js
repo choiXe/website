@@ -14,6 +14,8 @@ import './Stock.scss';
 const Stock = ({ location }) => {
   const [listType, setListType] = useState('analyst');
   const [stockData, setStockData] = useState(null);
+  const [message, setMessage] = useState('');
+  const [favText, setFavText] = useState('+ 관심종목 추가');
   const daysPassed = 30;
   const stockId = location.state.stockId;
   const stockName = location.state.stockName;
@@ -77,6 +79,24 @@ const Stock = ({ location }) => {
       }
     };
 
+    const addFavorite = (event) => {
+      let favorites = JSON.parse(localStorage.getItem('favorites'));
+      if (!favorites) {
+        favorites = [];
+      }
+      const hasDuplicate = favorites.find(
+        (stock) => stock.name === stockData.name
+      );
+      if (hasDuplicate) {
+        setMessage('이미 추가되었습니다');
+        setTimeout(() => setMessage(''), 1000);
+      } else {
+        favorites.push({ ...stockData, stockId: stockId });
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        setFavText('추가 완료');
+      }
+    };
+
     return (
       <div>
         <div id="stock">
@@ -84,6 +104,10 @@ const Stock = ({ location }) => {
             <div className="name">{stockData.name}</div>
             <div className="id">{stockId}</div>
           </h1>
+          <div className="add-button">
+            <button onClick={addFavorite}>{favText}</button>
+            <p>{message}</p>
+          </div>
           <div id="chart-section">
             <div className="numbers">
               <p>기대 수익률 (3개월) </p>
