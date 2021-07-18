@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Favorites.scss';
 
@@ -20,8 +21,8 @@ const Favorites = () => {
     const updatedFavorites = favorites.filter(
       (stock) => stock.name !== deletedStock
     );
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     setFavorites(updatedFavorites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
 
   const calColor = (n) => {
@@ -39,7 +40,14 @@ const Favorites = () => {
       <div id="favorites-list">
         {favorites && favorites.length !== 0
           ? favorites.map((stock, index) => (
-              <li key={index}>
+            <li key={index}>
+              <Link
+                to={{
+                  pathname: '/stock', 
+                  state: { stockId: stock.stockId, stockName: stock.name }
+                }} 
+                className="link"
+              >
                 <p>{stock.name}</p>
                 <p style={{ color: calColor(stock.changeRate) }}>
                   {numbWithCommas(stock.tradePrice)}
@@ -49,12 +57,13 @@ const Favorites = () => {
                     ? '+' + stock.changeRate
                     : stock.changeRate}
                   %
-                  <button onClick={removeFavorite} name={stock.name}>
-                    X
-                  </button>
                 </p>
-              </li>
-            ))
+              </Link>
+              <button onClick={removeFavorite} name={stock.name}>
+                X
+              </button>
+            </li>
+          ))
           : '관심 종목을 추가해보세요!'}
       </div>
     </>

@@ -88,12 +88,12 @@ const Stock = ({ location }) => {
       );
       if (hasDuplicate) {
         setMessage('This stock is already in your favorites list');
-        setTimeout(() => setMessage(''), 2000);
+        setTimeout(() => setMessage(''), 500);
       } else {
-        favorites.push(stockData);
+        favorites.push({...stockData, stockId: stockId});
         localStorage.setItem('favorites', JSON.stringify(favorites));
         setMessage('Added to your favorites!');
-        setTimeout(() => setMessage(''), 2000);
+        setTimeout(() => setMessage(''), 500);
       }
     };
 

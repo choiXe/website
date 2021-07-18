@@ -6,7 +6,7 @@ h4 {
 
 #favorites-title {
   display: grid;
-  grid-template-columns: 2fr 1.1fr 1.1fr;
+  grid-template-columns: 2fr 1.1fr 1.1fr 2rem;
   color: $sub-text;
   font-size: 13px;
   padding: 17px 0 17px 40px;
@@ -14,27 +14,35 @@ h4 {
 
 #favorites-list {
   li {
-    list-style-type: none;
+    background-color: #ebebeb;
     display: grid;
-    grid-template-columns: 2fr 1.1fr 1.1fr;
-    background-color: $navy;
+    grid-template-columns: auto 2rem;
     border-radius: 14px;
     padding: 15px 0 15px 40px;
     margin-bottom: 15px;
     box-shadow: 0px 3px 6px #00000029;
-    color: white;
+    color: black;
+    .link {
+      display: grid;
+      grid-template-columns: 2fr 1.1fr 1.1fr;
+      text-decoration: none;
+      color: black;
+    }
     p {
       font-weight: bold;
     }
     button {
-      color: white;
+      color: black;
       float: right;
       padding-right: 20px;
       border: 0;
       background: none;
       box-shadow: none;
       border-radius: 0px;
-      font-size: 18px;
+      &:hover {
+        color: $red;
+        cursor: pointer;
+      }
     }
   }
 }
