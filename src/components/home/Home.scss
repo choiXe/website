@@ -1,5 +1,5 @@
-@import "src/styles/color";
-@import "src/styles/_mixin.scss";
+@import 'src/styles/color';
+@import 'src/styles/_mixin.scss';
 
 #home {
   display: grid;
@@ -7,8 +7,8 @@
   grid-template-rows: 36rem auto;
 
   grid-template-areas:
-    "menu market favorites"
-    "menu trending trending";
+    'menu market favorites'
+    'menu trending trending';
   padding: 0 8vw;
   gap: 2rem 2rem;
 
@@ -41,4 +41,7 @@
       font-size: 18px;
     }
   }
+}
+#loading {
+  text-align: center;
 }

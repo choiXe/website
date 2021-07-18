@@ -1,9 +1,9 @@
-import React from "react";
-import "./NewsList.scss";
+import React from 'react';
+import './NewsList.scss';
 
 const NewsInfo = ({ data }) => {
   const newsName =
-    data.title.length > 60 ? data.title.slice(0, 60) + "..." : data.title;
+    data.title.length > 60 ? data.title.slice(0, 60) + '...' : data.title;
   const description = data.description;
 
   return (

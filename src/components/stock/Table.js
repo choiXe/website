@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Table = ({ tableData, headingColumns, title, breakOn = "medium" }) => {
-  let tableClass = "table-container__table";
+const Table = ({ tableData, headingColumns, title, breakOn = 'medium' }) => {
+  let tableClass = 'table-container__table';
 
-  if (breakOn === "small") {
-    tableClass += " table-container__table--break-sm";
-  } else if (breakOn === "medium") {
-    tableClass += " table-container__table--break-md";
-  } else if (breakOn === "large") {
-    tableClass += " table-container__table--break-lg";
+  if (breakOn === 'small') {
+    tableClass += ' table-container__table--break-sm';
+  } else if (breakOn === 'medium') {
+    tableClass += ' table-container__table--break-md';
+  } else if (breakOn === 'large') {
+    tableClass += ' table-container__table--break-lg';
   }
 
   const data = tableData.map((row, index) => {
@@ -19,7 +19,7 @@ const Table = ({ tableData, headingColumns, title, breakOn = "medium" }) => {
     for (const key in row) {
       rowData.push({
         key: headingColumns[i],
-        val: row[key],
+        val: row[key]
       });
       i++;
     }
@@ -58,7 +58,7 @@ Table.propTypes = {
   tableData: PropTypes.arrayOf(PropTypes.object).isRequired,
   headingColumns: PropTypes.arrayOf(PropTypes.string).isRequired,
   title: PropTypes.string.isRequired,
-  breakOn: PropTypes.oneOf(["small", "medium", "large"]),
+  breakOn: PropTypes.oneOf(['small', 'medium', 'large'])
 };
 
 export default Table;

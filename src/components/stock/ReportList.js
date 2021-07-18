@@ -1,22 +1,22 @@
-import React from "react";
-import "./ReportList.scss";
+import React from 'react';
+import './ReportList.scss';
 
 const ReportInfo = ({ data, stockName }) => {
   const numbWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   const reportName =
     data.reportName.length > 23
-      ? data.reportName.slice(0, 23) + "..."
+      ? data.reportName.slice(0, 23) + '...'
       : data.reportName;
   const baseURL =
-    "http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=";
+    'http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=';
 
-  const analystList = data.analyst.split(",");
+  const analystList = data.analyst.split(',');
   var analyst;
   if (analystList.length > 1) {
-    analyst = analystList[0] + " 등";
+    analyst = analystList[0] + ' 등';
   } else {
     analyst = analystList[0];
   }
@@ -29,7 +29,7 @@ const ReportInfo = ({ data, stockName }) => {
       <div>{data.date}</div>
       <div>
         <a href={baseURL + data.reportIdx} rel="noreferrer" target="_blank">
-          {reportName === "" ? stockName : reportName}
+          {reportName === '' ? stockName : reportName}
         </a>
       </div>
       <div>{analyst}</div>

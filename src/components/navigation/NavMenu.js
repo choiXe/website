@@ -1,26 +1,26 @@
-import React from "react";
-import { Link, useHistory } from "react-router-dom";
-import { ReactSearchAutocomplete } from "react-search-autocomplete";
+import React from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
-import stockList from "./stocksData";
-import "./NavMenu.scss";
+import stockList from './stocksData';
+import './NavMenu.scss';
 
 const NavMenu = () => {
   let history = useHistory();
 
   const searchBarStyle = {
-    borderRadius: "11px",
-    backgroundColor: "white",
-    lineColor: "#2A2F47",
-    iconColor: "#2A2F47",
-    fontFamily: "Pretendard",
-    zIndex: 2,
+    borderRadius: '11px',
+    backgroundColor: 'white',
+    lineColor: '#2A2F47',
+    iconColor: '#2A2F47',
+    fontFamily: 'Pretendard',
+    zIndex: 2
   };
 
   const selectHandler = (item) => {
     history.push({
-      pathname: "/stock",
-      state: { stockId: item.name, stockName: item.id },
+      pathname: '/stock',
+      state: { stockId: item.name, stockName: item.id }
     });
   };
 
@@ -41,11 +41,11 @@ const NavMenu = () => {
       <div className="nav-item">
         <Link
           to={{
-            pathname: "/stock",
+            pathname: '/stock',
             state: {
-              stockId: "005930",
-              stockName: "삼성전자",
-            },
+              stockId: '005930',
+              stockName: '삼성전자'
+            }
           }}
           className="nav-links"
         >
@@ -62,7 +62,7 @@ const NavMenu = () => {
       <div className="search-bar">
         <ReactSearchAutocomplete
           items={stockList}
-          fuseOptions={{ keys: ["id"] }}
+          fuseOptions={{ keys: ['id'] }}
           resultStringKeyName="id"
           inputDebounce={0}
           onSelect={selectHandler}

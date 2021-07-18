@@ -1,15 +1,15 @@
-import React from "react";
-import Highcharts from "highcharts/highstock";
-import HighchartsReact from "highcharts-react-official";
-import { StockChartOption } from "../chartOption";
+import React from 'react';
+import Highcharts from 'highcharts/highstock';
+import HighchartsReact from 'highcharts-react-official';
+import { StockChartOption } from '../chartOption';
 
 const StockChart = ({ data }) => {
   var ohlc = [],
     volume = [],
     dataLength = data.length,
     groupingUnits = [
-      ["week", [1]],
-      ["month", [1, 2, 3, 4, 6]],
+      ['week', [1]],
+      ['month', [1, 2, 3, 4, 6]]
     ],
     i = 0;
 
@@ -21,7 +21,7 @@ const StockChart = ({ data }) => {
       data[i].start,
       data[i].high,
       data[i].low,
-      data[i].end,
+      data[i].end
     ]);
     // date, volume
     volume.push([Date.parse(tempDate), data[i].volume]);
@@ -32,7 +32,7 @@ const StockChart = ({ data }) => {
   return (
     <HighchartsReact
       highcharts={Highcharts}
-      constructorType={"stockChart"}
+      constructorType={'stockChart'}
       options={options}
     />
   );

@@ -1,8 +1,12 @@
 @import 'src/styles/_color.scss';
 
+h4 {
+  font-size: 18px;
+}
+
 #favorites-title {
   display: grid;
-  grid-template-columns: 2fr 1fr 0.8fr;
+  grid-template-columns: 2fr 1.1fr 1.1fr;
   color: $sub-text;
   font-size: 13px;
   padding: 17px 0 17px 40px;
@@ -12,14 +16,25 @@
   li {
     list-style-type: none;
     display: grid;
-    grid-template-columns: 2fr 1fr 0.8fr;
-    background-color: #FDDBDB;
+    grid-template-columns: 2fr 1.1fr 1.1fr;
+    background-color: $navy;
     border-radius: 14px;
-    padding: 17px 0 17px 40px;
-    margin-bottom: 20px;
+    padding: 15px 0 15px 40px;
+    margin-bottom: 15px;
     box-shadow: 0px 3px 6px #00000029;
-    p:first-child {
+    color: white;
+    p {
       font-weight: bold;
+    }
+    button {
+      color: white;
+      float: right;
+      padding-right: 20px;
+      border: 0;
+      background: none;
+      box-shadow: none;
+      border-radius: 0px;
+      font-size: 18px;
     }
   }
 }

@@ -1,11 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import NavMenu from "./NavMenu";
+import NavMenu from './NavMenu';
 
-import "./Navbar.scss";
+import './Navbar.scss';
 
-import logo from "../../images/logo.png";
+import logo from '../../images/logo.png';
 
 function Navbar() {
   return (

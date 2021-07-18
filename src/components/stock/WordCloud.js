@@ -1,9 +1,9 @@
-import React from "react";
-import Highcharts from "highcharts";
-import HighchartsReact from "highcharts-react-official";
-import wordCloud from "highcharts/modules/wordcloud.js";
+import React from 'react';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import wordCloud from 'highcharts/modules/wordcloud.js';
 
-import { WordCloudOption } from "../chartOption";
+import { WordCloudOption } from '../chartOption';
 
 const WordCloud = ({ newsTitles }) => {
   wordCloud(Highcharts);
@@ -22,7 +22,7 @@ const WordCloud = ({ newsTitles }) => {
           if (word.length > 1) {
             obj = {
               name: word,
-              weight: 1,
+              weight: 1
             };
             arr.push(obj);
           }
