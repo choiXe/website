@@ -1,16 +1,22 @@
+@import 'src/styles/_color.scss';
+
 #favorites-title {
-  width: 50%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-self: flex-end;
+  grid-template-columns: 2fr 1fr 0.8fr;
+  color: $sub-text;
+  font-size: 13px;
+  padding: 17px 0 17px 40px;
 }
 
 #favorites-list {
   li {
     list-style-type: none;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    background-color: pink;
+    grid-template-columns: 2fr 1fr 0.8fr;
+    background-color: #FDDBDB;
     border-radius: 14px;
+    padding: 17px 0 17px 40px;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 6px #00000029;
   }
 }

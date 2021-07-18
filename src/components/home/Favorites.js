@@ -30,6 +30,7 @@ const Favorites = () => {
     <>
       <h4>내 관심종목</h4>
       <div id="favorites-title">
+        <div></div>
         <div>현재가</div>
         <div>등락률</div>
       </div>
