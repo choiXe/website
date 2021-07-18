@@ -6,7 +6,8 @@
 }
 
 #favorites-list {
-  p {
+  li {
+    list-style-type: none;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     background-color: pink;

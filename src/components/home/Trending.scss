@@ -1,0 +1,30 @@
+@import "src/styles/color";
+
+#trending-title {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 5fr 2fr 2fr 2fr;
+  font-size: 13px;
+  margin: 1.5rem 0 1.5rem;
+  color: $sub-text;
+}
+
+#trending-list {
+  list-style-type: none;
+  li {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 5fr 2fr 2fr 2fr;
+    margin-bottom: 1.2rem;
+    p:first-child {
+      font-weight: bold;
+      font-size: 18px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      border-radius: 16px;
+      &:hover {
+        background-color: $background-color;
+      }
+    }
+  }
+}

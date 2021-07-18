@@ -4,12 +4,11 @@ import Sticky from "react-stickynode";
 import SectorMenu from "../sector/SectorMenu";
 import StockMarket from "./StockMarket";
 import Favorites from "./Favorites";
+import Trending from "./Trending";
 
 import data from "../../services/data";
 
 import "./Home.scss";
-
-// Temporary function to test the graph selection
 
 const Home = () => {
   const [mainData, setMainData] = useState(null);
@@ -37,8 +36,8 @@ const Home = () => {
         <div id="favorites">
           <Favorites />
         </div>
-        <div id="trending-list">
-          trending
+        <div id="trending">
+          <Trending trendingList={mainData.reports}/>
         </div>
       </div>
     )

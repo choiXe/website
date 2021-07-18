@@ -20,8 +20,10 @@ const StockMarket = ({ data }) => {
     return (
       <>
         <p style={{ color: color }}>{numbWithCommas(index.tradePrice)}</p>
-        <p style={{ color: color }}>{index.changePrice > 0 ? "+" + index.changePrice : index.changePrice}</p>
-        <p style={{ color: color }}>{index.changeRate > 0 ? "+" + index.changeRate : index.changeRate}%</p>
+        <p style={{ color: color }}>{index.changePrice > 0 
+          ?  "+" + index.changePrice : index.changePrice}</p>
+        <p style={{ color: color }}>{index.changeRate > 0 
+          ? "+" + index.changeRate : index.changeRate}%</p>
       </>
     );
   };

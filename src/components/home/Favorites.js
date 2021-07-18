@@ -34,12 +34,12 @@ const Favorites = () => {
         <div>등락률</div>
       </div>
       <div id="favorites-list">
-        {favorites.map(stock => (
-          <p key={stock.name}>
-            <div>{stock.name}</div>
-            <div>{stock.price}</div>
-            <div>{stock.flucRate}</div>
-          </p>
+        {favorites.map((stock, index)=> (
+          <li key={index}>
+            <p>{stock.name}</p>
+            <p>{stock.price}</p>
+            <p>{stock.flucRate}</p>
+          </li>
         ))}
       </div>
     </>

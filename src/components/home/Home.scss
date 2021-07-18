@@ -1,14 +1,14 @@
-@import "/src/styles/color";
+@import "src/styles/color";
 @import "src/styles/_mixin.scss";
 
 #home {
   display: grid;
   grid-template-columns: 1fr 2.3fr 2.3fr;
-  grid-template-rows: 38rem 35rem;
+  grid-template-rows: 36rem auto;
 
   grid-template-areas:
-  "menu market favorites"
-  ". trending trending";
+    "menu market favorites"
+    "menu trending trending";
   padding: 0 8vw;
   gap: 2rem 2rem;
 
@@ -28,12 +28,17 @@
   #favorites {
     grid-area: favorites;
     @include content-container;
+    padding: 1.5rem 2.5rem;
     display: flex;
     flex-direction: column;
   }
 
-  #trending-list {
+  #trending {
     grid-area: trending;
     @include content-container;
+    padding: 1.5rem 2.5rem;
+    h4 {
+      font-size: 18px;
+    }
   }
 }
