@@ -7,7 +7,7 @@ const fallbackLng = ['ko'];
 const availableLanguages = ['en', 'ko'];
 
 const options = {
-  order: [ 'navigator', 'htmlTag', 'path', 'subdomain'],
+  order: ['navigator', 'htmlTag', 'path', 'subdomain'],
   lookupQuerystring: 'lng',
   lookupCookie: 'i18next',
   lookupLocalStorage: 'i18nextLng',
@@ -19,7 +19,7 @@ const options = {
   cookieDomain: 'myDomain',
   htmlTag: document.documentElement,
   checkWhitelist: true
-}
+};
 
 i18n
   .use(Backend)
@@ -32,7 +32,7 @@ i18n
     detection: options,
     interpolation: {
       escapeValue: false
-    },
+    }
   });
 
 export default i18n;
