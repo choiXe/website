@@ -137,6 +137,7 @@ export function TreeMapOption(data, selectHandler) {
 
 export function WordCloudOption(data) {
   return {
+    exporting: { enabled: false },
     chart: {
       height: '57%',
       borderRadius: 14,

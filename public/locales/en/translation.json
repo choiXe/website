@@ -161,7 +161,7 @@
       "avgYield": "Expected Yield (3m)",
       "price": "Current Price",
       "consensus": "Price Target",
-      "score": "Inv Score",
+      "score": "Investment Score",
       "close": "Previous Close: ",
       "open": "Open: ",
       "high": "High: ",
@@ -177,8 +177,8 @@
     "InvInfo": {
       "title": "Stock Info",
       "marketCap": "Market Cap",
-      "52High": "52 week High",
-      "52Low": "52 week Low",
+      "52High": "52-Week High",
+      "52Low": "52-Week Low",
       "foreign": "Foreign Share"
     },
     "companyInfo": "Company Info",

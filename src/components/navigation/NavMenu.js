@@ -2,8 +2,11 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
 import stockList from './stocksData';
+import korea from '../../images/korea.png';
+import us from '../../images/us.png';
 import './NavMenu.scss';
 
 const NavMenu = () => {
@@ -24,6 +27,10 @@ const NavMenu = () => {
       pathname: '/stock',
       state: { stockId: item.name, stockName: item.id }
     });
+  };
+
+  const handleClick = lang => {
+    i18next.changeLanguage(lang);
   };
 
   return (
@@ -72,6 +79,16 @@ const NavMenu = () => {
           styling={searchBarStyle} // To display it on top of the search box below
           autoFocus
         />
+      </div>
+      <div style={{flexDirection: 'row'}}>
+        <div>
+          <img src={us} alt="us" style={{height: '1.2rem'}} />
+          <button onClick={() => handleClick('en')}>English</button>
+        </div>
+        <div>
+          <img src={korea} alt="kr" style={{height: '1.2rem'}} />
+          <button onClick={() => handleClick('ko')}>Korean</button>
+        </div>
       </div>
     </div>
   );
