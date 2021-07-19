@@ -68,7 +68,52 @@
     }
   },
   "Stock": {
-    "navTitle": "Stock"
+    "navTitle": "Stock",
+    "watchlist": {
+      "title": "+ Add to watchlist",
+      "duplicate": "Already added to watchlist",
+      "success": "Successfully added"
+    },
+    "Caption": {
+      "avgYield": "Expected Yield (3m)",
+      "price": "Current Price",
+      "consensus": "Price Target",
+      "score": "Inv Score",
+      "close": "Previous Close: ",
+      "open": "Open: ",
+      "high": "High: ",
+      "low": "Low: ",
+      "change": "Change: ",
+      "rate": "Rate: "
+    },
+    "InvInfo": {
+      "title": "Stock Info",
+      "marketCap": "Market Cap",
+      "52High": "52 week High",
+      "52Low": "52 weeek Low",
+      "foreign": "Foreign Share"
+    },
+    "companyInfo": "Company Info",
+    "Analyst": {
+      "title": "Analyst Report",
+      "date": "Date",
+      "report": "Title",
+      "analyst": "Analyst",
+      "target": "Price Target",
+      "firm": "Firm"
+    },
+    "News": {
+      "title": "News",
+      "date": "Date",
+      "news": "Title"
+    },
+    "InvStat": {
+      "title": "Investor Trend",
+      "date": "Date",
+      "indiv": "Individuals",
+      "foreign": "Foreigners",
+      "inst": "Institutions"
+    }
   },
   "Setting": {
     "navTitle": "Setting",

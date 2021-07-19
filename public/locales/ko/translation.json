@@ -68,7 +68,52 @@
     }
   },
   "Stock": {
-    "navTitle": "종목"
+    "navTitle": "종목",
+    "watchlist": {
+      "title": "+ 관심종목 추가",
+      "duplicate": "이미 추가되었습니다",
+      "success": "추가 완료"
+    },
+    "Caption": {
+      "avgYield": "기대 수익률 (3개월)",
+      "price": "현재가",
+      "consensus": "컨센서스 평균가",
+      "score": "투자 매력 점수",
+      "close": "전일: ",
+      "open": "시가: ",
+      "high": "고가: ",
+      "low": "저가: ",
+      "change": "변동: ",
+      "rate": "변동(%): "
+    },
+    "InvInfo": {
+      "title": "투자정보",
+      "marketCap": "시가총액",
+      "52High": "52주 최고가",
+      "52Low": "52주 최저가",
+      "foregin": "외국인 소진율"
+    },
+    "companyInfo": "기업정보",
+    "Analyst": {
+      "title": "애널리스트 리포트",
+      "date": "날짜",
+      "report": "제목",
+      "analyst": "애널리스트",
+      "target": "목표가",
+      "firm": "제공출처"
+    },
+    "News": {
+      "title": "뉴스",
+      "date": "날짜",
+      "news": "제목"
+    },
+    "InvStat": {
+      "title": "투자자 동향",
+      "date": "날짜",
+      "indiv": "개인",
+      "foreign": "외국인",
+      "inst": "기관"
+    }
   },
   "Setting": {
     "navTitle": "환경설정",
