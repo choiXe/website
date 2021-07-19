@@ -17,6 +17,7 @@ const Sector = ({ location }) => {
   const [daysPassed, setDaysPassed] = useState(30);
   const [orderType, setOrderType] = useState('yield');
   const [sSectorSelected, setsSectorSelected] = useState(null);
+  const dateButtons = [5, 15, 30, 60, 90];
   const curSector = location.state;
 
   const getPastDate = (n) => {
@@ -46,33 +47,29 @@ const Sector = ({ location }) => {
     }
   }, [curSector, daysPassed, cache]);
 
-  const dateButtons = [5, 15, 30, 60, 90];
-
-  if (!sectorData) {
-    return (
-      <div id="loading">
-        <Loader
-          type="MutatingDots"
-          color="#BBD2C5"
-          secondaryColor="#536976"
-          height={100}
-          width={100}
-        />
-      </div>
-    );
-  } else {
-    const stocks = sectorData.stockList.filter((stock) => {
-      if (!sSectorSelected) {
-        return true;
-      }
-      return stock.sSector === sSectorSelected;
-    });
-
-    return (
-      <div id="sector">
-        <Sticky top={20} bottomBoundary="#stocklist" innerClass="menu">
-          <SectorMenu selected={curSector} selectHandler={setsSectorSelected} />
-        </Sticky>
+  const renderContent = (sectorData) => {
+    if (!sectorData) {
+      return (
+        <div id="info">
+          <div id="loading">
+            <Loader
+              type="MutatingDots"
+              color="#BBD2C5"
+              secondaryColor="#536976"
+              height={100}
+              width={100}
+            />
+          </div>
+        </div>
+      );
+    } else {
+      const stocks = sectorData.stockList.filter((stock) => {
+        if (!sSectorSelected) {
+          return true;
+        }
+        return stock.sSector === sSectorSelected;
+      });
+      return (
         <div id="info">
           <div id="chart-section">
             <div>
@@ -167,9 +164,18 @@ const Sector = ({ location }) => {
             </InfiniteScroll>
           </div>
         </div>
-      </div>
-    );
-  }
+      );
+    }
+  };
+
+  return (
+    <div id="sector">
+      <Sticky top={20} bottomBoundary="#stocklist" innerClass="menu">
+        <SectorMenu selected={curSector} selectHandler={setsSectorSelected} />
+      </Sticky>
+      {renderContent(sectorData)}
+    </div>
+  );
 };
 
 export default Sector;

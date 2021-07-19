@@ -29,13 +29,14 @@ const NavMenu = () => {
       <div className="nav-item">
         <Link to="/about" className="nav-links">
           소개
-          <i className="fas fa-question-circle"></i>
         </Link>
       </div>
       <div className="nav-item">
-        <Link to="/" className="nav-links">
+        <Link
+          to={{ pathname: '/sector', state: '건강관리' }}
+          className="nav-links"
+        >
           섹터
-          <i className="fas fa-chart-pie"></i>
         </Link>
       </div>
       <div className="nav-item">
@@ -50,13 +51,11 @@ const NavMenu = () => {
           className="nav-links"
         >
           종목
-          <i className="fas fa-chart-line"></i>
         </Link>
       </div>
       <div className="nav-item">
         <Link to="/setting" className="nav-links">
           환경설정
-          <i className="fas fa-cog"></i>
         </Link>
       </div>
       <div className="search-bar">
