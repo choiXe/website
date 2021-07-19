@@ -45,7 +45,7 @@ const Sector = ({ location }) => {
         setCache(updatedCache);
       });
     }
-  }, [curSector, daysPassed, cache]);
+  }, [curSector, daysPassed, cache]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const dateButtons = [5, 15, 30, 60, 90];
 

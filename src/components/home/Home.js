@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Sticky from 'react-stickynode';
 import Loader from 'react-loader-spinner';
 
@@ -13,11 +14,12 @@ import './Home.scss';
 
 const Home = () => {
   const [mainData, setMainData] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
-    document.title = 'choiXe :: 투자가 처음이야?';
+    document.title = 'choiXe :: ' + t('Home.tabTitle');
     data.getMainInfo('').then((data) => setMainData(data.getMainInfo));
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (!mainData) {
     return (
