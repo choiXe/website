@@ -25,19 +25,20 @@ const NavMenu = () => {
       state: { stockId: item.name, stockName: item.id }
     });
   };
-  
+
   return (
     <div className="nav-list">
       <div className="nav-item">
         <Link to="/about" className="nav-links">
           {t('About.navTitle')}
-          <i className="fas fa-question-circle"></i>
         </Link>
       </div>
       <div className="nav-item">
-        <Link to="/" className="nav-links">
+        <Link
+          to={{ pathname: '/sector', state: '건강관리' }}
+          className="nav-links"
+        >
           {t('Sector.navTitle')}
-          <i className="fas fa-chart-pie"></i>
         </Link>
       </div>
       <div className="nav-item">
@@ -52,13 +53,11 @@ const NavMenu = () => {
           className="nav-links"
         >
           {t('Stock.navTitle')}
-          <i className="fas fa-chart-line"></i>
         </Link>
       </div>
       <div className="nav-item">
         <Link to="/setting" className="nav-links">
           {t('Setting.navTitle')}
-          <i className="fas fa-cog"></i>
         </Link>
       </div>
       <div className="search-bar">

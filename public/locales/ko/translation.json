@@ -157,7 +157,7 @@
       "success": "추가 완료"
     },
     "Caption": {
-      "avgYield": "기대 수익률 (3개월)",
+      "avgYield": "기대 수익률",
       "price": "현재가",
       "consensus": "컨센서스 평균가",
       "score": "투자 매력 점수",
@@ -178,7 +178,7 @@
       "marketCap": "시가총액",
       "52High": "52주 최고가",
       "52Low": "52주 최저가",
-      "foregin": "외국인 소진율"
+      "foreign": "외국인 소진율"
     },
     "companyInfo": "기업정보",
     "Analyst": {

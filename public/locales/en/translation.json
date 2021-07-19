@@ -158,7 +158,7 @@
       "success": "Successfully added"
     },
     "Caption": {
-      "avgYield": "Expected Yield (3m)",
+      "avgYield": "Expected Yield",
       "price": "Current Price",
       "consensus": "Price Target",
       "score": "Investment Score",
@@ -175,7 +175,7 @@
       "volume": "Volume"
     },
     "InvInfo": {
-      "title": "Stock Info",
+      "title": "Summary",
       "marketCap": "Market Cap",
       "52High": "52-Week High",
       "52Low": "52-Week Low",

@@ -5,8 +5,8 @@ import './Trending.scss';
 
 const TrendingItem = ({ item }) => {
   const reportName =
-    item.reportName.length > 27
-      ? item.reportName.slice(0, 27) + '...'
+    item.reportName.length > 23
+      ? item.reportName.slice(0, 23) + '...'
       : item.reportName;
 
   const baseURL =

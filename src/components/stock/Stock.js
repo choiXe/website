@@ -61,17 +61,17 @@ const Stock = ({ location }) => {
     );
   } else {
     const invStatTitle = [
-      t('Stock.InvStat.date'), 
-      t('Stock.InvStat.indiv'), 
-      t('Stock.InvStat.foreign'), 
+      t('Stock.InvStat.date'),
+      t('Stock.InvStat.indiv'),
+      t('Stock.InvStat.foreign'),
       t('Stock.InvStat.inst')
     ];
     const reportTitle = [
-      t('Stock.Analyst.date'), 
-      t('Stock.Analyst.report'), 
-      t('Stock.Analyst.analyst'), 
-      t('Stock.Analyst.target'), 
-      t('Stock.Analyst.firm'), 
+      t('Stock.Analyst.date'),
+      t('Stock.Analyst.report'),
+      t('Stock.Analyst.analyst'),
+      t('Stock.Analyst.target'),
+      t('Stock.Analyst.firm')
     ];
     const newsTitle = [t('Stock.News.date'), t('Stock.News.news')];
     const titleList = listType === 'analyst' ? reportTitle : newsTitle;
@@ -147,7 +147,8 @@ const Stock = ({ location }) => {
             <div className="chart-area">
               <div className="chart-stat">
                 <div className="stat-item">
-                  {t('Stock.Caption.close')}<p>{numbWithCommas(priceY)}</p>
+                  {t('Stock.Caption.close')}
+                  <p>{numbWithCommas(priceY)}</p>
                 </div>
                 <div className="stat-item">
                   {t('Stock.Caption.open')}
@@ -212,13 +213,21 @@ const Stock = ({ location }) => {
           </div>
           <div id="company-info">
             <h4>
-              {t('Stock.companyInfo')} 
-              <span>{'WICS: ' + t('Sector.Highchart.' + stockData.wicsSectorName.replace(/ /g,''))}</span>
+              {t('Stock.companyInfo')}
+              <span>
+                {'WICS: ' +
+                  t(
+                    'Sector.Highchart.' +
+                      stockData.wicsSectorName.replace(/ /g, '')
+                  )}
+              </span>
             </h4>
             <p>{stockData.companySummary}</p>
           </div>
           <div id="inv-stat">
-            <div className="inv-stat-description">{t('Stock.InvStat.title')}</div>
+            <div className="inv-stat-description">
+              {t('Stock.InvStat.title')}
+            </div>
             <div className="inv-stat-title">
               {invStatTitle.map((title) => (
                 <div key={title}>{title}</div>

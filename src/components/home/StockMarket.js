@@ -52,7 +52,8 @@ const StockMarket = ({ data }) => {
           {data.kr.map((index) => (
             <div key={index.name}>
               <p className="market-title">
-                <img src={korea} alt="kr" /> {t('Home.StockMarket.' + index.name)}
+                <img src={korea} alt="kr" />{' '}
+                {t('Home.StockMarket.' + index.name)}
               </p>
               {marketInfo(index)}
             </div>

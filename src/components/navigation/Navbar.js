@@ -9,8 +9,7 @@ import './Navbar.scss';
 import logo from '../../images/logo.png';
 
 function Navbar() {
-
-  const handleClick = lang => {
+  const handleClick = (lang) => {
     i18next.changeLanguage(lang);
   };
 
