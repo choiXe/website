@@ -86,6 +86,11 @@
       "change": "Change: ",
       "rate": "Rate: "
     },
+    "Highchart": {
+      "price": "Price",
+      "candle": "Candlestick Chart",
+      "volume": "Volume"
+    },
     "InvInfo": {
       "title": "Stock Info",
       "marketCap": "Market Cap",

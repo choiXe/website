@@ -86,6 +86,11 @@
       "change": "변동: ",
       "rate": "변동(%): "
     },
+    "Highchart": {
+      "price": "가격",
+      "candle": "캔들차트",  
+      "volume": "거래량"
+    },
     "InvInfo": {
       "title": "투자정보",
       "marketCap": "시가총액",

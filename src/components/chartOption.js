@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next';
+
 export function StockChartOption(ohlc, volume, groupingUnits) {
+  const { t } = useTranslation();
   return {
     rangeSelector: {
       selected: 1,
@@ -30,14 +33,14 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
     yAxis: [
       {
         labels: { align: 'right', x: -3, format: '{value}' },
-        title: { text: '캔들차트' },
+        title: { text: t('Stock.Highchart.candle') },
         height: '60%',
         lineWidth: 2,
         resize: { enabled: true }
       },
       {
         labels: { align: 'right', x: -3, format: '{value}' },
-        title: { text: '거래량' },
+        title: { text: t('Stock.Highchart.volume') },
         top: '65%',
         height: '35%',
         offset: 0,
@@ -47,13 +50,13 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
     series: [
       {
         type: 'candlestick',
-        name: '가격',
+        name: t('Stock.Highchart.price'),
         data: ohlc,
         dataGrouping: { units: groupingUnits }
       },
       {
         type: 'column',
-        name: '거래량',
+        name: t('Stock.Highchart.volume'),
         data: volume,
         yAxis: 1,
         dataGrouping: { units: groupingUnits }
