@@ -113,7 +113,7 @@
 			"증권": "Finance", 
 			"은행": "Banking", 
 			"부동산": "Real Estate", 
-			"생명보험": "생명보험eng", 
+			"생명보험": "Life Insurance", 
 			"손해보험": "손해보험eng", 
 			"기타금융": "기타금융eng", 
 			"창업투자": "창업투자eng", 
@@ -123,21 +123,22 @@
 			"자동차": "Automotive", 
 			"자동차부품": "자동차부품eng", 
 			"교육서비스": "Educational Services", 
-			"백화점과일반상점": "백화점과일반상점eng", 
+			"백화점과일반상점": "Retail", 
 			"인터넷과카탈로그소매": "인터넷과카탈로그소매eng", 
 			"전문소매": "전문소매eng", 
 			"판매업체": "판매업체eng", 
 			"가정용기기와용품": "가정용기기와용품eng", 
-			"레저용장비와제품": "레저용장비와제품eng", 
-			"문구류": "문구류eng", 
-			"섬유,의류,신발,호화품": "섬유,의류,신발,호화품eng", 
+			"레저용장비와제품": "Sports & Leisure Equipment", 
+			"문구류": "Stationery", 
+			"섬유,의류,신발,호화품": "Fashion", 
 			"화장품": "Cosmetic", 
 			"생명과학도구및서비스": "생명과학도구및서비스eng",
 			"생물공학": "Biotech", 
 			"제약": "Pharmaceutical", 
-			"건강관리기술": "건강관리기술eng", 
+			"건강관리기술": "Health Care Technology", 
 			"건강관리업체및서비스": "건강관리업체및서비스eng", 
-			"건강관리장비와용품": "건강관리장비와용품eng"
+			"건강관리장비와용품": "Health Care Equipment & Supplies",
+      "null": ""
 		},
     "StockList": {
       "stock": "Stock",
@@ -153,7 +154,7 @@
     "navTitle": "Stock",
     "watchlist": {
       "title": "+ Add to watchlist",
-      "duplicate": "Already added to watchlist",
+      "duplicate": "Already added",
       "success": "Successfully added"
     },
     "Caption": {
@@ -170,14 +171,14 @@
     },
     "Highchart": {
       "price": "Price",
-      "candle": "Candlestick Chart",
+      "candle": "Candlestick",
       "volume": "Volume"
     },
     "InvInfo": {
       "title": "Stock Info",
       "marketCap": "Market Cap",
       "52High": "52 week High",
-      "52Low": "52 weeek Low",
+      "52Low": "52 week Low",
       "foreign": "Foreign Share"
     },
     "companyInfo": "Company Info",

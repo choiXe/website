@@ -212,7 +212,8 @@ const Stock = ({ location }) => {
           </div>
           <div id="company-info">
             <h4>
-              {t('Stock.companyInfo')} <span>{'WICS: ' + stockData.wicsSectorName}</span>
+              {t('Stock.companyInfo')} 
+              <span>{'WICS: ' + t('Sector.Highchart.' + stockData.wicsSectorName.replace(/ /g,''))}</span>
             </h4>
             <p>{stockData.companySummary}</p>
           </div>
