@@ -17,7 +17,7 @@ const Stock = ({ location }) => {
   const [stockData, setStockData] = useState(null);
   const [message, setMessage] = useState('');
   const { t } = useTranslation();
-  const [favText, setFavText] = useState(t('Stock.watchlist.title'));
+  const [success, setSuccess] = useState(false);
   const daysPassed = 30;
   const stockId = location.state.stockId;
   const stockName = location.state.stockName;
@@ -100,7 +100,7 @@ const Stock = ({ location }) => {
       } else {
         favorites.push({ ...stockData, stockId: stockId });
         localStorage.setItem('favorites', JSON.stringify(favorites));
-        setFavText(t('Stock.watchlist.success'));
+        setSuccess(true);
       }
     };
 
@@ -112,7 +112,9 @@ const Stock = ({ location }) => {
             <div className="id">{stockId}</div>
           </h1>
           <div className="add-button">
-            <button onClick={addFavorite}>{favText}</button>
+            <button onClick={addFavorite}>
+              {success ? t('Stock.watchlist.success') : t('Stock.watchlist.title')}
+            </button>
             <p>{message}</p>
           </div>
           <div id="chart-section">
