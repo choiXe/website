@@ -6,7 +6,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import SectorMenu from './SectorMenu';
 import StockList from './StockList';
 import SectorChart from './SectorChart';
-
+import { useTranslation } from 'react-i18next';
 import data from '../../services/data';
 
 import './Sector.scss';
@@ -17,6 +17,7 @@ const Sector = ({ location }) => {
   const [daysPassed, setDaysPassed] = useState(30);
   const [orderType, setOrderType] = useState('yield');
   const [sSectorSelected, setsSectorSelected] = useState(null);
+  const { t } = useTranslation();
   const curSector = location.state;
 
   const getPastDate = (n) => {
@@ -26,7 +27,7 @@ const Sector = ({ location }) => {
   };
 
   useEffect(() => {
-    document.title = curSector + ' :: choiXe';
+    document.title = t('Sector.SectorMenu.' + curSector) + ' :: choiXe';
     const startDate = getPastDate(daysPassed);
 
     const key = curSector + '_' + startDate;
@@ -76,7 +77,7 @@ const Sector = ({ location }) => {
         <div id="info">
           <div id="chart-section">
             <div>
-              <h4>{curSector}</h4>
+              <h4>{t('Sector.SectorMenu.' + curSector)}</h4>
               <div className="chart">
                 <SectorChart
                   stocks={sectorData}
@@ -95,19 +96,19 @@ const Sector = ({ location }) => {
                       setDaysPassed(Number(target.value))
                     }
                   >
-                    {days < 30 ? days + '일' : days / 30 + '개월'}
+                    {days < 30 ? days + t('Sector.Caption.day') : days / 30 + t('Sector.Caption.month')}
                   </button>
                 ))}
               </div>
               <div className="yield">
-                <h4>예상 기대 수익률</h4>
+                <h4>{t('Sector.Caption.avgYield')}</h4>
                 <h1>
                   {sectorData.avgYield >= 0 ? ' +' : ' -'}
                   {sectorData.avgYield}%
                 </h1>
               </div>
               <div className="top3-list">
-                <h4>예상 수익률 Top 3 (소섹터)</h4>
+                <h4>{t('Sector.Caption.top3')}</h4>
                 <div className="list">
                   <div className="item">
                     <div className="number">1. </div>
@@ -135,14 +136,14 @@ const Sector = ({ location }) => {
             </div>
           </div>
           <div id="list-title">
-            <div>종목이름</div>
-            <div>가격</div>
-            <div>전일 대비</div>
-            <div>변동률</div>
-            <div>컨센서스 평균가</div>
+            <div>{t('Sector.StockList.stock')}</div>
+            <div>{t('Sector.StockList.price')}</div>
+            <div>{t('Sector.StockList.change')}</div>
+            <div>{t('Sector.StockList.rate')}</div>
+            <div>{t('Sector.StockList.consensus')}</div>
             <div>
               <button onClick={() => setOrderType('yield')}>
-                상승여력{' '}
+                {t('Sector.StockList.upside')}{' '}
                 <i
                   className={
                     orderType === 'yield' ? 'fas fa-sort-down' : 'fas fa-sort'
@@ -152,7 +153,7 @@ const Sector = ({ location }) => {
             </div>
             <div>
               <button onClick={() => setOrderType('score')}>
-                투자 점수{' '}
+                {t('Sector.StockList.score')}{' '}
                 <i
                   className={
                     orderType === 'score' ? 'fas fa-sort-down' : 'fas fa-sort'

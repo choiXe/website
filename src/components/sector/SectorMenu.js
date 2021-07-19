@@ -19,18 +19,6 @@ const SectorMenu = ({ selected, selectHandler }) => {
     '커뮤니케이션서비스',
     '필수소비재',
     'IT'
-    /*
-    t('Sector.SectorMenu.health'),
-    t('Sector.SectorMenu.consumer'),
-    t('Sector.SectorMenu.financial'),
-    t('Sector.SectorMenu.industrial'),
-    t('Sector.SectorMenu.material'),
-    t('Sector.SectorMenu.energy'),
-    t('Sector.SectorMenu.utility'),
-    t('Sector.SectorMenu.telecomm'),
-    t('Sector.SectorMenu.food'),
-    t('Sector.SectorMenu.tech')
-    */
   ];
   const sectorIcons = [
     'fa-syringe',
@@ -60,7 +48,7 @@ const SectorMenu = ({ selected, selectHandler }) => {
           }
         }}
       >
-        <div>{sectorName}</div>
+        <div>{t('Sector.SectorMenu.' + sectorName)}</div>
         <i className={'fas ' + sectorIcons[i]}></i>
       </Link>
     ));

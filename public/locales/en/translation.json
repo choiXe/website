@@ -39,16 +39,31 @@
     "navTitle": "Sector",
     "SectorMenu": {
       "title": "Sectors",
-      "health": "Health Care",
-      "consumer": "Consumer Goods",
-      "financial": "Financials",
-      "industrial": "Industrials",
-      "material": "Materials",
-      "energy": "Energy",
-      "utility": "Utilities",
-      "telecomm": "Telecommunications",
-      "food": "Food & Beverages",
-      "tech": "Technology"
+      "건강관리": "Health Care",
+      "경기관련소비재": "Consumer Goods",
+      "금융": "Financials",
+      "산업재": "Industrials",
+      "소재": "Materials",
+      "에너지": "Energy",
+      "유틸리티": "Utilities",
+      "커뮤니케이션서비스": "Telecommunications",
+      "필수소비재": "Food & Beverages",
+      "IT": "Technology"
+    },
+    "Caption": {
+      "day": "D",
+      "month": "M",
+      "avgYield": "Expected Yield",
+      "top3": "Top 3 Yield by Subsector"
+    },
+    "StockList": {
+      "stock": "Stock",
+      "price": "Price",
+      "change": "Change",
+      "rate": "Rate",
+      "consensus": "Price Target",
+      "upside": "Upside",
+      "score": "Inv Score"
     }
   },
   "Stock": {
