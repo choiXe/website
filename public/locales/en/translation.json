@@ -121,5 +121,10 @@
   },
   "SearchBar": {
     "label": "Search"
+  },
+  "Footer": {
+    "line1": "CEO: Huey Kim | Ask us: ",
+    "line2": "We will not be liable for any loss incurred by information provided by our services.",
+    "line3": "You are solely responsible for the investment decisions you make."
   }
 }
