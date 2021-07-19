@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import './SectorMenu.scss';
 
 const SectorMenu = ({ selected, selectHandler }) => {
   const [curSector, setCurSector] = useState(selected);
+
+  const { t } = useTranslation();
   const sectors = [
     '건강관리',
     '경기관련소비재',
@@ -16,6 +19,18 @@ const SectorMenu = ({ selected, selectHandler }) => {
     '커뮤니케이션서비스',
     '필수소비재',
     'IT'
+    /*
+    t('Sector.SectorMenu.health'),
+    t('Sector.SectorMenu.consumer'),
+    t('Sector.SectorMenu.financial'),
+    t('Sector.SectorMenu.industrial'),
+    t('Sector.SectorMenu.material'),
+    t('Sector.SectorMenu.energy'),
+    t('Sector.SectorMenu.utility'),
+    t('Sector.SectorMenu.telecomm'),
+    t('Sector.SectorMenu.food'),
+    t('Sector.SectorMenu.tech')
+    */
   ];
   const sectorIcons = [
     'fa-syringe',
@@ -53,7 +68,7 @@ const SectorMenu = ({ selected, selectHandler }) => {
 
   return (
     <>
-      <h3>섹터</h3>
+      <h3>{t('Sector.SectorMenu.title')}</h3>
       <ul className="sector-list">{listSectors()}</ul>
     </>
   );

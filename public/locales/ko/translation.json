@@ -1,0 +1,64 @@
+{
+  "Home": {
+    "Favorites": {
+      "title": "내 관심종목",
+      "stock": "종목 이름",
+      "price": "현재가",
+      "change": "등락률",
+      "message": "종목을 추가해보세요!"
+    },
+    "Trending": {
+      "title": "신규 리포트",
+      "date": "날짜",
+      "stock": "종목 이름",
+      "report": "리포트",
+      "target": "목표가",
+      "analyst": "애널리스트",
+      "firm": "증권사"
+    },
+    "StockMarket": {
+      "domestic": "국내증시",
+      "price":"현재가",
+      "change": "변동",
+      "changePercent": "변동률",
+      "코스피": "코스피",
+      "코스닥": "코스닥",
+      "코스피 200": "코스피 200",
+      "global": "해외증시",
+      "dow": "다우 산업",
+      "nasdaq": "나스닥 종합",
+      "shanghai": "상해 종합",
+      "nikkei": "니케이 225"
+    }
+  },
+  "About": {
+    "navTitle": "소개",
+    "title": "소개"
+  },
+  "Sector": {
+    "navTitle": "섹터",
+    "SectorMenu": {
+      "title": "섹터",
+      "health": "건강관리",
+      "consumer": "경기관련소비재",
+      "financial": "금융",
+      "industrial": "산업재",
+      "material": "소재",
+      "energy": "에너지",  
+      "utility": "유틸리티",
+      "telecomm": "커뮤니케이션서비스",
+      "food": "필수소비재",
+      "tech": "IT"
+    }
+  },
+  "Stock": {
+    "navTitle": "종목"
+  },
+  "Setting": {
+    "navTitle": "환경설정",
+    "title": "환경설정"
+  },
+  "SearchBar": {
+    "label": "종목 검색"
+  }
+}

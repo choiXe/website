@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import './Trending.scss';
 
@@ -42,18 +43,19 @@ const TrendingItem = ({ item }) => {
 };
 
 const Trending = ({ trendingList }) => {
+  const { t } = useTranslation();
   const trendingTitles = [
-    '날짜',
-    '종목 이름',
-    '리포트',
-    '목표가',
-    '애널리스트',
-    '증권사'
+    t('Home.Trending.date'),
+    t('Home.Trending.stock'),
+    t('Home.Trending.report'),
+    t('Home.Trending.target'),
+    t('Home.Trending.analyst'),
+    t('Home.Trending.firm')
   ];
 
   return (
     <>
-      <h4>신규 리포트</h4>
+      <h4>{t('Home.Trending.title')}</h4>
       <div id="trending-title">
         <div></div>
         {trendingTitles.map((title) => (

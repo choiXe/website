@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import './Favorites.scss';
 
@@ -16,6 +17,8 @@ const Favorites = () => {
     }
   };
 
+  const { t } = useTranslation();
+
   const removeFavorite = (event) => {
     const deletedStock = event.target.name;
     const updatedFavorites = favorites.filter(
@@ -31,11 +34,11 @@ const Favorites = () => {
 
   return (
     <>
-      <h4>내 관심종목</h4>
+      <h4>{t('Home.Favorites.title')}</h4>
       <div id="favorites-title">
-        <div>종목 이름</div>
-        <div>현재가</div>
-        <div>등락률</div>
+        <div>{t('Home.Favorites.stock')}</div>
+        <div>{t('Home.Favorites.price')}</div>
+        <div>{t('Home.Favorites.change')}</div>
       </div>
       <div id="favorites-list">
         {favorites && favorites.length !== 0 ? (
@@ -66,7 +69,7 @@ const Favorites = () => {
           ))
         ) : (
           <li>
-            <p>종목을 추가해보세요!</p>
+            <p>{t('Home.Favorites.message')}</p>
             <p></p>
             <p></p>
           </li>

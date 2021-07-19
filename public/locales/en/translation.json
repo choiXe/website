@@ -1,0 +1,64 @@
+{
+  "Home": {
+    "Favorites": {
+      "title": "My Watchlist",
+      "stock": "Stock",
+      "price": "Price",
+      "change": "Rate",
+      "message": "Add to watchlist!"
+    },
+    "Trending": {
+      "title": "Latest Reports",
+      "date": "Date",
+      "stock": "Stock",
+      "report": "Title",
+      "target": "Price Target",
+      "analyst": "Analyst",
+      "firm": "Firm"
+    },
+    "StockMarket": {
+      "domestic": "Korean Markets",
+      "price":"Price",
+      "change": "Change",
+      "changePercent": "Rate",
+      "코스피": "KOSPI",
+      "코스닥": "KOSDAQ",
+      "코스피 200": "KOSPI 200",
+      "global": "World Markets",
+      "dow": "DOW",
+      "nasdaq": "NASDAQ",
+      "shanghai": "SSE",
+      "nikkei": "Nikkei 225"
+    }
+  },
+  "About": {
+    "navTitle": "About",
+    "title": "About us"
+  },
+  "Sector": {
+    "navTitle": "Sector",
+    "SectorMenu": {
+      "title": "Sectors",
+      "health": "Health Care",
+      "consumer": "Consumer Goods",
+      "financial": "Financials",
+      "industrial": "Industrials",
+      "material": "Materials",
+      "energy": "Energy",
+      "utility": "Utilities",
+      "telecomm": "Telecommunications",
+      "food": "Food & Beverages",
+      "tech": "Technology"
+    }
+  },
+  "Stock": {
+    "navTitle": "Stock"
+  },
+  "Setting": {
+    "navTitle": "Setting",
+    "title": "Setting"
+  },
+  "SearchBar": {
+    "label": "Search"
+  }
+}

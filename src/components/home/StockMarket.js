@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import './StockMarket.scss';
 
@@ -14,6 +15,8 @@ const StockMarket = ({ data }) => {
   const numbWithCommas = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
+
+  const { t } = useTranslation();
 
   const marketInfo = (index) => {
     const color = index.changeRate >= 0 ? '#e21414' : '#246ded';
@@ -38,18 +41,18 @@ const StockMarket = ({ data }) => {
   return (
     <>
       <div className="index korea">
-        <h4>국내증시</h4>
+        <h4>{t('Home.StockMarket.domestic')}</h4>
         <div id="market-title">
           <div></div>
-          <div>현재가</div>
-          <div>변동</div>
-          <div>변동률</div>
+          <div>{t('Home.StockMarket.price')}</div>
+          <div>{t('Home.StockMarket.change')}</div>
+          <div>{t('Home.StockMarket.changePercent')}</div>
         </div>
         <div className="market-table">
           {data.kr.map((index) => (
             <div key={index.name}>
               <p className="market-title">
-                <img src={korea} alt="kr" /> {index.name}
+                <img src={korea} alt="kr" /> {t('Home.StockMarket.' + index.name)}
               </p>
               {marketInfo(index)}
             </div>
@@ -57,17 +60,17 @@ const StockMarket = ({ data }) => {
         </div>
       </div>
       <div className="index global">
-        <h4>해외증시</h4>
+        <h4>{t('Home.StockMarket.global')}</h4>
         <div className="market-table">
           <div>
             <p className="market-title">
-              <img src={us} alt="us" /> 다우 산업
+              <img src={us} alt="us" /> {t('Home.StockMarket.dow')}
             </p>
             {marketInfo(globalIndicator['다우 산업'])}
           </div>
           <div>
             <p className="market-title">
-              <img src={us} alt="us" /> 나스닥 종합
+              <img src={us} alt="us" /> {t('Home.StockMarket.nasdaq')}
             </p>
             {marketInfo(globalIndicator['나스닥 종합'])}
           </div>
@@ -79,13 +82,13 @@ const StockMarket = ({ data }) => {
           </div>
           <div>
             <p className="market-title">
-              <img src={china} alt="cn" /> 상해 종합
+              <img src={china} alt="cn" /> {t('Home.StockMarket.shanghai')}
             </p>
             {marketInfo(globalIndicator['상해 종합'])}
           </div>
           <div>
             <p className="market-title">
-              <img src={japan} alt="jp" /> 니케이 225
+              <img src={japan} alt="jp" /> {t('Home.StockMarket.nikkei')}
             </p>
             {marketInfo(globalIndicator['니케이 225'])}
           </div>

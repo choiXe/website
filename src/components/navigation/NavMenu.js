@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
+import { useTranslation } from 'react-i18next';
 
 import stockList from './stocksData';
 import './NavMenu.scss';
 
 const NavMenu = () => {
   let history = useHistory();
+  const { t } = useTranslation();
 
   const searchBarStyle = {
     borderRadius: '11px',
@@ -28,13 +30,13 @@ const NavMenu = () => {
     <div className="nav-list">
       <div className="nav-item">
         <Link to="/about" className="nav-links">
-          소개
+          {t('About.navTitle')}
           <i className="fas fa-question-circle"></i>
         </Link>
       </div>
       <div className="nav-item">
         <Link to="/" className="nav-links">
-          섹터
+          {t('Sector.navTitle')}
           <i className="fas fa-chart-pie"></i>
         </Link>
       </div>
@@ -49,13 +51,13 @@ const NavMenu = () => {
           }}
           className="nav-links"
         >
-          종목
+          {t('Stock.navTitle')}
           <i className="fas fa-chart-line"></i>
         </Link>
       </div>
       <div className="nav-item">
         <Link to="/setting" className="nav-links">
-          환경설정
+          {t('Setting.navTitle')}
           <i className="fas fa-cog"></i>
         </Link>
       </div>
@@ -66,7 +68,7 @@ const NavMenu = () => {
           resultStringKeyName="id"
           inputDebounce={0}
           onSelect={selectHandler}
-          placeholder="종목 검색"
+          placeholder={t('SearchBar.label')}
           styling={searchBarStyle} // To display it on top of the search box below
           autoFocus
         />
