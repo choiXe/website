@@ -29,6 +29,17 @@ export const getMainInfo = /* GraphQL */ `
     }
   }
 `;
+export const getFavoriteInfo = /* GraphQL */ `
+  query GetFavoriteInfo($stockIds: String) {
+    getFavoriteInfo(stockIds: $stockIds) {
+      data {
+        stockId
+        price
+        rate
+      }
+    }
+  }
+`;
 export const getSectorInfo = /* GraphQL */ `
   query GetSectorInfo($sectorName: String, $startDate: String) {
     getSectorInfo(sectorName: $sectorName, startDate: $startDate) {

@@ -24,6 +24,10 @@ type DailyInv {
   inVal: InvValObj
 }
 
+type FavoriteInfo {
+  data: [PriceRate]
+}
+
 type Indicator {
   changePrice: Float
   changeRate: Float
@@ -49,7 +53,14 @@ type MainInfo {
   reports: [Report2]
 }
 
+type PriceRate {
+  price: Int
+  rate: Float
+  stockId: String
+}
+
 type Query {
+  getFavoriteInfo(stockIds: String): FavoriteInfo
   getMainInfo(keyword: String): MainInfo
   getSectorInfo(sectorName: String, startDate: String): SectorInfo
   getStockInfo(startDate: String, stockId: String): StockInfo
