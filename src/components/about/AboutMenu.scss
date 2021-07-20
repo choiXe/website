@@ -1,0 +1,40 @@
+@import 'src/styles/_color.scss';
+@import '/src/styles/mixin';
+
+h3 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 17.5px;
+}
+
+.about-list {
+  text-decoration: none;
+  min-width: 160px;
+
+  .about-item {
+    @include rounded-button;
+    border-radius: 9px;
+    white-space: pre-line;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    column-gap: 1rem;
+    height: 3.3rem;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    column-gap: 1rem;
+
+    &:hover {
+      background-color: $background-color;
+    }
+    &.active {
+      @include button-hover;
+    }
+    div {
+      align-self: center;
+    }
+    i {
+      place-self: center;
+    }
+  }
+}

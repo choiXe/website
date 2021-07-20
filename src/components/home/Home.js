@@ -24,7 +24,7 @@ const Home = () => {
   if (!mainData) {
     return (
       <div id="home">
-        <Sticky top={20} bottomBoundary="#trending-list" innerClass="menu">
+        <Sticky top={20} innerClass="menu">
           <SectorMenu selected="" />
         </Sticky>
         <div id="stock-market">

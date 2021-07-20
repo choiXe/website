@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import Sticky from 'react-stickynode';
 
 import './About.scss';
 import './Card.css';
@@ -18,7 +19,9 @@ const About = () => {
 
   return (
     <div id="about">
-      <div id="menu"></div>
+      <Sticky top={20}>
+        <div id="menu"></div>
+      </Sticky>
       <div id="intro">
         <div id="title">
           <h1>🧭 {t('About.title')}</h1>
