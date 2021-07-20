@@ -34,7 +34,34 @@
   },
   "About": {
     "navTitle": "About",
-    "title": "About us"
+    "title": "Hi, We are choiXe",
+    "team": "Team choiXe",
+    "question": {
+      "first": "When you first started investing in stocks, have you ever bought a stock based on good news?",
+      "second": "Are you investing with vague expectations not knowing much about the company?",
+      "third": "If so, how much do you know about the company now?"
+    },
+    "body-1": {
+      "first": "Hello, we are a startup creating a ",
+      "bold": "platform that provides investment information for newbie stock investors.",
+      "last": ""
+    },
+    "body-2": {
+      "first": "To prevent the problems listed above and to help stock investors,",
+      "second": "we thought of a way to effectively communicate investment information necessary for stock investment,",
+      "third": "and in August 2021, we launched a platform called",
+      "fourth": "."
+    },
+    "body-3": {
+      "first": "We provide detailed analysis about the company by analyzing analyst reports along with other data",
+      "second": "rather than focusing heavily on technical indicators and derive upside potential and investment attractiveness.",
+      "third": ""
+    },
+    "body-4": {
+      "the": "The ",
+      "first": " team is constantly striving to improve and develop the platform,",
+      "second": "and has set goals to focus on providing accurate information and user-friendly UI/UX."
+    }
   },
   "Sector": {
     "navTitle": "Sector",
