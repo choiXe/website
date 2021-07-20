@@ -74,7 +74,6 @@ const About = () => {
                 <img src={huey} class="card__image" alt=""/>
                 <div class="card__overlay">
                   <div class="card__header">
-                    <img class="card__thumb" src={huey} alt=""/>
                     <div class="card__header-text">
                       <h3 class="card__title">Huey Kim</h3>
                       <span class="card__status">Founder, CEO</span>
@@ -92,10 +91,9 @@ const About = () => {
                 <img src={ricky} class="card__image" alt=""/>
                 <div class="card__overlay">
                   <div class="card__header">
-                    <img class="card__thumb" src={ricky} alt=""/>
                     <div class="card__header-text">
                       <h3 class="card__title">Ricky Kim</h3>
-                      <span class="card__status">Front-end Dev.</span>
+                      <span class="card__status">Front-end Developer</span>
                     </div>
                   </div>
                   <p class="card__description">
@@ -110,10 +108,9 @@ const About = () => {
                 <img src={mike} class="card__image" alt=""/>
                 <div class="card__overlay">
                   <div class="card__header">
-                    <img class="card__thumb" src={mike} alt=""/>
                     <div class="card__header-text">
                       <h3 class="card__title">Mike Choi</h3>
-                      <span class="card__status">Full Stack Dev.</span>
+                      <span class="card__status">Full Stack Developer</span>
                     </div>
                   </div>
                   <p class="card__description">
@@ -128,7 +125,6 @@ const About = () => {
                 <img src={yejun} class="card__image" alt=""/>
                 <div class="card__overlay">
                   <div class="card__header">
-                    <img class="card__thumb" src={yejun} alt=""/>
                     <div class="card__header-text">
                       <h3 class="card__title">Yejun Kim</h3>
                       <span class="card__status">UI/UX Designer</span>
