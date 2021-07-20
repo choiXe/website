@@ -4,9 +4,9 @@
   display: grid;
   grid-template-columns: 0.7fr 1.8fr 2.2fr 5fr 1.7fr 1.5fr 2fr;
   font-size: 13px;
-  column-gap: 0.5rem;
   padding: 1.5rem 1.2rem;
   color: $sub-text;
+  column-gap: 0.5rem;
 }
 
 #trending-list {
@@ -14,8 +14,8 @@
   li {
     display: grid;
     grid-template-columns: 0.7fr 1.8fr 2.2fr 5fr 1.7fr 1.5fr 2fr;
-    border-radius: 16px;
     padding: 1rem;
+    border-radius: 16px;
     column-gap: 0.5rem;
     p:first-child {
       font-weight: bold;
