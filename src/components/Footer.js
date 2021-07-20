@@ -1,11 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './navigation/NavMenu.scss';
 
 const Footer = () => {
-  var line1 = '대표: 김휘원 | 문의: ';
-  var line2 = '본 서비스는 투자판단에 참고용으로만 사용하실 수 있으며,';
-  var line3 =
-    '모든 투자판단은 투자자 본인의 책임으로 투자결과에 대하여 법적 책임을 지지 않습니다.';
+  const { t } = useTranslation();
+  var line1 = t('Footer.line1');
+  var line2 = t('Footer.line2');
+  var line3 = t('Footer.line3');
   var line4 = '© 2021 choiXe, Inc. All Rights Reserverd';
 
   return (

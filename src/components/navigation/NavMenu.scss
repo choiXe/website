@@ -11,10 +11,6 @@
     margin-left: 30px;
     list-style-type: none;
 
-    i {
-      margin-left: 0.5rem;
-    }
-
     .nav-links {
       @include rounded-button;
       text-decoration: none;

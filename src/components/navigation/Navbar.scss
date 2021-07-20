@@ -1,7 +1,11 @@
 nav {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
   padding: 0 8vw;
+  grid-template-areas:
+    '. locale'
+    'nav-left nav-right';
 
   img {
     width: auto;
@@ -10,7 +14,23 @@ nav {
     margin-left: 10px;
   }
 
-  & .nav-left {
+  #locale {
+    grid-area: locale;
+    flex: auto;
+    flex-direction: row;
+    justify-self: flex-end;
+    padding-bottom: 10px;
+    font-size: 13px;
+    button {
+      color: #2a2f47;
+      background-color: #f2f2f2;
+      padding: 0 5px 0 5px;
+      border: 0;
+    }
+  }
+
+  #nav-left {
+    grid-area: nav-left;
     width: 100%;
 
     & .logo {
@@ -23,7 +43,8 @@ nav {
     }
   }
 
-  & .nav-right {
+  #nav-right {
+    grid-area: nav-right;
     width: 100%;
   }
 }

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import './SectorMenu.scss';
 
 const SectorMenu = ({ selected, selectHandler }) => {
   const [curSector, setCurSector] = useState(selected);
+
+  const { t } = useTranslation();
   const sectors = [
     '건강관리',
     '경기관련소비재',
@@ -45,7 +48,7 @@ const SectorMenu = ({ selected, selectHandler }) => {
           }
         }}
       >
-        <div>{sectorName}</div>
+        <div>{t('Sector.SectorMenu.' + sectorName)}</div>
         <i className={'fas ' + sectorIcons[i]}></i>
       </Link>
     ));
@@ -53,7 +56,7 @@ const SectorMenu = ({ selected, selectHandler }) => {
 
   return (
     <>
-      <h3>섹터</h3>
+      <h3>{t('Sector.SectorMenu.title')}</h3>
       <ul className="sector-list">{listSectors()}</ul>
     </>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Loader from 'react-loader-spinner';
+import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import StockChart from './StockChart';
@@ -15,7 +16,8 @@ const Stock = ({ location }) => {
   const [listType, setListType] = useState('analyst');
   const [stockData, setStockData] = useState(null);
   const [message, setMessage] = useState('');
-  const [favText, setFavText] = useState('+ 관심종목 추가');
+  const { t } = useTranslation();
+  const [success, setSuccess] = useState(false);
   const daysPassed = 30;
   const stockId = location.state.stockId;
   const stockName = location.state.stockName;
@@ -58,15 +60,20 @@ const Stock = ({ location }) => {
       </div>
     );
   } else {
-    const invStatTitle = ['날짜', '개인', '외국인', '기관'];
-    const reportTitle = [
-      '날짜',
-      '제목',
-      '애널리스트',
-      '목표가 (₩)',
-      '제공출처'
+    const invStatTitle = [
+      t('Stock.InvStat.date'),
+      t('Stock.InvStat.indiv'),
+      t('Stock.InvStat.foreign'),
+      t('Stock.InvStat.inst')
     ];
-    const newsTitle = ['날짜', '제목'];
+    const reportTitle = [
+      t('Stock.Analyst.date'),
+      t('Stock.Analyst.report'),
+      t('Stock.Analyst.analyst'),
+      t('Stock.Analyst.target'),
+      t('Stock.Analyst.firm')
+    ];
+    const newsTitle = [t('Stock.News.date'), t('Stock.News.news')];
     const titleList = listType === 'analyst' ? reportTitle : newsTitle;
     const statColor = stockData.changeRate >= 0 ? red : blue;
     const priceY = stockData.tradePrice - stockData.changePrice;
@@ -88,12 +95,12 @@ const Stock = ({ location }) => {
         (stock) => stock.name === stockData.name
       );
       if (hasDuplicate) {
-        setMessage('이미 추가되었습니다');
+        setMessage(t('Stock.watchlist.duplicate'));
         setTimeout(() => setMessage(''), 1000);
       } else {
         favorites.push({ ...stockData, stockId: stockId });
         localStorage.setItem('favorites', JSON.stringify(favorites));
-        setFavText('추가 완료');
+        setSuccess(true);
       }
     };
 
@@ -105,12 +112,14 @@ const Stock = ({ location }) => {
             <div className="id">{stockId}</div>
           </h1>
           <div className="add-button">
-            <button onClick={addFavorite}>{favText}</button>
+            <button onClick={addFavorite}>
+              {success ? t('Stock.watchlist.success') : t('Stock.watchlist.title')}
+            </button>
             <p>{message}</p>
           </div>
           <div id="chart-section">
             <div className="numbers">
-              <p>기대 수익률 (3개월) </p>
+              <p>{t('Stock.Caption.avgYield')} </p>
               <h1
                 className="yield"
                 style={{ color: stockData.expYield > 0 ? red : blue }}
@@ -120,11 +129,11 @@ const Stock = ({ location }) => {
               </h1>
               <div className="price-container">
                 <div>
-                  <p>현재가</p>
+                  <p>{t('Stock.Caption.price')}</p>
                   <h4>{numbWithCommas(stockData.tradePrice)}</h4>
                 </div>
                 <div>
-                  <p>컨센서스 평균가</p>
+                  <p>{t('Stock.Caption.consensus')}</p>
                   <h4>
                     {stockData.priceAvg !== '의견 없음'
                       ? numbWithCommas(stockData.priceAvg)
@@ -133,35 +142,36 @@ const Stock = ({ location }) => {
                 </div>
               </div>
               <div className="score-container">
-                <p>투자 매력 점수</p>
+                <p>{t('Stock.Caption.score')}</p>
                 <h4>{stockData.score}</h4>
               </div>
             </div>
             <div className="chart-area">
               <div className="chart-stat">
                 <div className="stat-item">
-                  전일: <p>{numbWithCommas(priceY)}</p>
+                  {t('Stock.Caption.close')}
+                  <p>{numbWithCommas(priceY)}</p>
                 </div>
                 <div className="stat-item">
-                  시가:{' '}
+                  {t('Stock.Caption.open')}
                   <p style={getColor(stockData.openingPrice)}>
                     {numbWithCommas(stockData.openingPrice)}
                   </p>
                 </div>
                 <div className="stat-item">
-                  고가:{' '}
+                  {t('Stock.Caption.high')}
                   <p style={getColor(stockData.highPrice)}>
                     {numbWithCommas(stockData.highPrice)}
                   </p>
                 </div>
                 <div className="stat-item">
-                  저가:{' '}
+                  {t('Stock.Caption.low')}
                   <p style={getColor(stockData.lowPrice)}>
                     {numbWithCommas(stockData.lowPrice)}
                   </p>
                 </div>
                 <div className="stat-item">
-                  변동:
+                  {t('Stock.Caption.change')}
                   <p>
                     <span style={{ color: statColor }}>
                       {' ' + numbWithCommas(stockData.changePrice)}
@@ -170,7 +180,7 @@ const Stock = ({ location }) => {
                 </div>
                 <div className="stat-item">
                   <p>
-                    변동(%):
+                    {t('Stock.Caption.rate')}
                     <span style={{ color: statColor }}>
                       {(stockData.changeRate >= 0 ? ' +' : ' ') +
                         stockData.changeRate +
@@ -185,15 +195,15 @@ const Stock = ({ location }) => {
             </div>
           </div>
           <div id="inv-info">
-            <h4>투자정보</h4>
+            <h4>{t('Stock.InvInfo.title')}</h4>
             <div className="inv-info-items">
-              <h5>시가총액</h5>
+              <h5>{t('Stock.InvInfo.marketCap')}</h5>
               <p>{stockData.marketCap}</p>
-              <h5>52주 최고가</h5>
+              <h5>{t('Stock.InvInfo.52High')}</h5>
               <p>{numbWithCommas(stockData.high52wPrice)}</p>
-              <h5>52주 최저가</h5>
+              <h5>{t('Stock.InvInfo.52Low')}</h5>
               <p>{numbWithCommas(stockData.low52wPrice)}</p>
-              <h5>외국인 소진율</h5>
+              <h5>{t('Stock.InvInfo.foreign')}</h5>
               <p>{stockData.foreignRatio + '%'}</p>
               <h5>PER</h5>
               <p>{stockData.per + '배'}</p>
@@ -205,12 +215,21 @@ const Stock = ({ location }) => {
           </div>
           <div id="company-info">
             <h4>
-              기업정보 <span>{'WICS: ' + stockData.wicsSectorName}</span>
+              {t('Stock.companyInfo')}
+              <span>
+                {'WICS: ' +
+                  t(
+                    'Sector.Highchart.' +
+                      stockData.wicsSectorName.replace(/ /g, '')
+                  )}
+              </span>
             </h4>
             <p>{stockData.companySummary}</p>
           </div>
           <div id="inv-stat">
-            <div className="inv-stat-description">투자자 동향</div>
+            <div className="inv-stat-description">
+              {t('Stock.InvStat.title')}
+            </div>
             <div className="inv-stat-title">
               {invStatTitle.map((title) => (
                 <div key={title}>{title}</div>
@@ -233,7 +252,7 @@ const Stock = ({ location }) => {
                   setListType('analyst');
                 }}
               >
-                애널리스트 리포트
+                {t('Stock.Analyst.title')}
               </button>
               <button
                 className={listType === 'news' ? 'active' : ''}
@@ -241,7 +260,7 @@ const Stock = ({ location }) => {
                   setListType('news');
                 }}
               >
-                뉴스
+                {t('Stock.News.title')}
               </button>
             </div>
             <div className="list-table">

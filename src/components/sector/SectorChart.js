@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { TreeMapOption } from '../chartOption';
 
 import Highcharts from 'highcharts';
@@ -14,6 +15,7 @@ HighchartsTreeChart(Highcharts);
 HighchartsExporting(Highcharts);
 
 const SectorChart = ({ stocks, selectHandler }) => {
+  const { t } = useTranslation();
   var data = {},
     sectorExpYield = {},
     points = [],
@@ -48,7 +50,7 @@ const SectorChart = ({ stocks, selectHandler }) => {
       sectorVal = 0;
       sectorP = {
         id: 'id_' + sectorI,
-        name: sector,
+        name: t('Sector.Highchart.' + sector),
         color:
           average(sectorExpYield[sector]) >= stocks.avgYield
             ? '#DEB4AF'

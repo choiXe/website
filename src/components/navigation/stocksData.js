@@ -1,6 +1,6 @@
 /**
  * Last updated on 2021/07/18 (210728 상장 예정 종목까지 업데이트)
- * 
+ *
  * Check updates from..
  * New Listing: http://www.38.co.kr/html/fund/index.htm?o=nw
  * Delisting: https://www.38.co.kr/html/forum/com_list/backitem.php
