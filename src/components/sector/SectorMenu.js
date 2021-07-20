@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import './SectorMenu.scss';
 
 const SectorMenu = ({ selected, selectHandler }) => {
+  const { t } = useTranslation();
   const [curSector, setCurSector] = useState(selected);
 
-  const { t } = useTranslation();
   const sectors = [
     '건강관리',
     '경기관련소비재',

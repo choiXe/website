@@ -1,11 +1,10 @@
 import React from 'react';
+
+import { numSeperator } from '../tools/formatter';
+
 import './ReportList.scss';
 
 const ReportInfo = ({ data, stockName }) => {
-  const numbWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
   const reportName =
     data.reportName.length > 23
       ? data.reportName.slice(0, 23) + '...'
@@ -21,7 +20,7 @@ const ReportInfo = ({ data, stockName }) => {
     analyst = analystList[0];
   }
 
-  const priceGoal = numbWithCommas(data.priceGoal);
+  const priceGoal = numSeperator(data.priceGoal);
   const firm = data.firm;
 
   return (

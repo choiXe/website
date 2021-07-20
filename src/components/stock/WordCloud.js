@@ -17,7 +17,7 @@ const WordCloud = ({ newsTitles }) => {
           return obj.name === word;
         });
         if (obj) {
-          obj.weight += 1;
+          obj.weight++;
         } else {
           if (word.length > 1) {
             obj = {

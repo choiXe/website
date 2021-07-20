@@ -10,12 +10,10 @@ const StockChart = ({ data }) => {
     groupingUnits = [
       ['week', [1]],
       ['month', [1, 2, 3, 4, 6]]
-    ],
-    i = 0;
+    ];
 
-  for (i; i < dataLength; i += 1) {
+  for (let i = 0; i < dataLength; i += 1) {
     let tempDate = new Date(data[i].date);
-    // date, open, high, low, close
     ohlc.push([
       Date.parse(tempDate),
       data[i].start,
@@ -23,7 +21,6 @@ const StockChart = ({ data }) => {
       data[i].low,
       data[i].end
     ]);
-    // date, volume
     volume.push([Date.parse(tempDate), data[i].volume]);
   }
 

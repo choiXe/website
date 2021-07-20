@@ -7,9 +7,9 @@ import stockList from './stocksData';
 import './NavMenu.scss';
 
 const NavMenu = () => {
-  let history = useHistory();
   const { t } = useTranslation();
-
+  let history = useHistory();
+  
   const searchBarStyle = {
     borderRadius: '11px',
     backgroundColor: 'white',

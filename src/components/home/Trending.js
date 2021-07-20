@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { numSeperator } from '../tools/formatter';
+
 import './Trending.scss';
 
 const TrendingItem = ({ item }) => {
@@ -11,14 +13,6 @@ const TrendingItem = ({ item }) => {
 
   const baseURL =
     'http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=';
-
-  const numbWithCommas = (num) => {
-    if (num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    } else {
-      return num;
-    }
-  };
 
   const analystList = item.analyst.split(',');
   var analyst;
@@ -35,7 +29,7 @@ const TrendingItem = ({ item }) => {
       <a href={baseURL + item.reportIdx} rel="noreferrer" target="_blank">
         {reportName}
       </a>
-      <p>{numbWithCommas(item.priceGoal)}</p>
+      <p>{numSeperator(item.priceGoal)}</p>
       <p>{analyst}</p>
       <p>{item.firm}</p>
     </>

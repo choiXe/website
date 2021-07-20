@@ -1,19 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { numSeperator } from '../tools/formatter';
+
 import './StockList.scss';
 
 const StockInfo = ({ stock }) => {
-  const numbWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
   const calColor = (n) => {
     var x;
     if (n > 0) {
-      x = { color: 'red' };
+      x = { color: '#e21414' };
     } else if (n < 0) {
-      x = { color: 'blue' };
+      x = { color: '#246ded' };
     }
     return x;
   };
@@ -34,16 +32,16 @@ const StockInfo = ({ stock }) => {
       className="stock-item"
     >
       <div className="name">{stock.stockName}</div>
-      <div>{numbWithCommas(stock.tradePrice)}</div>
+      <div>{numSeperator(stock.tradePrice)}</div>
       <div style={calColor(stock.changePrice)}>
         {stock.changePrice >= 0
-          ? '▲ ' + numbWithCommas(stock.changePrice)
-          : '▼ ' + numbWithCommas(stock.changePrice).replace('-', '')}
+          ? '▲ ' + numSeperator(stock.changePrice)
+          : '▼ ' + numSeperator(stock.changePrice).replace('-', '')}
       </div>
       <div style={calColor(stock.changeRate)}>
         {stock.changeRate > 0 ? '+' + stock.changeRate : stock.changeRate}%
       </div>
-      <div>{numbWithCommas(stock.priceAvg)}</div>
+      <div>{numSeperator(stock.priceAvg)}</div>
       <div style={calColor(stock.expYield)}>
         {stock.expYield > 0 ? '+' + stock.expYield : stock.expYield}%
       </div>

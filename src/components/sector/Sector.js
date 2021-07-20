@@ -12,12 +12,12 @@ import data from '../../services/data';
 import './Sector.scss';
 
 const Sector = ({ location }) => {
+  const { t } = useTranslation();
   const [cache, setCache] = useState({});
   const [sectorData, setSectorData] = useState(null);
   const [daysPassed, setDaysPassed] = useState(30);
   const [orderType, setOrderType] = useState('yield');
   const [sSectorSelected, setsSectorSelected] = useState(null);
-  const { t } = useTranslation();
   const dateButtons = [5, 15, 30, 60, 90];
   const curSector = location.state;
 
@@ -112,21 +112,27 @@ const Sector = ({ location }) => {
                   <div className="item">
                     <div className="number">1. </div>
                     <div className="box-item" id="item-1">
-                      <div>{t('Sector.Highchart.' + sectorData.top3List.first)}</div>
+                      <div>
+                        {t('Sector.Highchart.' + sectorData.top3List.first)}
+                      </div>
                       <div>{sectorData.top3List.firstYield}%</div>
                     </div>
                   </div>
                   <div className="item">
                     <div className="number">2. </div>
                     <div className="box-item" id="item-2">
-                      <div>{t('Sector.Highchart.' + sectorData.top3List.second)}</div>
+                      <div>
+                        {t('Sector.Highchart.' + sectorData.top3List.second)}
+                      </div>
                       <div>{sectorData.top3List.secondYield}%</div>
                     </div>
                   </div>
                   <div className="item">
                     <div className="number">3. </div>
                     <div className="box-item" id="item-3">
-                      <div>{t('Sector.Highchart.' + sectorData.top3List.third)}</div>
+                      <div>
+                        {t('Sector.Highchart.' + sectorData.top3List.third)}
+                      </div>
                       <div>{sectorData.top3List.thirdYield}%</div>
                     </div>
                   </div>

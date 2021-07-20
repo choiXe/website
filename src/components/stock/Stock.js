@@ -3,6 +3,8 @@ import Loader from 'react-loader-spinner';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
+import { numSeperator } from '../tools/formatter';
+
 import StockChart from './StockChart';
 import InvStatList from './InvStatList';
 import ReportList from './ReportList';
@@ -13,10 +15,10 @@ import data from '../../services/data';
 import './Stock.scss';
 
 const Stock = ({ location }) => {
+  const { t } = useTranslation();
   const [listType, setListType] = useState('analyst');
   const [stockData, setStockData] = useState(null);
   const [message, setMessage] = useState('');
-  const { t } = useTranslation();
   const [success, setSuccess] = useState(false);
   const daysPassed = 30;
   const stockId = location.state.stockId;
@@ -28,14 +30,6 @@ const Stock = ({ location }) => {
     let date = new Date();
     date.setDate(date.getDate() - n);
     return date.toISOString().slice(0, 10);
-  };
-
-  const numbWithCommas = (num) => {
-    if (num != null) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    } else {
-      return num;
-    }
   };
 
   useEffect(() => {
@@ -113,7 +107,9 @@ const Stock = ({ location }) => {
           </h1>
           <div className="add-button">
             <button onClick={addFavorite}>
-              {success ? t('Stock.watchlist.success') : t('Stock.watchlist.title')}
+              {success
+                ? t('Stock.watchlist.success')
+                : t('Stock.watchlist.title')}
             </button>
             <p>{message}</p>
           </div>
@@ -130,13 +126,13 @@ const Stock = ({ location }) => {
               <div className="price-container">
                 <div>
                   <p>{t('Stock.Caption.price')}</p>
-                  <h4>{numbWithCommas(stockData.tradePrice)}</h4>
+                  <h4>{numSeperator(stockData.tradePrice)}</h4>
                 </div>
                 <div>
                   <p>{t('Stock.Caption.consensus')}</p>
                   <h4>
                     {stockData.priceAvg !== '의견 없음'
-                      ? numbWithCommas(stockData.priceAvg)
+                      ? numSeperator(stockData.priceAvg)
                       : stockData.priceAvg}
                   </h4>
                 </div>
@@ -150,31 +146,31 @@ const Stock = ({ location }) => {
               <div className="chart-stat">
                 <div className="stat-item">
                   {t('Stock.Caption.close')}
-                  <p>{numbWithCommas(priceY)}</p>
+                  <p>{numSeperator(priceY)}</p>
                 </div>
                 <div className="stat-item">
                   {t('Stock.Caption.open')}
                   <p style={getColor(stockData.openingPrice)}>
-                    {numbWithCommas(stockData.openingPrice)}
+                    {numSeperator(stockData.openingPrice)}
                   </p>
                 </div>
                 <div className="stat-item">
                   {t('Stock.Caption.high')}
                   <p style={getColor(stockData.highPrice)}>
-                    {numbWithCommas(stockData.highPrice)}
+                    {numSeperator(stockData.highPrice)}
                   </p>
                 </div>
                 <div className="stat-item">
                   {t('Stock.Caption.low')}
                   <p style={getColor(stockData.lowPrice)}>
-                    {numbWithCommas(stockData.lowPrice)}
+                    {numSeperator(stockData.lowPrice)}
                   </p>
                 </div>
                 <div className="stat-item">
                   {t('Stock.Caption.change')}
                   <p>
                     <span style={{ color: statColor }}>
-                      {' ' + numbWithCommas(stockData.changePrice)}
+                      {' ' + numSeperator(stockData.changePrice)}
                     </span>
                   </p>
                 </div>
@@ -200,9 +196,9 @@ const Stock = ({ location }) => {
               <h5>{t('Stock.InvInfo.marketCap')}</h5>
               <p>{stockData.marketCap}</p>
               <h5>{t('Stock.InvInfo.52High')}</h5>
-              <p>{numbWithCommas(stockData.high52wPrice)}</p>
+              <p>{numSeperator(stockData.high52wPrice)}</p>
               <h5>{t('Stock.InvInfo.52Low')}</h5>
-              <p>{numbWithCommas(stockData.low52wPrice)}</p>
+              <p>{numSeperator(stockData.low52wPrice)}</p>
               <h5>{t('Stock.InvInfo.foreign')}</h5>
               <p>{stockData.foreignRatio + '%'}</p>
               <h5>PER</h5>

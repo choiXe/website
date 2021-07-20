@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { numSeperator } from '../tools/formatter';
+
 import './StockMarket.scss';
 
 import china from '../../images/china.png';
@@ -12,17 +14,13 @@ import uk from '../../images/uk.png';
 import us from '../../images/us.png';
 
 const StockMarket = ({ data }) => {
-  const numbWithCommas = (num) => {
-    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
   const { t } = useTranslation();
 
   const marketInfo = (index) => {
     const color = index.changeRate >= 0 ? '#e21414' : '#246ded';
     return (
       <>
-        <p style={{ color: color }}>{numbWithCommas(index.tradePrice)}</p>
+        <p style={{ color: color }}>{numSeperator(index.tradePrice)}</p>
         <p style={{ color: color }}>
           {index.changePrice > 0 ? '+' + index.changePrice : index.changePrice}
         </p>

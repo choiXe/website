@@ -2,22 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { numSeperator } from '../tools/formatter';
+
 import './Favorites.scss';
 
 const Favorites = () => {
+  const { t } = useTranslation();
+
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem('favorites'))
   );
-
-  const numbWithCommas = (num) => {
-    if (num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    } else {
-      return num;
-    }
-  };
-
-  const { t } = useTranslation();
 
   const removeFavorite = (event) => {
     const deletedStock = event.target.name;
@@ -29,7 +23,7 @@ const Favorites = () => {
   };
 
   const calColor = (n) => {
-    return n >= 0 ? '#e21414' : '#246ded';
+    return n >= 0 ? { color: '#e21414' } : { color: '#246ded' };
   };
 
   return (
@@ -52,10 +46,10 @@ const Favorites = () => {
                 className="link"
               >
                 <p>{stock.name}</p>
-                <p style={{ color: calColor(stock.changeRate) }}>
-                  {numbWithCommas(stock.tradePrice)}
+                <p style={calColor(stock.changeRate)}>
+                  {numSeperator(stock.tradePrice)}
                 </p>
-                <p style={{ color: calColor(stock.changeRate) }}>
+                <p style={calColor(stock.changeRate)}>
                   {stock.changeRate >= 0
                     ? '+' + stock.changeRate
                     : stock.changeRate}

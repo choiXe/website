@@ -13,9 +13,9 @@ import data from '../../services/data';
 import './Home.scss';
 
 const Home = () => {
-  const [mainData, setMainData] = useState(null);
   const { t } = useTranslation();
-
+  const [mainData, setMainData] = useState(null);
+  
   useEffect(() => {
     document.title = 'choiXe :: ' + t('Home.tabTitle');
     data.getMainInfo('').then((data) => setMainData(data.getMainInfo));
