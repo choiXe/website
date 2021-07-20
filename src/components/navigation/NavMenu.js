@@ -55,11 +55,6 @@ const NavMenu = () => {
           {t('Stock.navTitle')}
         </Link>
       </div>
-      <div className="nav-item">
-        <Link to="/setting" className="nav-links">
-          {t('Setting.navTitle')}
-        </Link>
-      </div>
       <div className="search-bar">
         <ReactSearchAutocomplete
           items={stockList}

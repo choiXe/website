@@ -7,7 +7,6 @@ import Home from './components/home/Home';
 import Sector from './components/sector/Sector';
 import Stock from './components/stock/Stock';
 import About from './components/about/About';
-import Setting from './components/setting/Setting';
 import Footer from './components/Footer';
 
 import './styles/global.scss';
@@ -29,7 +28,6 @@ function App() {
               <Route path="/about" component={About} />
               <Route path="/sector" component={Sector} />
               <Route path="/stock" component={Stock} />
-              <Route path="/setting" component={Setting} />
             </Switch>
           </div>
         </div>
