@@ -25,8 +25,10 @@ const About = () => {
         </div>
         <div id="question">
           <span>
-            {t('About.question.first')}<br></br>
-            {t('About.question.second')}<br></br>
+            {t('About.question.first')}
+            <br></br>
+            {t('About.question.second')}
+            <br></br>
             {t('About.question.third')}
           </span>
         </div>
@@ -63,6 +65,14 @@ const About = () => {
             {t('About.body-4.first')}
             <br></br>
             {t('About.body-4.second')}
+          </span>
+        </div>
+        <div className="body">
+          <span>
+            {t('About.secret.first')} 🤫<br></br>
+            {t('About.secret.second')}
+            <br></br>
+            <b>{t('About.secret.third')}</b>
           </span>
         </div>
         <div id="team">
