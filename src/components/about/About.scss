@@ -1,0 +1,56 @@
+@import 'src/styles/color';
+@import 'src/styles/_mixin.scss';
+
+#about {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  padding: 0 8vw;
+  gap: 2rem 2rem;
+
+  #menu {
+    @include content-container;
+    height: 400px;
+    padding: 2rem;
+  }
+
+  #intro {
+    @include content-container;
+    padding: 2rem;
+
+    #title {
+      padding-top: 10px;
+      h1 {
+        font-weight: bold;
+      }
+    }
+
+    #question {
+      margin-top: 30px;
+      margin-bottom: 40px;
+      border-left: 3px solid black;
+      span {
+        display: block;
+        text-align: left;
+        white-space: pre-line;
+        word-break: break-word;
+        line-height: 25px;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
+
+    .body {
+      margin-top: 20px;
+      span {
+        line-height: 25px;
+        font-size: 15px;
+        font-weight: normal;
+      }
+    }
+
+    #team {
+      margin-top: 50px;
+    }
+  }
+}

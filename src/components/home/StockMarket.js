@@ -5,13 +5,13 @@ import { numSeperator } from '../tools/formatter';
 
 import './StockMarket.scss';
 
-import china from '../../images/china.png';
-import germany from '../../images/germany.png';
-import hongkong from '../../images/hongkong.png';
-import japan from '../../images/japan.png';
-import korea from '../../images/korea.png';
-import uk from '../../images/uk.png';
-import us from '../../images/us.png';
+import china from '../../images/flag/china.png';
+import germany from '../../images/flag/germany.png';
+import hongkong from '../../images/flag/hongkong.png';
+import japan from '../../images/flag/japan.png';
+import korea from '../../images/flag/korea.png';
+import uk from '../../images/flag/uk.png';
+import us from '../../images/flag/us.png';
 
 const StockMarket = ({ data }) => {
   const { t } = useTranslation();
