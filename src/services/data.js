@@ -42,11 +42,11 @@ const getMainInfo = async (text) => {
   }
 };
 
-const getFavoriteInfo = async (stockIds) => {
+const getFavoriteInfo = async (ids) => {
   try {
     const favoriteInfo = await API.graphql(
       graphqlOperation(queries.getFavoriteInfo, {
-        keyword: stockIds
+        stockIds: ids
       })
     );
     return favoriteInfo.data;
