@@ -23,8 +23,18 @@ const About = () => {
   return (
     <div id="about">
       <Sticky top={20} innerClass="about-menu">
-        <button onClick={() => setShowIntro(true)}>About Our Team</button>
-        <button onClick={() => setShowIntro(false)}>How to Use</button>
+        <button 
+          onClick={() => setShowIntro(true)} 
+          id={showIntro ? "active" : ""}
+        >
+          About Our Team
+        </button>
+        <button 
+          onClick={() => setShowIntro(false)} 
+          id={showIntro ? "" : "active"}
+        >
+          How to Use
+        </button>
       </Sticky>
       {showIntro ?
         <div id="intro">
