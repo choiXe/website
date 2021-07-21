@@ -92,7 +92,7 @@ const Stock = ({ location }) => {
         setMessage(t('Stock.watchlist.duplicate'));
         setTimeout(() => setMessage(''), 1000);
       } else {
-        favorites.push({ ...stockData, stockId: stockId });
+        favorites.push({ name: stockName, stockId: stockId });
         localStorage.setItem('favorites', JSON.stringify(favorites));
         setSuccess(true);
       }

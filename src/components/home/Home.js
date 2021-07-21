@@ -15,7 +15,7 @@ import './Home.scss';
 const Home = () => {
   const { t } = useTranslation();
   const [mainData, setMainData] = useState(null);
-  
+
   useEffect(() => {
     document.title = 'choiXe :: ' + t('Home.tabTitle');
     data.getMainInfo('').then((data) => setMainData(data.getMainInfo));
@@ -24,7 +24,7 @@ const Home = () => {
   if (!mainData) {
     return (
       <div id="home">
-        <Sticky top={20} bottomBoundary="#trending-list" innerClass="menu">
+        <Sticky top={20} innerClass="menu">
           <SectorMenu selected="" />
         </Sticky>
         <div id="stock-market">
@@ -39,7 +39,15 @@ const Home = () => {
           </div>
         </div>
         <div id="favorites">
-          <Favorites />
+          <div id="loading">
+            <Loader
+              type="MutatingDots"
+              color="#BBD2C5"
+              secondaryColor="#536976"
+              height={100}
+              width={100}
+            />
+          </div>
         </div>
         <div id="trending">
           <div id="loading">
@@ -57,7 +65,7 @@ const Home = () => {
   } else {
     return (
       <div id="home">
-        <Sticky top={20} bottomBoundary="#trending-list" innerClass="menu">
+        <Sticky top={20} innerClass="menu">
           <SectorMenu selected="" />
         </Sticky>
         <div id="stock-market">
