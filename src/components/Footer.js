@@ -7,7 +7,7 @@ const Footer = () => {
   var line1 = t('Footer.line1');
   var line2 = t('Footer.line2');
   var line3 = t('Footer.line3');
-  var line4 = '© 2021 choiXe, Inc. All Rights Reserverd';
+  var line4 = '© 2021 choiXe. All Rights Reserverd';
 
   return (
     <div style={{ marginTop: '2%' }}>

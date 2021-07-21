@@ -35,6 +35,8 @@
   "About": {
     "navTitle": "About",
     "title": "Hi, We are choiXe",
+    "menu-1": "About Us",
+    "menu-2": "How to use",
     "team": "Team choiXe",
     "question": {
       "first": "Have you ever bought a stock based on good news?",

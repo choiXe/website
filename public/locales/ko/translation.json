@@ -35,6 +35,8 @@
   "About": {
     "navTitle": "소개",
     "title": "choiXe를 소개합니다",
+    "menu-1": "choiXe 소개",
+    "menu-2": "사용법",
     "team": "choiXe 팀원들",
     "question": {
       "first": "주식 투자를 처음으로 시작할 때 주변의 좋다는 소문만 듣고 샀던 경험이 있으신가요?",

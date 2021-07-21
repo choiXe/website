@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Sticky from 'react-stickynode';
 
-//import AboutMenu from './AboutMenu';
-
 import './About.scss';
 import './Card.css';
 
@@ -23,20 +21,20 @@ const About = () => {
   return (
     <div id="about">
       <Sticky top={20} innerClass="about-menu">
-        <button 
-          onClick={() => setShowIntro(true)} 
-          id={showIntro ? "active" : ""}
+        <button
+          onClick={() => setShowIntro(true)}
+          id={showIntro ? 'active' : ''}
         >
-          About Our Team
+          {t('About.menu-1')}
         </button>
-        <button 
-          onClick={() => setShowIntro(false)} 
-          id={showIntro ? "" : "active"}
+        <button
+          onClick={() => setShowIntro(false)}
+          id={showIntro ? '' : 'active'}
         >
-          How to Use
+          {t('About.menu-2')}
         </button>
       </Sticky>
-      {showIntro ?
+      {showIntro ? (
         <div id="intro">
           <div id="title">
             <h1>🧭 {t('About.title')}</h1>
@@ -114,8 +112,8 @@ const About = () => {
                       </div>
                     </div>
                     <p class="card__description">
-                      - Georgia Tech IE '24<br></br>- Project Team Intern @ Bain &
-                      Company
+                      - Georgia Tech IE '24<br></br>- Project Team Intern @ Bain
+                      & Company
                     </p>
                   </div>
                 </a>
@@ -186,7 +184,9 @@ const About = () => {
             </ul>
           </div>
         </div>
-        : <div> How to use </div>}
+      ) : (
+        <div id="intro"></div>
+      )}
     </div>
   );
 };
