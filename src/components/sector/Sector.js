@@ -179,7 +179,7 @@ const Sector = ({ location }) => {
 
   return (
     <div id="sector">
-      <Sticky top={20} bottomBoundary="#stocklist" innerClass="menu">
+      <Sticky top={20} bottomBoundary="#stock-list" innerClass="menu">
         <SectorMenu selected={curSector} selectHandler={setsSectorSelected} />
       </Sticky>
       {renderContent(sectorData)}

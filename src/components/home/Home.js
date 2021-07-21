@@ -65,7 +65,7 @@ const Home = () => {
   } else {
     return (
       <div id="home">
-        <Sticky top={20} innerClass="menu">
+        <Sticky top={20} bottomBoundary="#trending" innerClass="menu">
           <SectorMenu selected="" />
         </Sticky>
         <div id="stock-market">
