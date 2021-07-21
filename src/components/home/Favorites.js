@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Loader from 'react-loader-spinner';
 
 import { numSeperator } from '../tools/formatter';
 import data from '../../services/data';
@@ -30,28 +29,26 @@ const Favorites = () => {
   };
 
   useEffect(() => {
-    let stockIds = '';
-    for (let item of favorites) {
-      stockIds += item.stockId + ',';
+    if (favorites != null) {
+      let stockIds = '';
+      for (let item of favorites) {
+        stockIds += item.stockId + ',';
+      }
+      data
+        .getFavoriteInfo(stockIds)
+        .then((data) => setFavoriteData(data.getFavoriteInfo));
     }
-    data
-      .getFavoriteInfo(stockIds)
-      .then((data) => setFavoriteData(data.getFavoriteInfo));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const renderContent = (favoriteData) => {
-    if (!favoriteData) {
+    if (!favoriteData || favoriteData.data.length === 0) {
       return (
         <div id="favorites-list">
-          <div id="loading">
-            <Loader
-              type="MutatingDots"
-              color="#BBD2C5"
-              secondaryColor="#536976"
-              height={100}
-              width={100}
-            />
-          </div>
+          <li>
+            <p>{t('Home.Favorites.message')}</p>
+            <p></p>
+            <p></p>
+          </li>
         </div>
       );
     } else {
@@ -62,39 +59,31 @@ const Favorites = () => {
 
       return (
         <div id="favorites-list">
-          {favorites && favorites.length !== 0 ? (
-            favorites.map((stock, index) => (
-              <li key={index}>
-                <Link
-                  to={{
-                    pathname: '/stock',
-                    state: { stockId: stock.stockId, stockName: stock.name }
-                  }}
-                  className="link"
-                >
-                  <p>{stock.name}</p>
-                  <p style={calColor(favPriceRate[stock.stockId].rate)}>
-                    {numSeperator(favPriceRate[stock.stockId].price)}
-                  </p>
-                  <p style={calColor(favPriceRate[stock.stockId].rate)}>
-                    {favPriceRate[stock.stockId].rate >= 0
-                      ? '+' + favPriceRate[stock.stockId].rate
-                      : favPriceRate[stock.stockId].rate}
-                    %
-                  </p>
-                </Link>
-                <button onClick={removeFavorite} name={stock.name}>
-                  X
-                </button>
-              </li>
-            ))
-          ) : (
-            <li>
-              <p>{t('Home.Favorites.message')}</p>
-              <p></p>
-              <p></p>
+          {favorites.map((stock, index) => (
+            <li key={index}>
+              <Link
+                to={{
+                  pathname: '/stock',
+                  state: { stockId: stock.stockId, stockName: stock.name }
+                }}
+                className="link"
+              >
+                <p>{stock.name}</p>
+                <p style={calColor(favPriceRate[stock.stockId].rate)}>
+                  {numSeperator(favPriceRate[stock.stockId].price)}
+                </p>
+                <p style={calColor(favPriceRate[stock.stockId].rate)}>
+                  {favPriceRate[stock.stockId].rate >= 0
+                    ? '+' + favPriceRate[stock.stockId].rate
+                    : favPriceRate[stock.stockId].rate}
+                  %
+                </p>
+              </Link>
+              <button onClick={removeFavorite} name={stock.name}>
+                X
+              </button>
             </li>
-          )}
+          ))}
         </div>
       );
     }
