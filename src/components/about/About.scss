@@ -7,10 +7,19 @@
   padding: 0 8vw;
   gap: 2rem 2rem;
 
-  #menu {
-    @include content-container;
-    height: 400px;
-    padding: 2rem;
+  .about-menu {
+    //height: 400px;
+    button {
+      background: none;
+      border: none;
+      color: #707070;
+      font-size: 20px;
+      padding: 10px;
+      &:hover {
+        border-left: solid $navy;
+        cursor: pointer;
+      }
+    }
   }
 
   #intro {
