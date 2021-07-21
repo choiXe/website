@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { numSeperator } from '../tools/formatter';
@@ -25,7 +26,17 @@ const TrendingItem = ({ item }) => {
   return (
     <>
       <p>{item.date}</p>
-      <p>{item.stockName}</p>
+      <Link
+        to={{
+          pathname: '/stock',
+          state: {
+            stockId: item.stockId,
+            stockName: item.stockName
+          }
+        }}
+      >
+        <p>{item.stockName}</p>
+      </Link>
       <a href={baseURL + item.reportIdx} rel="noreferrer" target="_blank">
         {reportName}
       </a>
@@ -59,7 +70,7 @@ const Trending = ({ trendingList }) => {
       <div id="trending-list">
         {trendingList.map((item, index) => (
           <li key={item.reportIdx}>
-            <p>{index + 1}</p>
+            <p id="num">{index + 1}</p>
             <TrendingItem item={item} />
           </li>
         ))}
