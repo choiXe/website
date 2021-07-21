@@ -55,6 +55,25 @@ const getFavoriteInfo = async (ids) => {
   }
 };
 
-const services = { getStockInfo, getSectorInfo, getMainInfo, getFavoriteInfo };
+const getFinancialInfo = async (id) => {
+  try {
+    const financialInfo = await API.graphql(
+      graphqlOperation(queries.getFinancialInfo, {
+        stockId: id
+      })
+    );
+    return financialInfo.data;
+  } catch (error) {
+    return error.data;
+  }
+};
+
+const services = {
+  getStockInfo,
+  getSectorInfo,
+  getMainInfo,
+  getFavoriteInfo,
+  getFinancialInfo
+};
 
 export default services;

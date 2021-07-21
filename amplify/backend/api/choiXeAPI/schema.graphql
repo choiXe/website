@@ -28,6 +28,30 @@ type FavoriteInfo {
   data: [PriceRate]
 }
 
+type FinancialData {
+  date: String
+  nProfit: Int
+  npGrowth: Float
+  npMargin: Float
+  oMargin: Float
+  oProfit: Int
+  opGrowth: Float
+  rGrowth: Float
+  rv: Int
+}
+
+type FinancialDataKR {
+  date: String
+  nProfitKR: String
+  oProfitKR: String
+  rvKR: String
+}
+
+type FinancialInfo {
+  data: [FinancialData]
+  formatKR: [FinancialDataKR]
+}
+
 type Indicator {
   changePrice: Float
   changeRate: Float
@@ -61,6 +85,7 @@ type PriceRate {
 
 type Query {
   getFavoriteInfo(stockIds: String): FavoriteInfo
+  getFinancialInfo(stockId: String): FinancialInfo
   getMainInfo(keyword: String): MainInfo
   getSectorInfo(sectorName: String, startDate: String): SectorInfo
   getStockInfo(startDate: String, stockId: String): StockInfo

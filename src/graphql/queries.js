@@ -1,6 +1,40 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getFavoriteInfo = /* GraphQL */ `
+  query GetFavoriteInfo($stockIds: String) {
+    getFavoriteInfo(stockIds: $stockIds) {
+      data {
+        price
+        rate
+        stockId
+      }
+    }
+  }
+`;
+export const getFinancialInfo = /* GraphQL */ `
+  query GetFinancialInfo($stockId: String) {
+    getFinancialInfo(stockId: $stockId) {
+      data {
+        date
+        rv
+        oProfit
+        nProfit
+        oMargin
+        npMargin
+        rGrowth
+        opGrowth
+        npGrowth
+      }
+      formatKR {
+        date
+        rvKR
+        oProfitKR
+        nProfitKR
+      }
+    }
+  }
+`;
 export const getMainInfo = /* GraphQL */ `
   query GetMainInfo($keyword: String) {
     getMainInfo(keyword: $keyword) {
@@ -25,17 +59,6 @@ export const getMainInfo = /* GraphQL */ `
         reportName
         stockId
         stockName
-      }
-    }
-  }
-`;
-export const getFavoriteInfo = /* GraphQL */ `
-  query GetFavoriteInfo($stockIds: String) {
-    getFavoriteInfo(stockIds: $stockIds) {
-      data {
-        stockId
-        price
-        rate
       }
     }
   }
