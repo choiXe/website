@@ -9,7 +9,7 @@ import './Navbar.scss';
 import logo from '../../images/logo.png';
 
 function Navbar() {
-  const [lang, setLang] = useState("");
+  const [lang, setLang] = useState(localStorage.getItem("i18nextLng"));
   const handleClick = (lang) => {
     i18next.changeLanguage(lang);
     setLang(lang);

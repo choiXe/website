@@ -95,7 +95,7 @@ const About = () => {
             <h1>🧙🏻‍♀️ {t('About.team')}</h1>
           </div>
           <div id="profile">
-            <ul class="cards">
+            <ul className="cards">
               <li>
                 <a
                   href="https://www.linkedin.com/in/hueyk/"
