@@ -244,7 +244,8 @@
       "indiv": "Individuals",
       "foreign": "Foreigners",
       "inst": "Institutions"
-    }
+    },
+    "score-description": "A score calculated by choiXe's algorithm based on analyst reports, financial information, growth potential, market attention, and technical indicators."
   },
   "SearchBar": {
     "label": "Search"

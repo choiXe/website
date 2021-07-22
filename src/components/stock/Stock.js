@@ -138,7 +138,17 @@ const Stock = ({ location }) => {
                 </div>
               </div>
               <div className="score-container">
-                <p>{t('Stock.Caption.score')}</p>
+                <div class="tooltip">
+                  <p>{t('Stock.Caption.score')}</p>
+                  <div class="top">
+                    <div class="text-content">
+                      <div id="bottom-margin"></div>
+                      <span>{t('Stock.score-description')}</span>
+                      <div id="bottom-margin"></div>
+                    </div>
+                    <i></i>
+                  </div>
+                </div>
                 <h4>{stockData.score}</h4>
               </div>
             </div>

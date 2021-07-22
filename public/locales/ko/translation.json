@@ -243,7 +243,8 @@
       "indiv": "개인",
       "foreign": "외국인",
       "inst": "기관"
-    }
+    },
+    "score-description": "애널리스트 리포트, 재무정보, 성장 가능성, 시장 주목도 및 기술적 지표 등을 바탕으로 choiXe의 알고리즘이 계산한 점수입니다."
   },
   "SearchBar": {
     "label": "종목 검색"
