@@ -222,7 +222,12 @@
       "marketCap": "Market Cap",
       "52High": "52-Week High",
       "52Low": "52-Week Low",
-      "foreign": "Foreign Share"
+      "foreign": "Foreign Share",
+      "per": "Its current share price relative to its per-share earnings",
+      "pbr": "Market's valuation of a company relative to its book value",
+      "roe": "Corporation's profitability in relation to stockholders’ equity",
+      "low": "The lower, the better",
+      "high": "The higher, the better"
     },
     "companyInfo": "Company Info",
     "Analyst": {
@@ -244,7 +249,8 @@
       "indiv": "Individuals",
       "foreign": "Foreigners",
       "inst": "Institutions"
-    }
+    },
+    "score-description": "A score calculated by choiXe's algorithm based on analyst reports, financial information, growth potential, market attention, and technical indicators."
   },
   "SearchBar": {
     "label": "Search"

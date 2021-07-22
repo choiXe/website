@@ -89,6 +89,51 @@
         margin-top: 0.5rem;
         font-size: 20px;
       }
+      .tooltip {
+        display: inline-block;
+        align-self: flex-end;
+        position: relative;
+        cursor: help;
+        color: #f2f2f2;
+        font-size: 15px;
+        border-bottom: 1px dashed #888888;
+        padding-bottom: 1px;
+        margin-right: 1.75rem;
+
+        .top {
+          width: 220px;
+          top: 50%;
+          left: 50%;
+          margin-left: 20px;
+          transform: translate(-30%, -100%);
+          padding: 0;
+          color: #ffffff;
+          background-color: #303030;
+          font-weight: normal;
+          font-size: 13px;
+          border-radius: 12px;
+          position: absolute;
+          box-sizing: border-box;
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.8s;
+        }
+
+        &:hover .top {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        .text-content {
+          padding-left: 30px;
+          padding-right: 30px;
+          text-align: left;
+          #bottom-margin {
+            height: 1.5rem;
+          }
+        }
+      }
     }
   }
 
@@ -144,6 +189,48 @@
     p {
       font-weight: bold;
       font-size: 18px;
+    }
+  }
+  .tooltip {
+    display: inline-block;
+    align-self: center;
+    position: relative;
+    cursor: help;
+    color: #f2f2f2;
+    font-size: 15px;
+    border-bottom: 1px dashed #888888;
+
+    .top {
+      width: 200px;
+      top: -50%;
+      left: -125%;
+      transform: translate(-30%, -100%);
+      padding: 0;
+      color: #ffffff;
+      background-color: #303030;
+      font-weight: normal;
+      font-size: 13px;
+      border-radius: 12px;
+      position: absolute;
+      box-sizing: border-box;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.8s;
+    }
+
+    &:hover .top {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .text-content {
+      padding-left: 30px;
+      padding-right: 30px;
+      text-align: center;
+      #bottom-margin {
+        height: 1.5rem;
+      }
     }
   }
 }
