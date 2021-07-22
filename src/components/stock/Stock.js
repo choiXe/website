@@ -9,6 +9,7 @@ import StockChart from './StockChart';
 import InvStatList from './InvStatList';
 import ReportList from './ReportList';
 import NewsList from './NewsList';
+import FinancialInfo from './FinancialInfo';
 import WordCloud from './WordCloud';
 
 import data from '../../services/data';
@@ -18,6 +19,7 @@ const Stock = ({ location }) => {
   const { t } = useTranslation();
   const [listType, setListType] = useState('analyst');
   const [stockData, setStockData] = useState(null);
+  const [financialData, setFinancialData] = useState(null);
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
   const daysPassed = 30;
@@ -39,9 +41,12 @@ const Stock = ({ location }) => {
     data
       .getStockInfo(stockId, startDate)
       .then((data) => setStockData(data.getStockInfo));
+    data
+      .getFinancialInfo(stockId)
+      .then((data) => setFinancialData(data.getFinancialInfo));
   }, [stockId, stockName]);
 
-  if (!stockData) {
+  if (!stockData || !financialData) {
     return (
       <div className="loading">
         <Loader
@@ -68,7 +73,7 @@ const Stock = ({ location }) => {
       t('Stock.Analyst.firm')
     ];
     const newsTitle = [t('Stock.News.date'), t('Stock.News.news')];
-    const titleList = listType === 'analyst' ? reportTitle : newsTitle;
+    const titleList = listType === 'analyst' ? reportTitle : listType === 'news' ? newsTitle : '';
     const statColor = stockData.changeRate >= 0 ? red : blue;
     const priceY = stockData.tradePrice - stockData.changePrice;
 
@@ -258,7 +263,15 @@ const Stock = ({ location }) => {
               >
                 {t('Stock.News.title')}
               </button>
-            </div>
+              <button
+                className={listType === 'financial' ? 'active' : ''}
+                onClick={(e) => {
+                  setListType('financial');
+                }}
+              >
+                재무정보
+              </button>
+            </div>  
             <div className="list-table">
               <div
                 className={
@@ -267,21 +280,24 @@ const Stock = ({ location }) => {
                     : 'list-title news'
                 }
               >
-                {titleList.map((title) => (
+                {titleList.length > 0 && titleList.map((title) => (
                   <div key={title}> {title}</div>
                 ))}
               </div>
               <div className="list-content">
-                <InfiniteScroll dataLength={40} height="40rem">
-                  {listType === 'analyst' ? (
-                    <ReportList
-                      dataSet={stockData.reportList}
-                      stockName={stockData.name}
-                    />
-                  ) : (
-                    <NewsList dataSet={stockData.news} />
-                  )}
-                </InfiniteScroll>
+                {listType === 'financial' ? (<FinancialInfo dataSet={financialData} />)
+                  : ( 
+                    <InfiniteScroll dataLength={40} height="40rem">
+                      {listType === 'analyst' ? (
+                        <ReportList
+                          dataSet={stockData.reportList}
+                          stockName={stockData.name}
+                        />
+                      ) : (
+                        <NewsList dataSet={stockData.news} />
+                      )}
+                    </InfiniteScroll>
+                )}
               </div>
             </div>
           </div>
