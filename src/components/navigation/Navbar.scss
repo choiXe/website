@@ -34,6 +34,10 @@ nav {
         font-weight: bold;
         color: $red;
       }
+      &.active {
+        font-weight: bold;
+        color: $red;
+      }
     }
   }
 
