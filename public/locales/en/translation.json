@@ -182,6 +182,15 @@
       "consensus": "Price Target",
       "upside": "Upside",
       "score": "Inv Score"
+    },
+    "tooltip": {
+      "mainTitle": "Help",
+      "title1": "Expected Yield",
+      "description1": "The difference between the average value of the analyst report target price issued in the selected period and the current price.",
+      "title2": "Block area",
+      "description2": "The area occupied by each item (small sector or stock) is proportional to the number of published reports.",
+      "title3": "Block color",
+      "description3": "Stocks with upside potential above the sector average expected return are colored red, and stocks with low upside potential are colored blue."
     }
   },
   "Stock": {
