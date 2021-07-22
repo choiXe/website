@@ -27,12 +27,12 @@ const About = () => {
         >
           {t('About.menu-1')}
         </button>
-        <button
+        {/* <button
           onClick={() => setShowIntro(false)}
           id={showIntro ? '' : 'active'}
         >
           {t('About.menu-2')}
-        </button>
+        </button> */}
       </Sticky>
       {showIntro ? (
         <div id="intro">
