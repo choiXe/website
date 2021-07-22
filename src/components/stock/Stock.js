@@ -19,7 +19,6 @@ const Stock = ({ location }) => {
   const { t } = useTranslation();
   const [listType, setListType] = useState('analyst');
   const [stockData, setStockData] = useState(null);
-  const [financialData, setFinancialData] = useState(null);
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
   const daysPassed = 30;
@@ -41,12 +40,9 @@ const Stock = ({ location }) => {
     data
       .getStockInfo(stockId, startDate)
       .then((data) => setStockData(data.getStockInfo));
-    data
-      .getFinancialInfo(stockId)
-      .then((data) => setFinancialData(data.getFinancialInfo));
   }, [stockId, stockName]);
 
-  if (!stockData || !financialData) {
+  if (!stockData) {
     return (
       <div className="loading">
         <Loader
@@ -285,7 +281,7 @@ const Stock = ({ location }) => {
                 ))}
               </div>
               <div className="list-content">
-                {listType === 'financial' ? (<FinancialInfo dataSet={financialData} />)
+                {listType === 'financial' ? (<FinancialInfo stockId={stockId} stockName={stockName} />)
                   : ( 
                     <InfiniteScroll dataLength={40} height="40rem">
                       {listType === 'analyst' ? (
