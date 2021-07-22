@@ -17,20 +17,20 @@ export const getFinancialInfo = /* GraphQL */ `
     getFinancialInfo(stockId: $stockId) {
       data {
         date
-        rv
-        oProfit
         nProfit
-        oMargin
-        npMargin
-        rGrowth
-        opGrowth
         npGrowth
+        npMargin
+        oMargin
+        oProfit
+        opGrowth
+        rGrowth
+        rv
       }
       formatKR {
         date
-        rvKR
-        oProfitKR
         nProfitKR
+        oProfitKR
+        rvKR
       }
     }
   }
