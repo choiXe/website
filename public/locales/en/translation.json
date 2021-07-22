@@ -235,6 +235,17 @@
       "indiv": "Individuals",
       "foreign": "Foreigners",
       "inst": "Institutions"
+    },
+    "FinancialInfo": {
+      "title": "Financial Info",
+      "rv": "Revenue",
+      "oProfit": "Operating Profit",
+      "nProfit": "Net Profit",
+      "oMargin": "Operating Profit Margin",
+      "npMargin": "Net Profit Margin",
+      "rGrowth": "Revenue Growth",
+      "opGrowth": "Operating Profit Growth",
+      "npGrowth": "Net Profit Growth"
     }
   },
   "SearchBar": {

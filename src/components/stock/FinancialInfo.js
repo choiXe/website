@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import HighchartsAccessibility from 'highcharts/modules/accessibility';
@@ -14,6 +15,7 @@ HighchartsExportData(Highcharts);
 HighchartsSeriesLabel(Highcharts);
 
 const FinancialInfo = ({ dataSet }) => {
+	const { t } = useTranslation();
   const barChartData = {
 		data: [
 			{rv: '201866745000000', oProfit: '29240672000000', nProfit: '22726092000000'},
@@ -51,19 +53,19 @@ const FinancialInfo = ({ dataSet }) => {
 
 	// Prepare dataset for BarChart
 	const yAxisBarChart = [
-		{name: '매출', data: rvData}, 
-		{name: '영업이익', data: oProfitData},
-		{name: '순이익', data: nProfitData}
+		{name: t('Stock.FinancialInfo.rv'), data: rvData}, 
+		{name: t('Stock.FinancialInfo.oProfit'), data: oProfitData},
+		{name: t('Stock.FinancialInfo.nProfit'), data: nProfitData}
 	];
 
 	// Prepare dataset for LineChart 1
-	const yAxisLineChart1 = [{name: 'rGrowth', data: rGrowthData}];
+	const yAxisLineChart1 = [{name: t('Stock.FinancialInfo.rGrowth'), data: rGrowthData}];
 	// Prepare dataset for LineChart 2
 	const yAxisLineChart2 = [
-		{name: 'opGrowth', data: opGrowthData}, 
-		{name: 'oMargin', data: oMarginData}
+		{name: t('Stock.FinancialInfo.opGrowth'), data: opGrowthData}, 
+		{name: t('Stock.FinancialInfo.oMargin'), data: oMarginData}
 	];
-	
+
   return (
     <div>
 			<div>

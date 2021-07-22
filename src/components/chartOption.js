@@ -183,7 +183,7 @@ export function BarChartOption(x, y) {
       crosshair: true
     },
     yAxis: {
-      title: {text: '원'},
+      title: {text: '₩'},
     },
     tooltip: {
       headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
@@ -205,7 +205,7 @@ export function LineChartOption(x, y) {
     exporting: { enabled: false },
     title: false,
     credits: false,
-    yAxis: {title: {text: '원'}},
+    yAxis: {title: {text: '%'}},
     plotOptions: {
       series: {label: {connectorAllowed: false}, pointStart: parseInt(x[0])}
     },

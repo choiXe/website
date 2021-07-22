@@ -269,7 +269,7 @@ const Stock = ({ location }) => {
                   setListType('financial');
                 }}
               >
-                재무정보
+                {t('Stock.FinancialInfo.title')}
               </button>
             </div>  
             <div className="list-table">

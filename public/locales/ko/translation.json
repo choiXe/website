@@ -234,6 +234,17 @@
       "indiv": "개인",
       "foreign": "외국인",
       "inst": "기관"
+    },
+    "FinancialInfo": {
+      "title": "재무정보",
+      "rv": "매출",
+      "oProfit": "영업이익",
+      "nProfit": "순이익",
+      "oMargin": "영업이익률",
+      "npMargin": "순이익률",
+      "rGrowth": "매출 증가율",
+      "opGrowth": "영업이익 증가율",
+      "npGrowth": "순이익 증가율"
     }
   },
   "SearchBar": {
