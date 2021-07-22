@@ -199,3 +199,16 @@ export function BarChartOption(x, y) {
     series: y
   };
 }
+
+export function LineChartOption(x, y) {
+  return {
+    exporting: { enabled: false },
+    title: false,
+    credits: false,
+    yAxis: {title: {text: '원'}},
+    plotOptions: {
+      series: {label: {connectorAllowed: false}, pointStart: parseInt(x[0])}
+    },
+    series: y,
+  };
+}

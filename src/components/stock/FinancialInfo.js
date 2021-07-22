@@ -4,12 +4,14 @@ import HighchartsReact from 'highcharts-react-official';
 import HighchartsAccessibility from 'highcharts/modules/accessibility';
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsExportData from 'highcharts/modules/export-data';
+import HighchartsSeriesLabel from 'highcharts/modules/series-label';
 
-import { BarChartOption } from '../chartOption';
+import { BarChartOption, LineChartOption } from '../chartOption';
 
 HighchartsAccessibility(Highcharts);
 HighchartsExporting(Highcharts);
 HighchartsExportData(Highcharts);
+HighchartsSeriesLabel(Highcharts);
 
 const FinancialInfo = ({ dataSet }) => {
   const barChartData = {
@@ -35,27 +37,51 @@ const FinancialInfo = ({ dataSet }) => {
 	const temp_dates = dataSet.data.map(item => item.rv !== '0' && item.date.slice(0,4));
 	const dates = temp_dates.filter(date => date);
 
-	let rvData = [], oProfitData = [], nProfitData = [];
+	let rvData = [], oProfitData = [], nProfitData = [], rGrowthData = [], opGrowthData = [], oMarginData = [];
 	for (let i = 0; i < temp_dates.length; i++) {
     if (temp_dates[i]) {
 			rvData.push(parseInt(barChartData.data[i].rv));
 			oProfitData.push(parseInt(barChartData.data[i].oProfit));
 			nProfitData.push(parseInt(barChartData.data[i].nProfit));
+			rGrowthData.push(parseInt(dataSet.data[i].rGrowth));
+			opGrowthData.push(parseInt(dataSet.data[i].opGrowth));
+			oMarginData.push(parseInt(dataSet.data[i].oMargin));
 		}
 	};
 
-	const yAxis = [
+	// Prepare dataset for BarChart
+	const yAxisBarChart = [
 		{name: '매출', data: rvData}, 
 		{name: '영업이익', data: oProfitData},
 		{name: '순이익', data: nProfitData}
 	];
 
+	// Prepare dataset for LineChart 1
+	const yAxisLineChart1 = [{name: 'rGrowth', data: rGrowthData}];
+	// Prepare dataset for LineChart 2
+	const yAxisLineChart2 = [
+		{name: 'opGrowth', data: opGrowthData}, 
+		{name: 'oMargin', data: oMarginData}
+	];
+	
   return (
     <div>
-      <HighchartsReact
-        highcharts={Highcharts}
-        options={BarChartOption(dates, yAxis)}
-      />
+			<div>
+				<HighchartsReact
+					highcharts={Highcharts}
+					options={BarChartOption(dates, yAxisBarChart)}
+				/>
+			</div>
+			<div>
+				<HighchartsReact
+					highcharts={Highcharts}
+					options={LineChartOption(dates, yAxisLineChart1)}
+				/>
+				<HighchartsReact
+					highcharts={Highcharts}
+					options={LineChartOption(dates, yAxisLineChart2)}
+				/>
+			</div>
     </div>
   )
 };
