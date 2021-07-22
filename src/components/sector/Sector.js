@@ -74,7 +74,24 @@ const Sector = ({ location }) => {
         <div id="info">
           <div id="chart-section">
             <div>
-              <h4>{t('Sector.SectorMenu.' + curSector)}</h4>
+              <div id="chart-top">
+                <h4>{t('Sector.SectorMenu.' + curSector)}</h4>
+                <div class="tooltip">
+                  {t('Sector.tooltip.mainTitle')}
+                  <div class="right">
+                    <div class="text-content">
+                      <h3>{t('Sector.tooltip.title1')}</h3>
+                      <span>{t('Sector.tooltip.description1')}</span>
+                      <h3>{t('Sector.tooltip.title2')}</h3>
+                      <span>{t('Sector.tooltip.description2')}</span>
+                      <h3>{t('Sector.tooltip.title3')}</h3>
+                      <span>{t('Sector.tooltip.description3')}</span>
+                      <div id="bottom-margin"></div>
+                    </div>
+                    <i></i>
+                  </div>
+                </div>
+              </div>
               <div className="chart">
                 <SectorChart
                   stocks={sectorData}
