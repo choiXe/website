@@ -1,3 +1,6 @@
+@import 'src/styles/_color.scss';
+@import 'src/styles/_mixin.scss';
+
 nav {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -27,6 +30,10 @@ nav {
       padding: 0 5px 0 5px;
       font-size: 13px;
       border: 0;
+      &:hover {
+        font-weight: bold;
+        color: $red;
+      }
     }
   }
 
