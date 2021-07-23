@@ -179,7 +179,7 @@ export function BarChartOption(x, y, label) {
     credits: false,
     xAxis: { categories: x, crosshair: true },
     yAxis: [{ // Primary yAxis
-      labels: { format: '{value} %' },
+      labels: { format: '{value}%' },
       title: false,
       opposite: true
     }, { // Secondary yAxis
@@ -188,7 +188,7 @@ export function BarChartOption(x, y, label) {
         const adjusted = this.value.toString().length >= 13 
           ? this.value/1000000000000 
           : this.value/100000000;
-        const unit = this.value.toString().length >= 13 ? ' 조' : ' 억';
+        const unit = this.value.toString().length >= 13 ? '조' : '억';
         return adjusted.toString() + unit;
       }},
       title: false,
@@ -204,7 +204,7 @@ export function BarChartOption(x, y, label) {
               + label[this.points[i].y] + '</b></td>';
           } else {
             s += this.points[i].series.name + ': </td><td style="padding:0"><b>'
-              + this.points[i].y + ' %</b></td>';
+              + this.points[i].y + '%</b></td>';
           }
           if (i < this.points.length - 1) {
             s += '</br>'
@@ -244,12 +244,12 @@ export function LineChartOption(x, y) {
       //height: 200
     },
     yAxis: [{ // Primary yAxis
-      labels: { format: '{value} %', style: { color: '#ff6868' }},
+      labels: { format: '{value}%', style: { color: '#ff6868' }},
       title: false,
       opposite: true
     }, { // Secondary yAxis
       gridLineWidth: 0,
-      labels: { format: '{value} %', style: { color: '#47b6d1' }},
+      labels: { format: '{value}%', style: { color: '#47b6d1' }},
       title: false,
     }],
     plotOptions: { series: { label: { connectorAllowed: false }, pointStart: parseInt(x[0]) }},
@@ -260,7 +260,7 @@ export function LineChartOption(x, y) {
         for (let i=0; i < this.points.length; i++) {
           s += '</br><td>'
             + this.points[i].series.name + ': </td>'
-            + '<td style="padding:0"><b>' + this.points[i].y + ' %</b></td>';
+            + '<td style="padding:0"><b>' + this.points[i].y + '%</b></td>';
         }
         return s;
       },
