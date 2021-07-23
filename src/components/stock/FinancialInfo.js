@@ -10,7 +10,7 @@ import HighchartsSeriesLabel from 'highcharts/modules/series-label';
 
 import data from '../../services/data';
 
-import { BarChartOption, LineChartOption } from '../chartOption';
+import { BarChartOption, LineChartOption1, LineChartOption2 } from '../chartOption';
 
 HighchartsAccessibility(Highcharts);
 HighchartsExporting(Highcharts);
@@ -72,7 +72,7 @@ const FinancialInfo = ({ stockId, stockName }) => {
 		const yAxisLineChart1 = [{name: t('Stock.FinancialInfo.rGrowth'), data: rGrowthData}];
 		// Prepare dataset for LineChart 2
 		const yAxisLineChart2 = [
-			{name: t('Stock.FinancialInfo.opGrowth'), data: opGrowthData}, 
+			{name: t('Stock.FinancialInfo.opGrowth'), data: opGrowthData, yAxis: 1}, 
 			{name: t('Stock.FinancialInfo.oMargin'), data: oMarginData}
 		];
 
@@ -87,11 +87,11 @@ const FinancialInfo = ({ stockId, stockName }) => {
 				<div>
 					<HighchartsReact
 						highcharts={Highcharts}
-						options={LineChartOption(dates, yAxisLineChart1)}
+						options={LineChartOption1(dates, yAxisLineChart1)}
 					/>
 					<HighchartsReact
 						highcharts={Highcharts}
-						options={LineChartOption(dates, yAxisLineChart2)}
+						options={LineChartOption2(dates, yAxisLineChart2)}
 					/>
 				</div>
 			</div>

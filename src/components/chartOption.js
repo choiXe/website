@@ -191,8 +191,15 @@ export function BarChartOption(x, y, label) {
       shared: true,
       useHTML: true
     },
-    plotOptions: { column: {pointPadding: 0.2, borderWidth: 0 } },
+    plotOptions: { column: { pointPadding: 0.2, borderWidth: 0 } },
     series: y,
+    legend: {
+      layout: 'vertical',
+      align: 'left',
+      x: 35,
+      verticalAlign: 'top',
+      floating: true,
+    },
     colors: [
       '#47b6d1',
       '#ff6868',
@@ -203,16 +210,81 @@ export function BarChartOption(x, y, label) {
   };
 }
 
-export function LineChartOption(x, y) {
+export function LineChartOption1(x, y) {
   return {
     exporting: { enabled: false },
     title: false,
     credits: false,
-    yAxis: {title: {text: '%'}},
-    plotOptions: {
-      series: {label: {connectorAllowed: false}, pointStart: parseInt(x[0])}
-    },
+    yAxis: { title: false },
+    plotOptions: { series: { label: { connectorAllowed: false }, pointStart: parseInt(x[0]) }},
     series: y,
+    tooltip: {
+      formatter: function () {
+        var s = '<b style="font-size:10px">'+ this.x +'</b>';
+        for (let i=0; i < this.points.length; i++) {
+          s += '</br><td>Revenue Growth: </td>'
+            + '<td style="padding:0"><b>' + this.y + ' %</b></td>';
+        }
+        return s;
+      },
+      shared: true,
+      useHTML: true
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'left',
+      x: 35,
+      verticalAlign: 'top',
+      y: 12,
+      floating: true,
+    },
+    colors: [
+      '#47b6d1',
+      '#ff6868',
+      '#ffd602',
+      '#5f86db',
+      '#e34489'
+    ]
+  };
+}
+
+export function LineChartOption2(x, y) {
+  return {
+    exporting: { enabled: false },
+    title: false,
+    credits: false,
+    yAxis: [{ // Primary yAxis
+      labels: { format: '{value} %', style: { color: '#ff6868' }},
+      title: false,
+      opposite: true
+    }, { // Secondary yAxis
+      gridLineWidth: 0,
+      labels: { format: '{value} %', style: { color: '#47b6d1' }},
+      title: false,
+    }],
+    plotOptions: { series: { label: { connectorAllowed: false }, pointStart: parseInt(x[0]) }},
+    series: y,
+    tooltip: {
+      formatter: function () {
+        var s = '<b style="font-size:10px">'+ this.x +'</b>';
+        for (let i=0; i < this.points.length; i++) {
+          s += '</br><td>'
+            + this.points[i].series.name + ': </td>'
+            + '<td style="padding:0"><b>' + this.points[i].y + ' %</b></td>';
+        }
+        return s;
+      },
+      shared: true,
+      useHTML: true
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'left',
+      x: 35,
+      verticalAlign: 'top',
+      y: 15,
+      floating: true,
+    },
     colors: [
       '#47b6d1',
       '#ff6868',
