@@ -177,7 +177,16 @@ export function BarChartOption(x, y, label) {
     credits: false,
     chart: { type: 'column' },
     xAxis: { categories: x, crosshair: true },
-    yAxis: { title: false },
+    yAxis: { 
+      title: false,
+      labels: { formatter: function () {
+        // starting from 13 digits do 조
+        const adjusted = this.value.toString().length >= 13 
+          ? this.value/1000000000000 
+          : this.value/100000000;
+        const unit = this.value.toString().length >= 13 ? ' 조' : ' 억';
+        return adjusted.toString() + unit;
+      }}},
     tooltip: {
       formatter: function () {
         var s = '<b style="font-size:10px">'+ this.x +'</b>';
@@ -196,7 +205,7 @@ export function BarChartOption(x, y, label) {
     legend: {
       layout: 'vertical',
       align: 'left',
-      x: 35,
+      x: 50,
       verticalAlign: 'top',
       floating: true,
     },
@@ -220,7 +229,7 @@ export function LineChartOption1(x, y) {
     },
     title: false,
     credits: false,
-    yAxis: { title: false },
+    yAxis: { title: false, labels: {format: '{value} %'} },
     plotOptions: { series: { label: { connectorAllowed: false }, pointStart: parseInt(x[0]) }},
     series: y,
     tooltip: {
