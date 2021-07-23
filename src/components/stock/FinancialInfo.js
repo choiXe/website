@@ -6,16 +6,14 @@ import HighchartsReact from 'highcharts-react-official';
 import HighchartsAccessibility from 'highcharts/modules/accessibility';
 import HighchartsExporting from 'highcharts/modules/exporting';
 import HighchartsExportData from 'highcharts/modules/export-data';
-import HighchartsSeriesLabel from 'highcharts/modules/series-label';
 
 import data from '../../services/data';
 
-import { BarChartOption, LineChartOption1, LineChartOption2 } from '../chartOption';
+import { BarChartOption, LineChartOption } from '../chartOption';
 
 HighchartsAccessibility(Highcharts);
 HighchartsExporting(Highcharts);
 HighchartsExportData(Highcharts);
-HighchartsSeriesLabel(Highcharts);
 
 const FinancialInfo = ({ stockId, stockName }) => {
 	const [dataSet, setDataSet] = useState(null);
@@ -45,7 +43,15 @@ const FinancialInfo = ({ stockId, stockName }) => {
 		const temp_dates = dataSet.data.map(item => item.rv !== '0' && item.date.slice(0,4));
 		const dates = temp_dates.filter(date => date);
 
-		let rvData = [], oProfitData = [], nProfitData = [], rGrowthData = [], opGrowthData = [], oMarginData = [], label = {};
+		let rvData = [], 
+				oProfitData = [], 
+				nProfitData = [], 
+				rGrowthData = [], 
+				opGrowthData = [], 
+				oMarginData = [], 
+				npMarginData = [],
+				label = {};
+
 		for (let i = 0; i < temp_dates.length; i++) {
 			if (temp_dates[i]) {
 				rvData.push(parseInt(dataSet.data[i].rv));
@@ -54,6 +60,7 @@ const FinancialInfo = ({ stockId, stockName }) => {
 				rGrowthData.push(parseInt(dataSet.data[i].rGrowth));
 				opGrowthData.push(parseInt(dataSet.data[i].opGrowth));
 				oMarginData.push(parseInt(dataSet.data[i].oMargin));
+				npMarginData.push(parseInt(dataSet.data[i].npMargin));
 
 				label[parseInt(dataSet.data[i].rv)] = dataSet.formatKR[i].rvKR;
 				label[parseInt(dataSet.data[i].oProfit)] = dataSet.formatKR[i].oProfitKR;
@@ -63,37 +70,31 @@ const FinancialInfo = ({ stockId, stockName }) => {
 
 		// Prepare dataset for BarChart
 		const yAxisBarChart = [
-			{name: t('Stock.FinancialInfo.rv'), data: rvData}, 
-			{name: t('Stock.FinancialInfo.oProfit'), data: oProfitData},
-			{name: t('Stock.FinancialInfo.nProfit'), data: nProfitData}
+			{name: t('Stock.FinancialInfo.rv'), data: rvData, type: 'column', yAxis: 1}, 
+			{name: t('Stock.FinancialInfo.oProfit'), data: oProfitData, type: 'column', yAxis: 1},
+			{name: t('Stock.FinancialInfo.nProfit'), data: nProfitData, type: 'column', yAxis: 1},
+			{name: t('Stock.FinancialInfo.oMargin'), data: oMarginData},
+			{name: t('Stock.FinancialInfo.npMargin'), data: npMarginData}
 		];
 
-		// Prepare dataset for LineChart 1
-		const yAxisLineChart1 = [{name: t('Stock.FinancialInfo.rGrowth'), data: rGrowthData}];
-		// Prepare dataset for LineChart 2
-		const yAxisLineChart2 = [
+		// Prepare dataset for LineChart
+		const yAxisLineChart = [
 			{name: t('Stock.FinancialInfo.opGrowth'), data: opGrowthData, yAxis: 1}, 
-			{name: t('Stock.FinancialInfo.oMargin'), data: oMarginData}
+			{name: t('Stock.FinancialInfo.rGrowth'), data: rGrowthData}
 		];
 
+		// oMargin and npMargin - add them to the bar graph as line graph
+		// rGrowth and opGrowth - two lines graph in one space
 		return (
 			<div>
-				<div>
-					<HighchartsReact
-						highcharts={Highcharts}
-						options={BarChartOption(dates, yAxisBarChart, label)}
-					/>
-				</div>
-				<div style={{flexDirection: 'row'}}>
-					<HighchartsReact
-						highcharts={Highcharts}
-						options={LineChartOption1(dates, yAxisLineChart1)}
-					/>
-					<HighchartsReact
-						highcharts={Highcharts}
-						options={LineChartOption2(dates, yAxisLineChart2)}
-					/>
-				</div>
+				<HighchartsReact
+					highcharts={Highcharts}
+					options={BarChartOption(dates, yAxisBarChart, label)}
+				/>
+				<HighchartsReact
+					highcharts={Highcharts}
+					options={LineChartOption(dates, yAxisLineChart)}
+				/>
 			</div>
 		)
 	}

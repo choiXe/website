@@ -171,37 +171,50 @@ export function WordCloudOption(data) {
 }
 
 export function BarChartOption(x, y, label) {
+  const barChartNames = ["매출", "영업이익", "순이익", "Revenue", "Operating Profit", "Net Profit"];
   return {
+    chart: { zoomType: 'xy' },
     exporting: { enabled: false },
     title: false,
     credits: false,
-    chart: { type: 'column' },
     xAxis: { categories: x, crosshair: true },
-    yAxis: { 
+    yAxis: [{ // Primary yAxis
+      labels: { format: '{value} %' },
       title: false,
+      opposite: true
+    }, { // Secondary yAxis
+      gridLineWidth: 0,
       labels: { formatter: function () {
-        // starting from 13 digits do 조
         const adjusted = this.value.toString().length >= 13 
           ? this.value/1000000000000 
           : this.value/100000000;
         const unit = this.value.toString().length >= 13 ? ' 조' : ' 억';
         return adjusted.toString() + unit;
-      }}},
-    tooltip: {
-      formatter: function () {
-        var s = '<b style="font-size:10px">'+ this.x +'</b>';
-        for (let i=0; i < this.points.length; i++) {
-          s += '</br><td>'
-            + this.points[i].series.name + ': </td>'
-            + '<td style="padding:0"><b>' + label[this.points[i].y] + '</b></td>';
+      }},
+      title: false,
+    }],
+    tooltip: { 
+      shared: true,
+      useHTML: true,
+      formatter: function() {
+        var s = '<b style="font-size:10px">'+ this.x +'</b></br><td>';
+        for (let i = 0; i < this.points.length; i++) {
+          if (barChartNames.indexOf(this.points[i].series.name) !== -1 ) {
+            s += this.points[i].series.name + ': </td><td style="padding:0"><b>'
+              + label[this.points[i].y] + '</b></td>';
+          } else {
+            s += this.points[i].series.name + ': </td><td style="padding:0"><b>'
+              + this.points[i].y + ' %</b></td>';
+          }
+          if (i < this.points.length - 1) {
+            s += '</br>'
+          }
         }
         return s;
-      },
-      shared: true,
-      useHTML: true
+      } 
     },
-    plotOptions: { column: { pointPadding: 0.2, borderWidth: 0 } },
     series: y,
+    /*
     legend: {
       layout: 'vertical',
       align: 'left',
@@ -209,6 +222,7 @@ export function BarChartOption(x, y, label) {
       verticalAlign: 'top',
       floating: true,
     },
+    */
     colors: [
       '#47b6d1',
       '#ff6868',
@@ -219,50 +233,7 @@ export function BarChartOption(x, y, label) {
   };
 }
 
-export function LineChartOption1(x, y) {
-  return {
-    exporting: { enabled: false },
-    chart: {
-      type: 'line',
-      //width: 300,
-      //height: 200
-    },
-    title: false,
-    credits: false,
-    yAxis: { title: false, labels: {format: '{value} %'} },
-    plotOptions: { series: { label: { connectorAllowed: false }, pointStart: parseInt(x[0]) }},
-    series: y,
-    tooltip: {
-      formatter: function () {
-        var s = '<b style="font-size:10px">'+ this.x +'</b>';
-        for (let i=0; i < this.points.length; i++) {
-          s += '</br><td>Revenue Growth: </td>'
-            + '<td style="padding:0"><b>' + this.y + ' %</b></td>';
-        }
-        return s;
-      },
-      shared: true,
-      useHTML: true
-    },
-    legend: {
-      layout: 'vertical',
-      align: 'left',
-      x: 35,
-      verticalAlign: 'top',
-      y: 12,
-      floating: true,
-    },
-    colors: [
-      '#47b6d1',
-      '#ff6868',
-      '#ffd602',
-      '#5f86db',
-      '#e34489'
-    ]
-  };
-}
-
-export function LineChartOption2(x, y) {
+export function LineChartOption(x, y) {
   return {
     exporting: { enabled: false },
     title: false,
