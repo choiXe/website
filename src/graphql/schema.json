@@ -281,40 +281,18 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "rv",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "oProfit",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Int",
-            "ofType" : null
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
           "name" : "nProfit",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "SCALAR",
-            "name" : "Int",
+            "name" : "String",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "oMargin",
+          "name" : "npGrowth",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -336,12 +314,23 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "rGrowth",
+          "name" : "oMargin",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "SCALAR",
             "name" : "Float",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "oProfit",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -358,12 +347,23 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "npGrowth",
+          "name" : "rGrowth",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "SCALAR",
             "name" : "Float",
+            "ofType" : null
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
+        }, {
+          "name" : "rv",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "String",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -389,7 +389,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "rvKR",
+          "name" : "nProfitKR",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -411,7 +411,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "nProfitKR",
+          "name" : "rvKR",
           "description" : null,
           "args" : [ ],
           "type" : {

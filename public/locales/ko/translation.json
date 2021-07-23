@@ -249,6 +249,20 @@
       "foreign": "외국인",
       "inst": "기관"
     },
+    "FinancialInfo": {
+      "title": "재무정보",
+      "rv": "매출",
+      "oProfit": "영업이익",
+      "nProfit": "순이익",
+      "oMargin": "영업이익률",
+      "npMargin": "순이익률",
+      "rGrowth": "매출 증가율",
+      "opGrowth": "영업이익 증가율",
+      "npGrowth": "순이익 증가율",
+      "chart-title-1": "수익성",
+      "chart-title-2": "성장성",
+      "hide": "범례 항목 클릭 시 숨기기가 가능합니다"
+    }
     "score-description": "애널리스트 리포트, 재무정보, 성장 가능성, 시장 주목도 및 기술적 지표 등을 바탕으로 choiXe의 알고리즘이 계산한 점수입니다."
   },
   "SearchBar": {

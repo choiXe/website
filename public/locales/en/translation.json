@@ -250,6 +250,20 @@
       "foreign": "Foreigners",
       "inst": "Institutions"
     },
+    "FinancialInfo": {
+      "title": "Financial Info",
+      "rv": "Revenue",
+      "oProfit": "Operating Profit",
+      "nProfit": "Net Profit",
+      "oMargin": "Operating Profit Margin",
+      "npMargin": "Net Profit Margin",
+      "rGrowth": "Revenue Growth",
+      "opGrowth": "Operating Profit Growth",
+      "npGrowth": "Net Profit Growth",
+      "chart-title-1": "Profitability",
+      "chart-title-2": "Growth",
+      "hide": "You can hide item by clicking its title in the legend"
+    }
     "score-description": "A score calculated by choiXe's algorithm based on analyst reports, financial information, growth potential, market attention, and technical indicators."
   },
   "SearchBar": {

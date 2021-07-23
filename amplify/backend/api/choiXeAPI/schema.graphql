@@ -30,14 +30,14 @@ type FavoriteInfo {
 
 type FinancialData {
   date: String
-  nProfit: Int
+  nProfit: String
   npGrowth: Float
   npMargin: Float
   oMargin: Float
-  oProfit: Int
+  oProfit: String
   opGrowth: Float
   rGrowth: Float
-  rv: Int
+  rv: String
 }
 
 type FinancialDataKR {
