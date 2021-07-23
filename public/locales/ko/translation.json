@@ -244,7 +244,10 @@
       "npMargin": "순이익률",
       "rGrowth": "매출 증가율",
       "opGrowth": "영업이익 증가율",
-      "npGrowth": "순이익 증가율"
+      "npGrowth": "순이익 증가율",
+      "chart-title-1": "수익성",
+      "chart-title-2": "성장성",
+      "hide": "범례 항목 클릭 시 숨기기가 가능합니다"
     }
   },
   "SearchBar": {

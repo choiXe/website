@@ -245,7 +245,10 @@
       "npMargin": "Net Profit Margin",
       "rGrowth": "Revenue Growth",
       "opGrowth": "Operating Profit Growth",
-      "npGrowth": "Net Profit Growth"
+      "npGrowth": "Net Profit Growth",
+      "chart-title-1": "Profitability",
+      "chart-title-2": "Growth",
+      "hide": "You can hide item by clicking its title in the legend"
     }
   },
   "SearchBar": {

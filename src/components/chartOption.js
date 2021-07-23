@@ -171,65 +171,74 @@ export function WordCloudOption(data) {
 }
 
 export function BarChartOption(x, y, label) {
-  const barChartNames = ["매출", "영업이익", "순이익", "Revenue", "Operating Profit", "Net Profit"];
+  const barChartNames = [
+    '매출',
+    '영업이익',
+    '순이익',
+    'Revenue',
+    'Operating Profit',
+    'Net Profit'
+  ];
   return {
-    chart: { zoomType: 'xy' },
+    chart: {
+      zoomType: 'xy',
+      height: (9 / 16 * 100) + '%'
+    },
     exporting: { enabled: false },
     title: false,
     credits: false,
     xAxis: { categories: x, crosshair: true },
-    yAxis: [{ // Primary yAxis
-      labels: { format: '{value}%' },
-      title: false,
-      opposite: true
-    }, { // Secondary yAxis
-      gridLineWidth: 0,
-      labels: { formatter: function () {
-        const adjusted = this.value.toString().length >= 13 
-          ? this.value/1000000000000 
-          : this.value/100000000;
-        const unit = this.value.toString().length >= 13 ? '조' : '억';
-        return adjusted.toString() + unit;
-      }},
-      title: false,
-    }],
-    tooltip: { 
+    yAxis: [
+      {
+        // Primary yAxis
+        labels: { format: '{value}%' },
+        title: false,
+        opposite: true
+      },
+      {
+        // Secondary yAxis
+        gridLineWidth: 0,
+        labels: {
+          formatter: function () {
+            const adjusted =
+              this.value.toString().length >= 13
+                ? this.value / 1000000000000
+                : this.value / 100000000;
+            const unit = this.value.toString().length >= 13 ? '조' : '억';
+            return adjusted.toString() + unit;
+          }
+        },
+        title: false
+      }
+    ],
+    tooltip: {
       shared: true,
       useHTML: true,
-      formatter: function() {
-        var s = '<b style="font-size:10px">'+ this.x +'</b></br><td>';
+      formatter: function () {
+        var s = '<b style="font-size:10px">' + this.x + '</b></br><td>';
         for (let i = 0; i < this.points.length; i++) {
-          if (barChartNames.indexOf(this.points[i].series.name) !== -1 ) {
-            s += this.points[i].series.name + ': </td><td style="padding:0"><b>'
-              + label[this.points[i].y] + '</b></td>';
+          if (barChartNames.indexOf(this.points[i].series.name) !== -1) {
+            s +=
+              this.points[i].series.name +
+              ': </td><td style="padding:0"><b>' +
+              label[this.points[i].y] +
+              '</b></td>';
           } else {
-            s += this.points[i].series.name + ': </td><td style="padding:0"><b>'
-              + this.points[i].y + '%</b></td>';
+            s +=
+              this.points[i].series.name +
+              ': </td><td style="padding:0"><b>' +
+              this.points[i].y +
+              '%</b></td>';
           }
           if (i < this.points.length - 1) {
-            s += '</br>'
+            s += '</br>';
           }
         }
         return s;
-      } 
+      }
     },
     series: y,
-    /*
-    legend: {
-      layout: 'vertical',
-      align: 'left',
-      x: 50,
-      verticalAlign: 'top',
-      floating: true,
-    },
-    */
-    colors: [
-      '#47b6d1',
-      '#ff6868',
-      '#ffd602',
-      '#5f86db',
-      '#e34489'
-    ]
+    colors: ['#47b6d1', '#ff6868', '#ffd602', '#5f86db', '#e34489']
   };
 }
 
@@ -240,47 +249,43 @@ export function LineChartOption(x, y) {
     credits: false,
     chart: {
       type: 'line',
-      //width: 300,
-      //height: 200
+      height: (9 / 16 * 100) + '%'
     },
-    yAxis: [{ // Primary yAxis
-      labels: { format: '{value}%', style: { color: '#ff6868' }},
-      title: false,
-      opposite: true
-    }, { // Secondary yAxis
-      gridLineWidth: 0,
-      labels: { format: '{value}%', style: { color: '#47b6d1' }},
-      title: false,
-    }],
-    plotOptions: { series: { label: { connectorAllowed: false }, pointStart: parseInt(x[0]) }},
+    yAxis: [
+      {
+        // Primary yAxis
+        labels: { format: '{value}%', style: { color: '#ff6868' } },
+        title: false,
+        opposite: true
+      },
+      {
+        // Secondary yAxis
+        gridLineWidth: 0,
+        labels: { format: '{value}%', style: { color: '#47b6d1' } },
+        title: false
+      }
+    ],
+    plotOptions: {
+      series: { label: { connectorAllowed: false }, pointStart: parseInt(x[0]) }
+    },
     series: y,
     tooltip: {
       formatter: function () {
-        var s = '<b style="font-size:10px">'+ this.x +'</b>';
-        for (let i=0; i < this.points.length; i++) {
-          s += '</br><td>'
-            + this.points[i].series.name + ': </td>'
-            + '<td style="padding:0"><b>' + this.points[i].y + '%</b></td>';
+        var s = '<b style="font-size:10px">' + this.x + '</b>';
+        for (let i = 0; i < this.points.length; i++) {
+          s +=
+            '</br><td>' +
+            this.points[i].series.name +
+            ': </td>' +
+            '<td style="padding:0"><b>' +
+            this.points[i].y +
+            '%</b></td>';
         }
         return s;
       },
       shared: true,
       useHTML: true
     },
-    legend: {
-      layout: 'vertical',
-      align: 'left',
-      x: 35,
-      verticalAlign: 'top',
-      y: 15,
-      floating: true,
-    },
-    colors: [
-      '#47b6d1',
-      '#ff6868',
-      '#ffd602',
-      '#5f86db',
-      '#e34489'
-    ]
+    colors: ['#47b6d1', '#ff6868', '#ffd602', '#5f86db', '#e34489']
   };
 }
