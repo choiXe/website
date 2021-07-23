@@ -139,7 +139,17 @@ const Stock = ({ location }) => {
                 </div>
               </div>
               <div className="score-container">
-                <p>{t('Stock.Caption.score')}</p>
+                <div class="tooltip">
+                  <p>{t('Stock.Caption.score')}</p>
+                  <div class="top">
+                    <div class="text-content">
+                      <div id="bottom-margin"></div>
+                      <span>{t('Stock.score-description')}</span>
+                      <div id="bottom-margin"></div>
+                    </div>
+                    <i></i>
+                  </div>
+                </div>
                 <h4>{stockData.score}</h4>
               </div>
             </div>
@@ -202,11 +212,47 @@ const Stock = ({ location }) => {
               <p>{numSeperator(stockData.low52wPrice)}</p>
               <h5>{t('Stock.InvInfo.foreign')}</h5>
               <p>{stockData.foreignRatio + '%'}</p>
-              <h5>PER</h5>
+              <div class="tooltip">
+                <h5>PER</h5>
+                <div class="top">
+                  <div class="text-content">
+                    <div id="bottom-margin"></div>
+                    <span>{t('Stock.InvInfo.per')}</span>
+                    <div id="bottom-margin"></div>
+                    <span>{t('Stock.InvInfo.low')}</span>
+                    <div id="bottom-margin"></div>
+                  </div>
+                  <i></i>
+                </div>
+              </div>
               <p>{stockData.per + '배'}</p>
-              <h5>PBR</h5>
+              <div class="tooltip">
+                <h5>PBR</h5>
+                <div class="top">
+                  <div class="text-content">
+                    <div id="bottom-margin"></div>
+                    <span>{t('Stock.InvInfo.pbr')}</span>
+                    <div id="bottom-margin"></div>
+                    <span>{t('Stock.InvInfo.low')}</span>
+                    <div id="bottom-margin"></div>
+                  </div>
+                  <i></i>
+                </div>
+              </div>
               <p>{stockData.pbr + '배'}</p>
-              <h5>ROE</h5>
+              <div class="tooltip">
+                <h5>ROE</h5>
+                <div class="top">
+                  <div class="text-content">
+                    <div id="bottom-margin"></div>
+                    <span>{t('Stock.InvInfo.roe')}</span>
+                    <div id="bottom-margin"></div>
+                    <span>{t('Stock.InvInfo.high')}</span>
+                    <div id="bottom-margin"></div>
+                  </div>
+                  <i></i>
+                </div>
+              </div>
               <p>{stockData.roe + '%'}</p>
             </div>
           </div>

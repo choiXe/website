@@ -27,12 +27,12 @@ const About = () => {
         >
           {t('About.menu-1')}
         </button>
-        <button
+        {/* <button
           onClick={() => setShowIntro(false)}
           id={showIntro ? '' : 'active'}
         >
           {t('About.menu-2')}
-        </button>
+        </button> */}
       </Sticky>
       {showIntro ? (
         <div id="intro">
@@ -95,7 +95,7 @@ const About = () => {
             <h1>🧙🏻‍♀️ {t('About.team')}</h1>
           </div>
           <div id="profile">
-            <ul class="cards">
+            <ul className="cards">
               <li>
                 <a
                   href="https://www.linkedin.com/in/hueyk/"
