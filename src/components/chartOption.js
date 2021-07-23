@@ -213,6 +213,11 @@ export function BarChartOption(x, y, label) {
 export function LineChartOption1(x, y) {
   return {
     exporting: { enabled: false },
+    chart: {
+      type: 'line',
+      //width: 300,
+      //height: 200
+    },
     title: false,
     credits: false,
     yAxis: { title: false },
@@ -253,6 +258,11 @@ export function LineChartOption2(x, y) {
     exporting: { enabled: false },
     title: false,
     credits: false,
+    chart: {
+      type: 'line',
+      //width: 300,
+      //height: 200
+    },
     yAxis: [{ // Primary yAxis
       labels: { format: '{value} %', style: { color: '#ff6868' }},
       title: false,

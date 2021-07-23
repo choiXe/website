@@ -84,7 +84,7 @@ const FinancialInfo = ({ stockId, stockName }) => {
 						options={BarChartOption(dates, yAxisBarChart, label)}
 					/>
 				</div>
-				<div>
+				<div style={{flexDirection: 'row'}}>
 					<HighchartsReact
 						highcharts={Highcharts}
 						options={LineChartOption1(dates, yAxisLineChart1)}
