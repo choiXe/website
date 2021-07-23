@@ -182,7 +182,7 @@ export function BarChartOption(x, y, label) {
       formatter: function () {
         var s = '<b style="font-size:10px">'+ this.x +'</b>';
         for (let i=0; i < this.points.length; i++) {
-          s += '</br><td style="color:' + this.points[i].series.color + ';">'
+          s += '</br><td>'
             + this.points[i].series.name + ': </td>'
             + '<td style="padding:0"><b>' + label[this.points[i].y] + '</b></td>';
         }
@@ -192,7 +192,14 @@ export function BarChartOption(x, y, label) {
       useHTML: true
     },
     plotOptions: { column: {pointPadding: 0.2, borderWidth: 0 } },
-    series: y
+    series: y,
+    colors: [
+      '#47b6d1',
+      '#ff6868',
+      '#ffd602',
+      '#5f86db',
+      '#e34489'
+    ]
   };
 }
 
@@ -206,5 +213,12 @@ export function LineChartOption(x, y) {
       series: {label: {connectorAllowed: false}, pointStart: parseInt(x[0])}
     },
     series: y,
+    colors: [
+      '#47b6d1',
+      '#ff6868',
+      '#ffd602',
+      '#5f86db',
+      '#e34489'
+    ]
   };
 }
