@@ -170,32 +170,28 @@ export function WordCloudOption(data) {
   };
 }
 
-export function BarChartOption(x, y) {
+export function BarChartOption(x, y, label) {
   return {
     exporting: { enabled: false },
     title: false,
     credits: false,
-    chart: {
-      type: 'column'
-    },
-    xAxis: {
-      categories: x,
-      crosshair: true
-    },
-    yAxis: {
-      title: {text: '₩'},
-    },
+    chart: { type: 'column' },
+    xAxis: { categories: x, crosshair: true },
+    yAxis: { title: false },
     tooltip: {
-      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-      pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-          '<td style="padding:0"><b>{point.y}</b></td></tr>',
-      footerFormat: '</table>',
+      formatter: function () {
+        var s = '<b style="font-size:10px">'+ this.x +'</b>';
+        for (let i=0; i < this.points.length; i++) {
+          s += '</br><td style="color:' + this.points[i].series.color + ';">'
+            + this.points[i].series.name + ': </td>'
+            + '<td style="padding:0"><b>' + label[this.points[i].y] + '</b></td>';
+        }
+        return s;
+      },
       shared: true,
       useHTML: true
     },
-    plotOptions: {
-      column: {pointPadding: 0.2, borderWidth: 0}
-    },
+    plotOptions: { column: {pointPadding: 0.2, borderWidth: 0 } },
     series: y
   };
 }

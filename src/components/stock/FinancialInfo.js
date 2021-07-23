@@ -45,7 +45,7 @@ const FinancialInfo = ({ stockId, stockName }) => {
 		const temp_dates = dataSet.data.map(item => item.rv !== '0' && item.date.slice(0,4));
 		const dates = temp_dates.filter(date => date);
 
-		let rvData = [], oProfitData = [], nProfitData = [], rGrowthData = [], opGrowthData = [], oMarginData = [];
+		let rvData = [], oProfitData = [], nProfitData = [], rGrowthData = [], opGrowthData = [], oMarginData = [], label = {};
 		for (let i = 0; i < temp_dates.length; i++) {
 			if (temp_dates[i]) {
 				rvData.push(parseInt(dataSet.data[i].rv));
@@ -54,6 +54,10 @@ const FinancialInfo = ({ stockId, stockName }) => {
 				rGrowthData.push(parseInt(dataSet.data[i].rGrowth));
 				opGrowthData.push(parseInt(dataSet.data[i].opGrowth));
 				oMarginData.push(parseInt(dataSet.data[i].oMargin));
+
+				label[parseInt(dataSet.data[i].rv)] = dataSet.formatKR[i].rvKR;
+				label[parseInt(dataSet.data[i].oProfit)] = dataSet.formatKR[i].oProfitKR;
+				label[parseInt(dataSet.data[i].nProfit)] = dataSet.formatKR[i].nProfitKR;
 			}
 		};
 
@@ -77,7 +81,7 @@ const FinancialInfo = ({ stockId, stockName }) => {
 				<div>
 					<HighchartsReact
 						highcharts={Highcharts}
-						options={BarChartOption(dates, yAxisBarChart)}
+						options={BarChartOption(dates, yAxisBarChart, label)}
 					/>
 				</div>
 				<div>
