@@ -182,7 +182,7 @@ export function BarChartOption(x, y, label) {
   return {
     chart: {
       zoomType: 'xy',
-      height: (9 / 16 * 100) + '%'
+      height: (9 / 16) * 100 + '%'
     },
     exporting: { enabled: false },
     title: false,
@@ -249,7 +249,7 @@ export function LineChartOption(x, y) {
     credits: false,
     chart: {
       type: 'line',
-      height: (9 / 16 * 100) + '%'
+      height: (9 / 16) * 100 + '%'
     },
     yAxis: [
       {

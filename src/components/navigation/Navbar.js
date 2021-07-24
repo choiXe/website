@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import i18next from 'i18next';
 
@@ -9,7 +9,7 @@ import './Navbar.scss';
 import logo from '../../images/logo.png';
 
 function Navbar() {
-  const [lang, setLang] = useState(localStorage.getItem("i18nextLng"));
+  const [lang, setLang] = useState(localStorage.getItem('i18nextLng'));
   const handleClick = (lang) => {
     i18next.changeLanguage(lang);
     setLang(lang);
@@ -18,13 +18,17 @@ function Navbar() {
   return (
     <nav>
       <div id="locale">
-        <button 
-          className={lang === "ko" ? "active" : ""} 
-          onClick={() => handleClick('ko')}>
+        <button
+          className={lang === 'ko' ? 'active' : ''}
+          onClick={() => handleClick('ko')}
+        >
           KO
-        </button>|
-        <button className={lang === "en" ? "active" : ""} 
-          onClick={() => handleClick('en')}>
+        </button>
+        |
+        <button
+          className={lang === 'en' ? 'active' : ''}
+          onClick={() => handleClick('en')}
+        >
           EN
         </button>
       </div>

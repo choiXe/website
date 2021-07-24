@@ -35,9 +35,6 @@
 
     #title {
       padding-top: 10px;
-      h1 {
-        font-weight: bold;
-      }
     }
 
     #question {
@@ -67,6 +64,11 @@
 
     #team {
       margin-top: 50px;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
     }
   }
 }

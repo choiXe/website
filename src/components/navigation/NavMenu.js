@@ -9,7 +9,7 @@ import './NavMenu.scss';
 const NavMenu = () => {
   const { t } = useTranslation();
   let history = useHistory();
-  
+
   const searchBarStyle = {
     borderRadius: '11px',
     backgroundColor: 'white',

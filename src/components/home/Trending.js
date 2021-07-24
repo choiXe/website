@@ -8,7 +8,7 @@ import './Trending.scss';
 
 const TrendingItem = ({ item }) => {
   const calColor = (x, y) => {
-    if (x === '-') return {color: '#000000'};
+    if (x === '-') return { color: '#000000' };
     return x >= y ? { color: '#e21414' } : { color: '#246ded' };
   };
 
@@ -42,7 +42,9 @@ const TrendingItem = ({ item }) => {
         {numSeperator(item.priceGoal)}
       </p>
       <p style={calColor(parseInt(item.yield), 0)}>
-        {parseInt(item.yield) >= 0 ? '+' + numSeperator(item.yield) + '%' : numSeperator(item.yield) + '%'}
+        {parseInt(item.yield) >= 0
+          ? '+' + numSeperator(item.yield) + '%'
+          : numSeperator(item.yield) + '%'}
       </p>
     </>
   );
