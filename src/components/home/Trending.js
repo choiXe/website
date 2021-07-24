@@ -7,6 +7,10 @@ import { numSeperator } from '../tools/formatter';
 import './Trending.scss';
 
 const TrendingItem = ({ item }) => {
+  const calColor = (x, y) => {
+    return x >= y ? { color: '#e21414' } : { color: '#246ded' };
+  };
+
   const reportName =
     item.reportName.length > 23
       ? item.reportName.slice(0, 23) + '...'
@@ -14,14 +18,6 @@ const TrendingItem = ({ item }) => {
 
   const baseURL =
     'http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=';
-
-  const analystList = item.analyst.split(',');
-  var analyst;
-  if (analystList.length > 1) {
-    analyst = analystList[0] + ' 등';
-  } else {
-    analyst = analystList[0];
-  }
 
   return (
     <>
@@ -40,9 +36,13 @@ const TrendingItem = ({ item }) => {
       <a href={baseURL + item.reportIdx} rel="noreferrer" target="_blank">
         {reportName}
       </a>
-      <p>{numSeperator(item.priceGoal)}</p>
-      <p>{analyst}</p>
-      <p>{item.firm}</p>
+      <p>{numSeperator(item.tradePrice)}</p>
+      <p style={calColor(parseInt(item.yield), 0)}>
+        {numSeperator(item.priceGoal)}
+      </p>
+      <p style={calColor(parseInt(item.yield), 0)}>
+        {parseInt(item.yield) >= 0 ? '+' + numSeperator(item.yield) + '%' : numSeperator(item.yield) + '%'}
+      </p>
     </>
   );
 };
@@ -53,9 +53,9 @@ const Trending = ({ trendingList }) => {
     t('Home.Trending.date'),
     t('Home.Trending.stock'),
     t('Home.Trending.report'),
+    t('Home.Trending.tradePrice'),
     t('Home.Trending.target'),
-    t('Home.Trending.analyst'),
-    t('Home.Trending.firm')
+    t('Home.Trending.yield')
   ];
 
   return (

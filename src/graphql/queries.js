@@ -51,9 +51,9 @@ export const getMainInfo = /* GraphQL */ `
         tradePrice
       }
       reports {
-        analyst
         date
-        firm
+        tradePrice
+        yield
         priceGoal
         reportIdx
         reportName

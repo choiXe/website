@@ -14,8 +14,8 @@
       "stock": "Stock",
       "report": "Title",
       "target": "Price Target",
-      "analyst": "Analyst",
-      "firm": "Firm"
+      "tradePrice": "Price",
+      "yield": "Yield"
     },
     "StockMarket": {
       "domestic": "Korean Markets",

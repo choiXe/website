@@ -101,14 +101,14 @@ type Report {
 }
 
 type Report2 {
-  analyst: String
   date: String
-  firm: String
   priceGoal: String
   reportIdx: String
   reportName: String
   stockId: String
   stockName: String
+  tradePrice: String
+  yield: String
 }
 
 type SectorInfo {
