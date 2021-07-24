@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useTranslation } from 'react-i18next';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete from '@material-ui/core/Autocomplete';
 
 import stockList from './stocksData';
 import './NavMenu.scss';
@@ -10,14 +11,14 @@ const NavMenu = () => {
   const { t } = useTranslation();
   let history = useHistory();
 
-  const searchBarStyle = {
-    borderRadius: '11px',
-    backgroundColor: 'white',
-    lineColor: '#2A2F47',
-    iconColor: '#2A2F47',
-    fontFamily: 'Pretendard',
-    zIndex: 2
-  };
+  // const searchBarStyle = {
+  //   borderRadius: '11px',
+  //   backgroundColor: 'white',
+  //   lineColor: '#2A2F47',
+  //   iconColor: '#2A2F47',
+  //   fontFamily: 'Pretendard',
+  //   zIndex: 2
+  // };
 
   const selectHandler = (item) => {
     history.push({
@@ -56,15 +57,14 @@ const NavMenu = () => {
         </Link>
       </div>
       <div className="search-bar">
-        <ReactSearchAutocomplete
-          items={stockList}
-          fuseOptions={{ keys: ['id'] }}
-          resultStringKeyName="id"
-          inputDebounce={0}
-          onSelect={selectHandler}
-          placeholder={t('SearchBar.label')}
-          styling={searchBarStyle} // To display it on top of the search box below
-          autoFocus
+        <Autocomplete
+          disablePortal
+          options={stockList}
+          renderInput={(params) => <TextField {...params} label="Search" />}
+          getOptionLabel={(option) => option.id}
+          onChange={(event, item) => {
+            if (item !== null) selectHandler(item);
+          }}
         />
       </div>
     </div>
