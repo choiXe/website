@@ -71,6 +71,9 @@ const NavMenu = () => {
           autoFocus
         />
       </div>
+      <div id="hamburger">
+        <i className='fas fa-bars'></i>
+      </div>
     </div>
   );
 };

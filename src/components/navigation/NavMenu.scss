@@ -6,7 +6,6 @@
 .nav-list {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   height: 100%;
 
   .nav-item {
@@ -33,5 +32,12 @@
     @include media(">=phone", "<tablet") {
       width: 10rem;
     }
+  }
+  #hamburger {
+    display: none;
+    @include media(">=phone", "<tablet") {
+      display: block;
+      margin-left: 1rem;
+    } 
   }
 }
