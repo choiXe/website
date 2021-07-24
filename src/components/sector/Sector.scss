@@ -151,6 +151,7 @@
       @include media(">=phone", "<tablet") {
         .numbers {
           display: flex;
+          justify-content: space-evenly;
         }
       }
       .yield {
@@ -164,6 +165,9 @@
           color: $red;
           margin-top: 0.9rem;
           font-size: 3.8rem;
+          @include media(">=phone", "<tablet") {
+            margin-top: 3rem;
+          }
         }
       }
       .top3-list {
