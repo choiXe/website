@@ -13,14 +13,12 @@ function Navbar() {
 
   useEffect(() => {
     setLang(localStorage.getItem('i18nextLng'));
-  });
+  }, []);
 
   const changeLngTo = (lang) => {
     i18next.changeLanguage(lang);
     setLang(lang);
-    localStorage.setItem('i18nextLng', lang);
   };
-
 
   return (
     <nav>
@@ -41,8 +39,7 @@ function Navbar() {
       </div>
       <div id="nav-left">
         <Link to="/" className="logo">
-          <img src={logo} alt="choiXe logo" />
-          choiXe
+          <img src={logo} alt="choiXe logo" /> choiXe
         </Link>
       </div>
       <div id="nav-right">

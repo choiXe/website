@@ -1,28 +1,33 @@
+@import 'src/styles/variable';
+
 .index {
+
   #market-title {
     display: grid;
     grid-template-columns: 2fr 1.3fr 1fr 0.6fr;
-    font-size: 14px;
+    font-size: 0.9rem;
   }
-
   .market-table {
+
     div {
       display: grid;
       grid-template-columns: 2fr 1.3fr 1fr 0.6fr;
-      margin-top: 22px;
+      margin-top: 1.4rem;
+
       .market-title {
-        font-size: 17px;
+        font-size: 1.1rem;
         font-weight: normal;
       }
       p {
         display: flex;
         align-self: center;
-        font-size: 14px;
+        font-size: 0.9rem;
         font-weight: bold;
+
         img {
           align-self: center;
           height: 1.2rem;
-          margin-right: 10px;
+          margin-right: 0.6rem;
         }
         &:first-child {
           text-align: left;
@@ -34,14 +39,19 @@
   &.korea {
     display: flex;
     flex-direction: column;
+
     h4 {
-      font-size: 18px;
+      font-size: 1.1rem;
+
+      @include media(">=phone", "<tablet") {
+        margin-bottom: 1rem;
+      }
     }
   }
   &.global {
     h4 {
-      font-size: 18px;
-      margin: 40px 0 1.5rem;
+      font-size: 1.1rem;
+      margin: 2.5rem 0 1.5rem;
     }
   }
 }

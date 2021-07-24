@@ -38,7 +38,7 @@ const Favorites = () => {
         .getFavoriteInfo(stockIds)
         .then((data) => setFavoriteData(data.getFavoriteInfo));
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [favorites]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const renderContent = (favoriteData) => {
     if (!favoriteData || favoriteData.data.length === 0) {

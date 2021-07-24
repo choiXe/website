@@ -1,22 +1,29 @@
 @import 'src/styles/color';
-@import 'src/styles/_mixin.scss';
-@import 'src/styles/_variable.scss';
+@import 'src/styles/mixin';
+@import 'src/styles/variable';
+
 
 #home {
   display: grid;
-  grid-template-columns: 13rem 1fr 1fr;
+  grid-template-columns: 12rem 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-    'menu market favorites'
-    'menu trending trending';
+  'menu market favorites'
+  'menu trending trending';
   gap: 2rem 2rem;
 
+  @include media(">=phone", "<tablet") {
+    display: flex;
+    flex-direction: column;
+  }
   .menu {
     grid-area: menu;
     @include content-container;
     @include nav-menu;
+    @include media(">=phone", "<tablet") {
+      position: static;
+    }
   }
-
   #stock-market {
     grid-area: market;
     @include content-container;
@@ -31,13 +38,9 @@
     display: flex;
     flex-direction: column;
   }
-
   #trending {
     grid-area: trending;
     @include content-container;
     padding: 1.5rem 2.5rem;
-    h4 {
-      font-size: 18px;
-    }
   }
 }

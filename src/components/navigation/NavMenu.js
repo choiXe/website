@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
 
 import stockList from './stocksData';
 import './NavMenu.scss';
@@ -10,7 +11,10 @@ const NavMenu = () => {
   const { t } = useTranslation();
   let history = useHistory();
 
+  const isTableOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
+
   const searchBarStyle = {
+    height: isTableOrMobile ? '25px' : '44px',
     borderRadius: '11px',
     backgroundColor: 'white',
     lineColor: '#2A2F47',

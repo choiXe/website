@@ -1,5 +1,7 @@
-@import 'src/styles/_color.scss';
-@import 'src/styles/_mixin.scss';
+@import 'src/styles/color';
+@import 'src/styles/mixin';
+@import 'src/styles/variable';
+
 
 .nav-list {
   display: flex;
@@ -8,23 +10,28 @@
   height: 100%;
 
   .nav-item {
-    margin-left: 40px;
+    margin-left: 2.5rem;
     list-style-type: none;
 
     .nav-links {
       @include rounded-button;
       text-decoration: none;
       color: $navy;
-      font-size: 18px;
+      font-size: 1.1rem;
 
       &:hover {
         @include button-hover;
       }
     }
+    @include media(">=phone", "<tablet") {
+      display: none;
+    }
   }
-
   .search-bar {
     width: 15rem;
-    margin-left: 50px;
+    margin-left: 3.1rem;
+    @include media(">=phone", "<tablet") {
+      width: 10rem;
+    }
   }
 }

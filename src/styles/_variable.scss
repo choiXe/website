@@ -1,1 +1,5 @@
+@import "~include-media/dist/_include-media.scss";
+
+$breakpoints: ( phone: 320px, tablet: 768px, desktop: 1024px );
+
 $nav-top-offset: 1.8rem;
