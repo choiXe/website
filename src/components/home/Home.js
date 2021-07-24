@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Loader from 'react-loader-spinner';
 
 import SectorMenu from '../sector/SectorMenu';
 import StockMarket from './StockMarket';
@@ -26,46 +25,13 @@ const Home = () => {
         <SectorMenu selected="" />
       </div>
       <div id="stock-market">
-        {!mainData
-          ? <div id="loading">
-            <Loader
-              type="MutatingDots"
-              color="#BBD2C5"
-              secondaryColor="#536976"
-              height={100}
-              width={100}
-            />
-          </div>
-          : <StockMarket data={mainData} />
-        }
+        <StockMarket data={mainData} />
       </div>
       <div id="favorites">
-        {!mainData
-          ? <div id="loading">
-            <Loader
-              type="MutatingDots"
-              color="#BBD2C5"
-              secondaryColor="#536976"
-              height={100}
-              width={100}
-            />
-          </div>
-          : <Favorites />
-        }
+        <Favorites />
       </div>
       <div id="trending">
-        {!mainData
-          ? <div id="loading">
-            <Loader
-              type="MutatingDots"
-              color="#BBD2C5"
-              secondaryColor="#536976"
-              height={100}
-              width={100}
-            />
-          </div>
-          : <Trending trendingList={mainData.reports} />
-        }
+        <Trending data={mainData} />
       </div>
     </div>
   );

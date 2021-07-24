@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Loader from 'react-loader-spinner';
 
 import { numSeperator } from '../tools/formatter';
 
@@ -14,8 +15,8 @@ const TrendingItem = ({ item }) => {
 
   const reportName =
     item.reportName.length > 23
-      ? item.reportName.slice(0, 23) + '...'
-      : item.reportName;
+    ? item.reportName.slice(0, 23) + '...'
+    : item.reportName;
 
   const baseURL =
     'http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=';
@@ -50,7 +51,7 @@ const TrendingItem = ({ item }) => {
   );
 };
 
-const Trending = ({ trendingList }) => {
+const Trending = ({ data }) => {
   const { t } = useTranslation();
   const trendingTitles = [
     t('Home.Trending.date'),
@@ -61,25 +62,38 @@ const Trending = ({ trendingList }) => {
     t('Home.Trending.yield')
   ];
 
-  return (
-    <>
-      <h4>{t('Home.Trending.title')}</h4>
-      <div id="trending-title">
-        <div></div>
-        {trendingTitles.map((title) => (
-          <div key={title}>{title}</div>
-        ))}
-      </div>
-      <div id="trending-list">
-        {trendingList.map((item, index) => (
-          <li key={item.reportIdx}>
-            <p id="num">{index + 1}</p>
-            <TrendingItem item={item} />
-          </li>
-        ))}
-      </div>
-    </>
-  );
+  if (!data) {
+    return (
+      <Loader
+        type="MutatingDots"
+        color="#BBD2C5"
+        secondaryColor="#536976"
+        height={100}
+        width={100}
+      />
+    )
+  } else {
+    const trendingList = data.reports;
+    return (
+      <>
+        <h4>{t('Home.Trending.title')}</h4>
+        <div id="trending-title">
+          <div></div>
+          {trendingTitles.map((title) => (
+            <div key={title}>{title}</div>
+          ))}
+        </div>
+        <div id="trending-list">
+          {trendingList.map((item, index) => (
+            <li key={item.reportIdx}>
+              <p id="num">{index + 1}</p>
+              <TrendingItem item={item} />
+            </li>
+          ))}
+        </div>
+      </>
+    );
+  }
 };
 
 export default Trending;
