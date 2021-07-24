@@ -99,19 +99,19 @@ const About = () => {
               <li>
                 <a
                   href="https://www.linkedin.com/in/hueyk/"
-                  class="card"
+                  className="card"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <img src={huey} class="card__image" alt="" />
-                  <div class="card__overlay">
-                    <div class="card__header">
-                      <div class="card__header-text">
-                        <h3 class="card__title">Huey Kim</h3>
-                        <span class="card__status">Founder, CEO</span>
+                  <img src={huey} className="card__image" alt="" />
+                  <div className="card__overlay">
+                    <div className="card__header">
+                      <div className="card__header-text">
+                        <h3 className="card__title">Huey Kim</h3>
+                        <span className="card__status">Founder, CEO</span>
                       </div>
                     </div>
-                    <p class="card__description">
+                    <p className="card__description">
                       - Georgia Tech IE '24<br></br>- Project Team Intern @ Bain
                       & Company
                     </p>
@@ -121,19 +121,19 @@ const About = () => {
               <li>
                 <a
                   href="https://www.linkedin.com/in/ricky-kim-/"
-                  class="card"
+                  className="card"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <img src={ricky} class="card__image" alt="" />
-                  <div class="card__overlay">
-                    <div class="card__header">
-                      <div class="card__header-text">
-                        <h3 class="card__title">Ricky Kim</h3>
-                        <span class="card__status">Front-end Developer</span>
+                  <img src={ricky} className="card__image" alt="" />
+                  <div className="card__overlay">
+                    <div className="card__header">
+                      <div className="card__header-text">
+                        <h3 className="card__title">Ricky Kim</h3>
+                        <span className="card__status">Front-end Developer</span>
                       </div>
                     </div>
-                    <p class="card__description">
+                    <p className="card__description">
                       - Georgia Tech ChBE '24<br></br>- SWE Intern @ Walmart
                     </p>
                   </div>
@@ -142,19 +142,19 @@ const About = () => {
               <li>
                 <a
                   href="https://www.linkedin.com/in/sehoanchoi/"
-                  class="card"
+                  className="card"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <img src={mike} class="card__image" alt="" />
-                  <div class="card__overlay">
-                    <div class="card__header">
-                      <div class="card__header-text">
-                        <h3 class="card__title">Mike Choi</h3>
-                        <span class="card__status">Full Stack Developer</span>
+                  <img src={mike} className="card__image" alt="" />
+                  <div className="card__overlay">
+                    <div className="card__header">
+                      <div className="card__header-text">
+                        <h3 className="card__title">Mike Choi</h3>
+                        <span className="card__status">Full Stack Developer</span>
                       </div>
                     </div>
-                    <p class="card__description">
+                    <p className="card__description">
                       - UVA CS '23<br></br>- SWE Intern @ Fasoo
                     </p>
                   </div>
@@ -163,19 +163,19 @@ const About = () => {
               <li>
                 <a
                   href="https://www.linkedin.com/in/ye-jun-kim-350033180/"
-                  class="card"
+                  className="card"
                   rel="noreferrer"
                   target="_blank"
                 >
-                  <img src={yejun} class="card__image" alt="" />
-                  <div class="card__overlay">
-                    <div class="card__header">
-                      <div class="card__header-text">
-                        <h3 class="card__title">Yejun Kim</h3>
-                        <span class="card__status">UI/UX Designer</span>
+                  <img src={yejun} className="card__image" alt="" />
+                  <div className="card__overlay">
+                    <div className="card__header">
+                      <div className="card__header-text">
+                        <h3 className="card__title">Yejun Kim</h3>
+                        <span className="card__status">UI/UX Designer</span>
                       </div>
                     </div>
-                    <p class="card__description">
+                    <p className="card__description">
                       - Georgia Tech CM '21<br></br>- UI/UX Designer @ AKA
                     </p>
                   </div>

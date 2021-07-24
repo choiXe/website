@@ -75,10 +75,10 @@ const Sector = ({ location }) => {
             <div>
               <div id="chart-top">
                 <h4>{t('Sector.SectorMenu.' + curSector)}</h4>
-                <div class="tooltip">
+                <div className="tooltip">
                   {t('Sector.tooltip.mainTitle')}
-                  <div class="right">
-                    <div class="text-content">
+                  <div className="right">
+                    <div className="text-content">
                       <h3>{t('Sector.tooltip.title1')}</h3>
                       <span>{t('Sector.tooltip.description1')}</span>
                       <h3>{t('Sector.tooltip.title2')}</h3>
