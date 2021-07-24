@@ -3,11 +3,11 @@
 
 #home {
   display: grid;
-  grid-template-columns: 1fr 2.44fr 2.44fr;
+  grid-template-columns: 13rem 30rem 30rem;
   grid-template-rows: auto auto;
   grid-template-areas:
     'menu market favorites'
-    'menu trending trending';
+    '. trending trending';
   padding: 0 8vw;
   gap: 2rem 2rem;
 

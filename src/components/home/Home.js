@@ -21,14 +21,14 @@ const Home = () => {
     data.getMainInfo('').then((data) => setMainData(data.getMainInfo));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (!mainData) {
-    return (
-      <div id="home">
-        <Sticky top={20} innerClass="menu">
-          <SectorMenu selected="" />
-        </Sticky>
-        <div id="stock-market">
-          <div id="loading">
+  return (
+    <div id="home">
+      <Sticky top={20} bottomBoundary="#trending" innerClass="menu">
+        <SectorMenu selected="" />
+      </Sticky>
+      <div id="stock-market">
+        {!mainData
+          ? <div id="loading">
             <Loader
               type="MutatingDots"
               color="#BBD2C5"
@@ -37,49 +37,39 @@ const Home = () => {
               width={100}
             />
           </div>
-        </div>
-        <div id="favorites">
-          <div id="loading">
-            <Loader
-              type="MutatingDots"
-              color="#BBD2C5"
-              secondaryColor="#536976"
-              height={100}
-              width={100}
-            />
-          </div>
-        </div>
-        <div id="trending">
-          <div id="loading">
-            <Loader
-              type="MutatingDots"
-              color="#BBD2C5"
-              secondaryColor="#536976"
-              height={100}
-              width={100}
-            />
-          </div>
-        </div>
+          : <StockMarket data={mainData} />
+        }
       </div>
-    );
-  } else {
-    return (
-      <div id="home">
-        <Sticky top={20} bottomBoundary="#trending" innerClass="menu">
-          <SectorMenu selected="" />
-        </Sticky>
-        <div id="stock-market">
-          <StockMarket data={mainData} />
-        </div>
-        <div id="favorites">
-          <Favorites />
-        </div>
-        <div id="trending">
-          <Trending trendingList={mainData.reports} />
-        </div>
+      <div id="favorites">
+        {!mainData
+          ? <div id="loading">
+            <Loader
+              type="MutatingDots"
+              color="#BBD2C5"
+              secondaryColor="#536976"
+              height={100}
+              width={100}
+            />
+          </div>
+          : <Favorites />
+        }
       </div>
-    );
-  }
+      <div id="trending">
+        {!mainData
+          ? <div id="loading">
+            <Loader
+              type="MutatingDots"
+              color="#BBD2C5"
+              secondaryColor="#536976"
+              height={100}
+              width={100}
+            />
+          </div>
+          : <Trending trendingList={mainData.reports} />
+        }
+      </div>
+    </div>
+  );
 };
 
 export default Home;
