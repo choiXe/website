@@ -10,6 +10,9 @@
   .menu {
     @include content-container;
     padding: 2rem 1rem 2.3rem;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
   }
 
   #info {

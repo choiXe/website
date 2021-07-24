@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
-import Sticky from 'react-stickynode';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import SectorMenu from './SectorMenu';
@@ -107,7 +106,7 @@ const Sector = ({ location }) => {
                     value={days}
                     className={days === daysPassed ? 'active' : ''}
                     onClick={({ target }) =>
-                      setDaysPassed(Number(target.value))
+                        setDaysPassed(Number(target.value))
                     }
                   >
                     {days < 30
@@ -196,9 +195,9 @@ const Sector = ({ location }) => {
 
   return (
     <div id="sector">
-      <Sticky top={20} bottomBoundary="#stock-list" innerClass="menu">
+      <div className="menu">
         <SectorMenu selected={curSector} selectHandler={setsSectorSelected} />
-      </Sticky>
+      </div>
       {renderContent(sectorData)}
     </div>
   );

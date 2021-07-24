@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Sticky from 'react-stickynode';
 import Loader from 'react-loader-spinner';
 
 import SectorMenu from '../sector/SectorMenu';
@@ -23,9 +22,9 @@ const Home = () => {
 
   return (
     <div id="home">
-      <Sticky top={20} bottomBoundary="#trending" innerClass="menu">
+      <div className="menu">
         <SectorMenu selected="" />
-      </Sticky>
+      </div>
       <div id="stock-market">
         {!mainData
           ? <div id="loading">
