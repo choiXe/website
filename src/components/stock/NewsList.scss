@@ -15,8 +15,12 @@
     text-decoration: none;
     color: black;
   }
+
   &:hover {
     background-color: $background-color;
+    a {
+      text-decoration: underline $sub-text;
+    }
   }
 
   .news-title {

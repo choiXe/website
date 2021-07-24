@@ -3,16 +3,12 @@
 
 #sector {
   display: grid;
-  grid-template-columns: 1fr 5fr;
-  padding: 0 8vw;
+  grid-template-columns: 13rem auto;
   column-gap: 2rem;
 
   .menu {
     @include content-container;
-    padding: 2rem 1rem 2.3rem;
-    position: sticky;
-    top: 2rem;
-    height: fit-content;
+    @include nav-menu;
   }
 
   #info {

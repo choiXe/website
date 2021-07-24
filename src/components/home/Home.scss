@@ -1,22 +1,20 @@
 @import 'src/styles/color';
 @import 'src/styles/_mixin.scss';
+@import 'src/styles/_variable.scss';
 
 #home {
   display: grid;
-  grid-template-columns: 13rem 30rem 30rem;
+  grid-template-columns: 13rem 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
     'menu market favorites'
-    '. trending trending';
-  padding: 0 8vw;
+    'menu trending trending';
   gap: 2rem 2rem;
 
   .menu {
     grid-area: menu;
     @include content-container;
-    padding: 2rem 1rem 2.3rem;
-    position: sticky;
-    top: 2rem;
+    @include nav-menu;
   }
 
   #stock-market {

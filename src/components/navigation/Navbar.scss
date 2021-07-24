@@ -5,7 +5,6 @@ nav {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto auto;
-  padding: 0 8vw;
   grid-template-areas:
     '. locale'
     'nav-left nav-right';

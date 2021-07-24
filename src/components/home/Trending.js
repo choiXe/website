@@ -64,13 +64,15 @@ const Trending = ({ data }) => {
 
   if (!data) {
     return (
-      <Loader
-        type="MutatingDots"
-        color="#BBD2C5"
-        secondaryColor="#536976"
-        height={100}
-        width={100}
-      />
+      <div className="loader">
+        <Loader
+          type="MutatingDots"
+          color="#BBD2C5"
+          secondaryColor="#536976"
+          height={100}
+          width={100}
+        />
+      </div>
     )
   } else {
     const trendingList = data.reports;

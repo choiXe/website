@@ -15,5 +15,8 @@
   }
   &:hover {
     background-color: $background-color;
+    a {
+      text-decoration: underline $sub-text;
+    }
   }
 }
