@@ -44,7 +44,7 @@ const Stock = ({ location }) => {
 
   if (!stockData) {
     return (
-      <div className="loading">
+      <div className="loader">
         <Loader
           type="MutatingDots"
           color="#BBD2C5"
@@ -119,7 +119,7 @@ const Stock = ({ location }) => {
             </button>
             <p>{message}</p>
           </div>
-          <div id="chart-section">
+          <div id="stock-chart">
             <div className="numbers">
               <p>{t('Stock.Caption.avgYield')} </p>
               <h1

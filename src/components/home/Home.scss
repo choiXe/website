@@ -20,6 +20,7 @@
     grid-area: menu;
     @include content-container;
     @include nav-menu;
+
     @include media(">=phone", "<tablet") {
       position: static;
     }

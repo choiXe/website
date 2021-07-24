@@ -1,29 +1,42 @@
 @import '/src/styles/color';
-@import 'src/styles/_mixin.scss';
+@import 'src/styles/mixin';
+@import 'src/styles/variable';
 
 #sector {
   display: grid;
   grid-template-columns: 13rem auto;
-  column-gap: 2rem;
+  gap: 2rem 2rem;
 
+  @include media(">=phone", "<tablet") {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
   .menu {
     @include content-container;
     @include nav-menu;
-  }
 
+    @include media(">=phone", "<tablet") {
+      position: static;
+    }
+  }
   #info {
     display: flex;
     flex-direction: column;
 
-    #chart-section {
+    #sector-chart {
       @include content-container;
       background-color: $navy;
       color: white;
       padding: 1.5rem;
       display: grid;
       grid-template-columns: 2.5fr 1fr;
-      font-size: 17.5px;
+      font-size: 1.1rem;
 
+      @include media(">=phone", "<tablet") {
+        display: flex;
+        flex-direction: column;
+      }
       #chart-top {
         display: grid;
         grid-template-columns: 1fr auto;
@@ -32,36 +45,34 @@
           font-weight: bold;
           padding: 0 0.5rem 0.5rem 0.5rem;
         }
-
         .tooltip {
           display: inline-block;
           align-self: flex-end;
           position: relative;
           cursor: help;
           color: #f2f2f2;
-          font-size: 15px;
+          font-size: 0.9rem;
           border-bottom: 1px dotted #f2f2f2;
           text-align: right;
           margin-right: 1.75rem;
 
           h3 {
-            margin: 12px 0;
+            margin: 0.8rem 0;
             text-align: left;
-            padding-top: 10px;
+            padding-top: 0.6rem;
           }
-
           .right {
-            min-width: 250px;
-            max-width: 300px;
+            min-width: 15.6rem;
+            max-width: 18.8rem;
             top: 50%;
             left: 100%;
-            margin-left: 20px;
+            margin-left: 1.3rem;
             transform: translate(0, -10%);
             padding: 0;
             color: #ffffff;
             background-color: #303030;
             font-weight: normal;
-            font-size: 13px;
+            font-size: 0.8rem;
             border-radius: 12px;
             position: absolute;
             box-sizing: border-box;
@@ -70,36 +81,34 @@
             opacity: 0;
             transition: opacity 0.8s;
           }
-
           &:hover .right {
             visibility: visible;
             opacity: 1;
           }
-
           .text-content {
-            padding-left: 30px;
-            padding-right: 30px;
+            padding-left: 1.9rem;
+            padding-right: 1.9rem;
             text-align: left;
             #bottom-margin {
               height: 1.5rem;
             }
           }
-
           .right {
+
             i {
               position: absolute;
               top: 10%;
               right: 100%;
               margin-top: -12px;
-              width: 12px;
-              height: 24px;
+              width: 0.8rem;
+              height: 1.5rem;
               overflow: hidden;
 
               &::after {
                 content: '';
                 position: absolute;
-                width: 12px;
-                height: 12px;
+                width: 0.8rem;
+                height: 0.8rem;
                 left: 0;
                 top: 50%;
                 transform: translate(50%, -50%) rotate(-45deg);
@@ -110,13 +119,11 @@
           }
         }
       }
-
       .chart {
         text-align: center;
         margin: auto;
         margin-right: 1rem;
       }
-
       .date-select {
         display: flex;
         justify-content: space-between;
@@ -127,7 +134,7 @@
           border: none;
           border-radius: 10px;
           color: white;
-          font-size: 13px;
+          font-size: 0.8rem;
           font-weight: 800;
           padding: 0.5rem;
 
@@ -135,37 +142,41 @@
             background-color: white;
             color: $container-navy;
           }
-
           &.active {
             background-color: white;
             color: $navy;
           }
         }
       }
-
-      .yield {
-        margin-top: 30px;
-        text-align: center;
-
-        h1 {
-          color: $red;
-          margin-top: 15px;
-          font-size: 60px;
+      @include media(">=phone", "<tablet") {
+        .numbers {
+          display: flex;
         }
       }
+      .yield {
+        margin-top: 1.9rem;
+        text-align: center;
 
+        @include media(">=phone", "<tablet") {
+          margin-right: 1rem;
+        }
+        h1 {
+          color: $red;
+          margin-top: 0.9rem;
+          font-size: 3.8rem;
+        }
+      }
       .top3-list {
-        margin-top: 30px;
+        margin-top: 1.9rem;
 
         h4 {
           text-align: center;
         }
-
         .list {
-          margin-top: 30px;
+          margin-top: 1.9rem;
           text-align: left;
-          font: normal normal bold 14px/20px Pretendard;
-          letter-spacing: 0px;
+          font: normal normal bold 0.9rem/1.3rem Pretendard;
+          letter-spacing: 0;
 
           .item {
             display: grid;
@@ -177,7 +188,6 @@
               align-self: center;
               padding-right: 0.5rem;
             }
-
             .box-item {
               color: black;
               border-radius: 11px;
@@ -192,7 +202,6 @@
                 justify-self: left;
                 padding-left: 1rem;
               }
-
               div:nth-child(2) {
                 justify-self: right;
                 padding-right: 1rem;
@@ -202,11 +211,9 @@
             #item-1 {
               background: #ffffff;
             }
-
             #item-2 {
               background: #afcade;
             }
-
             #item-3 {
               background: #bfd1c6;
             }
@@ -222,16 +229,15 @@
       column-gap: 1rem;
       color: $sub-text;
       padding: 2.5rem 1rem 1.3rem 4rem;
-      font-size: 15px;
+      font-size: 0.9rem;
 
       button {
         border: none;
-        font-size: 15px;
+        font-size: 0.9rem;
         color: #666666;
         background-color: #f2f2f2;
       }
     }
-
     #stock-list {
       @include content-container;
       display: flex;
@@ -239,8 +245,4 @@
       padding-bottom: 1.5rem;
     }
   }
-}
-
-#loading {
-  text-align: center;
 }

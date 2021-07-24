@@ -22,8 +22,8 @@ html {
 
 body {
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
-    'Malgun Gothic', sans-serif;
+  'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+  'Malgun Gothic', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $background-color;
@@ -31,8 +31,12 @@ body {
 
 #container {
   padding: 0 8vw;
+
   #navbar {
     margin: 1.2rem 0 1.9rem;
+  }
+  @include media("<desktop") {
+    padding: 0 4vw;
   }
 }
 

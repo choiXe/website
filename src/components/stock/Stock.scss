@@ -42,7 +42,7 @@
   }
 }
 
-#chart-section {
+#stock-chart {
   @include content-container;
   grid-area: chart;
   display: grid;
@@ -343,7 +343,4 @@
       padding: 1rem;
     }
   }
-}
-.loading {
-  text-align: center;
 }
