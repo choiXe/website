@@ -8,6 +8,7 @@ import './Trending.scss';
 
 const TrendingItem = ({ item }) => {
   const calColor = (x, y) => {
+    if (x === '-') return {color: '#000000'};
     return x >= y ? { color: '#e21414' } : { color: '#246ded' };
   };
 
