@@ -10,7 +10,6 @@
   @include media(">=phone", "<tablet") {
     display: flex;
     flex-direction: column;
-    overflow-x: hidden;
   }
   .menu {
     @include content-container;
@@ -91,30 +90,6 @@
             text-align: left;
             #bottom-margin {
               height: 1.5rem;
-            }
-          }
-          .right {
-
-            i {
-              position: absolute;
-              top: 10%;
-              right: 100%;
-              margin-top: -12px;
-              width: 0.8rem;
-              height: 1.5rem;
-              overflow: hidden;
-
-              &::after {
-                content: '';
-                position: absolute;
-                width: 0.8rem;
-                height: 0.8rem;
-                left: 0;
-                top: 50%;
-                transform: translate(50%, -50%) rotate(-45deg);
-                background-color: #444444;
-                box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-              }
             }
           }
         }

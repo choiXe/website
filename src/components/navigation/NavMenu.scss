@@ -8,10 +8,46 @@
   align-items: center;
   height: 100%;
 
+  .nav-items {
+    display: flex;
+
+    @include media(">=phone", "<tablet") {
+      display: none;
+    }
+    &.mobile {
+      display: flex;
+      flex-direction: column;
+
+      position: fixed;
+      left: 15rem;
+      top: 6rem;
+      border-radius: 5px;
+      background-color: $navy;
+      opacity: 0.8;
+      width: 10rem;
+      height: fit-content;
+      z-index: 1;
+      padding: 0.5rem 0.5rem 1.5rem;
+
+      i {
+        align-self: flex-end;
+        color: white;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
   .nav-item {
     margin-left: 2.5rem;
     list-style-type: none;
 
+    @include media(">=phone", "<tablet") {
+      margin: 0;
+      text-align: center;
+    }
     .nav-links {
       @include rounded-button;
       text-decoration: none;
@@ -21,9 +57,9 @@
       &:hover {
         @include button-hover;
       }
-    }
-    @include media(">=phone", "<tablet") {
-      display: none;
+      @include media(">=phone", "<tablet") {
+        color: white;
+      }
     }
   }
   .search-bar {
@@ -39,5 +75,8 @@
       display: block;
       margin-left: 1rem;
     } 
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

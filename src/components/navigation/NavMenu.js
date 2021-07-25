@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import TextField from '@material-ui/core/TextField';
@@ -10,6 +10,8 @@ import stockList from './stocksData';
 import './NavMenu.scss';
 
 const NavMenu = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
   const { t } = useTranslation();
   let history = useHistory();
 
@@ -32,32 +34,41 @@ const NavMenu = () => {
 
   return (
     <div className="nav-list">
-      <div className="nav-item">
-        <Link to="/about" className="nav-links">
-          {t('About.navTitle')}
-        </Link>
-      </div>
-      <div className="nav-item">
-        <Link
-          to={{ pathname: '/sector', state: '건강관리' }}
-          className="nav-links"
-        >
-          {t('Sector.navTitle')}
-        </Link>
-      </div>
-      <div className="nav-item">
-        <Link
-          to={{
-            pathname: '/stock',
-            state: {
-              stockId: '005930',
-              stockName: '삼성전자'
-            }
-          }}
-          className="nav-links"
-        >
-          {t('Stock.navTitle')}
-        </Link>
+      <div className={!openMenu ? "nav-items" : "nav-items mobile"}>
+        {openMenu ? 
+          <i className='far fa-window-close' onClick={()=>setOpenMenu(!openMenu)}></i>
+          : <></>
+        }
+        <div className="nav-item">
+          <Link to="/about" className="nav-links" 
+            onClick={() => setOpenMenu(!openMenu)}
+          >
+            {t('About.navTitle')}
+          </Link>
+        </div>
+        <div className="nav-item">
+          <Link
+            to={{ pathname: '/sector', state: '건강관리' }}
+            className="nav-links" onClick={() => setOpenMenu(!openMenu)}
+          >
+            {t('Sector.navTitle')}
+          </Link>
+        </div>
+        <div className="nav-item">
+          <Link
+            to={{
+              pathname: '/stock',
+              state: {
+                stockId: '005930',
+                stockName: '삼성전자'
+              }
+            }}
+            className="nav-links"
+            onClick={() => setOpenMenu(!openMenu)}
+          >
+            {t('Stock.navTitle')}
+          </Link>
+        </div>
       </div>
       <div className="search-bar">
         <Autocomplete
@@ -79,7 +90,7 @@ const NavMenu = () => {
         />
       </div>
       <div id="hamburger">
-        <i className="fas fa-bars"></i>
+        <i className='fas fa-bars' onClick={()=>setOpenMenu(!openMenu)}></i>
       </div>
     </div>
   );

@@ -87,7 +87,6 @@ const Sector = ({ location }) => {
                       <span>{t('Sector.tooltip.description3')}</span>
                       <div id="bottom-margin"></div>
                     </div>
-                    <i></i>
                   </div>
                 </div>
               </div>
