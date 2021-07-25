@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useMediaQuery } from 'react-responsive';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete, {
   createFilterOptions
@@ -13,16 +12,7 @@ import './NavMenu.scss';
 const NavMenu = () => {
   const { t } = useTranslation();
   let history = useHistory();
-  const isTableOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
-  const searchBarStyle = {
-    height: isTableOrMobile ? '25px' : '44px',
-    borderRadius: '11px',
-    backgroundColor: 'white',
-    lineColor: '#2A2F47',
-    iconColor: '#2A2F47',
-    fontFamily: 'Pretendard',
-    zIndex: 2
-  };
+
   const filterOptions = createFilterOptions({
     limit: 10
   });
