@@ -10,29 +10,29 @@ import logo from '../../images/logo.png';
 
 function Navbar() {
   const [lang, setLang] = useState();
+  
+  const changeLang = (lang) => {
+    i18next.changeLanguage(lang);
+    setLang(lang);
+  };
 
   useEffect(() => {
     setLang(localStorage.getItem('i18nextLng'));
   }, []);
-
-  const changeLngTo = (lang) => {
-    i18next.changeLanguage(lang);
-    setLang(lang);
-  };
 
   return (
     <nav>
       <div id="locale">
         <button
           className={lang === 'ko' ? 'active' : ''}
-          onClick={() => changeLngTo('ko')}
+          onClick={() => changeLang('ko')}
         >
           KO
         </button>
         |
         <button
           className={lang === 'en' ? 'active' : ''}
-          onClick={() => changeLngTo('en')}
+          onClick={() => changeLang('en')}
         >
           EN
         </button>

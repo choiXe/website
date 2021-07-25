@@ -3,24 +3,12 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
 
-import { numSeperator } from '../tools/formatter';
+import { numSeperator, calColor, slicer } from '../tools/formatter';
+import { reportUrl } from '../tools/constants';
 
 import './Trending.scss';
 
 const TrendingItem = ({ item }) => {
-  const calColor = (x, y) => {
-    if (x === '-') return { color: '#000000' };
-    return x >= y ? { color: '#e21414' } : { color: '#246ded' };
-  };
-
-  const reportName =
-    item.reportName.length > 23
-    ? item.reportName.slice(0, 23) + '...'
-    : item.reportName;
-
-  const baseURL =
-    'http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=';
-
   return (
     <>
       <p>{item.date}</p>
@@ -35,8 +23,8 @@ const TrendingItem = ({ item }) => {
       >
         <p>{item.stockName}</p>
       </Link>
-      <a href={baseURL + item.reportIdx} rel="noreferrer" target="_blank">
-        {reportName}
+      <a href={reportUrl + item.reportIdx} rel="noreferrer" target="_blank">
+        {slicer(item.reportName, 23)}
       </a>
       <p>{numSeperator(item.tradePrice)}</p>
       <p style={calColor(parseInt(item.yield), 0)}>
@@ -73,7 +61,7 @@ const Trending = ({ data }) => {
           width={100}
         />
       </div>
-    )
+    );
   } else {
     const trendingList = data.reports;
     return (
