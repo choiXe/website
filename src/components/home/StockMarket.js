@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
 
-import { numSeperator } from '../tools/formatter';
+import { numSeperator, calColor } from '../tools/formatter';
 
 import './StockMarket.scss';
 
@@ -16,18 +16,58 @@ import us from '../../images/flag/us.png';
 
 const StockMarket = ({ data }) => {
   const { t } = useTranslation();
+  const globalOrder = [
+    {
+      src: us,
+      name: t('Home.StockMarket.dow'),
+      key: '다우 산업'
+    },
+    {
+      src: us,
+      name: t('Home.StockMarket.nasdaq'),
+      key: '나스닥 종합'
+    },
+    {
+      src: us,
+      name: 'S&P 500',
+      key: 'S&P 500'
+    },
+    {
+      src: uk,
+      name: 'FTSE 100',
+      key: 'FTSE 100'
+    },
+    {
+      src: germany,
+      name: 'DAX',
+      key: 'DAX'
+    },
+    {
+      src: china,
+      name: t('Home.StockMarket.shanghai'),
+      key: '상해 종합'
+    },
+    {
+      src: hongkong,
+      name: 'HSI',
+      key: 'HSI'
+    },
+    {
+      src: japan,
+      name: t('Home.StockMarket.nikkei'),
+      key: '니케이 225'
+    }
+  ];
 
   const marketInfo = (index) => {
-    const color = index.changeRate >= 0 ? '#e21414' : '#246ded';
+    const color = calColor(index.changeRate, 0);
     return (
       <>
-        <p style={{ color: color }}>
-          {numSeperator(index.tradePrice)}
-        </p>
-        <p style={{ color: color }}>
+        <p style={color}>{numSeperator(index.tradePrice)}</p>
+        <p style={color}>
           {index.changePrice > 0 ? '+' + index.changePrice : index.changePrice}
         </p>
-        <p style={{ color: color }}>
+        <p style={color}>
           {index.changeRate > 0 ? '+' + index.changeRate : index.changeRate}%
         </p>
       </>
@@ -45,9 +85,8 @@ const StockMarket = ({ data }) => {
           width={100}
         />
       </div>
-    )
+    );
   } else {
-
     let globalIndicator = {};
     for (let i = 0; i < data.global.length; i++) {
       globalIndicator[data.global[i].name] = data.global[i];
@@ -67,7 +106,7 @@ const StockMarket = ({ data }) => {
             {data.kr.map((index) => (
               <div key={index.name}>
                 <p className="market-title">
-                  <img src={korea} alt="kr" />{' '}
+                  <img src={korea} alt="flag" />
                   {t('Home.StockMarket.' + index.name)}
                 </p>
                 {marketInfo(index)}
@@ -78,54 +117,14 @@ const StockMarket = ({ data }) => {
         <div className="index global">
           <h4>{t('Home.StockMarket.global')}</h4>
           <div className="market-table">
-            <div>
-              <p className="market-title">
-                <img src={us} alt="us" /> {t('Home.StockMarket.dow')}
-              </p>
-              {marketInfo(globalIndicator['다우 산업'])}
-            </div>
-            <div>
-              <p className="market-title">
-                <img src={us} alt="us" /> {t('Home.StockMarket.nasdaq')}
-              </p>
-              {marketInfo(globalIndicator['나스닥 종합'])}
-            </div>
-            <div>
-              <p className="market-title">
-                <img src={us} alt="us" /> S&P 500
-              </p>
-              {marketInfo(globalIndicator['S&P 500'])}
-            </div>
-            <div>
-              <p className="market-title">
-                <img src={china} alt="cn" /> {t('Home.StockMarket.shanghai')}
-              </p>
-              {marketInfo(globalIndicator['상해 종합'])}
-            </div>
-            <div>
-              <p className="market-title">
-                <img src={japan} alt="jp" /> {t('Home.StockMarket.nikkei')}
-              </p>
-              {marketInfo(globalIndicator['니케이 225'])}
-            </div>
-            <div>
-              <p className="market-title">
-                <img src={hongkong} alt="hk" /> HSI
-              </p>
-              {marketInfo(globalIndicator['HSI'])}
-            </div>
-            <div>
-              <p className="market-title">
-                <img src={germany} alt="gr" /> DAX
-              </p>
-              {marketInfo(globalIndicator['DAX'])}
-            </div>
-            <div>
-              <p className="market-title">
-                <img src={uk} alt="uk" /> FTSE 100
-              </p>
-              {marketInfo(globalIndicator['FTSE 100'])}
-            </div>
+            {globalOrder.map((item, index) => (
+              <div key={index}>
+                <p className="market-title">
+                  <img src={item.src} alt="flag" /> {item.name}
+                </p>
+                {marketInfo(globalIndicator[item.key])}
+              </div>
+            ))}
           </div>
         </div>
       </>

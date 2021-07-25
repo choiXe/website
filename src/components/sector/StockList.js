@@ -1,21 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { numSeperator } from '../tools/formatter';
+import { numSeperator, calColor } from '../tools/formatter';
 
 import './StockList.scss';
 
 const StockInfo = ({ stock }) => {
-  const calColor = (n) => {
-    var x;
-    if (n > 0) {
-      x = { color: '#e21414' };
-    } else if (n < 0) {
-      x = { color: '#246ded' };
-    }
-    return x;
-  };
-
   return (
     <Link
       to={
@@ -33,16 +23,16 @@ const StockInfo = ({ stock }) => {
     >
       <div className="name">{stock.stockName}</div>
       <div>{numSeperator(stock.tradePrice)}</div>
-      <div style={calColor(stock.changePrice)}>
+      <div style={calColor(stock.changePrice, 0)}>
         {stock.changePrice >= 0
           ? '▲ ' + numSeperator(stock.changePrice)
           : '▼ ' + numSeperator(stock.changePrice).replace('-', '')}
       </div>
-      <div style={calColor(stock.changeRate)}>
+      <div style={calColor(stock.changeRate, 0)}>
         {stock.changeRate > 0 ? '+' + stock.changeRate : stock.changeRate}%
       </div>
       <div>{numSeperator(stock.priceAvg)}</div>
-      <div style={calColor(stock.expYield)}>
+      <div style={calColor(stock.expYield, 0)}>
         {stock.expYield > 0 ? '+' + stock.expYield : stock.expYield}%
       </div>
       <div style={stock.score >= 50 ? { color: 'green' } : { color: 'red' }}>

@@ -45,7 +45,7 @@ const Sector = ({ location }) => {
         setCache(updatedCache);
       });
     }
-  }, [curSector, daysPassed, cache]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [curSector, daysPassed, cache, t]);
 
   const renderContent = (sectorData) => {
     if (!sectorData) {
@@ -105,7 +105,7 @@ const Sector = ({ location }) => {
                     value={days}
                     className={days === daysPassed ? 'active' : ''}
                     onClick={({ target }) =>
-                        setDaysPassed(Number(target.value))
+                      setDaysPassed(Number(target.value))
                     }
                   >
                     {days < 30

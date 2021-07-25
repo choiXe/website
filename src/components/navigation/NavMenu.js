@@ -15,6 +15,12 @@ const NavMenu = () => {
   const { t } = useTranslation();
   let history = useHistory();
 
+  const textFieldStyle = {
+    backgroundColor: 'white',
+    boxShadow: '0.5px 0.5px 0.5px 0.5px #bfd1c6',
+    borderRadius: 4
+  };
+
   const filterOptions = createFilterOptions({
     limit: 10
   });
@@ -73,11 +79,7 @@ const NavMenu = () => {
               {...params}
               label={t('SearchBar.label')}
               size="small"
-              style={{
-                backgroundColor: "white",
-                boxShadow: "0.5px 0.5px 0.5px 0.5px #bfd1c6",
-                borderRadius: 4
-              }}
+              style={textFieldStyle}
             />
           )}
           getOptionLabel={(option) => option.id}

@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     document.title = 'choiXe :: ' + t('Home.tabTitle');
     data.getMainInfo('').then((data) => setMainData(data.getMainInfo));
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [t]);
 
   return (
     <div id="home">

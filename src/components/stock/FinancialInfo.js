@@ -61,10 +61,10 @@ const FinancialInfo = ({ stockId, stockName }) => {
         rvData.push(parseInt(dataSet.data[i].rv));
         oProfitData.push(parseInt(dataSet.data[i].oProfit));
         nProfitData.push(parseInt(dataSet.data[i].nProfit));
-        rGrowthData.push(parseInt(dataSet.data[i].rGrowth));
-        opGrowthData.push(parseInt(dataSet.data[i].opGrowth));
-        oMarginData.push(parseInt(dataSet.data[i].oMargin));
-        npMarginData.push(parseInt(dataSet.data[i].npMargin));
+        rGrowthData.push(dataSet.data[i].rGrowth);
+        opGrowthData.push(dataSet.data[i].opGrowth);
+        oMarginData.push(dataSet.data[i].oMargin);
+        npMarginData.push(dataSet.data[i].npMargin);
 
         label[parseInt(dataSet.data[i].rv)] = dataSet.formatKR[i].rvKR;
         label[parseInt(dataSet.data[i].oProfit)] =
