@@ -30,7 +30,7 @@ const FinancialInfo = ({ stockId, stockName }) => {
 
   if (!dataSet) {
     return (
-      <div className="loading">
+      <div className="loader">
         <Loader
           type="MutatingDots"
           color="#BBD2C5"
