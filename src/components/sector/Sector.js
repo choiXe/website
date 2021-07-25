@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
-import Sticky from 'react-stickynode';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import SectorMenu from './SectorMenu';
@@ -46,13 +45,13 @@ const Sector = ({ location }) => {
         setCache(updatedCache);
       });
     }
-  }, [curSector, daysPassed, cache]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [curSector, daysPassed, cache, t]);
 
   const renderContent = (sectorData) => {
     if (!sectorData) {
       return (
         <div id="info">
-          <div id="loading">
+          <div className="loader">
             <Loader
               type="MutatingDots"
               color="#BBD2C5"
@@ -72,14 +71,14 @@ const Sector = ({ location }) => {
       });
       return (
         <div id="info">
-          <div id="chart-section">
+          <div id="sector-chart">
             <div>
               <div id="chart-top">
                 <h4>{t('Sector.SectorMenu.' + curSector)}</h4>
-                <div class="tooltip">
+                <div className="tooltip">
                   {t('Sector.tooltip.mainTitle')}
-                  <div class="right">
-                    <div class="text-content">
+                  <div className="right">
+                    <div className="text-content">
                       <h3>{t('Sector.tooltip.title1')}</h3>
                       <span>{t('Sector.tooltip.description1')}</span>
                       <h3>{t('Sector.tooltip.title2')}</h3>
@@ -88,7 +87,6 @@ const Sector = ({ location }) => {
                       <span>{t('Sector.tooltip.description3')}</span>
                       <div id="bottom-margin"></div>
                     </div>
-                    <i></i>
                   </div>
                 </div>
               </div>
@@ -116,41 +114,43 @@ const Sector = ({ location }) => {
                   </button>
                 ))}
               </div>
-              <div className="yield">
-                <h4>{t('Sector.Caption.avgYield')}</h4>
-                <h1>
-                  {sectorData.avgYield >= 0 ? ' +' : ' -'}
-                  {sectorData.avgYield}%
-                </h1>
-              </div>
-              <div className="top3-list">
-                <h4>{t('Sector.Caption.top3')}</h4>
-                <div className="list">
-                  <div className="item">
-                    <div className="number">1. </div>
-                    <div className="box-item" id="item-1">
-                      <div>
-                        {t('Sector.Highchart.' + sectorData.top3List.first)}
+              <div className="numbers">
+                <div className="yield">
+                  <h4>{t('Sector.Caption.avgYield')}</h4>
+                  <h1>
+                    {sectorData.avgYield >= 0 ? ' +' : ' -'}
+                    {sectorData.avgYield}%
+                  </h1>
+                </div>
+                <div className="top3-list">
+                  <h4>{t('Sector.Caption.top3')}</h4>
+                  <div className="list">
+                    <div className="item">
+                      <div className="number">1. </div>
+                      <div className="box-item" id="item-1">
+                        <div>
+                          {t('Sector.Highchart.' + sectorData.top3List.first)}
+                        </div>
+                        <div>{sectorData.top3List.firstYield}%</div>
                       </div>
-                      <div>{sectorData.top3List.firstYield}%</div>
                     </div>
-                  </div>
-                  <div className="item">
-                    <div className="number">2. </div>
-                    <div className="box-item" id="item-2">
-                      <div>
-                        {t('Sector.Highchart.' + sectorData.top3List.second)}
+                    <div className="item">
+                      <div className="number">2. </div>
+                      <div className="box-item" id="item-2">
+                        <div>
+                          {t('Sector.Highchart.' + sectorData.top3List.second)}
+                        </div>
+                        <div>{sectorData.top3List.secondYield}%</div>
                       </div>
-                      <div>{sectorData.top3List.secondYield}%</div>
                     </div>
-                  </div>
-                  <div className="item">
-                    <div className="number">3. </div>
-                    <div className="box-item" id="item-3">
-                      <div>
-                        {t('Sector.Highchart.' + sectorData.top3List.third)}
+                    <div className="item">
+                      <div className="number">3. </div>
+                      <div className="box-item" id="item-3">
+                        <div>
+                          {t('Sector.Highchart.' + sectorData.top3List.third)}
+                        </div>
+                        <div>{sectorData.top3List.thirdYield}%</div>
                       </div>
-                      <div>{sectorData.top3List.thirdYield}%</div>
                     </div>
                   </div>
                 </div>
@@ -196,9 +196,9 @@ const Sector = ({ location }) => {
 
   return (
     <div id="sector">
-      <Sticky top={20} bottomBoundary="#stock-list" innerClass="menu">
+      <div className="menu">
         <SectorMenu selected={curSector} selectHandler={setsSectorSelected} />
-      </Sticky>
+      </div>
       {renderContent(sectorData)}
     </div>
   );

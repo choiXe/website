@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Sticky from 'react-stickynode';
-import Loader from 'react-loader-spinner';
 
 import SectorMenu from '../sector/SectorMenu';
 import StockMarket from './StockMarket';
@@ -19,67 +17,24 @@ const Home = () => {
   useEffect(() => {
     document.title = 'choiXe :: ' + t('Home.tabTitle');
     data.getMainInfo('').then((data) => setMainData(data.getMainInfo));
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [t]);
 
-  if (!mainData) {
-    return (
-      <div id="home">
-        <Sticky top={20} innerClass="menu">
-          <SectorMenu selected="" />
-        </Sticky>
-        <div id="stock-market">
-          <div id="loading">
-            <Loader
-              type="MutatingDots"
-              color="#BBD2C5"
-              secondaryColor="#536976"
-              height={100}
-              width={100}
-            />
-          </div>
-        </div>
-        <div id="favorites">
-          <div id="loading">
-            <Loader
-              type="MutatingDots"
-              color="#BBD2C5"
-              secondaryColor="#536976"
-              height={100}
-              width={100}
-            />
-          </div>
-        </div>
-        <div id="trending">
-          <div id="loading">
-            <Loader
-              type="MutatingDots"
-              color="#BBD2C5"
-              secondaryColor="#536976"
-              height={100}
-              width={100}
-            />
-          </div>
-        </div>
+  return (
+    <div id="home">
+      <div className="menu">
+        <SectorMenu selected="" />
       </div>
-    );
-  } else {
-    return (
-      <div id="home">
-        <Sticky top={20} bottomBoundary="#trending" innerClass="menu">
-          <SectorMenu selected="" />
-        </Sticky>
-        <div id="stock-market">
-          <StockMarket data={mainData} />
-        </div>
-        <div id="favorites">
-          <Favorites />
-        </div>
-        <div id="trending">
-          <Trending trendingList={mainData.reports} />
-        </div>
+      <div id="stock-market">
+        <StockMarket data={mainData} />
       </div>
-    );
-  }
+      <div id="favorites">
+        <Favorites />
+      </div>
+      <div id="trending">
+        <Trending data={mainData} />
+      </div>
+    </div>
+  );
 };
 
 export default Home;

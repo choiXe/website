@@ -1,33 +1,53 @@
 @import 'src/styles/color';
+@import 'src/styles/variable';
 
 #trending-title {
   display: grid;
   grid-template-columns: 0.7fr 1.8fr 2.2fr 5fr 1.8fr 1.8fr 1.5fr;
-  font-size: 13px;
+  font-size: 0.8rem;
   padding: 1.5rem 1.2rem;
   color: $sub-text;
   column-gap: 0.5rem;
+
+  @include media(">=phone", "<tablet") {
+    grid-template-columns: 0.3fr repeat(5, 1fr);
+    padding: 1rem;
+    div:nth-child(4) {
+      display: none;
+    }
+  }
 }
 
 #trending-list {
   list-style-type: none;
+
   li {
     display: grid;
     grid-template-columns: 0.7fr 1.8fr 2.2fr 5fr 1.8fr 1.8fr 1.5fr;
     padding: 1rem;
     border-radius: 16px;
     column-gap: 0.5rem;
+
+    @include media(">=phone", "<tablet") {
+      grid-template-columns: 0.3fr repeat(5, 1fr);
+      padding: 1rem;
+      a:nth-child(4) {
+        display: none;
+      }
+    }
     #num {
       font-weight: bold;
-      font-size: 18px;
+      font-size: 1.1rem;
     }
     a {
       text-decoration: none;
       color: black;
-      border-radius: 16px;
     }
     &:hover {
       background-color: $background-color;
+      a {
+        text-decoration: underline $sub-text;
+      }
     }
   }
 }

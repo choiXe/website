@@ -1,5 +1,6 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
 @import 'color';
+@import 'variable';
 
 * {
   margin: 0;
@@ -7,17 +8,38 @@
   box-sizing: border-box;
 }
 
+html {
+  @include media(">=phone", "<tablet") {
+    font-size: 12px;
+  }
+  @include media(">=tablet", "<desktop") {
+    font-size: 14px;
+  }
+  @include media(">=desktop") {
+    font-size: 16px;
+  }
+}
+
 body {
   font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-    'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
-    'Malgun Gothic', sans-serif;
+  'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR',
+  'Malgun Gothic', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $background-color;
 }
 
 #container {
+  padding: 0 8vw;
+
   #navbar {
-    margin: 20px 0 30px;
+    margin: 1.2rem 0 1.9rem;
   }
+  @include media("<desktop") {
+    padding: 0 4vw;
+  }
+}
+
+.loader {
+  text-align: center;
 }

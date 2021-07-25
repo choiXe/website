@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^5.0.0-beta.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -13,6 +14,7 @@
     "i18next": "^20.3.3",
     "i18next-browser-languagedetector": "^6.1.2",
     "i18next-xhr-backend": "^3.2.2",
+    "include-media": "^1.4.10",
     "node-sass": "^6.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -22,9 +24,9 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-loader-spinner": "^4.0.0",
     "react-process-string": "^1.2.0",
+    "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "react-search-autocomplete": "^5.2.2",
     "react-stickynode": "^3.1.0",
     "react-table": "^7.7.0",
     "web-vitals": "^1.1.2"

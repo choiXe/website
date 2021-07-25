@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import i18next from 'i18next';
 
@@ -9,33 +9,37 @@ import './Navbar.scss';
 import logo from '../../images/logo.png';
 
 function Navbar() {
-  const [lang, setLang] = useState(localStorage.getItem('i18nextLng'));
-  const handleClick = (lang) => {
+  const [lang, setLang] = useState();
+  
+  const changeLang = (lang) => {
     i18next.changeLanguage(lang);
     setLang(lang);
   };
+
+  useEffect(() => {
+    setLang(localStorage.getItem('i18nextLng'));
+  }, []);
 
   return (
     <nav>
       <div id="locale">
         <button
           className={lang === 'ko' ? 'active' : ''}
-          onClick={() => handleClick('ko')}
+          onClick={() => changeLang('ko')}
         >
           KO
         </button>
         |
         <button
           className={lang === 'en' ? 'active' : ''}
-          onClick={() => handleClick('en')}
+          onClick={() => changeLang('en')}
         >
           EN
         </button>
       </div>
       <div id="nav-left">
         <Link to="/" className="logo">
-          <img src={logo} alt="choiXe logo" />
-          choiXe
+          <img src={logo} alt="choiXe logo" /> choiXe
         </Link>
       </div>
       <div id="nav-right">

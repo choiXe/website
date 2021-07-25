@@ -29,7 +29,7 @@
       "dow": "DOW",
       "nasdaq": "NASDAQ",
       "shanghai": "SSE",
-      "nikkei": "Nikkei 225"
+      "nikkei": "NIKKEI 225"
     }
   },
   "About": {
@@ -229,7 +229,7 @@
       "low": "The lower, the better",
       "high": "The higher, the better"
     },
-    "companyInfo": "Company Info",
+    "companyInfo": "Profile",
     "Analyst": {
       "title": "Analyst Report",
       "date": "Date",

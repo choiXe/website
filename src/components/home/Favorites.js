@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { numSeperator } from '../tools/formatter';
+import { numSeperator, calColor } from '../tools/formatter';
 import data from '../../services/data';
 
 import './Favorites.scss';
@@ -10,7 +10,6 @@ import './Favorites.scss';
 const Favorites = () => {
   const { t } = useTranslation();
   const [favoriteData, setFavoriteData] = useState(null);
-
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem('favorites'))
   );
@@ -24,10 +23,6 @@ const Favorites = () => {
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
 
-  const calColor = (n) => {
-    return n >= 0 ? { color: '#e21414' } : { color: '#246ded' };
-  };
-
   useEffect(() => {
     if (favorites != null) {
       let stockIds = '';
@@ -38,7 +33,7 @@ const Favorites = () => {
         .getFavoriteInfo(stockIds)
         .then((data) => setFavoriteData(data.getFavoriteInfo));
     }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [favorites]);
 
   const renderContent = (favoriteData) => {
     if (!favoriteData || favoriteData.data.length === 0) {
@@ -52,9 +47,9 @@ const Favorites = () => {
         </div>
       );
     } else {
-      let favPriceRate = {};
+      let favData = {};
       for (let i = 0; i < favoriteData.data.length; i++) {
-        favPriceRate[favoriteData.data[i].stockId] = favoriteData.data[i];
+        favData[favoriteData.data[i].stockId] = favoriteData.data[i];
       }
 
       return (
@@ -69,13 +64,13 @@ const Favorites = () => {
                 className="link"
               >
                 <p>{stock.name}</p>
-                <p style={calColor(favPriceRate[stock.stockId].rate)}>
-                  {numSeperator(favPriceRate[stock.stockId].price)}
+                <p style={calColor(favData[stock.stockId].rate, 0)}>
+                  {numSeperator(favData[stock.stockId].price)}
                 </p>
-                <p style={calColor(favPriceRate[stock.stockId].rate)}>
-                  {favPriceRate[stock.stockId].rate >= 0
-                    ? '+' + favPriceRate[stock.stockId].rate
-                    : favPriceRate[stock.stockId].rate}
+                <p style={calColor(favData[stock.stockId].rate, 0)}>
+                  {favData[stock.stockId].rate >= 0
+                    ? '+' + favData[stock.stockId].rate
+                    : favData[stock.stockId].rate}
                   %
                 </p>
               </Link>

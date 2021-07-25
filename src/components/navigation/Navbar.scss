@@ -1,35 +1,28 @@
-@import 'src/styles/_color.scss';
-@import 'src/styles/_mixin.scss';
+@import 'src/styles/color';
+@import 'src/styles/mixin';
+@import 'src/styles/variable';
 
 nav {
   display: grid;
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
-  padding: 0 8vw;
+  grid-template-columns: min-content auto;
   grid-template-areas:
-    '. locale'
-    'nav-left nav-right';
-
-  img {
-    width: auto;
-    height: 43px;
-    margin-right: 20px;
-    margin-left: 10px;
-  }
+  '. locale'
+  'nav-left nav-right';
 
   #locale {
     grid-area: locale;
-    flex: auto;
-    flex-direction: row;
-    justify-self: flex-end;
-    padding-bottom: 10px;
-    font-size: 13px;
+    justify-self: end;
+    margin-bottom: 0.6rem;
+    font-size: 0.8rem;
+
     button {
       color: #2a2f47;
       background-color: #f2f2f2;
-      padding: 0 5px 0 5px;
-      font-size: 13px;
-      border: 0;
+      padding: 0 0.3rem;
+      font-size: 0.8rem;
+      border: none;
+      cursor: pointer;
+
       &:hover {
         font-weight: bold;
         color: $red;
@@ -43,20 +36,26 @@ nav {
 
   #nav-left {
     grid-area: nav-left;
-    width: 100%;
 
-    & .logo {
+    .logo {
+      text-decoration: none;
+      color: black;
       display: flex;
       align-items: center;
-      color: black;
-      text-decoration: none;
-      font-size: 30px;
+      font-size: 1.9rem;
       font-weight: bold;
+
+      img {
+        width: auto;
+        height: 2.7rem;
+        margin-right: 1.2rem;
+        margin-left: 0.6rem;
+      }
     }
   }
 
   #nav-right {
     grid-area: nav-right;
-    width: 100%;
+    justify-self: end;
   }
 }

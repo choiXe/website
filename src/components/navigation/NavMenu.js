@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useTranslation } from 'react-i18next';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete, {
+  createFilterOptions
+} from '@material-ui/core/Autocomplete';
 
 import stockList from './stocksData';
 import './NavMenu.scss';
 
 const NavMenu = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
   const { t } = useTranslation();
   let history = useHistory();
 
-  const searchBarStyle = {
-    borderRadius: '11px',
+  const textFieldStyle = {
     backgroundColor: 'white',
-    lineColor: '#2A2F47',
-    iconColor: '#2A2F47',
-    fontFamily: 'Pretendard',
-    zIndex: 2
+    boxShadow: '0.5px 0.5px 0.5px 0.5px #bfd1c6',
+    borderRadius: 4
   };
+
+  const filterOptions = createFilterOptions({
+    limit: 10
+  });
 
   const selectHandler = (item) => {
     history.push({
@@ -28,44 +34,63 @@ const NavMenu = () => {
 
   return (
     <div className="nav-list">
-      <div className="nav-item">
-        <Link to="/about" className="nav-links">
-          {t('About.navTitle')}
-        </Link>
-      </div>
-      <div className="nav-item">
-        <Link
-          to={{ pathname: '/sector', state: '건강관리' }}
-          className="nav-links"
-        >
-          {t('Sector.navTitle')}
-        </Link>
-      </div>
-      <div className="nav-item">
-        <Link
-          to={{
-            pathname: '/stock',
-            state: {
-              stockId: '005930',
-              stockName: '삼성전자'
-            }
-          }}
-          className="nav-links"
-        >
-          {t('Stock.navTitle')}
-        </Link>
+      <div className={!openMenu ? "nav-items" : "nav-items mobile"}>
+        {openMenu ? 
+          <i className='far fa-window-close' onClick={()=>setOpenMenu(!openMenu)}></i>
+          : <></>
+        }
+        <div className="nav-item">
+          <Link to="/about" className="nav-links" 
+            onClick={() => setOpenMenu(false)}
+          >
+            {t('About.navTitle')}
+          </Link>
+        </div>
+        <div className="nav-item">
+          <Link
+            to={{ pathname: '/sector', state: '건강관리' }}
+            className="nav-links" onClick={() => setOpenMenu(false)}
+          >
+            {t('Sector.navTitle')}
+          </Link>
+        </div>
+        <div className="nav-item">
+          <Link
+            to={{
+              pathname: '/stock',
+              state: {
+                stockId: '005930',
+                stockName: '삼성전자'
+              }
+            }}
+            className="nav-links"
+            onClick={() => setOpenMenu(false)}
+          >
+            {t('Stock.navTitle')}
+          </Link>
+        </div>
       </div>
       <div className="search-bar">
-        <ReactSearchAutocomplete
-          items={stockList}
-          fuseOptions={{ keys: ['id'] }}
-          resultStringKeyName="id"
-          inputDebounce={0}
-          onSelect={selectHandler}
-          placeholder={t('SearchBar.label')}
-          styling={searchBarStyle} // To display it on top of the search box below
-          autoFocus
+        <Autocomplete
+          disablePortal
+          options={stockList}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label={t('SearchBar.label')}
+              size="small"
+              style={textFieldStyle}
+            />
+          )}
+          getOptionLabel={(option) => option.id}
+          onChange={(event, item) => {
+            if (item !== null) selectHandler(item);
+          }}
+          filterOptions={filterOptions}
         />
+      </div>
+      <div id="hamburger">
+        <i className='fas fa-bars' onClick={()=>setOpenMenu(!openMenu)}></i>
       </div>
     </div>
   );

@@ -1,39 +1,30 @@
 import React from 'react';
 
-import { numSeperator } from '../tools/formatter';
+import { numSeperator, slicer } from '../tools/formatter';
+import { reportUrl } from '../tools/constants';
 
 import './ReportList.scss';
 
 const ReportInfo = ({ data, stockName }) => {
-  const reportName =
-    data.reportName.length > 23
-      ? data.reportName.slice(0, 23) + '...'
-      : data.reportName;
-  const baseURL =
-    'http://consensus.hankyung.com/apps.analysis/analysis.downpdf?report_idx=';
-
-  const analystList = data.analyst.split(',');
   var analyst;
-  if (analystList.length > 1) {
-    analyst = analystList[0] + ' 등';
-  } else {
-    analyst = analystList[0];
-  }
 
-  const priceGoal = numSeperator(data.priceGoal);
-  const firm = data.firm;
+  if (data.analyst.length > 3) {
+    analyst = data.analyst.substr(0,3) + ' 등';
+  } else {
+    analyst = data.analyst;
+  }
 
   return (
     <div className="report-item">
       <div>{data.date}</div>
       <div>
-        <a href={baseURL + data.reportIdx} rel="noreferrer" target="_blank">
-          {reportName === '' ? stockName : reportName}
+        <a href={reportUrl + data.reportIdx} rel="noreferrer" target="_blank">
+          {data.reportName === '' ? stockName : slicer(data.reportName, 23)}
         </a>
       </div>
       <div>{analyst}</div>
-      <div>{priceGoal}</div>
-      <div>{firm}</div>
+      <div>{numSeperator(data.priceGoal)}</div>
+      <div>{data.firm}</div>
     </div>
   );
 };

@@ -89,7 +89,11 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
 
 export function TreeMapOption(data, selectHandler) {
   return {
-    chart: { type: 'treemap', backgroundColor: null },
+    chart: {
+      type: 'treemap',
+      backgroundColor: null,
+      height: (1 / 2) * 100 + '%'
+    },
     exporting: { enabled: false },
     series: [
       {

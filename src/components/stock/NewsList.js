@@ -1,11 +1,10 @@
 import React from 'react';
+
+import { slicer } from '../tools/formatter';
+
 import './NewsList.scss';
 
 const NewsInfo = ({ data }) => {
-  const newsName =
-    data.title.length > 60 ? data.title.slice(0, 60) + '...' : data.title;
-  const description = data.description;
-
   return (
     <div className="news-item">
       <div>{data.date}</div>
@@ -16,9 +15,9 @@ const NewsInfo = ({ data }) => {
           target="_blank"
           className="news-title"
         >
-          {newsName}
+          {slicer(data.title, 60)}
         </a>
-        <div className="news-description">{description}</div>
+        <div className="news-description">{data.description}</div>
       </div>
     </div>
   );
