@@ -2,7 +2,9 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/core/Autocomplete';
+import Autocomplete, {
+  createFilterOptions
+} from '@material-ui/core/Autocomplete';
 
 import stockList from './stocksData';
 import './NavMenu.scss';
@@ -11,14 +13,9 @@ const NavMenu = () => {
   const { t } = useTranslation();
   let history = useHistory();
 
-  // const searchBarStyle = {
-  //   borderRadius: '11px',
-  //   backgroundColor: 'white',
-  //   lineColor: '#2A2F47',
-  //   iconColor: '#2A2F47',
-  //   fontFamily: 'Pretendard',
-  //   zIndex: 2
-  // };
+  const filterOptions = createFilterOptions({
+    limit: 10
+  });
 
   const selectHandler = (item) => {
     history.push({
@@ -60,11 +57,23 @@ const NavMenu = () => {
         <Autocomplete
           disablePortal
           options={stockList}
-          renderInput={(params) => <TextField {...params} label="Search" />}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label={t('SearchBar.label')}
+              size="small"
+              style={{
+                backgroundColor: "white",
+                boxShadow: "0.5px 0.5px 0.5px 0.5px #bfd1c6",
+                borderRadius: 4
+              }}
+            />
+          )}
           getOptionLabel={(option) => option.id}
           onChange={(event, item) => {
             if (item !== null) selectHandler(item);
           }}
+          filterOptions={filterOptions}
         />
       </div>
     </div>
