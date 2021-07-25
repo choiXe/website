@@ -71,10 +71,10 @@ const Stock = ({ location }) => {
     const newsTitle = [t('Stock.News.date'), t('Stock.News.news')];
     const titleList =
       listType === 'analyst'
-        ? reportTitle
-        : listType === 'news'
-        ? newsTitle
-        : '';
+      ? reportTitle
+      : listType === 'news'
+      ? newsTitle
+      : '';
     const statColor = stockData.changeRate >= 0 ? red : blue;
     const priceY = stockData.tradePrice - stockData.changePrice;
 
@@ -105,22 +105,22 @@ const Stock = ({ location }) => {
     };
 
     return (
-      <div>
-        <div id="stock">
-          <h1 id="title">
-            <div className="name">{stockData.name}</div>
-            <div className="id">{stockId}</div>
-          </h1>
-          <div className="add-button">
-            <button onClick={addFavorite}>
-              {success
-                ? t('Stock.watchlist.success')
-                : t('Stock.watchlist.title')}
-            </button>
-            <p>{message}</p>
-          </div>
-          <div id="stock-chart">
-            <div className="numbers">
+      <div id="stock">
+        <h1 id="title">
+          <div className="name">{stockData.name}</div>
+          <div className="id">{stockId}</div>
+        </h1>
+        <div className="add-button">
+          <button onClick={addFavorite}>
+            {success
+              ? t('Stock.watchlist.success')
+              : t('Stock.watchlist.title')}
+          </button>
+          <p>{message}</p>
+        </div>
+        <div id="stock-chart">
+          <div className="numbers">
+            <div>
               <p>{t('Stock.Caption.avgYield')} </p>
               <h1
                 className="yield"
@@ -129,6 +129,8 @@ const Stock = ({ location }) => {
                 {Math.round(stockData.expYield)}
                 <div className="percent">%</div>
               </h1>
+            </div>
+            <div>
               <div className="price-container">
                 <div>
                   <p>{t('Stock.Caption.price')}</p>
@@ -158,65 +160,75 @@ const Stock = ({ location }) => {
                 <h4>{stockData.score}</h4>
               </div>
             </div>
-            <div className="chart-area">
-              <div className="chart-stat">
-                <div className="stat-item">
-                  {t('Stock.Caption.close')}
-                  <p>{numSeperator(priceY)}</p>
-                </div>
-                <div className="stat-item">
-                  {t('Stock.Caption.open')}
-                  <p style={getColor(stockData.openingPrice)}>
-                    {numSeperator(stockData.openingPrice)}
-                  </p>
-                </div>
-                <div className="stat-item">
-                  {t('Stock.Caption.high')}
-                  <p style={getColor(stockData.highPrice)}>
-                    {numSeperator(stockData.highPrice)}
-                  </p>
-                </div>
-                <div className="stat-item">
-                  {t('Stock.Caption.low')}
-                  <p style={getColor(stockData.lowPrice)}>
-                    {numSeperator(stockData.lowPrice)}
-                  </p>
-                </div>
-                <div className="stat-item">
-                  {t('Stock.Caption.change')}
-                  <p>
-                    <span style={{ color: statColor }}>
-                      {' ' + numSeperator(stockData.changePrice)}
-                    </span>
-                  </p>
-                </div>
-                <div className="stat-item">
-                  <p>
-                    {t('Stock.Caption.rate')}
-                    <span style={{ color: statColor }}>
-                      {(stockData.changeRate >= 0 ? ' +' : ' ') +
+          </div>
+          <div className="chart-area">
+            <div className="chart-stat">
+              <div className="stat-item">
+                {t('Stock.Caption.close')}
+                <p>{numSeperator(priceY)}</p>
+              </div>
+              <div className="stat-item">
+                {t('Stock.Caption.open')}
+                <p style={getColor(stockData.openingPrice)}>
+                  {numSeperator(stockData.openingPrice)}
+                </p>
+              </div>
+              <div className="stat-item">
+                {t('Stock.Caption.high')}
+                <p style={getColor(stockData.highPrice)}>
+                  {numSeperator(stockData.highPrice)}
+                </p>
+              </div>
+              <div className="stat-item">
+                {t('Stock.Caption.low')}
+                <p style={getColor(stockData.lowPrice)}>
+                  {numSeperator(stockData.lowPrice)}
+                </p>
+              </div>
+              <div className="stat-item">
+                {t('Stock.Caption.change')}
+                <p>
+                  <span style={{ color: statColor }}>
+                    {' ' + numSeperator(stockData.changePrice)}
+                  </span>
+                </p>
+              </div>
+              <div className="stat-item">
+                <p>
+                  {t('Stock.Caption.rate')}
+                  <span style={{ color: statColor }}>
+                    {(stockData.changeRate >= 0 ? ' +' : ' ') +
                         stockData.changeRate +
                         '%'}
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div className="chart">
-                <StockChart data={stockData.pastData} />
+                  </span>
+                </p>
               </div>
             </div>
+            <div className="chart">
+              <StockChart data={stockData.pastData} />
+            </div>
           </div>
-          <div id="inv-info">
-            <h4>{t('Stock.InvInfo.title')}</h4>
-            <div className="inv-info-items">
+        </div>
+        <div id="inv-info">
+          <h4>{t('Stock.InvInfo.title')}</h4>
+          <div className="inv-info-items">
+            <div>
               <h5>{t('Stock.InvInfo.marketCap')}</h5>
               <p>{stockData.marketCap}</p>
+            </div>
+            <div>
               <h5>{t('Stock.InvInfo.52High')}</h5>
               <p>{numSeperator(stockData.high52wPrice)}</p>
+            </div>
+            <div>
               <h5>{t('Stock.InvInfo.52Low')}</h5>
               <p>{numSeperator(stockData.low52wPrice)}</p>
+            </div>
+            <div>
               <h5>{t('Stock.InvInfo.foreign')}</h5>
               <p>{stockData.foreignRatio + '%'}</p>
+            </div>
+            <div>
               <div className="tooltip">
                 <h5>PER</h5>
                 <div className="top">
@@ -231,6 +243,8 @@ const Stock = ({ location }) => {
                 </div>
               </div>
               <p>{stockData.per + '배'}</p>
+            </div>
+            <div>
               <div className="tooltip">
                 <h5>PBR</h5>
                 <div className="top">
@@ -245,6 +259,8 @@ const Stock = ({ location }) => {
                 </div>
               </div>
               <p>{stockData.pbr + '배'}</p>
+            </div>
+            <div>
               <div className="tooltip">
                 <h5>ROE</h5>
                 <div className="top">
@@ -261,99 +277,99 @@ const Stock = ({ location }) => {
               <p>{stockData.roe + '%'}</p>
             </div>
           </div>
-          <div id="inv-stat">
-            <div className="inv-stat-description">
-              {t('Stock.InvStat.title')}
-            </div>
-            <div className="inv-stat-title">
-              {invStatTitle.map((title) => (
-                <div key={title}>{title}</div>
-              ))}
-            </div>
-            <div className="inv-list">
-              <InfiniteScroll dataLength={40} height="22rem">
-                <InvStatList dataSet={stockData.invStatistics} />
-              </InfiniteScroll>
-            </div>
+        </div>
+        <div id="inv-stat">
+          <div className="inv-stat-description">
+            {t('Stock.InvStat.title')}
           </div>
-          <div id="wordcloud">
-            <WordCloud newsTitles={stockData.newsTitles} />
+          <div className="inv-stat-title">
+            {invStatTitle.map((title) => (
+              <div key={title}>{title}</div>
+            ))}
           </div>
-          <div id="list-table">
-            <div className="list-button">
-              <button
-                className={listType === 'analyst' ? 'active' : ''}
-                onClick={(e) => {
-                  setListType('analyst');
-                }}
-              >
-                {t('Stock.Analyst.title')}
-              </button>
-              <button
-                className={listType === 'news' ? 'active' : ''}
-                onClick={(e) => {
-                  setListType('news');
-                }}
-              >
-                {t('Stock.News.title')}
-              </button>
-              <button
-                className={listType === 'financial' ? 'active' : ''}
-                onClick={(e) => {
-                  setListType('financial');
-                }}
-              >
-                {t('Stock.FinancialInfo.title')}
-              </button>
-              <button
-                className={listType === 'companyInfo' ? 'active' : ''}
-                onClick={(e) => {
-                  setListType('companyInfo');
-                }}
-              >
-                {t('Stock.companyInfo')}
-              </button>
-            </div>
-            <div className="list-table">
-              <div
-                className={
-                  listType === 'analyst'
-                    ? 'list-title report'
-                    : 'list-title news'
-                }
-              >
-                {titleList.length > 0 &&
+          <div className="inv-list">
+            <InfiniteScroll dataLength={40} height="22rem">
+              <InvStatList dataSet={stockData.invStatistics} />
+            </InfiniteScroll>
+          </div>
+        </div>
+        <div id="wordcloud">
+          <WordCloud newsTitles={stockData.newsTitles} />
+        </div>
+        <div id="list-table">
+          <div className="list-button">
+            <button
+              className={listType === 'analyst' ? 'active' : ''}
+              onClick={(e) => {
+                setListType('analyst');
+              }}
+            >
+              {t('Stock.Analyst.title')}
+            </button>
+            <button
+              className={listType === 'news' ? 'active' : ''}
+              onClick={(e) => {
+                setListType('news');
+              }}
+            >
+              {t('Stock.News.title')}
+            </button>
+            <button
+              className={listType === 'financial' ? 'active' : ''}
+              onClick={(e) => {
+                setListType('financial');
+              }}
+            >
+              {t('Stock.FinancialInfo.title')}
+            </button>
+            <button
+              className={listType === 'companyInfo' ? 'active' : ''}
+              onClick={(e) => {
+                setListType('companyInfo');
+              }}
+            >
+              {t('Stock.companyInfo')}
+            </button>
+          </div>
+          <div className="list-table">
+            <div
+              className={
+                listType === 'analyst'
+                  ? 'list-title report'
+                  : 'list-title news'
+              }
+            >
+              {titleList.length > 0 &&
                   titleList.map((title) => <div key={title}> {title}</div>)}
-              </div>
-              <div className="list-content">
-                {listType === 'financial' ? (
-                  <FinancialInfo stockId={stockId} stockName={stockName} />
-                ) : listType === 'companyInfo' ? (
-                  <div id="company-info">
-                    <h4>
-                      <span>
-                        {'WICS: ' +
+            </div>
+            <div className="list-content">
+              {listType === 'financial' ? (
+                <FinancialInfo stockId={stockId} stockName={stockName} />
+              ) : listType === 'companyInfo' ? (
+                <div id="company-info">
+                  <h4>
+                    <span>
+                      {'WICS: ' +
                           t(
                             'Sector.Highchart.' +
-                              stockData.wicsSectorName.replace(/ /g, '')
+                            stockData.wicsSectorName.replace(/ /g, '')
                           )}
-                      </span>
-                    </h4>
-                    <p>{stockData.companySummary}</p>
-                  </div>
-                ) : (
-                  <InfiniteScroll dataLength={40} height="40rem">
-                    {listType === 'analyst' ? (
-                      <ReportList
-                        dataSet={stockData.reportList}
-                        stockName={stockData.name}
-                      />
-                    ) : (
-                      <NewsList dataSet={stockData.news} />
-                    )}
-                  </InfiniteScroll>
-                )}
-              </div>
+                    </span>
+                  </h4>
+                  <p>{stockData.companySummary}</p>
+                </div>
+              ) : (
+                <InfiniteScroll dataLength={40} height="40rem">
+                  {listType === 'analyst' ? (
+                    <ReportList
+                      dataSet={stockData.reportList}
+                      stockName={stockData.name}
+                    />
+                  ) : (
+                    <NewsList dataSet={stockData.news} />
+                  )}
+                </InfiniteScroll>
+              )}
             </div>
           </div>
         </div>
