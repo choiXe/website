@@ -1,5 +1,6 @@
 @import 'src/styles/_mixin.scss';
 @import 'src/styles/_color.scss';
+@import 'src/styles/variable';
 
 .stock-item {
   @include rounded-button;
@@ -12,6 +13,11 @@
   color: black;
   font-size: 1.1rem;
   margin-top: 1rem;
+
+  @include media(">=phone", "<tablet") {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
   &:hover {
     background-color: $background-color;
   }

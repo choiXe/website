@@ -27,7 +27,7 @@
   #stock-market {
     grid-area: market;
     @include content-container;
-    padding: 1.5rem 2.5rem;
+    padding: 2rem 2.5rem;
     background-color: $navy;
     color: white;
 

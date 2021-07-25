@@ -218,6 +218,13 @@
       color: $sub-text;
       padding: 2.5rem 1rem 1.3rem 4rem;
       font-size: 0.9rem;
+      
+      @include media(">=phone", "<tablet") {
+        grid-template-columns: repeat(6, 1fr);
+        div:nth-child(3) {
+          display: none;
+        }
+      }
 
       button {
         border: none;
@@ -231,6 +238,12 @@
       display: flex;
       flex-direction: column;
       padding-bottom: 1.5rem;
+
+      @include media(">=phone", "<tablet") {
+        div:nth-child(3) {
+          display: none;
+        }
+      }
     }
   }
 }
