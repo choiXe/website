@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
+import TextField from '@material-ui/core/TextField';
+import Autocomplete, {
+  createFilterOptions
+} from '@material-ui/core/Autocomplete';
 
 import stockList from './stocksData';
 import './NavMenu.scss';
@@ -10,9 +13,7 @@ import './NavMenu.scss';
 const NavMenu = () => {
   const { t } = useTranslation();
   let history = useHistory();
-
   const isTableOrMobile = useMediaQuery({ query: '(max-width: 1024px)' });
-
   const searchBarStyle = {
     height: isTableOrMobile ? '25px' : '44px',
     borderRadius: '11px',
@@ -22,6 +23,9 @@ const NavMenu = () => {
     fontFamily: 'Pretendard',
     zIndex: 2
   };
+  const filterOptions = createFilterOptions({
+    limit: 10
+  });
 
   const selectHandler = (item) => {
     history.push({
@@ -60,15 +64,26 @@ const NavMenu = () => {
         </Link>
       </div>
       <div className="search-bar">
-        <ReactSearchAutocomplete
-          items={stockList}
-          fuseOptions={{ keys: ['id'] }}
-          resultStringKeyName="id"
-          inputDebounce={0}
-          onSelect={selectHandler}
-          placeholder={t('SearchBar.label')}
-          styling={searchBarStyle} // To display it on top of the search box below
-          autoFocus
+        <Autocomplete
+          disablePortal
+          options={stockList}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label={t('SearchBar.label')}
+              size="small"
+              style={{
+                backgroundColor: "white",
+                boxShadow: "0.5px 0.5px 0.5px 0.5px #bfd1c6",
+                borderRadius: 4
+              }}
+            />
+          )}
+          getOptionLabel={(option) => option.id}
+          onChange={(event, item) => {
+            if (item !== null) selectHandler(item);
+          }}
+          filterOptions={filterOptions}
         />
       </div>
       <div id="hamburger">
