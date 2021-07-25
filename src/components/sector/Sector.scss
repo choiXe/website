@@ -74,15 +74,21 @@
             font-size: 0.8rem;
             border-radius: 12px;
             position: absolute;
-            box-sizing: border-box;
             box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
             visibility: hidden;
             opacity: 0;
             transition: opacity 0.8s;
+
+            @include media(">=phone", "<tablet") {
+              left: -16rem;
+              top: 4rem;
+              z-index: 1;
+            }
           }
           &:hover .right {
             visibility: visible;
             opacity: 1;
+
           }
           .text-content {
             padding-left: 1.9rem;
@@ -96,8 +102,11 @@
       }
       .chart {
         text-align: center;
-        margin: auto;
         margin-right: 1rem;
+
+        @include media(">=phone", "<tablet") {
+          margin: 0;
+        }
       }
       .date-select {
         display: flex;

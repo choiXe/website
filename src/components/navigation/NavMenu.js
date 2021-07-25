@@ -35,7 +35,7 @@ const NavMenu = () => {
         }
         <div className="nav-item">
           <Link to="/about" className="nav-links" 
-            onClick={() => setOpenMenu(!openMenu)}
+            onClick={() => setOpenMenu(false)}
           >
             {t('About.navTitle')}
           </Link>
@@ -43,7 +43,7 @@ const NavMenu = () => {
         <div className="nav-item">
           <Link
             to={{ pathname: '/sector', state: '건강관리' }}
-            className="nav-links" onClick={() => setOpenMenu(!openMenu)}
+            className="nav-links" onClick={() => setOpenMenu(false)}
           >
             {t('Sector.navTitle')}
           </Link>
@@ -58,7 +58,7 @@ const NavMenu = () => {
               }
             }}
             className="nav-links"
-            onClick={() => setOpenMenu(!openMenu)}
+            onClick={() => setOpenMenu(false)}
           >
             {t('Stock.navTitle')}
           </Link>

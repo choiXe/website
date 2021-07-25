@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import Sticky from 'react-stickynode';
 
 import './About.scss';
 import './Card.css';
@@ -55,14 +54,14 @@ const About = () => {
 
   return (
     <div id="about">
-      <Sticky top={20} innerClass="about-menu">
+      <div className="about-menu">
         <button
           onClick={() => setShowIntro(true)}
           id={showIntro ? 'active' : ''}
         >
           {t('About.menu-1')}
         </button>
-      </Sticky>
+      </div>
       <div id="intro">
         <div id="title">
           <h1>🧭 {t('About.title')}</h1>

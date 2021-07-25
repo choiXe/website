@@ -5,11 +5,10 @@
 #stock {
   display: grid;
   grid-template-columns: 26.3rem 4fr 1fr;
-  grid-template-rows: 2.5rem 30rem auto 15rem auto;
+  grid-template-rows: 2.5rem 30rem 15rem auto;
   grid-template-areas:
-  'name . return'
+  'name . addfavorite'
   'chart chart invinfo'
-  'companyinfo companyinfo companyinfo'
   'wordcloud listtable listtable'
   'invstat listtable listtable';
   gap: 2rem 2rem;
@@ -21,7 +20,7 @@
 }
 
 .add-button {
-  grid-area: return;
+  grid-area: addfavorite;
   text-align: right;
   align-self: center;
   button {
@@ -285,17 +284,15 @@
   }
 }
 #company-info {
-  //@include content-container;
-  grid-area: companyinfo;
   display: flex;
   flex-direction: column;
-  //padding: 2rem;
 
   h4 {
     display: flex;
     align-items: center;
     font-size: 1.1rem;
     color: $container-navy;
+
     span {
       font-size: 0.8rem;
       font-weight: normal;

@@ -18,15 +18,14 @@
       display: flex;
       flex-direction: column;
 
-      position: fixed;
-      left: 15rem;
-      top: 6rem;
+      position: absolute;
+      top: 5rem;
+      right: 1rem;
       border-radius: 5px;
       background-color: $navy;
-      opacity: 0.8;
       width: 10rem;
       height: fit-content;
-      z-index: 1;
+      z-index: 3;
       padding: 0.5rem 0.5rem 1.5rem;
 
       i {

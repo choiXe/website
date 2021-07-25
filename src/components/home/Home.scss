@@ -30,6 +30,10 @@
     padding: 1.5rem 2.5rem;
     background-color: $navy;
     color: white;
+
+    @include media(">=phone", "<tablet") {
+      padding: 1.5rem 0 1.5rem 2.5rem;
+    }
   }
   #favorites {
     grid-area: favorites;
@@ -42,5 +46,12 @@
     grid-area: trending;
     @include content-container;
     padding: 1.5rem 2.5rem;
+
+    @include media(">=phone", "<tablet") {
+      padding: 1.5rem 0;
+      h4 {
+        padding: 0 2.5rem;
+      }
+    }
   }
 }
