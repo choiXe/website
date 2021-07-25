@@ -1,17 +1,24 @@
-@import 'src/styles/_color.scss';
-@import 'src/styles/_mixin.scss';
+@import 'src/styles/color';
+@import 'src/styles/mixin';
+@import 'src/styles/variable';
 
 #stock {
   display: grid;
   grid-template-columns: 26.3rem 4fr 1fr;
   grid-template-rows: 2.5rem 30rem auto 15rem auto;
   grid-template-areas:
-    'name . return'
-    'chart chart invinfo'
-    'companyinfo companyinfo companyinfo'
-    'wordcloud listtable listtable'
-    'invstat listtable listtable';
+  'name . return'
+  'chart chart invinfo'
+  'companyinfo companyinfo companyinfo'
+  'wordcloud listtable listtable'
+  'invstat listtable listtable';
   gap: 2rem 2rem;
+
+  @include media(">=phone", "<tablet") {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
 }
 
 .add-button {
@@ -20,12 +27,15 @@
   align-self: center;
   button {
     border: 0;
-    font-size: 17px;
+    font-size: 1.1rem;
     color: #707070;
     background-color: #f2f2f2;
   }
   p {
     color: #707070;
+  }
+  @include media(">=phone", "<tablet") {
+    align-self: flex-end;
   }
 }
 
@@ -33,12 +43,17 @@
   grid-area: name;
   display: flex;
   align-items: center;
-  font-size: 30px;
+  font-size: 1.9rem;
+
   & .id {
-    font-size: 20px;
+    font-size: 1.3rem;
     font-weight: normal;
     color: #707070;
     margin-left: 0.8rem;
+  }
+  @include media(">=phone", "<tablet") {
+    flex-direction: column-reverse;
+    align-items: flex-start;
   }
 }
 
@@ -49,45 +64,62 @@
   grid-template-columns: 1fr 4fr;
   padding: 2.5rem;
 
+  @include media(">=phone", "<tablet") {
+    display: block;
+    padding: 0 2.5rem;
+  }
   .numbers {
+
+    @include media(">=phone", "<tablet") {
+      display: flex;
+      justify-content: space-around;
+      margin: 2rem 0;
+    }
     p {
       color: $sub-text;
       margin-top: 3rem;
-      font-size: 17px;
+      font-size: 1.1rem;
+      @include media(">=phone", "<tablet") {
+        margin-top: 0rem;
+      }
     }
     h4 {
       color: $container-navy;
     }
     .yield {
       display: flex;
-      font-size: 87px;
+      font-size: 5.4rem;
       margin-top: 0.7rem;
+
       .percent {
-        font-size: 40px;
-        padding-top: 10px;
-        padding-left: 10px;
+        font-size: 2.5rem;
+        padding-top: 0.6rem;
+        padding-left: 0.6rem;
       }
     }
     .price-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
 
+      @include media(">=phone", "<tablet") {
+        display: flex;
+        flex-direction: column;
+      }
       p {
-        font-size: 12px;
+        font-size: 0.8rem;
       }
       h4 {
         margin-top: 0.5rem;
-        font-size: 20px;
+        font-size: 1.3rem;
       }
     }
     .score-container {
-      margin-top: -1.5rem;
       p {
-        font-size: 12px;
+        font-size: 0.8rem;
       }
       h4 {
         margin-top: 0.5rem;
-        font-size: 20px;
+        font-size: 1.3rem;
       }
       .tooltip {
         display: inline-block;
@@ -95,22 +127,22 @@
         position: relative;
         cursor: help;
         color: #f2f2f2;
-        font-size: 15px;
+        font-size: 0.9rem;
         border-bottom: 1px dashed #888888;
-        padding-bottom: 1px;
+        padding-bottom: 0.06rem;
         margin-right: 1.75rem;
 
         .top {
-          width: 220px;
+          width: 13.8rem;
           top: 50%;
           left: 50%;
-          margin-left: 20px;
+          margin-left: 1.3rem;
           transform: translate(-30%, -100%);
           padding: 0;
           color: #ffffff;
           background-color: #303030;
           font-weight: normal;
-          font-size: 13px;
+          font-size: 0.8rem;
           border-radius: 12px;
           position: absolute;
           box-sizing: border-box;
@@ -126,8 +158,8 @@
         }
 
         .text-content {
-          padding-left: 30px;
-          padding-right: 30px;
+          padding-left: 1.9rem;
+          padding-right: 1.9rem;
           text-align: left;
           #bottom-margin {
             height: 1.5rem;
@@ -148,19 +180,25 @@
       flex-direction: row;
       justify-content: space-evenly;
 
+      @include media(">=phone", "<tablet") {
+        width: 100%;
+      }
       .stat-item {
-        font-size: 14px;
+        font-size: 0.9rem;
         display: flex;
         color: #666666;
 
         p {
           color: $sub-text;
-          padding-left: 4px;
+          padding-left: 0.3rem;
         }
       }
     }
     .chart {
       width: 50vw;
+      @include media(">=phone", "<tablet") {
+        width: 100%;
+      }
     }
   }
 }
@@ -172,23 +210,35 @@
   display: grid;
   grid-template-rows: 1fr 8fr;
 
+  @include media(">=phone", "<tablet") {
+    grid-template: none;
+  }
   h4 {
     padding-top: 0.5rem;
-    font-size: 18px;
+    font-size: 1.1rem;
+    @include media(">=phone", "<tablet") {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
   }
   .inv-info-items {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 1rem;
+
+    @include media(">=phone", "<tablet") {
+      display: grid;
+      grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+    }
     h5 {
       color: #858585;
       font-weight: normal;
-      font-size: 12px;
+      font-size: 0.8rem;
     }
     p {
       font-weight: bold;
-      font-size: 18px;
+      font-size: 1.1rem;
     }
   }
   .tooltip {
@@ -197,11 +247,11 @@
     position: relative;
     cursor: help;
     color: #f2f2f2;
-    font-size: 15px;
+    font-size: 0.9rem;
     border-bottom: 1px dashed #888888;
 
     .top {
-      width: 200px;
+      width: 12.5rem;
       top: -50%;
       left: -125%;
       transform: translate(-30%, -100%);
@@ -209,7 +259,7 @@
       color: #ffffff;
       background-color: #303030;
       font-weight: normal;
-      font-size: 13px;
+      font-size: 0.8rem;
       border-radius: 12px;
       position: absolute;
       box-sizing: border-box;
@@ -225,8 +275,8 @@
     }
 
     .text-content {
-      padding-left: 30px;
-      padding-right: 30px;
+      padding-left: 1.9rem;
+      padding-right: 1.9rem;
       text-align: center;
       #bottom-margin {
         height: 1.5rem;
@@ -244,10 +294,10 @@
   h4 {
     display: flex;
     align-items: center;
-    font-size: 18px;
+    font-size: 1.1rem;
     color: $container-navy;
     span {
-      font-size: 12px;
+      font-size: 0.8rem;
       font-weight: normal;
       color: $sub-text;
       margin-left: 1rem;
@@ -255,17 +305,20 @@
   }
   p {
     align-self: left;
-    font-size: 15px;
+    font-size: 0.9rem;
     padding-top: 1rem;
     padding-left: 1.5rem;
     white-space: pre-line;
-    letter-spacing: 0px;
-    line-height: 25px;
+    letter-spacing: 0;
+    line-height: 1.6rem;
   }
 }
 #inv-stat {
   grid-area: invstat;
 
+  @include media(">=phone", "<tablet") {
+    order: 1;
+  }
   .inv-stat-description {
     @include rounded-button;
     @include sub-heading;
@@ -273,7 +326,7 @@
     color: white;
     padding: 0.7rem 1.5rem;
     margin-bottom: 1rem;
-    font-size: 18px;
+    font-size: 1.1rem;
   }
   .inv-stat-title {
     display: grid;
@@ -281,7 +334,7 @@
     justify-items: center;
     color: $sub-text;
     margin-bottom: 0.5rem;
-    font-size: 15px;
+    font-size: 0.9rem;
   }
   .inv-list {
     @include content-container;
@@ -303,6 +356,9 @@
   .list-button {
     grid-area: listbutton;
 
+    @include media(">=phone", "<tablet") {
+      display: flex;
+    }
     button {
       @include rounded-button;
       @include sub-heading;
@@ -311,9 +367,12 @@
       margin-right: 1rem;
       border: none;
       padding: 0.7rem 1.5rem;
-      font-size: 18px;
+      font-size: 1.1rem;
       &:hover {
         @include button-hover;
+      }
+      @include media(">=phone", "<tablet") {
+        padding: 0.7rem 1rem;
       }
     }
     .active {
@@ -328,14 +387,14 @@
         display: grid;
         grid-template-columns: 1fr 2.4fr 0.8fr repeat(2, 1fr);
         column-gap: 1.2rem;
-        font-size: 15px;
+        font-size: 0.9rem;
       }
 
       &.news {
         display: grid;
         grid-template-columns: 1fr 5fr;
         column-gap: 1.2rem;
-        font-size: 15px;
+        font-size: 0.9rem;
       }
     }
     .list-content {
