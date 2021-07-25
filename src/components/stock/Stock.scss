@@ -5,16 +5,15 @@
 #stock {
   display: grid;
   grid-template-columns: 26.3rem 4fr 1fr;
-  grid-template-rows: 2.5rem 30rem auto 15rem auto;
+  grid-template-rows: 2.5rem 30rem 15rem auto;
   grid-template-areas:
-  'name . return'
-  'chart chart invinfo'
-  'companyinfo companyinfo companyinfo'
-  'wordcloud listtable listtable'
-  'invstat listtable listtable';
+    'name . return'
+    'chart chart invinfo'
+    'wordcloud listtable listtable'
+    'invstat listtable listtable';
   gap: 2rem 2rem;
 
-  @include media(">=phone", "<tablet") {
+  @include media('>=phone', '<tablet') {
     display: flex;
     flex-direction: column;
   }
@@ -33,7 +32,7 @@
   p {
     color: #707070;
   }
-  @include media(">=phone", "<tablet") {
+  @include media('>=phone', '<tablet') {
     align-self: flex-end;
   }
 }
@@ -50,7 +49,7 @@
     color: #707070;
     margin-left: 0.8rem;
   }
-  @include media(">=phone", "<tablet") {
+  @include media('>=phone', '<tablet') {
     flex-direction: column-reverse;
     align-items: flex-start;
   }
@@ -63,13 +62,12 @@
   grid-template-columns: 1fr 4fr;
   padding: 2.5rem;
 
-  @include media(">=phone", "<tablet") {
+  @include media('>=phone', '<tablet') {
     display: block;
     padding: 0 2.5rem;
   }
   .numbers {
-
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       display: flex;
       justify-content: space-around;
       margin: 2rem 0;
@@ -78,7 +76,7 @@
       color: $sub-text;
       margin-top: 3rem;
       font-size: 1.1rem;
-      @include media(">=phone", "<tablet") {
+      @include media('>=phone', '<tablet') {
         margin-top: 0rem;
       }
     }
@@ -100,7 +98,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
 
-      @include media(">=phone", "<tablet") {
+      @include media('>=phone', '<tablet') {
         display: flex;
         flex-direction: column;
       }
@@ -179,7 +177,7 @@
       flex-direction: row;
       justify-content: space-evenly;
 
-      @include media(">=phone", "<tablet") {
+      @include media('>=phone', '<tablet') {
         width: 100%;
       }
       .stat-item {
@@ -195,7 +193,7 @@
     }
     .chart {
       width: 50vw;
-      @include media(">=phone", "<tablet") {
+      @include media('>=phone', '<tablet') {
         width: 100%;
       }
     }
@@ -209,13 +207,13 @@
   display: grid;
   grid-template-rows: 1fr 8fr;
 
-  @include media(">=phone", "<tablet") {
+  @include media('>=phone', '<tablet') {
     grid-template: none;
   }
   h4 {
     padding-top: 0.5rem;
     font-size: 1.1rem;
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       text-align: left;
       margin-bottom: 1rem;
     }
@@ -226,7 +224,7 @@
     justify-content: space-between;
     padding-bottom: 1rem;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       display: grid;
       grid-template: repeat(3, 1fr) / repeat(2, 1fr);
     }
@@ -284,39 +282,10 @@
     }
   }
 }
-#company-info {
-  //@include content-container;
-  grid-area: companyinfo;
-  display: flex;
-  flex-direction: column;
-  //padding: 2rem;
-
-  h4 {
-    display: flex;
-    align-items: center;
-    font-size: 1.1rem;
-    color: $container-navy;
-    span {
-      font-size: 0.8rem;
-      font-weight: normal;
-      color: $sub-text;
-      margin-left: 1rem;
-    }
-  }
-  p {
-    align-self: left;
-    font-size: 0.9rem;
-    padding-top: 1rem;
-    padding-left: 1.5rem;
-    white-space: pre-line;
-    letter-spacing: 0;
-    line-height: 1.6rem;
-  }
-}
 #inv-stat {
   grid-area: invstat;
 
-  @include media(">=phone", "<tablet") {
+  @include media('>=phone', '<tablet') {
     order: 1;
   }
   .inv-stat-description {
@@ -356,7 +325,7 @@
   .list-button {
     grid-area: listbutton;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       display: flex;
     }
     button {
@@ -371,7 +340,7 @@
       &:hover {
         @include button-hover;
       }
-      @include media(">=phone", "<tablet") {
+      @include media('>=phone', '<tablet') {
         padding: 0.7rem 1rem;
       }
     }
@@ -400,6 +369,16 @@
     .list-content {
       @include content-container;
       padding: 1rem;
+      #company-info {
+        padding: 1rem;
+        span {
+          font-size: 25px;
+        }
+        p {
+          padding-top: 1rem;
+          line-height: 25px;
+        }
+      }
     }
   }
 }
