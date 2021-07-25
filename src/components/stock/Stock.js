@@ -261,19 +261,6 @@ const Stock = ({ location }) => {
               <p>{stockData.roe + '%'}</p>
             </div>
           </div>
-          <div id="company-info">
-            <h4>
-              {t('Stock.companyInfo')}
-              <span>
-                {'WICS: ' +
-                  t(
-                    'Sector.Highchart.' +
-                      stockData.wicsSectorName.replace(/ /g, '')
-                  )}
-              </span>
-            </h4>
-            <p>{stockData.companySummary}</p>
-          </div>
           <div id="inv-stat">
             <div className="inv-stat-description">
               {t('Stock.InvStat.title')}
@@ -318,6 +305,14 @@ const Stock = ({ location }) => {
               >
                 {t('Stock.FinancialInfo.title')}
               </button>
+              <button
+                className={listType === 'companyInfo' ? 'active' : ''}
+                onClick={(e) => {
+                  setListType('companyInfo');
+                }}
+              >
+                {t('Stock.companyInfo')}
+              </button>
             </div>
             <div className="list-table">
               <div
@@ -333,6 +328,19 @@ const Stock = ({ location }) => {
               <div className="list-content">
                 {listType === 'financial' ? (
                   <FinancialInfo stockId={stockId} stockName={stockName} />
+                ) : listType === 'companyInfo' ? (
+                  <div id="company-info">
+                    <h4>
+                      <span>
+                        {'WICS: ' +
+                          t(
+                            'Sector.Highchart.' +
+                              stockData.wicsSectorName.replace(/ /g, '')
+                          )}
+                      </span>
+                    </h4>
+                    <p>{stockData.companySummary}</p>
+                  </div>
                 ) : (
                   <InfiniteScroll dataLength={40} height="40rem">
                     {listType === 'analyst' ? (

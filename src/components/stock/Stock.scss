@@ -235,11 +235,11 @@
   }
 }
 #company-info {
-  @include content-container;
+  //@include content-container;
   grid-area: companyinfo;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  //padding: 2rem;
 
   h4 {
     display: flex;
