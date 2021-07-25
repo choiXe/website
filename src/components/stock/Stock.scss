@@ -85,7 +85,7 @@
       margin-top: 3rem;
       font-size: 1.1rem;
       @include media('>=phone', '<tablet') {
-        margin-top: 0rem;
+        margin-top: 1.5rem;
       }
     }
     h4 {
@@ -95,6 +95,11 @@
       display: flex;
       font-size: 5.4rem;
       margin-top: 0.7rem;
+      margin-bottom: 2rem;
+      @include media('>=phone', '<tablet') {
+        font-size: 7rem;
+        margin: 1rem 0;
+      }
 
       .percent {
         font-size: 2.5rem;
@@ -112,6 +117,7 @@
       }
       p {
         font-size: 0.8rem;
+        margin-top: 1.5rem;
       }
       h4 {
         margin-top: 0.5rem;
@@ -121,6 +127,7 @@
     .score-container {
       p {
         font-size: 0.8rem;
+        margin-top: 1.5rem;
       }
       h4 {
         margin-top: 0.5rem;
@@ -226,7 +233,9 @@
     font-size: 1.1rem;
     @include media('>=phone', '<tablet') {
       text-align: left;
+      font-size: 1.5rem;
       margin-bottom: 1rem;
+      margin-left: 1rem;
     }
   }
   .inv-info-items {
@@ -238,57 +247,82 @@
     @include media('>=phone', '<tablet') {
       display: grid;
       grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+      margin: 0.5rem;
     }
-    h5 {
-      color: #858585;
-      font-weight: normal;
-      font-size: 0.8rem;
-    }
-    p {
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-    }
-  }
-  .tooltip {
-    display: inline-block;
-    align-self: center;
-    position: relative;
-    cursor: help;
-    color: #f2f2f2;
-    font-size: 0.9rem;
-    border-bottom: 1px dashed #888888;
-
-    .top {
-      width: 12.5rem;
-      top: -50%;
-      left: -125%;
-      transform: translate(-30%, -100%);
-      padding: 0;
-      color: #ffffff;
-      background-color: #303030;
-      font-weight: normal;
-      font-size: 0.8rem;
-      border-radius: 12px;
-      position: absolute;
-      box-sizing: border-box;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.8s;
-    }
-
-    &:hover .top {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .text-content {
-      padding-left: 1.9rem;
-      padding-right: 1.9rem;
-      text-align: center;
-      #bottom-margin {
-        height: 1.5rem;
+    div {
+      @include media('>=phone', '<tablet') {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0.4rem 0.5rem;
+        border-bottom: 1px solid #e8e8e8;
+      }
+      h5 {
+        color: #858585;
+        font-weight: normal;
+        font-size: 0.8rem;
+        @include media('>=phone', '<tablet') {
+          color: #9aa0a3;
+          text-align: left;
+          align-self: center;
+          font-size: 1.2rem;
+        }
+      }
+      p {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+        @include media('>=phone', '<tablet') {
+          text-align: right;
+          align-self: center;
+          margin-top: 0rem;
+          font-size: 1.2rem;
+        }
+      }
+      .tooltip {
+        display: inline-block;
+        align-self: center;
+        position: relative;
+        cursor: help;
+        color: #f2f2f2;
+        font-size: 0.9rem;
+        border-bottom: 1px dashed #888888;
+        @include media('>=phone', '<tablet') {
+          border-bottom: 0;
+          margin-left: 0;
+        }
+    
+        .top {
+          width: 12.5rem;
+          top: -50%;
+          left: -125%;
+          transform: translate(-30%, -100%);
+          padding: 0;
+          color: #ffffff;
+          background-color: #303030;
+          font-weight: normal;
+          font-size: 0.8rem;
+          border-radius: 12px;
+          position: absolute;
+          box-sizing: border-box;
+          box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.8s;
+        }
+    
+        &:hover .top {
+          visibility: visible;
+          opacity: 1;
+        }
+    
+        .text-content {
+          padding-left: 1.9rem;
+          padding-right: 1.9rem;
+          text-align: center;
+          #bottom-margin {
+            height: 1.5rem;
+          }
+        }
       }
     }
   }

@@ -70,10 +70,10 @@ const Stock = ({ location }) => {
     const newsTitle = [t('Stock.News.date'), t('Stock.News.news')];
     const titleList =
       listType === 'analyst'
-      ? reportTitle
-      : listType === 'news'
-      ? newsTitle
-      : '';
+        ? reportTitle
+        : listType === 'news'
+        ? newsTitle
+        : '';
 
     const addFavorite = (event) => {
       let favorites = JSON.parse(localStorage.getItem('favorites'));
@@ -92,6 +92,14 @@ const Stock = ({ location }) => {
         setSuccess(true);
       }
     };
+
+    let wicsSectorName;
+
+    try {
+      wicsSectorName = stockData.wicsSectorName.replace(/ /g, '');
+    } catch (e) {
+      wicsSectorName = 'null';
+    }
 
     return (
       <div id="stock">
@@ -113,10 +121,7 @@ const Stock = ({ location }) => {
           <div className="numbers">
             <div>
               <p>{t('Stock.Caption.avgYield')} </p>
-              <h1
-                className="yield"
-                style={calColor(stockData.expYield, 0)}
-              >
+              <h1 className="yield" style={calColor(stockData.expYield, 0)}>
                 {Math.round(stockData.expYield)}
                 <div className="percent">%</div>
               </h1>
@@ -189,8 +194,8 @@ const Stock = ({ location }) => {
                   {t('Stock.Caption.rate')}
                   <span style={calColor(stockData.changeRate, 0)}>
                     {(stockData.changeRate >= 0 ? ' +' : ' ') +
-                        stockData.changeRate +
-                        '%'}
+                      stockData.changeRate +
+                      '%'}
                   </span>
                 </p>
               </div>
@@ -270,9 +275,7 @@ const Stock = ({ location }) => {
           </div>
         </div>
         <div id="inv-stat">
-          <div className="inv-stat-description">
-            {t('Stock.InvStat.title')}
-          </div>
+          <div className="inv-stat-description">{t('Stock.InvStat.title')}</div>
           <div className="inv-stat-title">
             {invStatTitle.map((title) => (
               <div key={title}>{title}</div>
@@ -325,42 +328,36 @@ const Stock = ({ location }) => {
           <div className="list-table">
             <div
               className={
-                listType === 'analyst'
-                  ? 'list-title report'
-                  : 'list-title news'
+                listType === 'analyst' ? 'list-title report' : 'list-title news'
               }
             >
               {titleList.length > 0 &&
-                  titleList.map((title) => <div key={title}> {title}</div>)}
+                titleList.map((title) => <div key={title}> {title}</div>)}
             </div>
             <div className="list-content">
-              {listType === 'financial' ? 
+              {listType === 'financial' ? (
                 <FinancialInfo stockId={stockId} stockName={stockName} />
-                : listType === 'companyInfo' ? (
-                  <div id="company-info">
-                    <h4>
-                      <span>
-                        {'WICS: ' +
-                            t(
-                              'Sector.Highchart.' +
-                              stockData.wicsSectorName.replace(/ /g, '')
-                            )}
-                      </span>
-                    </h4>
-                    <p>{stockData.companySummary}</p>
-                  </div>
-                ) : (
-                  <InfiniteScroll dataLength={40} height="40rem">
-                    {listType === 'analyst' ? (
-                      <ReportList
-                        dataSet={stockData.reportList}
-                        stockName={stockData.name}
-                      />
-                    ) : (
-                      <NewsList dataSet={stockData.news} />
-                    )}
-                  </InfiniteScroll>
-                )}
+              ) : listType === 'companyInfo' ? (
+                <div id="company-info">
+                  <h4>
+                    <span>
+                      {'WICS: ' + t('Sector.Highchart.' + wicsSectorName)}
+                    </span>
+                  </h4>
+                  <p>{stockData.companySummary}</p>
+                </div>
+              ) : (
+                <InfiniteScroll dataLength={40} height="40rem">
+                  {listType === 'analyst' ? (
+                    <ReportList
+                      dataSet={stockData.reportList}
+                      stockName={stockData.name}
+                    />
+                  ) : (
+                    <NewsList dataSet={stockData.news} />
+                  )}
+                </InfiniteScroll>
+              )}
             </div>
           </div>
         </div>
