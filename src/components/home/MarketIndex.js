@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner';
 
 import { numSeperator, calColor } from '../tools/formatter';
 
-import './StockMarket.scss';
+import './MarketIndex.scss';
 
 import china from '../../images/flag/china.png';
 import germany from '../../images/flag/germany.png';
@@ -14,7 +14,7 @@ import korea from '../../images/flag/korea.png';
 import uk from '../../images/flag/uk.png';
 import us from '../../images/flag/us.png';
 
-const StockMarket = ({ data }) => {
+const MarketIndex = ({ data }) => {
   const { t } = useTranslation();
   const globalOrder = [
     {
@@ -132,4 +132,4 @@ const StockMarket = ({ data }) => {
   }
 };
 
-export default StockMarket;
+export default MarketIndex;

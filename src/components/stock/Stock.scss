@@ -64,7 +64,7 @@
 }
 
 #stock-chart {
-  @include content-container;
+  @include section-default;
   grid-area: chart;
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -219,7 +219,7 @@
 }
 
 #inv-info {
-  @include content-container;
+  @include section-default;
   grid-area: invinfo;
   text-align: center;
   display: grid;
@@ -351,7 +351,7 @@
     font-size: 0.9rem;
   }
   .inv-list {
-    @include content-container;
+    @include section-default;
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
@@ -412,7 +412,7 @@
       }
     }
     .list-content {
-      @include content-container;
+      @include section-default;
       padding: 1rem;
       #company-info {
         padding: 1rem;

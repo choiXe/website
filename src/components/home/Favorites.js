@@ -85,7 +85,7 @@ const Favorites = () => {
   };
 
   return (
-    <>
+    <section id="">
       <h4>{t('Home.Favorites.title')}</h4>
       <div id="favorites-title">
         <div>{t('Home.Favorites.stock')}</div>

@@ -1,8 +1,15 @@
-@mixin nav-menu {
+@mixin sector-menu {
   padding: 2rem 1rem 2.3rem;
   position: sticky;
   top: 2rem;
   height: fit-content;
+}
+
+@mixin section-default {
+  border-radius: 15px;
+  box-shadow: 2px 2px 2px 2px $container-shadow;
+  background-color: $container-fill;
+  padding: 1rem;
 }
 
 @mixin rounded-button {
@@ -15,12 +22,6 @@
   color: $container-fill;
 }
 
-@mixin content-container {
-  border-radius: 15px;
-  box-shadow: 2px 2px 2px 2px $container-shadow;
-  background-color: $container-fill;
-  padding: 1rem;
-}
 
 @mixin sub-heading {
   font-size: 1.2rem;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import SectorMenu from '../sector/SectorMenu';
-import StockMarket from './StockMarket';
+import MarketIndex from './MarketIndex';
 import Favorites from './Favorites';
 import Trending from './Trending';
 
@@ -11,8 +11,8 @@ import data from '../../services/data';
 import './Home.scss';
 
 const Home = () => {
-  const { t } = useTranslation();
   const [mainData, setMainData] = useState(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     document.title = 'choiXe :: ' + t('Home.tabTitle');
@@ -21,18 +21,18 @@ const Home = () => {
 
   return (
     <div id="home">
-      <div className="menu">
+      <section className="menu">
         <SectorMenu selected="" />
-      </div>
-      <div id="stock-market">
-        <StockMarket data={mainData} />
-      </div>
-      <div id="favorites">
+      </section>
+      <section id="market-index">
+        <MarketIndex data={mainData} />
+      </section>
+      <section id="favorites">
         <Favorites />
-      </div>
-      <div id="trending">
+      </section>
+      <section id="trending">
         <Trending data={mainData} />
-      </div>
+      </section>
     </div>
   );
 };

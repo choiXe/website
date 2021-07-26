@@ -7,7 +7,7 @@
   grid-template-columns: 13rem 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-  'menu market favorites'
+  'menu index favorites'
   'menu trending trending';
   gap: 2rem 2rem;
 
@@ -17,16 +17,16 @@
   }
   .menu {
     grid-area: menu;
-    @include content-container;
-    @include nav-menu;
+    @include section-default;
+    @include sector-menu;
 
     @include media(">=phone", "<tablet") {
       position: static;
     }
   }
-  #stock-market {
-    grid-area: market;
-    @include content-container;
+  #market-index {
+    grid-area: index;
+    @include section-default;
     padding: 2rem 2.5rem;
     background-color: $navy;
     color: white;
@@ -37,14 +37,14 @@
   }
   #favorites {
     grid-area: favorites;
-    @include content-container;
+    @include section-default;
     padding: 1.5rem 2.5rem;
     display: flex;
     flex-direction: column;
   }
   #trending {
     grid-area: trending;
-    @include content-container;
+    @include section-default;
     padding: 1.5rem 2.5rem;
 
     @include media(">=phone", "<tablet") {

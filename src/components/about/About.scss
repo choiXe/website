@@ -12,7 +12,7 @@
     flex-direction: column;
   }
   .about-menu {
-    @include content-container;
+    @include section-default;
     height: fit-content;
     position: sticky;
     top: 2rem;
@@ -41,7 +41,7 @@
   }
 
   #intro {
-    @include content-container;
+    @include section-default;
     padding: 2rem;
 
     #title {
