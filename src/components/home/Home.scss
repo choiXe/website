@@ -7,11 +7,11 @@
   grid-template-columns: 13rem 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-  'menu market favorites'
-  'menu trending trending';
+    'menu market favorites'
+    'menu trending trending';
   gap: 2rem 2rem;
 
-  @include media(">=phone", "<tablet") {
+  @include media('>=phone', '<tablet') {
     display: flex;
     flex-direction: column;
   }
@@ -20,7 +20,7 @@
     @include content-container;
     @include nav-menu;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       position: static;
     }
   }
@@ -31,7 +31,7 @@
     background-color: $navy;
     color: white;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       padding: 1.5rem 0 1.5rem 2.5rem;
     }
   }
@@ -47,10 +47,10 @@
     @include content-container;
     padding: 1.5rem 2.5rem;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       padding: 1.5rem 0;
       h4 {
-        padding: 0 2.5rem;
+        padding: 0 1.5rem;
       }
     }
   }

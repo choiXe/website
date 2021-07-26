@@ -11,7 +11,7 @@ import './Trending.scss';
 const TrendingItem = ({ item }) => {
   return (
     <>
-      <p>{item.date}</p>
+      <p id="date">{item.date}</p>
       <Link
         to={{
           pathname: '/stock',
@@ -68,7 +68,6 @@ const Trending = ({ data }) => {
       <>
         <h4>{t('Home.Trending.title')}</h4>
         <div id="trending-title">
-          <div></div>
           {trendingTitles.map((title) => (
             <div key={title}>{title}</div>
           ))}
@@ -76,7 +75,6 @@ const Trending = ({ data }) => {
         <div id="trending-list">
           {trendingList.map((item, index) => (
             <li key={item.reportIdx}>
-              <p id="num">{index + 1}</p>
               <TrendingItem item={item} />
             </li>
           ))}
