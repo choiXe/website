@@ -106,7 +106,7 @@
       margin-top: 0.7rem;
       margin-bottom: 1.5rem;
       @include media('>=phone', '<tablet') {
-        margin: 0.7rem 0 0 0;
+        margin: 0;
       }
 
       .percent {
@@ -276,7 +276,7 @@
     div {
       @include media('>=phone', '<tablet') {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr auto;
         margin: 0.4rem 0.5rem;
         border-bottom: 1px solid #e8e8e8;
       }
@@ -299,8 +299,8 @@
           text-align: right;
           align-self: center;
           margin-top: 0rem;
-          font-size: 0.9rem;
-          font-weight: normal;
+          font-size: 1rem;
+          font-weight: bold;
         }
       }
       .tooltip {
@@ -410,6 +410,7 @@
       border: none;
       padding: 0.7rem 1.5rem;
       font-size: 1.1rem;
+      font-weight: normal;
       &:hover {
         @include button-hover;
       }
@@ -419,6 +420,7 @@
     }
     .active {
       @include button-hover;
+      font-weight: bold;
     }
   }
   .list-table {
@@ -431,7 +433,7 @@
         column-gap: 1.2rem;
         font-size: 0.9rem;
         @include media('>=phone', '<tablet') {
-          grid-template-columns: 1fr 2.5fr 1fr;
+          grid-template-columns: 0.8fr 3fr 1.1fr;
           padding: 1rem 2rem;
           div:nth-child(3) {
             display: none;
@@ -447,6 +449,9 @@
         grid-template-columns: 1fr 5fr;
         column-gap: 1.2rem;
         font-size: 0.9rem;
+        @include media('>=phone', '<tablet') {
+          padding: 1rem 2rem;
+        }
       }
     }
     .list-content {
