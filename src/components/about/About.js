@@ -140,8 +140,8 @@ const About = () => {
                       </div>
                     </div>
                     <p className="card__description">
-                      - {profile.school}<br></br>
-                      - {profile.experience}
+                      - {profile.school}
+                      <br></br>- {profile.experience}
                     </p>
                   </div>
                 </a>

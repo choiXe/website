@@ -7,7 +7,7 @@
   grid-template-columns: 1fr 5fr;
   gap: 2rem 2rem;
 
-  @include media(">=phone", "<tablet") {
+  @include media('>=phone', '<tablet') {
     display: flex;
     flex-direction: column;
   }
@@ -17,7 +17,7 @@
     position: sticky;
     top: 2rem;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       position: static;
     }
     button {

@@ -143,7 +143,7 @@ export function WordCloudOption(data) {
   return {
     exporting: { enabled: false },
     chart: {
-      height: '57%',
+      height: '58%',
       borderRadius: 14,
       shadow: {
         color: '#BFD1C6',

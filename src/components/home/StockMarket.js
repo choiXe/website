@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
 
-import { numSeperator, calColor } from '../tools/formatter';
+import { numSeperator } from '../tools/formatter';
 
 import './StockMarket.scss';
 
@@ -58,6 +58,15 @@ const StockMarket = ({ data }) => {
       key: '니케이 225'
     }
   ];
+
+  const calColor = (x, y) => {
+    if (x > y) {
+      return { color: '#e21414' };
+    } else if (x < y) {
+      return { color: '#246ded' };
+    }
+    return { color: '#ffffff' };
+  };
 
   const marketInfo = (index) => {
     const color = calColor(index.changeRate, 0);
