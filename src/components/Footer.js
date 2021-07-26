@@ -17,7 +17,7 @@ const Footer = () => {
           paddingTop: '30px',
           paddingBottom: '60px',
           marginTop: '4rem',
-          fontSize: '13px',
+          fontSize: '0.8rem',
           color: '#888'
         }}
       >
