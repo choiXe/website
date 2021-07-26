@@ -10,7 +10,7 @@ const Footer = () => {
   var line4 = '© 2021 choiXe. All Rights Reserverd';
 
   return (
-    <div style={{ marginTop: '2%' }}>
+    <div style={{ marginTop: '2%', marginLeft: '5%', marginRight: '5%' }}>
       <div
         style={{
           textAlign: 'center',
