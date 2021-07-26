@@ -79,15 +79,9 @@
     .numbers {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      margin: 1rem 0;
-      padding-left: 1rem;
-      .yield {
-        font-size: 7rem;
-        margin: 1rem 0;
-      }
+      margin: 0.5rem 0 0.5rem 0;
+      padding-left: 0.5rem;
       .price-container {
-        display: flex;
-        flex-direction: column;
         div:nth-child(2) {
           padding-left: 0.5rem;
         }
@@ -97,7 +91,7 @@
   .numbers {
     p {
       color: $sub-text;
-      margin-top: 3rem;
+      margin-top: 2.7rem;
       font-size: 1.1rem;
       @include media('>=phone', '<tablet') {
         margin-top: 1.5rem;
@@ -108,9 +102,12 @@
     }
     .yield {
       display: flex;
-      font-size: 5.4rem;
+      font-size: 6rem;
       margin-top: 0.7rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+      @include media('>=phone', '<tablet') {
+        margin: 0.7rem 0 0 0;
+      }
 
       .percent {
         font-size: 2.5rem;
@@ -201,9 +198,27 @@
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
+      padding-bottom: 0.5rem;
 
       @include media('>=phone', '<tablet') {
-        width: 100%;
+        align-self: flex-start;
+        justify-content: left;
+        padding: 0 1rem 2rem 0.5rem;
+        div {
+          margin-right: 1rem;
+          &:nth-child(1) {
+            display: none;
+          }
+          &:nth-child(2) {
+            display: none;
+          }
+          &:nth-child(3) {
+            display: none;
+          }
+          &:nth-child(4) {
+            display: none;
+          }
+        }
       }
       .stat-item {
         font-size: 0.9rem;
@@ -219,7 +234,8 @@
     .chart {
       width: 50vw;
       @include media('>=phone', '<tablet') {
-        width: 100%;
+        // width: 100%;
+        display: none;
       }
     }
   }
@@ -255,6 +271,7 @@
       display: grid;
       grid-template: repeat(3, 1fr) / repeat(2, 1fr);
       margin: 0.5rem;
+      padding-bottom: 0;
     }
     div {
       @include media('>=phone', '<tablet') {
@@ -277,11 +294,13 @@
       p {
         font-size: 1.1rem;
         margin-top: 0.5rem;
+        font-weight: bold;
         @include media('>=phone', '<tablet') {
           text-align: right;
           align-self: center;
           margin-top: 0rem;
           font-size: 0.9rem;
+          font-weight: normal;
         }
       }
       .tooltip {
@@ -298,6 +317,9 @@
         }
 
         .top {
+          @include media('>=phone', '<tablet') {
+            display: none;
+          }
           width: 12.5rem;
           top: -50%;
           left: -125%;

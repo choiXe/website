@@ -190,8 +190,8 @@ const Stock = ({ location }) => {
                 </p>
               </div>
               <div className="stat-item">
+                {t('Stock.Caption.rate')}
                 <p>
-                  {t('Stock.Caption.rate')}
                   <span style={calColor(stockData.changeRate, 0)}>
                     {(stockData.changeRate >= 0 ? ' +' : ' ') +
                       stockData.changeRate +

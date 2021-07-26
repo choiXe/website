@@ -231,7 +231,7 @@
     },
     "companyInfo": "Profile",
     "Analyst": {
-      "title": "Analyst Report",
+      "title": "Reports",
       "date": "Date",
       "report": "Title",
       "analyst": "Analyst",
@@ -251,7 +251,7 @@
       "inst": "Institutions"
     },
     "FinancialInfo": {
-      "title": "Financial Info",
+      "title": "Financials",
       "rv": "Revenue",
       "oProfit": "Operating Profit",
       "nProfit": "Net Profit",
