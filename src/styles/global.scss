@@ -1,6 +1,7 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
 @import 'color';
 @import 'variable';
+@import 'mixin';
 
 * {
   margin: 0;
@@ -37,6 +38,16 @@ body {
   }
   @include media("<desktop") {
     padding: 0 4vw;
+  }
+}
+
+// Sector Menu on the right side in Home and Sector page
+.sector-menu {
+  @include section-default;
+  @include sector-menu-default;
+
+  @include media('>=phone', '<tablet') {
+    position: static;
   }
 }
 

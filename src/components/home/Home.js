@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <div id="home">
-      <section className="menu">
+      <section className="sector-menu">
         <SectorMenu selected="" />
       </section>
       <section id="market-index">

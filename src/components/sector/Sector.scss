@@ -6,19 +6,11 @@
   display: grid;
   grid-template-columns: 13rem auto;
   gap: 2rem 2rem;
-
   @include media('>=phone', '<tablet') {
     display: flex;
     flex-direction: column;
   }
-  .menu {
-    @include section-default;
-    @include sector-menu;
 
-    @include media('>=phone', '<tablet') {
-      position: static;
-    }
-  }
   #info {
     display: flex;
     flex-direction: column;
