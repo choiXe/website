@@ -9,7 +9,7 @@
 }
 @mixin trending-grid-column-mobile {
   grid-template-columns: 1fr 0.9fr 0.9fr 0.7fr;
-  padding: 1rem 1.5rem;
+  padding: 1rem 0rem 1rem 1.5rem;
   column-gap: 0.8rem;
 }
 
@@ -33,7 +33,6 @@
 }
 
 #trending-list {
-  list-style-type: none;
 
   li {
     @include trending-grid-column;

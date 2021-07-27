@@ -40,7 +40,6 @@
 
   .nav-item {
     margin-left: 2.5rem;
-    list-style-type: none;
 
     @include media('>=phone', '<tablet') {
       margin: 0;

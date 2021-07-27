@@ -64,12 +64,12 @@ const Trending = ({ data }) => {
       <>
         <h4 className="section-titles">{t('Home.Trending.title')}</h4>
         <div id="trending-title">
-          {trendingTitles.map((title) => (
+          {trendingTitles.map(title => (
             <div key={title}>{title}</div>
           ))}
         </div>
         <div id="trending-list">
-          {trendingList.map((item, index) => (
+          {trendingList.map(item => (
             <li key={item.reportIdx}>
               <TrendingItem item={item} />
             </li>
