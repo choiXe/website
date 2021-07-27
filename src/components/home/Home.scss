@@ -36,8 +36,6 @@
     grid-area: favorites;
     @include section-default;
     padding: 1.5rem 2.5rem;
-    display: flex;
-    flex-direction: column;
     @include media('>=phone', '<tablet') {
       padding: 1.5rem;
     }
