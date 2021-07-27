@@ -2,8 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
 
-import { calColor } from '../tools/formatter';
-
 import './StockMarket.scss';
 
 import china from '../../images/flag/china.png';
