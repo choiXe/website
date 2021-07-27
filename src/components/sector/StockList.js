@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { numSeperator, calColor } from '../tools/formatter';
+import { calColor } from '../tools/formatter';
 
 import './StockList.scss';
 
@@ -22,18 +22,20 @@ const StockInfo = ({ stock }) => {
       className="stock-item"
     >
       <div className="name">{stock.stockName}</div>
-      <div>{numSeperator(stock.tradePrice)}</div>
-      <div style={calColor(stock.changePrice, 0)}>
-        {stock.changePrice >= 0
-          ? '▲ ' + numSeperator(stock.changePrice)
-          : '▼ ' + numSeperator(stock.changePrice).replace('-', '')}
+      <div>{stock.tradePrice}</div>
+      <div style={calColor(parseInt(stock.changePrice), 0)}>
+        {parseInt(stock.changePrice) >= 0
+          ? '▲ ' + stock.changePrice
+          : '▼ ' + stock.changePrice.replace('-', '')}
       </div>
       <div style={calColor(stock.changeRate, 0)}>
-        {stock.changeRate > 0 ? '+' + stock.changeRate : stock.changeRate}%
+        {stock.changeRate > 0 ? '+' : ''}
+        {stock.changeRate}%
       </div>
-      <div>{numSeperator(stock.priceAvg)}</div>
+      <div>{stock.priceAvg}</div>
       <div style={calColor(stock.expYield, 0)}>
-        {stock.expYield > 0 ? '+' + stock.expYield : stock.expYield}%
+        {stock.expYield > 0 ? '+' : '-'}
+        {stock.expYield}%
       </div>
       <div style={stock.score >= 50 ? { color: 'green' } : { color: 'red' }}>
         {stock.score}

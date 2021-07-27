@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { numSeperator, calColor } from '../tools/formatter';
+import { calColor } from '../tools/formatter';
 import data from '../../services/data';
 
 import './Favorites.scss';
@@ -65,13 +65,11 @@ const Favorites = () => {
               >
                 <p>{stock.name}</p>
                 <p style={calColor(favData[stock.stockId].rate, 0)}>
-                  {numSeperator(favData[stock.stockId].price)}
+                  {favData[stock.stockId].price}
                 </p>
                 <p style={calColor(favData[stock.stockId].rate, 0)}>
-                  {favData[stock.stockId].rate >= 0
-                    ? '+' + favData[stock.stockId].rate
-                    : favData[stock.stockId].rate}
-                  %
+                  {favData[stock.stockId].rate >= 0 ? '+' : ''}
+                  {favData[stock.stockId].rate}%
                 </p>
               </Link>
               <button onClick={removeFavorite} name={stock.name}>

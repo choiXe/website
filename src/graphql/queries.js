@@ -52,13 +52,13 @@ export const getMainInfo = /* GraphQL */ `
       }
       reports {
         date
-        tradePrice
-        yield
         priceGoal
         reportIdx
         reportName
         stockId
         stockName
+        tradePrice
+        yield
       }
     }
   }
@@ -93,9 +93,9 @@ export const getSectorInfo = /* GraphQL */ `
 export const getStockInfo = /* GraphQL */ `
   query GetStockInfo($startDate: String, $stockId: String) {
     getStockInfo(startDate: $startDate, stockId: $stockId) {
+      lastClosePrice
       changePrice
       changeRate
-      code
       companySummary
       expYield
       foreignRatio
@@ -103,12 +103,7 @@ export const getStockInfo = /* GraphQL */ `
       highPrice
       invStatistics {
         date
-        inKR {
-          foreign
-          individual
-          institutions
-        }
-        inVal {
+        value {
           foreign
           individual
           institutions
