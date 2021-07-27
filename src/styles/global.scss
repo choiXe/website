@@ -41,6 +41,10 @@ body {
   }
 }
 
+ul, ol {
+  list-style: none;
+}
+
 // Sector Menu on the right side in Home and Sector page
 .sector-menu {
   @include section-default;

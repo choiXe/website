@@ -1,18 +1,19 @@
 @import 'src/styles/_color.scss';
 @import 'src/styles/variable';
 
-h4 {
-  font-size: 1.1rem;
-  @include media('>=phone', '<tablet') {
-    font-size: 1.5rem;
-  }
-}
+/*
+ *h4 {
+ *  font-size: 1.1rem;
+ *  @include media('>=phone', '<tablet') {
+ *    font-size: 1.5rem;
+ *  }
+ *}
+ */
 
 #favorites-title {
   display: grid;
   grid-template-columns: 2fr 1.1fr 1.1fr 2rem;
   color: $sub-text;
-  font-size: 0.8rem;
   padding: 1.1rem 0 1.1rem 2.5rem;
   @include media('>=phone', '<tablet') {
     padding: 1rem 1.5rem;

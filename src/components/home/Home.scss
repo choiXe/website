@@ -10,6 +10,9 @@
   'menu trending trending';
   gap: 2rem 2rem;
 
+  .section-titles {
+    font-size: 1.1rem;
+  }
   @include media('>=phone', '<tablet') {
     display: flex;
     flex-direction: column;
@@ -21,15 +24,12 @@
   #market-index {
     grid-area: index;
     @include section-default;
-    padding: 2rem 2.5rem;
+    padding: 2rem 1.4rem 2rem 2.5rem;
     background-color: $navy;
     color: white;
 
     @include media('>=phone', '<tablet') {
-      padding: 2rem 0 2rem 2rem;
-      h4 {
-        font-size: 1.5rem;
-      }
+      padding: 2rem 0 2.2rem 2rem;
     }
   }
   #favorites {
@@ -46,13 +46,5 @@
     grid-area: trending;
     @include section-default;
     padding: 1.5rem 2.5rem;
-
-    @include media('>=phone', '<tablet') {
-      padding: 1.5rem 0;
-      h4 {
-        padding: 0 1.5rem;
-        font-size: 1.5rem;
-      }
-    }
   }
 }

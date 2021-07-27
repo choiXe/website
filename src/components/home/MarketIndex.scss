@@ -1,64 +1,63 @@
 @import 'src/styles/variable';
 
+@mixin index-grid-columns {
+  display: grid;
+  grid-template-columns: 4fr 3fr 2fr 2fr;
+  column-gap: 0.2rem;
+}
+@mixin index-grid-columns__mobile {
+  grid-template-columns: 2fr 1fr 0.9fr;
+}
+
 .index {
-  #market-title {
-    display: grid;
-    grid-template-columns: 2fr 1.3fr 1fr 0.6fr;
+
+  #index-column-titles {
+    @include index-grid-columns;
     font-size: 0.9rem;
+    margin-top: 0.5rem;
 
     @include media('>=phone', '<tablet') {
-      grid-template-columns: 2fr 1fr 1fr;
-      div:nth-child(3) {
+      @include index-grid-columns__mobile;
+      li:nth-child(2) { // Hide "change title"
         display: none;
       }
     }
+    li:first-child {
+      grid-column-start: 2; // Skip the first grid cell
+    }
   }
-  .market-table {
-    div {
-      display: grid;
-      grid-template-columns: 2fr 1.3fr 1fr 0.6fr;
+  .index-items {
+
+    li {
+      @include index-grid-columns;
       margin-top: 1.4rem;
+      align-items: center;
 
       @include media('>=phone', '<tablet') {
-        grid-template-columns: 2fr 1fr 1fr;
+        @include index-grid-columns__mobile;
         p:nth-child(3) {
-          display: none;
+          display: none; // Hide "change value" 
         }
       }
-      .market-title {
+      p {
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+      .index-name {
+        display: flex;
         font-size: 1.1rem;
         font-weight: normal;
-      }
-      p {
-        display: flex;
-        align-self: center;
-        font-size: 0.9rem;
-        font-weight: bold;
 
         img {
-          align-self: center;
           height: 1.2rem;
           margin-right: 0.6rem;
         }
-        &:first-child {
-          text-align: left;
-        }
       }
     }
   }
-
-  &.korea {
-    display: flex;
-    flex-direction: column;
-
-    h4 {
-      font-size: 1.1rem;
-    }
-  }
   &.global {
-    h4 {
-      font-size: 1.1rem;
-      margin: 2.5rem 0 1.5rem;
+    .section-titles {
+      margin-top: 2rem;
     }
   }
 }

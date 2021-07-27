@@ -84,7 +84,7 @@ const Favorites = () => {
 
   return (
     <section id="">
-      <h4>{t('Home.Favorites.title')}</h4>
+      <h4 className="section-titles">{t('Home.Favorites.title')}</h4>
       <div id="favorites-title">
         <div>{t('Home.Favorites.stock')}</div>
         <div>{t('Home.Favorites.price')}</div>
