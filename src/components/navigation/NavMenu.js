@@ -5,12 +5,16 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete, {
   createFilterOptions
 } from '@material-ui/core/Autocomplete';
+import Box from '@material-ui/core/Box';
+import Drawer from '@material-ui/core/Drawer';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 
 import stockList from './stocksData';
 import './NavMenu.scss';
 
 const NavMenu = () => {
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState({top: false});
 
   const { t } = useTranslation();
   let history = useHistory();
@@ -32,24 +36,66 @@ const NavMenu = () => {
     });
   };
 
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+      return;
+    }
+
+    setOpenDrawer({ [anchor]: open });
+  };
+
+  const list = (anchor) => (
+    <Box
+      sx={{ width: "auto" }}
+      role="presentation"
+      onClick={toggleDrawer(anchor, false)}
+      onKeyDown={toggleDrawer(anchor, false)}
+    >
+      <List>
+        <Link to="/about" className="nav-links">
+          <ListItem className="nav-item" style={{textAlign: "right"}}>
+            {t('About.navTitle')}
+          </ListItem>
+        </Link>
+        <Link
+          to={{ pathname: '/sector', state: '건강관리' }}
+          className="nav-links"
+        >
+          <ListItem className="nav-item">
+            {t('Sector.navTitle')}
+          </ListItem>
+        </Link>
+        <Link
+          to={{
+            pathname: '/stock',
+            state: {
+              stockId: '005930',
+              stockName: '삼성전자'
+            }
+          }}
+          className="nav-links"
+        >
+          <ListItem className="nav-item">
+            {t('Stock.navTitle')}
+          </ListItem>
+        </Link>
+      </List>
+    </Box>
+  );
+
   return (
     <div className="nav-list">
-      <div className={!openMenu ? "nav-items" : "nav-items mobile"}>
-        {openMenu ? 
-          <i className='far fa-window-close' onClick={()=>setOpenMenu(!openMenu)}></i>
-          : <></>
-        }
+      <div className= "nav-items">
         <div className="nav-item">
-          <Link to="/about" className="nav-links" 
-            onClick={() => setOpenMenu(false)}
-          >
+          <Link to="/about" className="nav-links">
             {t('About.navTitle')}
           </Link>
         </div>
         <div className="nav-item">
           <Link
             to={{ pathname: '/sector', state: '건강관리' }}
-            className="nav-links" onClick={() => setOpenMenu(false)}
+            className="nav-links"
           >
             {t('Sector.navTitle')}
           </Link>
@@ -64,7 +110,6 @@ const NavMenu = () => {
               }
             }}
             className="nav-links"
-            onClick={() => setOpenMenu(false)}
           >
             {t('Stock.navTitle')}
           </Link>
@@ -90,7 +135,17 @@ const NavMenu = () => {
         />
       </div>
       <div id="hamburger">
-        <i className='fas fa-bars' onClick={()=>setOpenMenu(!openMenu)}></i>
+        <i className='fas fa-bars'
+          onClick={toggleDrawer("top", true)}
+        ></i>
+        <Drawer
+          anchor="top"
+          open={openDrawer['top']}
+          onClose={toggleDrawer("top", false)}
+          className="drawer"
+        >
+          {list('top')}
+        </Drawer>
       </div>
     </div>
   );

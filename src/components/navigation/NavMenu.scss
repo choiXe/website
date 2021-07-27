@@ -13,29 +13,6 @@
     @include media('>=phone', '<tablet') {
       display: none;
     }
-    &.mobile {
-      display: flex;
-      flex-direction: column;
-
-      position: absolute;
-      top: 5rem;
-      right: 1rem;
-      border-radius: 5px;
-      background-color: $navy;
-      width: 10rem;
-      height: fit-content;
-      z-index: 3;
-      padding: 0.5rem 0.5rem 1.5rem;
-
-      i {
-        align-self: flex-end;
-        color: white;
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
   }
 
   .nav-item {
@@ -68,12 +45,26 @@
   }
   #hamburger {
     display: none;
+    font-size: 2rem;
     @include media('>=phone', '<tablet') {
       display: block;
       margin-left: 1rem;
     }
     &:hover {
       cursor: pointer;
+      color: grey;
     }
   }
+}
+.nav-item {
+  border-bottom: solid $background-color;
+  &:hover {
+    background-color: $background-color;
+  }
+}
+.nav-links {
+  text-decoration: none;
+  color: $sub-text;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
