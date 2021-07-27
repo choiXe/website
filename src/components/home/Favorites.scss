@@ -1,53 +1,41 @@
 @import 'src/styles/_color.scss';
 @import 'src/styles/variable';
 
-h4 {
-  font-size: 1.1rem;
-  @include media('>=phone', '<tablet') {
-    font-size: 1.5rem;
-  }
-}
-
-#favorites-title {
+#favorites-column-titles {
   display: grid;
   grid-template-columns: 2fr 1.1fr 1.1fr 2rem;
   color: $sub-text;
-  font-size: 0.8rem;
-  padding: 1.1rem 0 1.1rem 2.5rem;
+  padding: 1.1rem 0 1.1rem 2.2rem;
   @include media('>=phone', '<tablet') {
-    padding: 1rem 1.5rem;
+    padding: 1rem 0 1rem 2rem;
   }
 }
 
 #favorites-list {
-  li {
+  .favorite-item {
     background-color: #ebebeb;
     display: grid;
     grid-template-columns: auto 2rem;
     border-radius: 14px;
-    padding: 0.9rem 0 0.9rem 2.5rem;
+    padding: 0.9rem 0 0.9rem 2.2rem;
     margin-bottom: 0.9rem;
     box-shadow: 0 3px 6px #00000029;
-    color: black;
+
     @include media('>=phone', '<tablet') {
-      padding: 1rem 1.5rem;
+      padding: 1rem 0 1rem 2rem;
     }
-    .link {
+    .favorite-item-detail {
       display: grid;
       grid-template-columns: 2fr 1.1fr 1.1fr;
       text-decoration: none;
-      color: black;
-    }
-    p {
       font-weight: bold;
+      color: black;
+
     }
     button {
-      color: black;
-      float: right;
       margin-right: 1.3rem;
       border: none;
       background: none;
-      box-shadow: none;
       &:hover {
         color: $red;
         cursor: pointer;

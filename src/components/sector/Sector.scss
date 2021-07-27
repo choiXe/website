@@ -6,25 +6,17 @@
   display: grid;
   grid-template-columns: 13rem auto;
   gap: 2rem 2rem;
-
   @include media('>=phone', '<tablet') {
     display: flex;
     flex-direction: column;
   }
-  .menu {
-    @include content-container;
-    @include nav-menu;
 
-    @include media('>=phone', '<tablet') {
-      position: static;
-    }
-  }
   #info {
     display: flex;
     flex-direction: column;
 
     #sector-chart {
-      @include content-container;
+      @include section-default;
       background-color: $navy;
       color: white;
       padding: 1.5rem;
@@ -250,7 +242,7 @@
       }
     }
     #stock-list {
-      @include content-container;
+      @include section-default;
       display: flex;
       flex-direction: column;
       padding-bottom: 1.5rem;

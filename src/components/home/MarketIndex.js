@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
 
-import './StockMarket.scss';
+import './MarketIndex.scss';
 
 import china from '../../images/flag/china.png';
 import germany from '../../images/flag/germany.png';
@@ -12,9 +12,9 @@ import korea from '../../images/flag/korea.png';
 import uk from '../../images/flag/uk.png';
 import us from '../../images/flag/us.png';
 
-const StockMarket = ({ data }) => {
+const MarketIndex = ({ data }) => {
   const { t } = useTranslation();
-  const globalOrder = [
+  const globalIndices = [
     {
       src: us,
       name: t('Home.StockMarket.dow'),
@@ -66,7 +66,7 @@ const StockMarket = ({ data }) => {
     return { color: '#ffffff' };
   };
 
-  const marketInfo = (index) => {
+  const indexInfo = (index) => {
     const color = calColor(index.changeRate, 0);
     return (
       <>
@@ -93,49 +93,50 @@ const StockMarket = ({ data }) => {
       </div>
     );
   } else {
-    let globalIndicator = {};
+    const domesticIndices = data.kr;
+    let globalIndexMapping = {};
     for (let i = 0; i < data.global.length; i++) {
-      globalIndicator[data.global[i].name] = data.global[i];
+      globalIndexMapping[data.global[i].name] = data.global[i];
     }
 
     return (
       <>
         <div className="index korea">
-          <h4>{t('Home.StockMarket.domestic')}</h4>
-          <div id="market-title">
-            <div></div>
-            <div>{t('Home.StockMarket.price')}</div>
-            <div>{t('Home.StockMarket.change')}</div>
-            <div>{t('Home.StockMarket.changePercent')}</div>
-          </div>
-          <div className="market-table">
-            {data.kr.map((index) => (
-              <div key={index.name}>
-                <p className="market-title">
+          <h4 className="section-titles">{t('Home.StockMarket.domestic')}</h4>
+          <ul id="index-column-titles">
+            <li>{t('Home.StockMarket.price')}</li>
+            <li>{t('Home.StockMarket.change')}</li>
+            <li>{t('Home.StockMarket.changePercent')}</li>
+          </ul>
+          <ul className="index-items">
+            {domesticIndices.map(index => (
+              <li key={index.name}>
+                <p className="index-name">
                   <img src={korea} alt="flag" />
                   {t('Home.StockMarket.' + index.name)}
                 </p>
-                {marketInfo(index)}
-              </div>
+                {indexInfo(index)}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
         <div className="index global">
-          <h4>{t('Home.StockMarket.global')}</h4>
-          <div className="market-table">
-            {globalOrder.map((item, index) => (
-              <div key={index}>
-                <p className="market-title">
-                  <img src={item.src} alt="flag" /> {item.name}
+          <h4 className="section-titles">{t('Home.StockMarket.global')}</h4>
+          <ul className="index-items">
+            {globalIndices.map(index => (
+              <li key={index.name}>
+                <p className="index-name">
+                  <img src={index.src} alt="flag" /> 
+                  {index.name}
                 </p>
-                {marketInfo(globalIndicator[item.key])}
-              </div>
+                {indexInfo(globalIndexMapping[index.key])}
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </>
     );
   }
 };
 
-export default StockMarket;
+export default MarketIndex;

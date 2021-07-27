@@ -196,7 +196,7 @@ const Sector = ({ location }) => {
 
   return (
     <div id="sector">
-      <div className="menu">
+      <div className="sector-menu">
         <SectorMenu selected={curSector} selectHandler={setsSectorSelected} />
       </div>
       {renderContent(sectorData)}

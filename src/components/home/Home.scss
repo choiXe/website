@@ -5,60 +5,47 @@
 #home {
   display: grid;
   grid-template-columns: 13rem 1fr 1fr;
-  grid-template-rows: auto auto;
   grid-template-areas:
-    'menu market favorites'
-    'menu trending trending';
+  'menu index favorites'
+  'menu trending trending';
   gap: 2rem 2rem;
 
+  .section-titles {
+    font-size: 1.1rem;
+  }
   @include media('>=phone', '<tablet') {
     display: flex;
     flex-direction: column;
   }
-  .menu {
-    grid-area: menu;
-    @include content-container;
-    @include nav-menu;
 
-    @include media('>=phone', '<tablet') {
-      position: static;
-    }
+  .sector-menu {
+    grid-area: menu;
   }
-  #stock-market {
-    grid-area: market;
-    @include content-container;
-    padding: 2rem 2.5rem;
+  #market-index {
+    grid-area: index;
+    @include section-default;
+    padding: 2rem 1.4rem 2rem 2.5rem;
     background-color: $navy;
     color: white;
 
     @include media('>=phone', '<tablet') {
-      padding: 2rem 0 2rem 2rem;
-      h4 {
-        font-size: 1.5rem;
-      }
+      padding: 2rem 0 2.2rem 2rem;
     }
   }
   #favorites {
     grid-area: favorites;
-    @include content-container;
+    @include section-default;
     padding: 1.5rem 2.5rem;
-    display: flex;
-    flex-direction: column;
     @include media('>=phone', '<tablet') {
       padding: 1.5rem;
     }
   }
   #trending {
     grid-area: trending;
-    @include content-container;
+    @include section-default;
     padding: 1.5rem 2.5rem;
-
     @include media('>=phone', '<tablet') {
-      padding: 1.5rem 0;
-      h4 {
-        padding: 0 1.5rem;
-        font-size: 1.5rem;
-      }
+      padding: 1.5rem;
     }
   }
 }

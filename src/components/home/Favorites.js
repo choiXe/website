@@ -35,7 +35,7 @@ const Favorites = () => {
     }
   }, [favorites]);
 
-  const renderContent = (favoriteData) => {
+  const listFavorites = (favoriteData) => {
     if (!favoriteData || favoriteData.data.length === 0) {
       return (
         <div id="favorites-list">
@@ -53,15 +53,15 @@ const Favorites = () => {
       }
 
       return (
-        <div id="favorites-list">
+        <>
           {favorites.map((stock, index) => (
-            <li key={index}>
+            <li className="favorite-item"key={index}>
               <Link
                 to={{
                   pathname: '/stock',
                   state: { stockId: stock.stockId, stockName: stock.name }
                 }}
-                className="link"
+                className="favorite-item-detail"
               >
                 <p>{stock.name}</p>
                 <p style={calColor(favData[stock.stockId].rate, 0)}>
@@ -77,20 +77,22 @@ const Favorites = () => {
               </button>
             </li>
           ))}
-        </div>
+        </>
       );
     }
   };
 
   return (
     <>
-      <h4>{t('Home.Favorites.title')}</h4>
-      <div id="favorites-title">
+      <h4 className="section-titles">{t('Home.Favorites.title')}</h4>
+      <div id="favorites-column-titles">
         <div>{t('Home.Favorites.stock')}</div>
         <div>{t('Home.Favorites.price')}</div>
         <div>{t('Home.Favorites.change')}</div>
       </div>
-      {renderContent(favoriteData)}
+      <div id="favorites-list">
+        {listFavorites(favoriteData)}
+      </div>
     </>
   );
 };
