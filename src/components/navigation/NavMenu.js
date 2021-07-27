@@ -16,7 +16,7 @@ import './NavMenu.scss';
 
 import logo from '../../images/logo.png';
 
-const NavMenu = () => {
+const NavMenu = ({ lang, changeLang }) => {
   const [openDrawer, setOpenDrawer] = useState({top: false});
 
   const { t } = useTranslation();
@@ -89,6 +89,22 @@ const NavMenu = () => {
             {t('Stock.navTitle')}
           </ListItem>
         </Link>
+        <Divider />
+        <ListItem className="locale">
+          <button
+            className={lang === 'ko' ? 'active' : ''}
+            onClick={() => changeLang('ko')}
+          >
+            KO
+          </button>
+          |
+          <button
+            className={lang === 'en' ? 'active' : ''}
+            onClick={() => changeLang('en')}
+          >
+            EN
+          </button>
+        </ListItem>
       </List>
     </Box>
   );

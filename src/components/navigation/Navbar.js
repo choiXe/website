@@ -47,7 +47,7 @@ function Navbar() {
         </Link>
       </div>
       <div id="nav-right">
-        <NavMenu />
+        <NavMenu lang={lang} changeLang={changeLang}/>
       </div>
     </nav>
   );
