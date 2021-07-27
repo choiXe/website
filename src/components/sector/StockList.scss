@@ -15,7 +15,7 @@
   margin-top: 1rem;
 
   @include media('>=phone', '<tablet') {
-    grid-template-columns: 1.5fr repeat(3, 1fr) 0.7fr;
+    grid-template-columns: 1.4fr 1fr 0.8fr 1fr 0.8fr;
     padding: 1rem 0;
   }
 
@@ -24,5 +24,8 @@
   }
   .name {
     font-weight: bold;
+    @include media('>=phone', '<tablet') {
+      text-align: left;
+    }
   }
 }
