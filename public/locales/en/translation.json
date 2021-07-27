@@ -202,10 +202,10 @@
     },
     "Caption": {
       "avgYield": "Expected Yield",
-      "price": "Current Price",
+      "price": "Price",
       "consensus": "Price Target",
       "score": "Investment Score",
-      "close": "Previous Close: ",
+      "close": "Prev. Close: ",
       "open": "Open: ",
       "high": "High: ",
       "low": "Low: ",
@@ -218,11 +218,11 @@
       "volume": "Volume"
     },
     "InvInfo": {
-      "title": "Summary",
-      "marketCap": "Market Cap",
-      "52High": "52-Week High",
-      "52Low": "52-Week Low",
-      "foreign": "Foreign Share",
+      "title": "Stats",
+      "marketCap": "Mkt Cap",
+      "52High": "52 Wk High",
+      "52Low": "52 Wk Low",
+      "foreign": "Foreign Ratio",
       "per": "Its current share price relative to its per-share earnings",
       "pbr": "Market's valuation of a company relative to its book value",
       "roe": "Corporation's profitability in relation to stockholders’ equity",
@@ -231,7 +231,7 @@
     },
     "companyInfo": "Profile",
     "Analyst": {
-      "title": "Analyst Report",
+      "title": "Reports",
       "date": "Date",
       "report": "Title",
       "analyst": "Analyst",
@@ -241,7 +241,7 @@
     "News": {
       "title": "News",
       "date": "Date",
-      "news": "Title"
+      "news": "Title / Description"
     },
     "InvStat": {
       "title": "Investor Trend",
@@ -251,7 +251,7 @@
       "inst": "Institutions"
     },
     "FinancialInfo": {
-      "title": "Financial Info",
+      "title": "Financials",
       "rv": "Revenue",
       "oProfit": "Operating Profit",
       "nProfit": "Net Profit",

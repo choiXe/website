@@ -20,8 +20,7 @@ type DailyData {
 
 type DailyInv {
   date: String
-  inKR: InvKrObj
-  inVal: InvValObj
+  value: ValueObj
 }
 
 type FavoriteInfo {
@@ -53,22 +52,10 @@ type FinancialInfo {
 }
 
 type Indicator {
-  changePrice: Float
+  changePrice: String
   changeRate: Float
   name: String
-  tradePrice: Float
-}
-
-type InvKrObj {
-  foreign: String
-  individual: String
-  institutions: String
-}
-
-type InvValObj {
-  foreign: String
-  individual: String
-  institutions: String
+  tradePrice: String
 }
 
 type MainInfo {
@@ -78,7 +65,7 @@ type MainInfo {
 }
 
 type PriceRate {
-  price: Int
+  price: String
   rate: Float
   stockId: String
 }
@@ -108,7 +95,7 @@ type Report2 {
   stockId: String
   stockName: String
   tradePrice: String
-  yield: String
+  yield: Float
 }
 
 type SectorInfo {
@@ -118,44 +105,50 @@ type SectorInfo {
 }
 
 type StockInfo {
-  changePrice: Int
-  changeRate: Float
-  code: String
+  changePrice: String
+  changeRate: String
   companySummary: String
-  expYield: Float
-  foreignRatio: Float
-  high52wPrice: Int
-  highPrice: Int
+  expYield: String
+  foreignRatio: String
+  high52wPrice: String
+  highPrice: String
   invStatistics: [DailyInv]
-  low52wPrice: Int
-  lowPrice: Int
+  lastClosePrice: String
+  low52wPrice: String
+  lowPrice: String
   marketCap: String
   name: String
   news: [Article]
   newsTitles: String
-  openingPrice: Int
+  openingPrice: String
   pastData: [DailyData]
-  pbr: Float
-  per: Float
+  pbr: String
+  per: String
   priceAvg: String
   reportList: [Report]
-  roe: Float
+  roe: String
   score: String
-  tradePrice: Int
+  tradePrice: String
   wicsSectorName: String
 }
 
 type StockObj {
-  changePrice: Int
+  changePrice: String
   changeRate: Float
   count: Int
   expYield: Float
-  priceAvg: Int
+  priceAvg: String
   sSector: String
   score: String
   stockId: String
   stockName: String
-  tradePrice: Int
+  tradePrice: String
+}
+
+type ValueObj {
+  foreign: String
+  individual: String
+  institutions: String
 }
 
 type YieldObj {

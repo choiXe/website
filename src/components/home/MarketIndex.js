@@ -2,8 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
 
-import { numSeperator, calColor } from '../tools/formatter';
-
 import './MarketIndex.scss';
 
 import china from '../../images/flag/china.png';
@@ -59,16 +57,24 @@ const MarketIndex = ({ data }) => {
     }
   ];
 
+  const calColor = (x, y) => {
+    if (x > y) {
+      return { color: '#e21414' };
+    } else if (x < y) {
+      return { color: '#246ded' };
+    }
+    return { color: '#ffffff' };
+  };
+
   const marketInfo = (index) => {
     const color = calColor(index.changeRate, 0);
     return (
       <>
-        <p style={color}>{numSeperator(index.tradePrice)}</p>
+        <p style={color}>{index.tradePrice}</p>
+        <p style={color}>{index.changePrice}</p>
         <p style={color}>
-          {index.changePrice > 0 ? '+' + index.changePrice : index.changePrice}
-        </p>
-        <p style={color}>
-          {index.changeRate > 0 ? '+' + index.changeRate : index.changeRate}%
+          {index.changeRate > 0 ? '+' : ''}
+          {index.changeRate}%
         </p>
       </>
     );

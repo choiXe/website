@@ -1,5 +1,6 @@
 @import 'src/styles/_mixin.scss';
 @import 'src/styles/_color.scss';
+@import 'src/styles/variable';
 
 .invstat-item {
   display: grid;
@@ -7,7 +8,7 @@
   text-decoration: none;
   justify-items: center;
   margin-bottom: 2rem;
-  font-size: 17px;
+  font-size: 1rem;
 
   .blue {
     color: $blue;

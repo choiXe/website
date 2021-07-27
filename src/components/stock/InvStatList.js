@@ -9,14 +9,14 @@ const InvStatInfo = ({ data }) => {
   let individual, foreign, institutions;
   let invColor, invForeign, invInst;
 
-  if (data.inKR == null) {
+  if (data.value == null) {
     invColor = invForeign = invInst = 'red';
     [individual, foreign, institutions] = '---';
     date = '점검중';
   } else {
-    individual = data.inKR.individual;
-    foreign = data.inKR.foreign;
-    institutions = data.inKR.institutions;
+    individual = data.value.individual;
+    foreign = data.value.foreign;
+    institutions = data.value.institutions;
     invColor = individual.includes('+') ? 'red' : 'blue';
     invForeign = foreign.includes('+') ? 'red' : 'blue';
     invInst = institutions.includes('+') ? 'red' : 'blue';

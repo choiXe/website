@@ -6,7 +6,7 @@
     grid-template-columns: 2fr 1.3fr 1fr 0.6fr;
     font-size: 0.9rem;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       grid-template-columns: 2fr 1fr 1fr;
       div:nth-child(3) {
         display: none;
@@ -14,13 +14,12 @@
     }
   }
   .market-table {
-
     div {
       display: grid;
       grid-template-columns: 2fr 1.3fr 1fr 0.6fr;
       margin-top: 1.4rem;
 
-      @include media(">=phone", "<tablet") {
+      @include media('>=phone', '<tablet') {
         grid-template-columns: 2fr 1fr 1fr;
         p:nth-child(3) {
           display: none;
@@ -54,10 +53,6 @@
 
     h4 {
       font-size: 1.1rem;
-
-      @include media(">=phone", "<tablet") {
-        margin-bottom: 1rem;
-      }
     }
   }
   &.global {

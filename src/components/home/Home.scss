@@ -11,7 +11,7 @@
   'menu trending trending';
   gap: 2rem 2rem;
 
-  @include media(">=phone", "<tablet") {
+  @include media('>=phone', '<tablet') {
     display: flex;
     flex-direction: column;
   }
@@ -20,7 +20,7 @@
     @include section-default;
     @include sector-menu;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       position: static;
     }
   }
@@ -31,8 +31,11 @@
     background-color: $navy;
     color: white;
 
-    @include media(">=phone", "<tablet") {
-      padding: 1.5rem 0 1.5rem 2.5rem;
+    @include media('>=phone', '<tablet') {
+      padding: 2rem 0 2rem 2rem;
+      h4 {
+        font-size: 1.5rem;
+      }
     }
   }
   #favorites {
@@ -41,16 +44,20 @@
     padding: 1.5rem 2.5rem;
     display: flex;
     flex-direction: column;
+    @include media('>=phone', '<tablet') {
+      padding: 1.5rem;
+    }
   }
   #trending {
     grid-area: trending;
     @include section-default;
     padding: 1.5rem 2.5rem;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       padding: 1.5rem 0;
       h4 {
-        padding: 0 2.5rem;
+        padding: 0 1.5rem;
+        font-size: 1.5rem;
       }
     }
   }
