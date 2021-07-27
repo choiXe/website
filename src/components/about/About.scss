@@ -61,6 +61,9 @@
         padding-left: 15px;
         font-size: 15px;
         font-weight: 600;
+        @include media('>=phone', '<tablet') {
+          font-size: 1.2rem;
+        }
       }
     }
 
@@ -70,6 +73,9 @@
         line-height: 25px;
         font-size: 15px;
         font-weight: normal;
+        @include media('>=phone', '<tablet') {
+          font-size: 1.2rem;
+        }
       }
     }
 
@@ -80,6 +86,10 @@
     h1 {
       font-size: 30px;
       font-weight: bold;
+      @include media('>=phone', '<tablet') {
+        width: max-content;
+        font-size: 2.2rem;
+      }
     }
   }
 }
