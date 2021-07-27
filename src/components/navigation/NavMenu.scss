@@ -56,14 +56,24 @@
     }
   }
 }
+#topbar-logo {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  img {
+    height: 3rem;
+    margin-right: 1rem;
+  }
+}
 .nav-item {
-  border-bottom: solid $background-color;
   &:hover {
     background-color: $background-color;
   }
 }
 .nav-links {
   text-decoration: none;
-  color: $sub-text;
-  font-size: 1.5rem;
+  color: black;
+  font-size: 1.3rem;
+  font-weight: 500;
 }

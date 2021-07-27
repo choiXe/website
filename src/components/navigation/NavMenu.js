@@ -9,9 +9,12 @@ import Box from '@material-ui/core/Box';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import Divider from '@material-ui/core/Divider';
 
 import stockList from './stocksData';
 import './NavMenu.scss';
+
+import logo from '../../images/logo.png';
 
 const NavMenu = () => {
   const [openDrawer, setOpenDrawer] = useState({top: false});
@@ -51,13 +54,18 @@ const NavMenu = () => {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
+      style={{padding:"0 1rem"}}
     >
       <List>
+        <ListItem id="topbar-logo" >
+          <img src={logo} alt="choiXe logo" /> choiXe
+        </ListItem>
         <Link to="/about" className="nav-links">
-          <ListItem className="nav-item" style={{textAlign: "right"}}>
+          <ListItem className="nav-item">
             {t('About.navTitle')}
           </ListItem>
         </Link>
+        <Divider />
         <Link
           to={{ pathname: '/sector', state: '건강관리' }}
           className="nav-links"
@@ -66,6 +74,7 @@ const NavMenu = () => {
             {t('Sector.navTitle')}
           </ListItem>
         </Link>
+        <Divider />
         <Link
           to={{
             pathname: '/stock',
