@@ -2,7 +2,6 @@
 @import 'src/styles/mixin';
 @import 'src/styles/variable';
 
-
 .nav-list {
   display: flex;
   align-items: center;
@@ -11,7 +10,7 @@
   .nav-items {
     display: flex;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       display: none;
     }
     &.mobile {
@@ -43,7 +42,7 @@
     margin-left: 2.5rem;
     list-style-type: none;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       margin: 0;
       text-align: center;
     }
@@ -56,7 +55,7 @@
       &:hover {
         @include button-hover;
       }
-      @include media(">=phone", "<tablet") {
+      @include media('>=phone', '<tablet') {
         color: white;
       }
     }
@@ -64,16 +63,16 @@
   .search-bar {
     width: 15rem;
     margin-left: 3.1rem;
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       width: 10rem;
     }
   }
   #hamburger {
     display: none;
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       display: block;
       margin-left: 1rem;
-    } 
+    }
     &:hover {
       cursor: pointer;
     }

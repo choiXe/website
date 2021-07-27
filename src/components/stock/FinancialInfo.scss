@@ -1,3 +1,5 @@
+@import 'src/styles/variable';
+
 #financial {
   padding: 1rem;
   h6 {
@@ -6,6 +8,9 @@
     color: black;
     margin-bottom: -1.3rem;
     text-align: right;
+    @include media('>=phone', '<tablet') {
+      display: none;
+    }
   }
   h3 {
     font-size: 1.6rem;

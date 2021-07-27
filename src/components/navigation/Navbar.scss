@@ -6,8 +6,8 @@ nav {
   display: grid;
   grid-template-columns: min-content auto;
   grid-template-areas:
-  '. locale'
-  'nav-left nav-right';
+    '. locale'
+    'nav-left nav-right';
 
   #locale {
     grid-area: locale;

@@ -59,6 +59,15 @@ const StockMarket = ({ data }) => {
     }
   ];
 
+  const calColor = (x, y) => {
+    if (x > y) {
+      return { color: '#e21414' };
+    } else if (x < y) {
+      return { color: '#246ded' };
+    }
+    return { color: '#ffffff' };
+  };
+
   const marketInfo = (index) => {
     const color = calColor(index.changeRate, 0);
     return (

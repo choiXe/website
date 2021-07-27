@@ -10,14 +10,14 @@ const Footer = () => {
   var line4 = '© 2021 choiXe. All Rights Reserverd';
 
   return (
-    <div style={{ marginTop: '2%' }}>
+    <div style={{ marginTop: '2%', marginLeft: '5%', marginRight: '5%' }}>
       <div
         style={{
           textAlign: 'center',
           paddingTop: '30px',
           paddingBottom: '60px',
           marginTop: '4rem',
-          fontSize: '13px',
+          fontSize: '0.8rem',
           color: '#888'
         }}
       >
