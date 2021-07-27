@@ -93,7 +93,7 @@ const Favorites = () => {
         <div>{t('Home.Favorites.change')}</div>
       </div>
       {renderContent(favoriteData)}
-    </>
+    </section>
   );
 };
 
