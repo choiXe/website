@@ -181,7 +181,7 @@
       "rate": "Rate",
       "consensus": "Price Target",
       "upside": "Upside",
-      "score": "Inv Score"
+      "score": "Score"
     },
     "tooltip": {
       "mainTitle": "Help",

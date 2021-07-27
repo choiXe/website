@@ -181,7 +181,7 @@
       "rate": "변동률",
       "consensus": "목표가",
       "upside": "상승여력",
-      "score": "투자 점수"
+      "score": "점수"
     },
     "tooltip": {
       "mainTitle": "도움말",
