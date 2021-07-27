@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner';
 import { useTranslation } from 'react-i18next';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { numSeperator, calColor } from '../tools/formatter';
+import { calColor, strToNum } from '../tools/formatter';
 
 import StockChart from './StockChart';
 import InvStatList from './InvStatList';
@@ -53,7 +53,7 @@ const Stock = ({ location }) => {
       </div>
     );
   } else {
-    const priceY = stockData.tradePrice - stockData.changePrice;
+    const priceY = strToNum(stockData.lastClosePrice);
     const invStatTitle = [
       t('Stock.InvStat.date'),
       t('Stock.InvStat.indiv'),
@@ -121,8 +121,8 @@ const Stock = ({ location }) => {
           <div className="numbers">
             <div>
               <p>{t('Stock.Caption.avgYield')} </p>
-              <h1 className="yield" style={calColor(stockData.expYield, 0)}>
-                {Math.round(stockData.expYield)}
+              <h1 className="yield" style={calColor(parseFloat(stockData.expYield), 0)}>
+                {stockData.expYield}
                 <div className="percent">%</div>
               </h1>
             </div>
@@ -130,15 +130,11 @@ const Stock = ({ location }) => {
               <div className="price-container">
                 <div>
                   <p>{t('Stock.Caption.price')}</p>
-                  <h4>{numSeperator(stockData.tradePrice)}</h4>
+                  <h4>{stockData.tradePrice}</h4>
                 </div>
                 <div>
                   <p>{t('Stock.Caption.consensus')}</p>
-                  <h4>
-                    {stockData.priceAvg !== '의견 없음'
-                      ? numSeperator(stockData.priceAvg)
-                      : stockData.priceAvg}
-                  </h4>
+                  <h4>{stockData.priceAvg}</h4>
                 </div>
               </div>
               <div className="score-container">
@@ -161,41 +157,40 @@ const Stock = ({ location }) => {
             <div className="chart-stat">
               <div className="stat-item">
                 {t('Stock.Caption.close')}
-                <p>{numSeperator(priceY)}</p>
+                <p>{stockData.lastClosePrice}</p>
               </div>
               <div className="stat-item">
                 {t('Stock.Caption.open')}
-                <p style={calColor(stockData.openingPrice, priceY)}>
-                  {numSeperator(stockData.openingPrice)}
+                <p style={calColor(strToNum(stockData.openingPrice), priceY)}>
+                  {stockData.openingPrice}
                 </p>
               </div>
               <div className="stat-item">
                 {t('Stock.Caption.high')}
-                <p style={calColor(stockData.highPrice, priceY)}>
-                  {numSeperator(stockData.highPrice)}
+                <p style={calColor(strToNum(stockData.highPrice), priceY)}>
+                  {stockData.highPrice}
                 </p>
               </div>
               <div className="stat-item">
                 {t('Stock.Caption.low')}
-                <p style={calColor(stockData.lowPrice, priceY)}>
-                  {numSeperator(stockData.lowPrice)}
+                <p style={calColor(strToNum(stockData.lowPrice), priceY)}>
+                  {stockData.lowPrice}
                 </p>
               </div>
               <div className="stat-item">
                 {t('Stock.Caption.change')}
                 <p>
-                  <span style={calColor(stockData.changeRate, 0)}>
-                    {' ' + numSeperator(stockData.changePrice)}
+                  <span style={calColor(parseFloat(stockData.changeRate), 0)}>
+                    {stockData.changePrice}
                   </span>
                 </p>
               </div>
               <div className="stat-item">
                 <p>
                   {t('Stock.Caption.rate')}
-                  <span style={calColor(stockData.changeRate, 0)}>
-                    {(stockData.changeRate >= 0 ? ' +' : ' ') +
-                      stockData.changeRate +
-                      '%'}
+                  <span style={calColor(parseFloat(stockData.changeRate), 0)}>
+                    {parseFloat(stockData.changeRate) >= 0 ? '+' : ''}
+                    {stockData.changeRate}%
                   </span>
                 </p>
               </div>
@@ -214,15 +209,15 @@ const Stock = ({ location }) => {
             </div>
             <div>
               <h5>{t('Stock.InvInfo.52High')}</h5>
-              <p>{numSeperator(stockData.high52wPrice)}</p>
+              <p>{stockData.high52wPrice}</p>
             </div>
             <div>
               <h5>{t('Stock.InvInfo.52Low')}</h5>
-              <p>{numSeperator(stockData.low52wPrice)}</p>
+              <p>{stockData.low52wPrice}</p>
             </div>
             <div>
               <h5>{t('Stock.InvInfo.foreign')}</h5>
-              <p>{stockData.foreignRatio + '%'}</p>
+              <p>{stockData.foreignRatio}</p>
             </div>
             <div>
               <div className="tooltip">
@@ -238,7 +233,7 @@ const Stock = ({ location }) => {
                   <i></i>
                 </div>
               </div>
-              <p>{stockData.per + '배'}</p>
+              <p>{stockData.per}</p>
             </div>
             <div>
               <div className="tooltip">
@@ -254,7 +249,7 @@ const Stock = ({ location }) => {
                   <i></i>
                 </div>
               </div>
-              <p>{stockData.pbr + '배'}</p>
+              <p>{stockData.pbr}</p>
             </div>
             <div>
               <div className="tooltip">
@@ -270,7 +265,7 @@ const Stock = ({ location }) => {
                   <i></i>
                 </div>
               </div>
-              <p>{stockData.roe + '%'}</p>
+              <p>{stockData.roe}</p>
             </div>
           </div>
         </div>

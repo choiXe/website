@@ -22,4 +22,8 @@ export const slicer = (str, length) => {
   } else {
     return str;
   }
-}
+};
+
+export const strToNum = (number) => {
+  return parseFloat(number.replace(/[,배원]/g, ''));
+};

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
 
-import { numSeperator, calColor, slicer } from '../tools/formatter';
+import { calColor, slicer } from '../tools/formatter';
 import { reportUrl } from '../tools/constants';
 
 import './Trending.scss';
@@ -26,14 +26,10 @@ const TrendingItem = ({ item }) => {
       <a href={reportUrl + item.reportIdx} rel="noreferrer" target="_blank">
         {slicer(item.reportName, 23)}
       </a>
-      <p>{numSeperator(item.tradePrice)}</p>
-      <p style={calColor(parseInt(item.yield), 0)}>
-        {numSeperator(item.priceGoal)}
-      </p>
-      <p style={calColor(parseInt(item.yield), 0)}>
-        {parseInt(item.yield) >= 0
-          ? '+' + numSeperator(item.yield) + '%'
-          : numSeperator(item.yield) + '%'}
+      <p>{item.tradePrice}</p>
+      <p style={calColor(item.yield, 0)}>{item.priceGoal}</p>
+      <p style={calColor(item.yield, 0)}>
+        {item.yield >= 0 ? '+' + item.yield : item.yield}%
       </p>
     </>
   );

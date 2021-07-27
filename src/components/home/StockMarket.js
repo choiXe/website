@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import Loader from 'react-loader-spinner';
 
-import { numSeperator, calColor } from '../tools/formatter';
+import { calColor } from '../tools/formatter';
 
 import './StockMarket.scss';
 
@@ -63,12 +63,11 @@ const StockMarket = ({ data }) => {
     const color = calColor(index.changeRate, 0);
     return (
       <>
-        <p style={color}>{numSeperator(index.tradePrice)}</p>
+        <p style={color}>{index.tradePrice}</p>
+        <p style={color}>{index.changePrice}</p>
         <p style={color}>
-          {index.changePrice > 0 ? '+' + index.changePrice : index.changePrice}
-        </p>
-        <p style={color}>
-          {index.changeRate > 0 ? '+' + index.changeRate : index.changeRate}%
+          {index.changeRate > 0 ? '+' : ''}
+          {index.changeRate}%
         </p>
       </>
     );
