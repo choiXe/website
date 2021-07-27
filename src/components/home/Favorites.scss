@@ -13,6 +13,7 @@
 }
 
 #favorites-list {
+  font-size: 1rem;
   .favorite-item {
     background-color: #ebebeb;
     display: grid;
@@ -31,7 +32,6 @@
       text-decoration: none;
       font-weight: bold;
       color: black;
-
     }
     button {
       margin-right: 1.3rem;
