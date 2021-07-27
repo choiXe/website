@@ -44,5 +44,8 @@
     grid-area: trending;
     @include section-default;
     padding: 1.5rem 2.5rem;
+    @include media('>=phone', '<tablet') {
+      padding: 1.5rem;
+    }
   }
 }
