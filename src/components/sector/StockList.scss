@@ -15,7 +15,8 @@
   margin-top: 1rem;
 
   @include media('>=phone', '<tablet') {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    padding: 1rem 0;
   }
 
   &:hover {
