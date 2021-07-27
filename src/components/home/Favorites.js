@@ -38,13 +38,11 @@ const Favorites = () => {
   const listFavorites = (favoriteData) => {
     if (!favoriteData || favoriteData.data.length === 0) {
       return (
-        <div id="favorites-list">
-          <li>
+        <ul id="favorites-list">
+          <li className="favorite-item">
             <p>{t('Home.Favorites.message')}</p>
-            <p></p>
-            <p></p>
           </li>
-        </div>
+        </ul>
       );
     } else {
       let favData = {};

@@ -10,15 +10,19 @@ import logo from '../../images/logo.png';
 
 function Navbar() {
   const [lang, setLang] = useState();
-  
+
   const changeLang = (lang) => {
     i18next.changeLanguage(lang);
+    localStorage.setItem("savedLngSetting", lang);
     setLang(lang);
   };
 
   useEffect(() => {
-    setLang(localStorage.getItem('i18nextLng'));
-  }, []);
+    const savedLng = localStorage.getItem("savedLngSetting");
+    if (savedLng) {
+      changeLang(savedLng);
+    }  
+  })
 
   return (
     <nav>
