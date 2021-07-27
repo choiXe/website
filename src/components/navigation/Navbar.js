@@ -13,16 +13,16 @@ function Navbar() {
 
   const changeLang = (lang) => {
     i18next.changeLanguage(lang);
-    localStorage.setItem("savedLngSetting", lang);
+    localStorage.setItem('savedLngSetting', lang);
     setLang(lang);
   };
 
   useEffect(() => {
-    const savedLng = localStorage.getItem("savedLngSetting");
+    const savedLng = localStorage.getItem('savedLngSetting');
     if (savedLng) {
       changeLang(savedLng);
-    }  
-  })
+    }
+  });
 
   return (
     <nav>
@@ -47,7 +47,7 @@ function Navbar() {
         </Link>
       </div>
       <div id="nav-right">
-        <NavMenu lang={lang} changeLang={changeLang}/>
+        <NavMenu lang={lang} changeLang={changeLang} />
       </div>
     </nav>
   );

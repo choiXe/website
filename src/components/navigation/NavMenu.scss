@@ -40,7 +40,8 @@
     width: 15rem;
     margin-left: 3.1rem;
     @include media('>=phone', '<tablet') {
-      width: 10rem;
+      width: 12.5rem;
+      margin-left: 0;
     }
   }
   #hamburger {

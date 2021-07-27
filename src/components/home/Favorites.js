@@ -53,7 +53,7 @@ const Favorites = () => {
       return (
         <>
           {favorites.map((stock, index) => (
-            <li className="favorite-item"key={index}>
+            <li className="favorite-item" key={index}>
               <Link
                 to={{
                   pathname: '/stock',
@@ -88,9 +88,7 @@ const Favorites = () => {
         <div>{t('Home.Favorites.price')}</div>
         <div>{t('Home.Favorites.change')}</div>
       </div>
-      <div id="favorites-list">
-        {listFavorites(favoriteData)}
-      </div>
+      <div id="favorites-list">{listFavorites(favoriteData)}</div>
     </>
   );
 };

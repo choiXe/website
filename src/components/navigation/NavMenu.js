@@ -17,7 +17,7 @@ import './NavMenu.scss';
 import logo from '../../images/logo.png';
 
 const NavMenu = ({ lang, changeLang }) => {
-  const [openDrawer, setOpenDrawer] = useState({top: false});
+  const [openDrawer, setOpenDrawer] = useState({ top: false });
 
   const { t } = useTranslation();
   let history = useHistory();
@@ -39,9 +39,11 @@ const NavMenu = ({ lang, changeLang }) => {
     });
   };
 
-
   const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (
+      event.type === 'keydown' &&
+      (event.key === 'Tab' || event.key === 'Shift')
+    ) {
       return;
     }
 
@@ -50,30 +52,26 @@ const NavMenu = ({ lang, changeLang }) => {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: "auto" }}
+      sx={{ width: 'auto' }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
-      style={{padding:"0 1rem"}}
+      style={{ padding: '0 1rem' }}
       id="topbar-menus"
     >
       <List>
-        <ListItem id="topbar-logo" >
+        <ListItem id="topbar-logo">
           <img src={logo} alt="choiXe logo" /> choiXe
         </ListItem>
         <Link to="/about" className="nav-links">
-          <ListItem className="nav-item">
-            {t('About.navTitle')}
-          </ListItem>
+          <ListItem className="nav-item">{t('About.navTitle')}</ListItem>
         </Link>
         <Divider />
         <Link
           to={{ pathname: '/sector', state: '건강관리' }}
           className="nav-links"
         >
-          <ListItem className="nav-item">
-            {t('Sector.navTitle')}
-          </ListItem>
+          <ListItem className="nav-item">{t('Sector.navTitle')}</ListItem>
         </Link>
         <Divider />
         <Link
@@ -86,9 +84,7 @@ const NavMenu = ({ lang, changeLang }) => {
           }}
           className="nav-links"
         >
-          <ListItem className="nav-item">
-            {t('Stock.navTitle')}
-          </ListItem>
+          <ListItem className="nav-item">{t('Stock.navTitle')}</ListItem>
         </Link>
         <Divider />
         <ListItem className="locale">
@@ -112,7 +108,7 @@ const NavMenu = ({ lang, changeLang }) => {
 
   return (
     <div className="nav-list">
-      <div className= "nav-items">
+      <div className="nav-items">
         <div className="nav-item">
           <Link to="/about" className="nav-links">
             {t('About.navTitle')}
@@ -161,13 +157,11 @@ const NavMenu = ({ lang, changeLang }) => {
         />
       </div>
       <div id="hamburger">
-        <i className='fas fa-bars'
-          onClick={toggleDrawer("top", true)}
-        ></i>
+        <i className="fas fa-bars" onClick={toggleDrawer('top', true)}></i>
         <Drawer
           anchor="top"
           open={openDrawer['top']}
-          onClose={toggleDrawer("top", false)}
+          onClose={toggleDrawer('top', false)}
           className="drawer"
         >
           {list('top')}

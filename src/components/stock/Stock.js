@@ -121,7 +121,10 @@ const Stock = ({ location }) => {
           <div className="numbers">
             <div>
               <p>{t('Stock.Caption.avgYield')} </p>
-              <h1 className="yield" style={calColor(parseFloat(stockData.expYield), 0)}>
+              <h1
+                className="yield"
+                style={calColor(parseFloat(stockData.expYield), 0)}
+              >
                 {stockData.expYield}
                 <div className="percent">%</div>
               </h1>
