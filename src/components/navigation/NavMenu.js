@@ -55,6 +55,7 @@ const NavMenu = ({ lang, changeLang }) => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
       style={{padding:"0 1rem"}}
+      id="topbar-menus"
     >
       <List>
         <ListItem id="topbar-logo" >
