@@ -4,7 +4,6 @@ import { useMediaQuery } from 'react-responsive';
 
 export function StockChartOption(ohlc, volume, groupingUnits) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  console.log(isTabletOrMobile);
   const { t } = useTranslation();
   return {
     rangeSelector: {
@@ -92,11 +91,12 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
 }
 
 export function TreeMapOption(data, selectHandler) {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
   return {
     chart: {
       type: 'treemap',
       backgroundColor: null,
-      height: (1 / 2) * 100 + '%'
+      height: isTabletOrMobile ? (1 / 2) * 100 + '%' : null
     },
     exporting: { enabled: false },
     series: [
