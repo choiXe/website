@@ -7,10 +7,10 @@
   grid-template-columns: 26.3rem 4fr 1fr;
   grid-template-rows: 2.5rem 30rem 15rem auto;
   grid-template-areas:
-  'title title title'
-  'chart chart invinfo'
-  'wordcloud listtable listtable'
-  'invstat listtable listtable';
+    'title title title'
+    'chart chart invinfo'
+    'wordcloud listtable listtable'
+    'invstat listtable listtable';
   gap: 2rem 2rem;
 
   @include media('>=phone', '<tablet') {
@@ -237,8 +237,7 @@
     .chart {
       width: 50vw;
       @include media('>=phone', '<tablet') {
-        // width: 100%;
-        display: none;
+        width: 100%;
       }
     }
   }
