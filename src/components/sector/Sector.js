@@ -70,7 +70,6 @@ const Sector = ({ location }) => {
         if (!treemapSelected) {
           return true;
         }
-        console.log(t('Sector.Highchart.' + stock.sSector));
         return t('Sector.Highchart.' + stock.sSector) === treemapSelected;
       });
       return (
