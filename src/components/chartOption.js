@@ -5,6 +5,7 @@ export function StockChartOption(ohlc, line, volume, groupingUnits) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const { t } = useTranslation();
   return {
+    chart: { height: isTabletOrMobile && '70%' },
     rangeSelector: {
       selected: 1,
       inputEnabled: false,
@@ -29,21 +30,20 @@ export function StockChartOption(ohlc, line, volume, groupingUnits) {
     },
     xAxis: {
       labels: { format: '{value:%m/%d}' },
-      height: isTabletOrMobile && '65%'
     },
     yAxis: [
       {
         labels: {enabled: !isTabletOrMobile, align: 'right', x: -3, format: '{value}'},
         title: !isTabletOrMobile && { text: t('Stock.Highchart.candle') },
-        height: isTabletOrMobile ? '40%' : '60%',
+        height: isTabletOrMobile ? '80%' : '60%',
         lineWidth: 2,
         resize: { enabled: true }
       },
       {
         labels: {enabled: !isTabletOrMobile, align: 'right', x: -3, format: '{value}'},
         title: !isTabletOrMobile && { text: t('Stock.Highchart.volume') },
-        top: isTabletOrMobile ? '45%' : '65%',
-        height: isTabletOrMobile ? '20%' : '35%',
+        top: isTabletOrMobile ? '75%' : '65%',
+        height: isTabletOrMobile ? '25%' : '35%',
         offset: 0,
         lineWidth: 2
       }
@@ -64,7 +64,7 @@ export function StockChartOption(ohlc, line, volume, groupingUnits) {
       }
     ],
     tooltip: isTabletOrMobile 
-      ? { split: false, shared: true, useHTML: true, valueDecimals: 0 } 
+      ? { split: false, shared: true, valueDecimals: 0 } 
       : { split: true },
     plotOptions: {
       candlestick: {
