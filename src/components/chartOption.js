@@ -177,7 +177,7 @@ export function WordCloudOption(data) {
     tooltip: {
       formatter: function () {
         return '<b style="font-size:10px">' + this.key + '</b></br><td>' 
-          + t('Stock.Wordcloud.frequency') + ': ' + this.x;
+          + t('Stock.Wordcloud.frequency') + ': ' + this.point.options.weight;
       }
     },
     title: false,
