@@ -6,8 +6,8 @@
   display: grid;
   grid-template-columns: 13rem 1fr 1fr;
   grid-template-areas:
-  'menu index favorites'
-  'menu trending trending';
+    'menu index favorites'
+    'menu trending trending';
   gap: 2rem 2rem;
 
   .section-titles {

@@ -29,7 +29,8 @@ const TrendingItem = ({ item }) => {
       <p>{item.tradePrice}</p>
       <p style={calColor(item.yield, 0)}>{item.priceGoal}</p>
       <p style={calColor(item.yield, 0)}>
-        {item.yield >= 0 ? '+' + item.yield : item.yield}%
+        {item.yield >= 0 ? '+' : ''}
+        {item.yield}%
       </p>
     </>
   );
@@ -64,12 +65,12 @@ const Trending = ({ data }) => {
       <>
         <h4 className="section-titles">{t('Home.Trending.title')}</h4>
         <div id="trending-title">
-          {trendingTitles.map(title => (
+          {trendingTitles.map((title) => (
             <div key={title}>{title}</div>
           ))}
         </div>
         <div id="trending-list">
-          {trendingList.map(item => (
+          {trendingList.map((item) => (
             <li key={item.reportIdx}>
               <TrendingItem item={item} />
             </li>

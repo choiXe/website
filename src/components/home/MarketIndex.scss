@@ -10,14 +10,14 @@
 }
 
 .index {
-
   #index-column-titles {
     @include index-grid-columns;
     font-size: 0.9rem;
 
     @include media('>=phone', '<tablet') {
       @include index-grid-columns__mobile;
-      li:nth-child(2) { // Hide "change title"
+      li:nth-child(2) {
+        // Hide "change title"
         display: none;
       }
     }
@@ -26,7 +26,6 @@
     }
   }
   .index-items {
-
     li {
       @include index-grid-columns;
       margin-top: 1.4rem;
@@ -35,7 +34,7 @@
       @include media('>=phone', '<tablet') {
         @include index-grid-columns__mobile;
         p:nth-child(3) {
-          display: none; // Hide "change value" 
+          display: none; // Hide "change value"
         }
       }
       p {

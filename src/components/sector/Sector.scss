@@ -132,6 +132,9 @@
       @include media('>=phone', '<tablet') {
         .numbers {
           display: grid;
+          h4 {
+            font-size: 1.5rem;
+          }
         }
       }
       .yield {
@@ -186,12 +189,12 @@
               align-items: center;
               @include media('>=phone', '<tablet') {
                 margin-left: 0;
+                font-size: 1rem;
               }
 
               div:nth-child(1) {
                 justify-self: left;
                 padding-left: 1rem;
-                font-weight: 400;
               }
               div:nth-child(2) {
                 justify-self: right;

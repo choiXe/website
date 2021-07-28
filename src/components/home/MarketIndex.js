@@ -109,7 +109,7 @@ const MarketIndex = ({ data }) => {
             <li>{t('Home.StockMarket.changePercent')}</li>
           </ul>
           <ul className="index-items">
-            {domesticIndices.map(index => (
+            {domesticIndices.map((index) => (
               <li key={index.name}>
                 <p className="index-name">
                   <img src={korea} alt="flag" />
@@ -123,10 +123,10 @@ const MarketIndex = ({ data }) => {
         <div className="index global">
           <h4 className="section-titles">{t('Home.StockMarket.global')}</h4>
           <ul className="index-items">
-            {globalIndices.map(index => (
+            {globalIndices.map((index) => (
               <li key={index.name}>
                 <p className="index-name">
-                  <img src={index.src} alt="flag" /> 
+                  <img src={index.src} alt="flag" />
                   {index.name}
                 </p>
                 {indexInfo(globalIndexMapping[index.key])}

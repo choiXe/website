@@ -7,7 +7,7 @@ export const numSeperator = (num) => {
 };
 
 export const calColor = (x, y) => {
-  if (x === '-') return { color: '#000000' };
+  if (isNaN(x)) return { color: '#000000' };
   if (x > y) {
     return { color: '#e21414' };
   } else if (x < y) {

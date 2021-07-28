@@ -9,7 +9,7 @@ const ReportInfo = ({ data, stockName }) => {
   var analyst;
 
   if (data.analyst.length > 3) {
-    analyst = data.analyst.substr(0,3) + ' 등';
+    analyst = data.analyst.substr(0, 3) + ' 등';
   } else {
     analyst = data.analyst;
   }

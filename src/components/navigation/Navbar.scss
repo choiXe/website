@@ -15,7 +15,7 @@ nav {
     margin-bottom: 0.6rem;
     font-size: 0.8rem;
 
-    @include media(">=phone", "<tablet") {
+    @include media('>=phone', '<tablet') {
       display: none;
     }
     button {
