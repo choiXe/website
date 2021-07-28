@@ -5,6 +5,7 @@ import { StockChartOption } from '../chartOption';
 
 const StockChart = ({ data }) => {
   var ohlc = [],
+    line = [],
     volume = [],
     dataLength = data.length,
     groupingUnits = [
@@ -21,10 +22,11 @@ const StockChart = ({ data }) => {
       data[i].low,
       data[i].end
     ]);
+    line.push([Date.parse(tempDate), data[i].end])
     volume.push([Date.parse(tempDate), data[i].volume]);
   }
 
-  const options = StockChartOption(ohlc, volume, groupingUnits);
+  const options = StockChartOption(ohlc, line, volume, groupingUnits);
 
   return (
     <HighchartsReact

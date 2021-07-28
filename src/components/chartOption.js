@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
 
 
-export function StockChartOption(ohlc, volume, groupingUnits) {
+export function StockChartOption(ohlc, line, volume, groupingUnits) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const { t } = useTranslation();
   return {
@@ -29,32 +29,31 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
       }
     },
     xAxis: {
-      labels: {
-        format: '{value:%m/%d}'
-      }
+      labels: { format: '{value:%m/%d}' },
+      height: isTabletOrMobile && '65%'
     },
     yAxis: [
       {
-        labels: { align: 'right', x: -3, format: '{value}' },
-        title: { text: t('Stock.Highchart.candle') },
-        height: '60%',
+        labels: {enabled: !isTabletOrMobile, align: 'right', x: -3, format: '{value}'},
+        title: !isTabletOrMobile && { text: t('Stock.Highchart.candle') },
+        height: isTabletOrMobile ? '40%' : '60%',
         lineWidth: 2,
         resize: { enabled: true }
       },
       {
-        labels: { align: 'right', x: -3, format: '{value}' },
-        title: { text: t('Stock.Highchart.volume') },
-        top: '65%',
-        height: '35%',
+        labels: {enabled: !isTabletOrMobile, align: 'right', x: -3, format: '{value}'},
+        title: !isTabletOrMobile && { text: t('Stock.Highchart.volume') },
+        top: isTabletOrMobile ? '45%' : '65%',
+        height: isTabletOrMobile ? '20%' : '35%',
         offset: 0,
         lineWidth: 2
       }
     ],
     series: [
       {
-        type: 'candlestick',
+        type: isTabletOrMobile ? 'line' : 'candlestick',
         name: t('Stock.Highchart.price'),
-        data: ohlc,
+        data: isTabletOrMobile ? line : ohlc,
         dataGrouping: { units: groupingUnits }
       },
       {
@@ -66,6 +65,7 @@ export function StockChartOption(ohlc, volume, groupingUnits) {
       }
     ],
     tooltip: { split: true },
+    //tooltip: { split: !isTabletOrMobile, shared: isTabletOrMobile },
     plotOptions: {
       candlestick: {
         upColor: '#E21414',
