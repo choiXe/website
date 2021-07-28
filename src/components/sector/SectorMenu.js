@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 import './SectorMenu.scss';
 
-const SectorMenu = ({ selected, selectHandler }) => {
+const SectorMenu = ({ curSector }) => {
   const { t } = useTranslation();
-  const [curSector, setCurSector] = useState(selected);
 
   const sectors = [
     { sector: '건강관리', icon: 'fas fa-syringe' },
@@ -32,12 +31,6 @@ const SectorMenu = ({ selected, selectHandler }) => {
               curSector === item.sector ? 'sector-item active' : 'sector-item'
             }
             key={index}
-            onClick={({ target }) => {
-              setCurSector(target.innerText);
-              if (selectHandler) {
-                selectHandler(null);
-              }
-            }}
           >
             <div>{t('Sector.SectorMenu.' + item.sector)}</div>
             <i className={item.icon}></i>

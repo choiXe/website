@@ -16,7 +16,8 @@ const Sector = ({ location }) => {
   const [sectorData, setSectorData] = useState(null);
   const [daysPassed, setDaysPassed] = useState(30);
   const [orderType, setOrderType] = useState('yield');
-  const [sSectorSelected, setsSectorSelected] = useState(null);
+  const [treemapSelected, setTreemapSelected] = useState(null);
+
   const dateButtons = [5, 15, 30, 60, 90];
   const curSector = location.state;
 
@@ -48,6 +49,7 @@ const Sector = ({ location }) => {
   }, [curSector, daysPassed, cache, t]);
 
   const renderContent = (sectorData) => {
+
     if (!sectorData) {
       return (
         <div id="info">
@@ -63,11 +65,13 @@ const Sector = ({ location }) => {
         </div>
       );
     } else {
+
       const stocks = sectorData.stockList.filter((stock) => {
-        if (!sSectorSelected) {
+        if (!treemapSelected) {
           return true;
         }
-        return stock.sSector === sSectorSelected;
+        console.log(t('Sector.Highchart.' + stock.sSector));
+        return t('Sector.Highchart.' + stock.sSector) === treemapSelected;
       });
       return (
         <div id="info">
@@ -93,7 +97,7 @@ const Sector = ({ location }) => {
               <div className="chart">
                 <SectorChart
                   stocks={sectorData}
-                  selectHandler={setsSectorSelected}
+                  selectHandler={setTreemapSelected}
                 />
               </div>
             </div>
@@ -105,7 +109,7 @@ const Sector = ({ location }) => {
                     value={days}
                     className={days === daysPassed ? 'active' : ''}
                     onClick={({ target }) =>
-                      setDaysPassed(Number(target.value))
+                        setDaysPassed(Number(target.value))
                     }
                   >
                     {days < 30
@@ -197,7 +201,7 @@ const Sector = ({ location }) => {
   return (
     <div id="sector">
       <div className="sector-menu">
-        <SectorMenu selected={curSector} selectHandler={setsSectorSelected} />
+        <SectorMenu curSector={curSector} />
       </div>
       {renderContent(sectorData)}
     </div>

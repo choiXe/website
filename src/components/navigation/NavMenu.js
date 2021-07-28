@@ -32,7 +32,7 @@ const NavMenu = ({ lang, changeLang }) => {
     limit: 10
   });
 
-  const selectHandler = (item) => {
+  const searchHandler = (item) => {
     history.push({
       pathname: '/stock',
       state: { stockId: item.name, stockName: item.id }
@@ -155,7 +155,7 @@ const NavMenu = ({ lang, changeLang }) => {
           )}
           getOptionLabel={(option) => option.id}
           onChange={(event, item) => {
-            if (item !== null) selectHandler(item);
+            if (item !== null) searchHandler(item);
           }}
           filterOptions={filterOptions}
         />
