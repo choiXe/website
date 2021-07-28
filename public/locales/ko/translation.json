@@ -229,6 +229,9 @@
       "low": "보통 낮을수록 좋습니다",
       "high": "보통 높을수록 좋습니다"
     },
+    "Wordcloud": {
+      "frequency": "빈도수"
+    },
     "companyInfo": "기업정보",
     "Analyst": {
       "title": "리포트",

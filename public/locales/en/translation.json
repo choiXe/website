@@ -229,6 +229,9 @@
       "low": "The lower, the better",
       "high": "The higher, the better"
     },
+    "Wordcloud": {
+      "frequency": "Frequency"
+    },
     "companyInfo": "Profile",
     "Analyst": {
       "title": "Reports",

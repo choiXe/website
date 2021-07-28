@@ -144,6 +144,7 @@ export function TreeMapOption(data, selectHandler) {
 }
 
 export function WordCloudOption(data) {
+  const { t } = useTranslation();
   return {
     exporting: { enabled: false },
     chart: {
@@ -171,6 +172,12 @@ export function WordCloudOption(data) {
     plotOptions: {
       wordcloud: {
         minFontSize: 7
+      }
+    },
+    tooltip: {
+      formatter: function () {
+        return '<b style="font-size:10px">' + this.key + '</b></br><td>' 
+          + t('Stock.Wordcloud.frequency') + ': ' + this.x;
       }
     },
     title: false,
