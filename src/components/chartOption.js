@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
 
-
 export function StockChartOption(ohlc, line, volume, groupingUnits) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const { t } = useTranslation();
@@ -64,8 +63,9 @@ export function StockChartOption(ohlc, line, volume, groupingUnits) {
         dataGrouping: { units: groupingUnits }
       }
     ],
-    tooltip: { split: true },
-    //tooltip: { split: !isTabletOrMobile, shared: isTabletOrMobile },
+    tooltip: isTabletOrMobile 
+      ? { split: false, shared: true, useHTML: true, valueDecimals: 0 } 
+      : { split: true },
     plotOptions: {
       candlestick: {
         upColor: '#E21414',
