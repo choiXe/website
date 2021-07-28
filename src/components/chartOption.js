@@ -1,6 +1,10 @@
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
+
 
 export function StockChartOption(ohlc, volume, groupingUnits) {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  console.log(isTabletOrMobile);
   const { t } = useTranslation();
   return {
     rangeSelector: {
@@ -206,8 +210,8 @@ export function BarChartOption(x, y, label) {
           formatter: function () {
             const adjusted =
               this.value.toString().length >= 13
-                ? this.value / 1000000000000
-                : this.value / 100000000;
+              ? this.value / 1000000000000
+              : this.value / 100000000;
             const unit = this.value.toString().length >= 13 ? '조' : '억';
             return adjusted.toString() + unit;
           }
