@@ -32,6 +32,14 @@ const Stock = ({ location }) => {
   };
 
   useEffect(() => {
+    setSuccess(
+      JSON.parse(localStorage.getItem("favorites"))
+      .find(stock => stock.stockId === location.state.stockId)
+      !== undefined
+    )
+  });
+
+  useEffect(() => {
     window.scrollTo(0, 0);
     document.title = stockName + ' :: choiXe';
     const startDate = getPastDate(daysPassed);
@@ -70,10 +78,10 @@ const Stock = ({ location }) => {
     const newsTitle = [t('Stock.News.date'), t('Stock.News.news')];
     const titleList =
       listType === 'analyst'
-        ? reportTitle
-        : listType === 'news'
-        ? newsTitle
-        : '';
+      ? reportTitle
+      : listType === 'news'
+      ? newsTitle
+      : '';
 
     const addFavorite = (event) => {
       let favorites = JSON.parse(localStorage.getItem('favorites'));
@@ -330,7 +338,7 @@ const Stock = ({ location }) => {
               }
             >
               {titleList.length > 0 &&
-                titleList.map((title) => <div key={title}> {title}</div>)}
+                  titleList.map((title) => <div key={title}> {title}</div>)}
             </div>
             <div className="list-content">
               {listType === 'financial' ? (

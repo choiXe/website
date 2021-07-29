@@ -22,7 +22,7 @@ function Navbar() {
     if (savedLng) {
       changeLang(savedLng);
     }
-  });
+  }, []);
 
   return (
     <nav>
