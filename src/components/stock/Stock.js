@@ -37,7 +37,7 @@ const Stock = ({ location }) => {
       .find(stock => stock.stockId === location.state.stockId)
       !== undefined
     )
-  });
+  }, [location.state.stockId]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
