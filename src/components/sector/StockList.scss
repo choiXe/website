@@ -1,22 +1,59 @@
-@import 'src/styles/_mixin.scss';
-@import 'src/styles/_color.scss';
+@import 'src/styles/mixin';
+@import 'src/styles/color';
 @import 'src/styles/variable';
 
 .stock-item {
-  @include rounded-button;
   border-radius: 16px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  align-items: center;
   column-gap: 1rem;
-  padding: 1rem 0 1rem 3rem;
+  padding: 1rem 1rem 1rem 3rem;
   text-decoration: none;
   color: black;
   font-size: 1rem;
   margin-top: 1rem;
 
+  #mobile {
+    display: none;
+  }
   @include media('>=phone', '<tablet') {
-    grid-template-columns: 1.2fr 1fr 0.8fr 1fr 0.8fr;
-    padding: 1rem 0 1rem 2rem;
+    grid-template-columns: 4fr 3fr 1.8fr 2.5fr;
+    padding: 0.8rem 1rem 0.8rem 1.5rem;
+    margin-top: 0;
+    border-bottom: 1px solid #eeeeee;
+    border-radius: 0px;
+
+    #price {
+      display: none;
+    }
+    #price-change {
+      display: none;
+    }
+    #rate {
+      display: none;
+    }
+    #price-avg {
+      display: none;
+    }
+    #yield {
+      font-weight: bold;
+    }
+    #score {
+      text-align: center;
+    }
+
+    #mobile {
+      display: block;
+      text-align: right;
+      h4 {
+        font-size: 1rem;
+      }
+      h5 {
+        font-size: 0.8rem;
+        font-weight: normal;
+      }
+    }
   }
   &:hover {
     background-color: $background-color;

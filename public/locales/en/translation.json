@@ -178,10 +178,11 @@
       "stock": "Stock",
       "price": "Price",
       "change": "Change",
+      "change2": "% Change",
       "rate": "Rate",
       "consensus": "Price Target",
       "upside": "Upside",
-      "score": "Score"
+      "score": "Score"      
     },
     "tooltip": {
       "mainTitle": "Help",
