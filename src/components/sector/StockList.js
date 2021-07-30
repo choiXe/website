@@ -11,12 +11,12 @@ const StockInfo = ({ stock }) => {
       to={
         stock.stockName !== '데이터 없음'
           ? {
-              pathname: '/stock',
+            pathname: '/stock',
               state: {
                 stockId: stock.stockId,
-                stockName: stock.stockName
+                  stockName: stock.stockName
               }
-            }
+          }
           : { pathname: '/' }
       }
       className="stock-item"
@@ -41,6 +41,16 @@ const StockInfo = ({ stock }) => {
         style={stock.score >= 50 ? { color: '#e21414' } : { color: '#246ded' }}
       >
         {stock.score}
+      </div>
+      <div>
+        <div style={calColor(stock.changeRate, 0)}>
+          {stock.changeRate > 0 ? '+' : ''}
+          {stock.changeRate}%
+          <br/>
+          {parseInt(stock.changePrice) >= 0
+            ? '+ ' + stock.changePrice
+            : '- ' + stock.changePrice.replace('-', '')}
+        </div>
       </div>
     </Link>
   );

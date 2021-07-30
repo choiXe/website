@@ -186,6 +186,7 @@ const Sector = ({ location }) => {
                 ></i>
               </button>
             </div>
+            <div>ChangeRate<br/>Change</div>
           </div>
           <div id="stock-list">
             <InfiniteScroll dataLength={40} height="40rem">

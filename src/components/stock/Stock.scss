@@ -415,6 +415,7 @@
       font-weight: normal;
       &:hover {
         @include button-hover;
+        cursor: pointer;
       }
       @include media('>=phone', '<tablet') {
         padding: 0.7rem 1rem;

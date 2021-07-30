@@ -220,19 +220,34 @@
       flex-basis: 4.8rem;
       display: grid;
       grid-template-columns: repeat(7, 1fr);
+      align-items: center;
       column-gap: 1rem;
       color: $sub-text;
-      padding: 2.5rem 1rem 1.3rem 4rem;
+      padding: 2.5rem 2rem 1.3rem 4rem;
       font-size: 0.9rem;
 
+      div:last-child {
+        display: none;
+      }
       @include media('>=phone', '<tablet') {
-        grid-template-columns: 1.2fr 1fr 0.8fr 1fr 0.8fr;
+        //grid-template-columns: 1.2fr 1fr 0.8fr 1fr 0.8fr;
+        grid-template-columns: 4fr 3fr 2fr 3fr;
         padding: 2rem 1rem 1rem 3rem;
+        div:nth-child(2) {
+          display: none;
+        }
         div:nth-child(3) {
+          display: none;
+        }
+        div:nth-child(4) {
           display: none;
         }
         div:nth-child(5) {
           display: none;
+        }
+        div:last-child {
+          display: block;
+          text-align: center;
         }
       }
 
@@ -248,15 +263,6 @@
       display: flex;
       flex-direction: column;
       padding-bottom: 1.5rem;
-
-      @include media('>=phone', '<tablet') {
-        div:nth-child(3) {
-          display: none;
-        }
-        div:nth-child(5) {
-          display: none;
-        }
-      }
     }
   }
 }

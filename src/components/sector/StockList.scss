@@ -1,5 +1,5 @@
-@import 'src/styles/_mixin.scss';
-@import 'src/styles/_color.scss';
+@import 'src/styles/mixin';
+@import 'src/styles/color';
 @import 'src/styles/variable';
 
 .stock-item {
@@ -7,16 +7,39 @@
   border-radius: 16px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  align-items: center;
   column-gap: 1rem;
-  padding: 1rem 0 1rem 3rem;
+  padding: 1rem 1rem 1rem 3rem;
   text-decoration: none;
   color: black;
   font-size: 1rem;
   margin-top: 1rem;
 
+  div:last-child {
+    display: none;
+  }
   @include media('>=phone', '<tablet') {
-    grid-template-columns: 1.2fr 1fr 0.8fr 1fr 0.8fr;
+    //grid-template-columns: 1.2fr 1fr 0.8fr 1fr 0.8fr;
+    grid-template-columns: 4fr 3fr 2fr 3fr;
     padding: 1rem 0 1rem 2rem;
+
+    div:nth-child(2) {
+      display: none;
+    }
+    div:nth-child(3) {
+      display: none;
+    }
+    div:nth-child(4) {
+      display: none;
+    }
+    div:nth-child(5) {
+      display: none;
+    }
+
+    div:last-child {
+      display: block;
+      text-align: center;
+    }
   }
   &:hover {
     background-color: $background-color;
