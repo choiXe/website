@@ -186,10 +186,10 @@ const Sector = ({ location }) => {
                 ></i>
               </button>
             </div>
-            <div>ChangeRate<br/>Change</div>
+            <div>{t('Sector.StockList.change2')}</div>
           </div>
           <div id="stock-list">
-            <InfiniteScroll dataLength={40} height="40rem">
+            <InfiniteScroll dataLength={40} height="39rem">
               <StockList stocks={stocks} order={orderType} />
             </InfiniteScroll>
           </div>

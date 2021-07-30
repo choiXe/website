@@ -38,18 +38,17 @@ const StockInfo = ({ stock }) => {
         {stock.expYield}%
       </div>
       <div
-        style={stock.score >= 50 ? { color: '#e21414' } : { color: '#246ded' }}
+        style={calColor(stock.score, 50)}
       >
         {stock.score}
       </div>
       <div>
         <div style={calColor(stock.changeRate, 0)}>
-          {stock.changeRate > 0 ? '+' : ''}
-          {stock.changeRate}%
-          <br/>
-          {parseInt(stock.changePrice) >= 0
-            ? '+ ' + stock.changePrice
-            : '- ' + stock.changePrice.replace('-', '')}
+          <h4>{stock.changeRate > 0 ? '+' : ''}
+          {stock.changeRate}%</h4>
+          <h5>{parseInt(stock.changePrice) >= 0
+            ? '+' + stock.changePrice
+            : '-' + stock.changePrice.replace('-', '')}</h5>
         </div>
       </div>
     </Link>
