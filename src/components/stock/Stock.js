@@ -32,11 +32,14 @@ const Stock = ({ location }) => {
   };
 
   useEffect(() => {
-    setSuccess(
-      JSON.parse(localStorage.getItem("favorites"))
-      .find(stock => stock.stockId === location.state.stockId)
-      !== undefined
-    )
+    const favorites = JSON.parse(localStorage.getItem("favorites"));
+    if (favorites) {
+      setSuccess(
+        favorites
+        .find(stock => stock.stockId === location.state.stockId)
+        !== undefined
+      )
+    }
   }, [location.state.stockId]);
 
   useEffect(() => {
