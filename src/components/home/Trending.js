@@ -40,8 +40,9 @@ const TrendingItem = ({ item }) => {
             stockName: item.stockName
           }
         }}
+        id="stock-name"
       >
-        <p id="stock-name">{item.stockName}</p>
+        <p>{item.stockName}</p>
       </Link>
       <a
         id="report"
