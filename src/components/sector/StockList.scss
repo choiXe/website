@@ -37,7 +37,7 @@
       display: none;
     }
     #yield {
-      font-weight: bold;
+      font-weight: 600;
     }
     #score {
       text-align: center;
@@ -47,6 +47,7 @@
       display: block;
       text-align: right;
       h4 {
+        font-weight: 600;
         font-size: 1rem;
       }
       h5 {
@@ -59,7 +60,7 @@
     background-color: $background-color;
   }
   .name {
-    font-weight: bold;
+    font-weight: 600;
     @include media('>=phone', '<tablet') {
       text-align: left;
     }
