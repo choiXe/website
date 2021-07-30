@@ -245,7 +245,7 @@
     "News": {
       "title": "News",
       "date": "Date",
-      "news": "Title / Description"
+      "news": "Title / Preview"
     },
     "InvStat": {
       "title": "Investor Trend",

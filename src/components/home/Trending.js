@@ -33,7 +33,6 @@ const TrendingItem = ({ item }) => {
       </div>
       <p id="date">{item.date}</p>
       <Link
-        id="stock-name"
         to={{
           pathname: '/stock',
           state: {
@@ -42,7 +41,7 @@ const TrendingItem = ({ item }) => {
           }
         }}
       >
-        <p>{item.stockName}</p>
+        <p id="stock-name">{item.stockName}</p>
       </Link>
       <a
         id="report"

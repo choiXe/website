@@ -7,8 +7,8 @@ import './NewsList.scss';
 const NewsInfo = ({ data }) => {
   return (
     <div className="news-item">
-      <div>{data.date}</div>
-      <div>
+      <div id="date">{data.date}</div>
+      <div id="news">
         <a
           href={data.link}
           rel="noreferrer"
@@ -18,6 +18,18 @@ const NewsInfo = ({ data }) => {
           {slicer(data.title, 60)}
         </a>
         <div className="news-description">{data.description}</div>
+      </div>
+      <div id="mobile">
+        <a
+          href={data.link}
+          rel="noreferrer"
+          target="_blank"
+          className="news-title mobile"
+        >
+          {slicer(data.title, 60)}
+        </a>
+        <div id="date-mobile">{data.date}</div>
+        <div className="news-description mobile">{data.description}</div>
       </div>
     </div>
   );
