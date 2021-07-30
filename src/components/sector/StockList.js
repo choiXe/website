@@ -11,44 +11,44 @@ const StockInfo = ({ stock }) => {
       to={
         stock.stockName !== '데이터 없음'
           ? {
-            pathname: '/stock',
+              pathname: '/stock',
               state: {
                 stockId: stock.stockId,
-                  stockName: stock.stockName
+                stockName: stock.stockName
               }
-          }
+            }
           : { pathname: '/' }
       }
       className="stock-item"
     >
       <div className="name">{stock.stockName}</div>
-      <div>{stock.tradePrice}</div>
-      <div style={calColor(parseInt(stock.changePrice), 0)}>
+      <div id="price">{stock.tradePrice}</div>
+      <div id="price-change" style={calColor(parseInt(stock.changePrice), 0)}>
         {parseInt(stock.changePrice) >= 0
           ? '▲ ' + stock.changePrice
           : '▼ ' + stock.changePrice.replace('-', '')}
       </div>
-      <div style={calColor(stock.changeRate, 0)}>
+      <div id="rate" style={calColor(stock.changeRate, 0)}>
         {stock.changeRate > 0 ? '+' : ''}
         {stock.changeRate}%
       </div>
-      <div>{stock.priceAvg}</div>
-      <div style={calColor(stock.expYield, 0)}>
+      <div id="price-avg">{stock.priceAvg}</div>
+      <div id="yield" style={calColor(stock.expYield, 0)}>
         {stock.expYield > 0 ? '+' : ''}
         {stock.expYield}%
       </div>
-      <div
-        style={calColor(stock.score, 50)}
-      >
-        {stock.score}
-      </div>
-      <div>
+      <div id="score" style={calColor(stock.score, 50)}>{stock.score}</div>
+      <div id="mobile">
         <div style={calColor(stock.changeRate, 0)}>
-          <h4>{stock.changeRate > 0 ? '+' : ''}
-          {stock.changeRate}%</h4>
-          <h5>{parseInt(stock.changePrice) >= 0
-            ? '+' + stock.changePrice
-            : '-' + stock.changePrice.replace('-', '')}</h5>
+          <h4>
+            {stock.changeRate > 0 ? '+' : ''}
+            {stock.changeRate}%
+          </h4>
+          <h5>
+            {parseInt(stock.changePrice) >= 0
+              ? '+' + stock.changePrice
+              : '-' + stock.changePrice.replace('-', '')}
+          </h5>
         </div>
       </div>
     </Link>

@@ -10,14 +10,36 @@
   margin-bottom: 0.5rem;
   font-size: 1rem;
   padding: 1rem 2rem;
+  #mobile {
+    display: none;
+  }
+
   @include media('>=phone', '<tablet') {
-    grid-template-columns: 0.8fr 3fr 1.1fr;
+    grid-template-columns: 4fr 1.1fr;
     padding: 1rem;
     font-size: 1.1rem;
-    div:nth-child(3) {
+    h4 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    h5 {
+      margin-top: 0.4rem;
+      font-weight: normal;
+      color: #666666;
+    }
+    #mobile {
+      display: block;
+    }
+    #date {
       display: none;
     }
-    div:nth-child(5) {
+    #report {
+      display: none;
+    }
+    #analyst {
+      display: none;
+    }
+    #firm {
       display: none;
     }
   }

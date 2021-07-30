@@ -14,7 +14,7 @@
   font-size: 1rem;
   margin-top: 1rem;
 
-  div:last-child {
+  #mobile {
     display: none;
   }
   @include media('>=phone', '<tablet') {
@@ -24,26 +24,26 @@
     border-bottom: 1px solid #eeeeee;
     border-radius: 0px;
 
-    div:nth-child(2) {
+    #price {
       display: none;
     }
-    div:nth-child(3) {
+    #price-change {
       display: none;
     }
-    div:nth-child(4) {
+    #rate {
       display: none;
     }
-    div:nth-child(5) {
+    #price-avg {
       display: none;
     }
-    div:nth-child(6) {
+    #yield {
       font-weight: bold;
     }
-    div:nth-child(7) {
+    #score {
       text-align: center;
     }
 
-    div:last-child {
+    #mobile {
       display: block;
       text-align: right;
       h4 {

@@ -226,7 +226,7 @@
       padding: 2.5rem 2rem 1.3rem 4rem;
       font-size: 0.9rem;
 
-      div:last-child {
+      #mobile {
         display: none;
       }
       @include media('>=phone', '<tablet') {
@@ -244,7 +244,7 @@
         div:nth-child(5) {
           display: none;
         }
-        div:last-child {
+        #mobile {
           display: block;
           text-align: center;
         }

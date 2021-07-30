@@ -49,7 +49,6 @@ const Sector = ({ location }) => {
   }, [curSector, daysPassed, cache, t]);
 
   const renderContent = (sectorData) => {
-
     if (!sectorData) {
       return (
         <div id="info">
@@ -65,7 +64,6 @@ const Sector = ({ location }) => {
         </div>
       );
     } else {
-
       const stocks = sectorData.stockList.filter((stock) => {
         if (!treemapSelected) {
           return true;
@@ -108,7 +106,7 @@ const Sector = ({ location }) => {
                     value={days}
                     className={days === daysPassed ? 'active' : ''}
                     onClick={({ target }) =>
-                        setDaysPassed(Number(target.value))
+                      setDaysPassed(Number(target.value))
                     }
                   >
                     {days < 30
@@ -186,7 +184,7 @@ const Sector = ({ location }) => {
                 ></i>
               </button>
             </div>
-            <div>{t('Sector.StockList.change2')}</div>
+            <div id="mobile">{t('Sector.StockList.change2')}</div>
           </div>
           <div id="stock-list">
             <InfiniteScroll dataLength={40} height="39rem">

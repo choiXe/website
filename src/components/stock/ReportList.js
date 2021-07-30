@@ -16,15 +16,21 @@ const ReportInfo = ({ data, stockName }) => {
 
   return (
     <div className="report-item">
-      <div>{data.date}</div>
-      <div>
+      <div id="date">{data.date}</div>
+      <div id="report">
         <a href={reportUrl + data.reportIdx} rel="noreferrer" target="_blank">
           {data.reportName === '' ? stockName : slicer(data.reportName, 23)}
         </a>
       </div>
-      <div>{analyst}</div>
-      <div>{numSeperator(data.priceGoal)}</div>
-      <div>{data.firm}</div>
+      <div id="mobile">
+        <h4><a href={reportUrl + data.reportIdx} rel="noreferrer" target="_blank">
+          {data.reportName === '' ? stockName : data.reportName}
+        </a></h4>
+        <h5>{data.date}</h5>
+      </div>
+      <div id="analyst">{analyst}</div>
+      <div id="price">{numSeperator(data.priceGoal)}</div>
+      <div id="firm">{data.firm}</div>
     </div>
   );
 };
