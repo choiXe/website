@@ -7,6 +7,7 @@
   grid-template-columns: 13rem 1fr 1fr;
   grid-template-areas:
     'menu index favorites'
+    'menu ad ad'
     'menu trending trending';
   gap: 2rem 2rem;
 
@@ -42,6 +43,9 @@
     @include media('>=phone', '<tablet') {
       padding: 1.5rem;
     }
+  }
+  #ad {
+    grid-area: ad;
   }
   #trending {
     grid-area: trending;
