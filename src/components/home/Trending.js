@@ -11,6 +11,26 @@ import './Trending.scss';
 const TrendingItem = ({ item }) => {
   return (
     <>
+      <div id="mobile">
+        <a href={reportUrl + item.reportIdx} rel="noreferrer" target="_blank">
+          <h4>{slicer(item.reportName, 21)}</h4>
+        </a>
+        <div style={{display: 'flex'}}>
+          <Link
+            to={{
+              pathname: '/stock',
+              state: {
+                stockId: item.stockId,
+                stockName: item.stockName
+              }
+            }}
+          >
+            <h5>
+              {item.stockName + ' | ' + item.date}
+            </h5>
+          </Link>
+        </div>
+      </div>
       <p id="date">{item.date}</p>
       <Link
         to={{
@@ -21,14 +41,21 @@ const TrendingItem = ({ item }) => {
           }
         }}
       >
-        <p>{item.stockName}</p>
+        <p id="stock-name">{item.stockName}</p>
       </Link>
-      <a href={reportUrl + item.reportIdx} rel="noreferrer" target="_blank">
+      <a
+        id="report"
+        href={reportUrl + item.reportIdx}
+        rel="noreferrer"
+        target="_blank"
+      >
         {slicer(item.reportName, 23)}
       </a>
-      <p>{item.tradePrice}</p>
-      <p style={calColor(item.yield, 0)}>{item.priceGoal}</p>
-      <p style={calColor(item.yield, 0)}>
+      <p id="price-trade">{item.tradePrice}</p>
+      <p id="price-goal" style={calColor(item.yield, 0)}>
+        {item.priceGoal}
+      </p>
+      <p id="yield" style={calColor(item.yield, 0)}>
         {item.yield >= 0 ? '+' : ''}
         {item.yield}%
       </p>

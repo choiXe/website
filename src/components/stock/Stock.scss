@@ -456,7 +456,11 @@
         column-gap: 1.2rem;
         font-size: 0.9rem;
         @include media('>=phone', '<tablet') {
+          grid-template-columns: 1fr;
           padding: 1rem 2rem;
+          div:nth-child(1) {
+            display: none;
+          }
         }
       }
     }
@@ -466,7 +470,7 @@
       #company-info {
         padding: 1rem;
         span {
-          font-size: 1.6rem;
+          font-size: 1.2rem;
         }
         p {
           padding-top: 1rem;
