@@ -30,6 +30,19 @@ const Home = () => {
       <section id="favorites">
         <Favorites />
       </section>
+      <section id="ad">
+        <amp-ad
+          width="100vw"
+          height="320"
+          type="adsense"
+          data-ad-client="ca-pub-4563731727729561"
+          data-ad-slot="3773436628"
+          data-auto-format="rspv"
+          data-full-width=""
+        >
+          <div overflow=""></div>
+        </amp-ad>
+      </section>
       <section id="trending">
         <Trending data={mainData} />
       </section>
