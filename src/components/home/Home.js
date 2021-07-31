@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import PWAPrompt from 'react-ios-pwa-prompt';
 
 import SectorMenu from '../sector/SectorMenu';
 import MarketIndex from './MarketIndex';
@@ -21,6 +22,16 @@ const Home = () => {
 
   return (
     <div id="home">
+      <PWAPrompt
+        promptOnVisit={3}
+        timesToShow={2}
+        delay={1500}
+        copyTitle={t('PWA.title')}
+        copyBody={t('PWA.body')}
+        copyShareButtonLabel={t('PWA.share')}
+        copyAddHomeButtonLabel={t('PWA.add')}
+        copyClosePrompt={t('PWA.close')}
+      />
       <section className="sector-menu">
         <SectorMenu selected="" />
       </section>

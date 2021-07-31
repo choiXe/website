@@ -277,5 +277,12 @@
     "line1": "CEO: Huey Kim | Ask us: ",
     "line2": "We are not liable for any loss incurred from information provided by our services.",
     "line3": "You are solely responsible for the investment decisions you make."
+  },
+  "PWA": {
+    "title": "Add to Home Screen",
+    "body": "This website has app functionality. Add it to your home screen to use it in fullscreen and while offline.",
+    "share": "1) Press the 'Share' button",
+    "add": "2) Press 'Add to Home Screen'",
+    "close": "Close"
   }
 }
