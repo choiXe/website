@@ -63,7 +63,7 @@ const About = () => {
         </button>
       </div>
       <div id="intro">
-        <div id="title">
+        <div id="about-title">
           <h1>🧭 {t('About.title')}</h1>
         </div>
         <div id="question">
