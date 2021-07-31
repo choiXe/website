@@ -24,6 +24,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
+  @include media('>=phone', '<tablet') {
+    position: sticky;
+    background-color: #f2f2f2;
+    top: 0;
+    padding: 0.5rem 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
 }
 .add-button {
   text-align: right;
