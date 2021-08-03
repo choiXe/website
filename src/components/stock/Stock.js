@@ -22,8 +22,9 @@ const Stock = ({ location }) => {
   const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
   const daysPassed = 30;
-  const stockId = location.state.stockId;
-  const stockName = location.state.stockName;
+
+  const stockId = location.state ? location.state.stockId : '005930';
+  const stockName = location.state ? location.state.stockName : '삼성전자';
 
   const getPastDate = (n) => {
     let date = new Date();
@@ -36,11 +37,11 @@ const Stock = ({ location }) => {
     if (favorites) {
       setSuccess(
         favorites
-        .find(stock => stock.stockId === location.state.stockId)
+        .find(stock => stock.stockId === stockId)
         !== undefined
       )
     }
-  }, [location.state.stockId]);
+  }, [stockId]);
 
   useEffect(() => {
     window.scrollTo(0, 0);

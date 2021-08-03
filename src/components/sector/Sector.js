@@ -19,7 +19,7 @@ const Sector = ({ location }) => {
   const [treemapSelected, setTreemapSelected] = useState(null);
 
   const dateButtons = [5, 15, 30, 60, 90];
-  const curSector = location.state;
+  const curSector = location.state || '건강관리';
 
   const getPastDate = (n) => {
     let date = new Date();
