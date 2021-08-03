@@ -177,6 +177,7 @@
           visibility: hidden;
           opacity: 0;
           transition: opacity 0.8s;
+          z-index: 2;
 
           @include media('>=phone', '<tablet') {
             left: -50%;

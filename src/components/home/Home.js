@@ -23,8 +23,8 @@ const Home = () => {
   return (
     <div id="home">
       <PWAPrompt
-        promptOnVisit={3}
-        timesToShow={2}
+        promptOnVisit={10}
+        timesToShow={1}
         delay={1500}
         copyTitle={t('PWA.title')}
         copyBody={t('PWA.body')}
