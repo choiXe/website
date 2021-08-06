@@ -26,7 +26,7 @@ const ReportInfo = ({ data, stockName }) => {
         <h4><a href={reportUrl + data.reportIdx} rel="noreferrer" target="_blank">
           {data.reportName === '' ? stockName : data.reportName}
         </a></h4>
-        <h5>{data.date}</h5>
+        <h5>{data.date} | {data.firm} | {data.analyst.replace(',', ', ')}</h5>
       </div>
       <div id="analyst">{analyst}</div>
       <div id="price">{numSeperator(data.priceGoal)}</div>
