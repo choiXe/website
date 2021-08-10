@@ -9,12 +9,12 @@
 <br />
 <p align="center">
   <a href="https://www.choixe.app">
-    <img src="public/logo512.png" alt="Logo" width="80" height="80">
+    <img src="public/logo.png" alt="Logo" width="100" height="100">
   </a>
   <h2 align="center">choiXe</h2>
 
   <p align="center">
-    Platform that provides investment information for novice investors
+    Maximize profits by making data-driven decisions!
     <br />
     <a href="https://www.choixe.app">View Live</a>
     ·
@@ -23,6 +23,7 @@
     <a href="https://github.com/choiXe/website/issues">Request Feature</a>
   </p>
 </p>
+<br />
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -41,12 +42,11 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#function">Function</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -57,20 +57,15 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-> Have you ever bought a stock based on good news?  
-> Aren't you investing with vague expectations, not knowing much about the company?  
-> If so, how much do you know about the company now?  
+Hello, we are a startup creating a open-source platform that provides investment information for newbie stock investors.
 
-Hello, we are a startup creating a platform that provides investment information for newbie stock investors.  
-To prevent the problems listed above and to help stock investors,  
-we thought of a way to effectively communicate investment information necessary for stock investment,  
-and in August 2021, we launched a platform called choiXe.  
-We provide detailed analysis about the company by analyzing analyst reports along with other data  
-rather than focusing heavily on technical indicators and derive upside potential and investment attractiveness.  
-The choiXe team is constantly striving to improve and develop the platform,  
-and has set goals to focus on providing accurate information and user-friendly UI/UX.  
-Psst..! 🤫  
-The team name choiXe comes from the combination of choice + X (variable).  
+To prevent the problems listed above and to help stock investors, we thought of a way to effectively communicate investment information necessary for stock investment, and in August 2021, we launched a platform called **choiXe**.
+
+We provide detailed analysis about the company by analyzing analyst reports along with other data rather than focusing heavily on technical indicators and derive upside potential and investment attractiveness.
+
+The choiXe team is constantly striving to improve and develop the platform, and has set goals to focus on providing accurate information and user-friendly UI/UX.  
+
+The team name **choiXe** comes from the combination of choice + X (variable).  
 It means that you're the one who makes decisions about what stocks to invest in, not others.
 
 ### Built With
@@ -91,7 +86,7 @@ It means that you're the one who makes decisions about what stocks to invest in,
 
 ### Prerequisites
 * [Node.js](https://nodejs.org/en/download/)
-* npm
+* [npm](https://www.npmjs.com/)
 ```zsh
 > npm install npm@latest -g
 ```
@@ -112,15 +107,13 @@ It means that you're the one who makes decisions about what stocks to invest in,
 ```
 
 <!-- USAGE EXAMPLES -->
-## What's inside?
+## Function
 <details>
-  <summary>Navigation Bar</summary>
+  <summary><b>Navigation Bar</b></summary>
   <ul>
+    <li>Logo / Company Name</li>
     <li>
-        Logo / Company Name
-    </li>
-    <li>
-        Quick Navigation Menu => 1) About 2) Sector 3) Stock
+      Quick Navigation Menu
       <ul>
         <li>About</li>
         <li>Sector</li>
@@ -130,76 +123,86 @@ It means that you're the one who makes decisions about what stocks to invest in,
   </ul>
 </details>
 <details>
-  <summary>Home Page</summary>
+  <summary><b>Home Page</b></summary>
   <ul>
     <li>
-        Sector Menu => List of sectors to choose from
+      Sector Menu
+      <ul>
+        <li>List of sectors to choose from</li>
+      </ul>
     </li>
     <li>
-         Market Index => Korean / Global market indices
+      Market Index
+      <ul>
+        <li>Korea & Global market indices</li>
+      </ul>
     </li>
     <li>
-        Favorites => A user's favorite stocks list for easy access
+      Favorites
+      <ul>
+        <li>A user's favorite stocks list for easy access</li>
+      </ul>
     </li>
     <li>
-        Latest Reports => List of the most recent analysts' reports
+      Latest Reports
+      <ul>
+        <li>List of the most recent analysts' reports</li>
+      </ul>
     </li>
   </ul>
 </details>
 <details>
-  <summary>Sector Page</summary>
+  <summary><b>Sector Page</b></summary>
   <ul>
+    <li>Sector Menu</li>
     <li>
-        Sector Menu
+      Sector Detail
+      <ul>
+        <li>Treemap, Expected Yield, Top 3 Yields of subsectors</li>
+      </ul>
     </li>
     <li>
-         Sector Detail => Treemap, Expected Yield, Top 3 Yields of subsectors
-    </li>
-    <li>
-        Stock List => List of stocks under the current big sector and their data overview
+      Stock List
+      <ul>
+        <li>
+          List of stocks under the current big sector and their data overview
+        </li>
+      </ul>
     </li>
   </ul>
 </details>
 <details>
-  <summary>Stock Page</summary>
+  <summary><b>Stock Page</b></summary>
   <ul>
     <li>
-        Stock Detail => Expected Yield, Candle Chart, Investment Score
+      Stock Detail
+      <ul>
+        <li>Expected Yield, Candle Chart, Investment Score</li>
+      </ul>
     </li>
+    <li>Investment Stats</li>
     <li>
-         Investment Stats
+      Keywords Wordcloud
+      <ul>
+        <li>Keywords frequently mentioned with the stock</li>
+      </ul>
     </li>
+    <li>Investor Trend</li>
     <li>
-        Keywords Wordcloud => Keywords frequently mentioned with the stock
-    </li>
-    <li>
-        Investor Trend
-    </li>
-    <li>
-        Misc.
-        <ul>
-            <li>
-                Report => Analysts' reports about the stock    
-            </li> 
-            <li>
-                News => News list that mentions the stock
-            </li> 
-            <li>
-                Financials => Profitability & Growth Graph
-            </li> 
-            <li>
-                Profile => A short company info
-            </li> 
-        </ul>
+      Misc.
+      <ul>
+        <li>Report: Analysts' reports about the stock</li>
+        <li>News: News list that mentions the stock</li>
+        <li>Financials: Profitability & Growth Graph</li>
+        <li>Profile: A short company info</li>
+      </ul>
     </li>
   </ul>
 </details>
 <details>
-  <summary>About Page</summary>
+  <summary><b>About Page</b></summary>
   <ul>
-    <li>
-        A brief Introduction of the platform & our team
-    </li>
+    <li>A brief Introduction of the platform & our team</li>
   </ul>
 </details>
 
@@ -220,7 +223,7 @@ Contributions are what make the open source community such an amazing place to b
 5. Open a Pull Request
 
 <!-- LICENSE -->
-## License & Copyright Notice
+## License
 
 This repository has been created as a part of the ongoing development of the [choiXe](https://github.com/choiXe/website) project.
 
@@ -229,12 +232,12 @@ The work in this repository is licensed under the [MIT](https://github.com/choiX
 Copyright (c) 2021 choiXe team
 
 <!-- CONTACT -->
-## Contributors
+## Contact
 
-[**Huey Kim** | CEO](https://www.linkedin.com/in/hueyk/)  
-[**Sehoan Choi** | Full Stack Developer](https://www.linkedin.com/in/sehoanchoi)  
-[**Ricky Kim** | Frontend Developer](https://www.linkedin.com/in/ricky-kim-/)  
-[**Yejun Kim** | UI/UX Designer](https://www.linkedin.com/in/ye-jun-kim-350033180/)  
+[Huey Kim](https://www.linkedin.com/in/hueyk/)  
+[Sehoan Choi](https://www.linkedin.com/in/sehoanchoi)  
+[Ricky Kim](https://www.linkedin.com/in/ricky-kim-/)  
+[Yejun Kim](https://www.linkedin.com/in/ye-jun-kim-350033180/)  
 
 Project Link: [https://github.com/choiXe/website](https://github.com/choiXe/website)
 > Also interested in backend implementation? visit [here](https://github.com/choiXe/backend)
