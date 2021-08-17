@@ -191,22 +191,6 @@ const Sector = ({ location }) => {
               <StockList stocks={stocks} order={orderType} />
             </InfiniteScroll>
           </div>
-          <div id="ad">
-            <script
-              async
-              src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4563731727729561"
-              crossorigin="anonymous"
-            ></script>
-            <ins
-              class="adsbygoogle"
-              style={{display:"block"}}
-              data-ad-client="ca-pub-4563731727729561"
-              data-ad-slot="1933804988"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            ></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-          </div>
         </div>
       );
     }
