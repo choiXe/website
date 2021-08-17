@@ -129,13 +129,21 @@ const MarketIndex = ({ data }) => {
                   <img src={index.src} alt="flag" />
                   {index.name}
                 </p>
-                {indexInfo(globalIndexMapping[index.key])}
+                {data.global.length > 0 ? (
+                  indexInfo(globalIndexMapping[index.key])
+                ) : (
+                  <>
+                    <p>-</p>
+                    <p>-</p>
+                    <p>-</p>
+                  </>
+                )}
               </li>
             ))}
           </ul>
         </div>
       </>
-    );
+    )
   }
 };
 

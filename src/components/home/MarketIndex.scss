@@ -56,9 +56,12 @@
       }
     }
   }
-  &.global {
+  &.korea {
     .section-titles {
-      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
+  }
+  &.global {
+    margin-top: 2rem;
   }
 }
