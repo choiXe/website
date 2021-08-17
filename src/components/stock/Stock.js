@@ -52,8 +52,6 @@ const Stock = ({ location }) => {
       .then((data) => setStockData(data.getStockInfo));
   }, [stockId, stockName]);
 
-  console.log(stockData)
-
   if (!stockData) {
     return (
       <div className="loader">
