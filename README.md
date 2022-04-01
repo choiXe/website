@@ -242,11 +242,11 @@ Copyright (c) 2021 choiXe team
 Project Link: [https://github.com/choiXe/website](https://github.com/choiXe/website)
 > Also interested in backend implementation? visit [here](https://github.com/choiXe/backend)
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/choiXe/website.svg?style=for-the-badge
 [contributors-url]: https://github.com/choiXe/website/graphs/contributors
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/choiXe/website.svg?style=for-the-badge
 [issues-url]: https://github.com/choiXe/website/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/choiXe/website.svg?style=for-the-badge
 [license-url]: https://github.com/choiXe/choiXe/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/choixe/about/
